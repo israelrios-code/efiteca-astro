@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0f1720"/>
+  <rect x="60" y="60" width="1080" height="510" rx="32" fill="#163228" opacity="0.92"/>
+  <circle cx="971" cy="168" r="92" fill="#b8863b" opacity="0.9"/>
+  <path d="M142 398c56 63 124 95 204 95 118 0 203-61 256-184h-123c-31 45-74 67-131 67-62 0-112-26-151-78-39-52-59-114-59-186H16c0 112 42 208 126 286Z" fill="#f3eee5"/>
+  <text x="140" y="172" fill="#f3eee5" font-size="62" font-family="Arial, sans-serif" font-weight="700">Efiteca</text>
+  <text x="140" y="246" fill="#dde7e2" font-size="34" font-family="Arial, sans-serif">Corporate website built with Astro and Vercel Edge</text>
+</svg>

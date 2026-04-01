@@ -1,0 +1,30 @@
+---
+import type { Lang } from "@/data/locales";
+
+type Props = {
+  lang: Lang;
+  regionLabel?: string;
+};
+
+const { lang, regionLabel } = Astro.props;
+
+const copy = {
+  es: {
+    title: "Version localizada",
+    body: regionLabel
+      ? `Estas viendo una version orientada al mercado de ${regionLabel}.`
+      : "Estas viendo la version global por idioma."
+  },
+  en: {
+    title: "Localized version",
+    body: regionLabel
+      ? `You are viewing a version tailored to the ${regionLabel} market.`
+      : "You are viewing the global language version."
+  }
+};
+---
+
+<aside class="rounded-3xl border border-pine/10 bg-white/70 p-5 shadow-card">
+  <p class="text-xs uppercase tracking-[0.18em] text-coral">{copy[lang].title}</p>
+  <p class="mt-2 text-sm text-ink/70">{copy[lang].body}</p>
+</aside>

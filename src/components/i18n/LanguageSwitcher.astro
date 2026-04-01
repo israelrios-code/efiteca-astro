@@ -1,0 +1,32 @@
+---
+import { LOCALES, type Lang } from "@/data/locales";
+import { stripLangFromPath, withLang } from "@/lib/i18n/routes";
+
+type Props = {
+  currentLang: Lang;
+  currentPath: string;
+};
+
+const { currentLang, currentPath } = Astro.props;
+const relativePath = stripLangFromPath(currentPath);
+---
+
+<div class="language-switcher">
+  {
+    LOCALES.map((locale) => {
+      const isActive = locale.code === currentLang;
+
+      return (
+        <a
+          href={withLang(locale.code, relativePath)}
+          class:list={[
+            "language-switcher__link",
+            { "is-active": isActive }
+          ]}
+        >
+          {locale.label}
+        </a>
+      );
+    })
+  }
+</div>

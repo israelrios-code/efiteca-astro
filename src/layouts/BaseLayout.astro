@@ -1,0 +1,44 @@
+---
+import { FigmaHeader, FigmaFooter } from "@/components/home/ReactHome.tsx";
+import SEOHead from "@/components/seo/SEOHead.astro";
+import type { Lang } from "@/data/locales";
+import { absoluteUrl, type AlternateLink } from "@/lib/seo/meta";
+import "@/styles/global.css";
+
+type Props = {
+  lang: Lang;
+  title: string;
+  description: string;
+  path: string;
+  alternates?: AlternateLink[];
+  image?: string;
+  noindex?: boolean;
+};
+
+const { lang, title, description, path, alternates = [], image, noindex = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <SEOHead
+      title={title}
+      description={description}
+      canonical={absoluteUrl(path)}
+      alternates={alternates}
+      image={image}
+      noindex={noindex}
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  </head>
+
+  <body class="antialiased">
+    <div class="site-shell">
+      <FigmaHeader client:load />
+      <main class="site-main">
+        <slot />
+      </main>
+      <FigmaFooter client:load />
+    </div>
+  </body>
+</html>

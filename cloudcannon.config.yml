@@ -1,0 +1,51 @@
+paths:
+  static: public
+  uploads: public/images
+timezone: America/Bogota
+markdown:
+  engine: commonmark
+  options:
+    gfm: true
+
+collections_config:
+  pages:
+    path: src/pages
+    icon: wysiwyg
+  content_pages:
+    path: src/content/pages
+    icon: contact_page
+    url: "/[lang]/"
+    _inputs:
+      hero.background_layer_1:
+        type: image
+        comment: "Fondo degradado 1"
+      hero.background_layer_2:
+        type: image
+        comment: "Fondo degradado 2"
+      hero.main_background:
+        type: image
+        comment: "Fondo general (líneas)"
+      hero.person_image:
+        type: image
+        comment: "Imagen recortada de personas derecha"
+      services.items[*].image:
+        type: image
+      whoIsItFor.items[*].image:
+        type: image
+      steps.image:
+        type: image
+        comment: "Iconos/elementos flotantes paso a paso"
+      testimonials.items[*].image:
+        type: image
+      locations.items[*].image:
+        type: image
+        comment: "Imagen de la ciudad"
+      blog.items[*].image:
+        type: image
+        comment: "Imagen del artículo"
+  markets:
+    path: src/content/markets
+    icon: masks
+  news:
+    path: src/content/news
+    icon: newsmode

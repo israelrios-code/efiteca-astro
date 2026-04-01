@@ -1,0 +1,21 @@
+@import "./tokens.css";
+@import "./base.css";
+@import "./components.css";
+@import "./utilities.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.degr {
+
+
+background: url(/public/images/frame7.png), #F7F5F9;
+
+}
+
+.home-hero-text p {
+  max-width: 34%!important;
+}

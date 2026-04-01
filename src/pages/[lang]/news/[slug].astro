@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { type Lang } from "@/data/locales";
+import { absoluteUrl } from "@/lib/seo/meta";
+import { formatDate } from "@/lib/utils/format";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("news");
+
+  return entries.map((entry) => ({
+    params: {
+      lang: entry.data.lang,
+      slug: entry.slug
+    },
+    props: {
+      entry
+    }
+  }));
+}
+
+const { entry } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const { Content } = await render(entry);
+
+const alternates = [
+  {
+    hreflang: lang === "es" ? "es-ES" : "en",
+    href: absoluteUrl(`/${lang}/news/${entry.slug}/`)
+  },
+  {
+    hreflang: "x-default",
+    href: absoluteUrl(`/${lang}/news/${entry.slug}/`)
+  }
+];
+---
+
+<BaseLayout
+  lang={lang}
+  title={entry.data.seo.title}
+  description={entry.data.seo.description}
+  path={`/${lang}/news/${entry.slug}/`}
+  alternates={alternates}
+>
+  <article class="mx-auto max-w-4xl px-6 py-16 md:py-24">
+    <p class="text-xs uppercase tracking-[0.2em] text-coral">{entry.data.category}</p>
+    <h1 class="mt-4 font-display text-5xl leading-tight text-ink">{entry.data.title}</h1>
+    <p class="mt-6 text-sm text-ink/50">{formatDate(entry.data.publishedAt, lang)}</p>
+    <p class="mt-8 text-lg leading-8 text-ink/70">{entry.data.excerpt}</p>
+
+    <div class="prose prose-lg mt-12 max-w-none prose-headings:font-display prose-headings:text-ink prose-p:text-ink/75">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

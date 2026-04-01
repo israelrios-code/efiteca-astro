@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ReactHome from "@/components/home/ReactHome.tsx";
+import { LOCALES, type Lang } from "@/data/locales";
+import { buildLanguageAlternates } from "@/lib/seo/meta";
+
+import { getEntry } from "astro:content";
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({
+    params: {
+      lang: locale.code
+    }
+  }));
+}
+
+const lang = Astro.params.lang as Lang;
+
+const entry = await getEntry("pages", `home-${lang}`);
+const content = entry?.data;
+
+if (!content) {
+  return Astro.redirect(`/${lang}/404`);
+}
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.seo?.title || content.title}
+  description={content.seo?.description}
+  path={`/${lang}/`}
+  alternates={buildLanguageAlternates("/")}
+>
+  <ReactHome client:load content={content} />
+</BaseLayout>

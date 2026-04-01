@@ -1,0 +1,40 @@
+---
+import type { AlternateLink } from "@/lib/seo/meta";
+
+type Props = {
+  title: string;
+  description: string;
+  canonical: string;
+  image?: string;
+  noindex?: boolean;
+  alternates?: AlternateLink[];
+};
+
+const {
+  title,
+  description,
+  canonical,
+  image = "/images/og-default.svg",
+  noindex = false,
+  alternates = []
+} = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={image.startsWith("http") ? image : new URL(image, Astro.site).toString()} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image.startsWith("http") ? image : new URL(image, Astro.site).toString()} />

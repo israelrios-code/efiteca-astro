@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light;
+
+  --color-bg: #f1f2f4;
+  --color-bg-soft: #fbf7f1;
+  --color-surface: rgba(255, 255, 255, 1);
+  --color-surface-strong: #fffdf8;
+  --color-surface-inverse: #0b0b13;
+  --color-text: #0b0b13;
+  --color-text-soft: #94949a;
+  --color-text-muted: rgba(11, 11, 19, 0.52);
+  --color-line: rgba(11, 11, 19, 0.1);
+  --color-line-strong: rgba(11, 11, 19, 0.16);
+  --color-brand: #8948ff;
+  --color-brand-strong: #4f3bff;
+  --color-brand-soft: #eaddff;
+  --color-accent: #fccb3d;
+  --color-accent-soft: rgba(252, 203, 61, 0.14);
+  --color-success: #2f6654;
+  --color-overlay: rgba(11, 11, 19, 0.78);
+
+  --font-sans: "Inter", "Satoshi", "Segoe UI", sans-serif;
+  --font-display: "Inter", "Clash Display", sans-serif;
+
+  --container-width: 73%;
+  --header-height: 5rem;
+
+  --radius-xs: 0.75rem;
+  --radius-sm: 1rem;
+  --radius-md: 1.5rem;
+  --radius-lg: 2rem;
+  --radius-xl: 2.5rem;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 10px 30px rgba(16, 23, 20, 0.06);
+  --shadow-md: 0 18px 60px rgba(16, 23, 20, 0.08);
+  --shadow-lg: 0 30px 80px rgba(16, 23, 20, 0.12);
+  --shadow-focus: 0 0 0 4px rgba(185, 134, 69, 0.18);
+
+  --gradient-page:
+    radial-gradient(circle at top left, rgba(198, 108, 78, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(185, 134, 69, 0.16), transparent 24%),
+    linear-gradient(180deg, #fbf7f1 0%, #f3ecdf 100%);
+  --gradient-hero:
+    linear-gradient(rgba(20, 33, 29, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 33, 29, 0.06) 1px, transparent 1px);
+  --gradient-card:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(251, 247, 241, 0.88) 100%);
+
+  --motion-fast: 160ms ease;
+  --motion-base: 220ms ease;
+  --motion-slow: 320ms ease;
+}

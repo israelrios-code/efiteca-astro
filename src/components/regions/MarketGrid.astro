@@ -1,0 +1,29 @@
+---
+import type { Lang } from "@/data/locales";
+import { getMarketsForLang } from "@/data/markets";
+
+type Props = {
+  lang: Lang;
+};
+
+const { lang } = Astro.props;
+const markets = getMarketsForLang(lang);
+---
+
+<div class="grid-cards">
+  {
+    markets.map((market) => (
+      <a
+        href={`/${lang}/${market.slug}/`}
+        class="surface-card card-link hover-lift group"
+      >
+        <p class="card-kicker">{market.countryCode}</p>
+        <h3 class="card-title">{market.label[lang]}</h3>
+        <p class="card-copy">{market.hero[lang]}</p>
+        <span class="mt-6 inline-flex text-sm font-medium text-pine transition group-hover:text-coral">
+          {lang === "es" ? "Explorar mercado" : "Explore market"}
+        </span>
+      </a>
+    ))
+  }
+</div>

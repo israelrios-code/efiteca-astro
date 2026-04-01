@@ -1,0 +1,14 @@
+node_modules
+dist
+.astro
+.vercel
+.DS_Store
+coverage
+*.rar
+*.pdf
+Nueva carpeta/
+push_error.txt
+.vscode/
+tmp_react_repo/
+Web Efiteca.rar
+Copia de CARTA CAFETERIA 2025.pdf

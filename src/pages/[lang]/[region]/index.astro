@@ -1,0 +1,74 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import RegionNotice from "@/components/i18n/RegionNotice.astro";
+import { type Lang } from "@/data/locales";
+import { getMarketBySlug, MARKETS } from "@/data/markets";
+import { buildRegionAlternates } from "@/lib/seo/meta";
+
+export function getStaticPaths() {
+  return MARKETS.flatMap((market) =>
+    market.languages.map((lang) => ({
+      params: {
+        lang,
+        region: market.slug
+      }
+    }))
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const region = Astro.params.region ?? "";
+const market = getMarketBySlug(region);
+
+if (!market) {
+  throw new Error(`Unknown market: ${region}`);
+}
+
+const copy = {
+  es: {
+    title: `Efiteca ${market.label.es} | Estrategia regional`,
+    description: `Presencia digital y narrativa comercial adaptadas al mercado de ${market.label.es}.`,
+    eyebrow: "Version regional",
+    heading: `Efiteca ${market.label.es}`,
+    body:
+      "Las rutas regionales solo se activan cuando existe una hipotesis clara de negocio o SEO. Esta base sirve para construir landings locales sin duplicar innecesariamente el sitio completo."
+  },
+  en: {
+    title: `Efiteca ${market.label.en} | Regional strategy`,
+    description: `Digital presence and commercial narrative tailored to the ${market.label.en} market.`,
+    eyebrow: "Regional version",
+    heading: `Efiteca ${market.label.en}`,
+    body:
+      "Regional routes only exist when there is a clear SEO or commercial hypothesis. This starter is designed to support local landing pages without duplicating the entire website."
+  }
+};
+---
+
+<BaseLayout
+  lang={lang}
+  title={copy[lang].title}
+  description={copy[lang].description}
+  path={`/${lang}/${market.slug}/`}
+  alternates={buildRegionAlternates(lang, market.slug)}
+>
+  <section class="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-[1.2fr_0.8fr] md:py-24">
+    <div>
+      <p class="text-sm uppercase tracking-[0.18em] text-coral">{copy[lang].eyebrow}</p>
+      <h1 class="mt-4 font-display text-5xl text-ink">{copy[lang].heading}</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-ink/70">{market.hero[lang]}</p>
+      <p class="mt-6 max-w-2xl text-base leading-7 text-ink/65">{copy[lang].body}</p>
+    </div>
+
+    <div class="space-y-5">
+      <RegionNotice lang={lang} regionLabel={market.label[lang]} />
+      <div class="rounded-[30px] border border-ink/10 bg-white/80 p-6 shadow-card">
+        <p class="text-xs uppercase tracking-[0.18em] text-coral">SEO</p>
+        <ul class="mt-4 space-y-3 text-sm leading-6 text-ink/70">
+          <li>{lang === "es" ? "Canonical y hreflang generados automaticamente." : "Canonical and hreflang generated automatically."}</li>
+          <li>{lang === "es" ? "Contenido localizable sin romper la arquitectura global." : "Localizable content without breaking the global architecture."}</li>
+          <li>{lang === "es" ? "Listo para testimonios, equipo, telefonos y oferta local." : "Ready for testimonials, team, phone numbers and localized offers."}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
