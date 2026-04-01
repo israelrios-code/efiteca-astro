@@ -14,7 +14,7 @@ collections_config:
   content_pages:
     path: src/content/pages
     icon: contact_page
-    url: "/[lang]/"
+    url: "/{lang}/" # Se cambió de [lang] a {lang} para que CloudCannon use el campo del frontmatter
     _inputs:
       hero.background_layer_1:
         type: image
