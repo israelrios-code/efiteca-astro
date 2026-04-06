@@ -13,33 +13,62 @@ function renderStars(count = 5) {
   ));
 }
 
-function FauxInput({
+function FormInput({
+  name,
   placeholder,
-  textarea = false,
-  withChevron = false
+  type = "text"
 }: {
+  name: string;
   placeholder: string;
-  textarea?: boolean;
-  withChevron?: boolean;
+  type?: string;
 }) {
   return (
-    <div className={`bg-white relative rounded-[6px] shrink-0 w-full ${textarea ? "h-[68px]" : ""}`} data-name="Input Field">
-      <div aria-hidden="true" className="absolute border border-[#9d9ba8] border-solid inset-0 pointer-events-none rounded-[6px]" />
-      <div className={`content-stretch ${textarea ? "flex items-start px-[20px] py-[16px]" : "flex items-center px-[20px] py-[12px]"} relative size-full`}>
-        <p className={`flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[1.1] min-h-px min-w-px not-italic relative text-[#9d9ba8] text-[12px]`}>{placeholder}</p>
-        {withChevron ? (
-          <div className="overflow-clip relative shrink-0 size-[24px]" data-name="chevron-down">
-            <div className="absolute bottom-[37.5%] left-1/4 right-1/4 top-[37.5%]" data-name="Icon">
-              <div className="absolute inset-[-16.67%_-8.33%]">
-                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 8">
-                  <path d="M1 1L7 7L13 1" id="Icon" stroke="var(--stroke-0, #8949FF)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        ) : null}
-      </div>
-    </div>
+    <input
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      className="bg-white border border-[#9d9ba8] rounded-[6px] w-full px-[20px] py-[12px] text-[12px] text-[#080813] placeholder:text-[#9d9ba8] outline-none"
+    />
+  );
+}
+
+function FormSelect({
+  name,
+  placeholder
+}: {
+  name: string;
+  placeholder: string;
+}) {
+  return (
+    <select
+      name={name}
+      defaultValue=""
+      className="bg-white border border-[#9d9ba8] rounded-[6px] w-full px-[20px] py-[12px] text-[12px] text-[#080813] outline-none"
+    >
+      <option value="" disabled>
+        {placeholder}
+      </option>
+      <option value="particular">Particular</option>
+      <option value="autonomo">Autónomo</option>
+      <option value="empresa">Empresa</option>
+    </select>
+  );
+}
+
+function FormTextarea({
+  name,
+  placeholder
+}: {
+  name: string;
+  placeholder: string;
+}) {
+  return (
+    <textarea
+      name={name}
+      placeholder={placeholder}
+      rows={4}
+      className="bg-white border border-[#9d9ba8] rounded-[6px] w-full px-[20px] py-[16px] text-[12px] text-[#080813] placeholder:text-[#9d9ba8] outline-none resize-none min-h-[68px]"
+    />
   );
 }
 
@@ -2197,50 +2226,48 @@ function Frame83({ content }: { content: any }) {
             ))}
           </div>
         </div>
-        <div className="bg-[#8949ff] content-stretch flex flex-col gap-[24px] items-center justify-center p-[40px] relative rounded-[10px] shrink-0 w-[798px]" data-name="Form">
+        <form className="bg-[#8949ff] content-stretch flex flex-col gap-[24px] items-center justify-center p-[40px] relative rounded-[10px] shrink-0 w-[798px]" data-name="Form">
           <div aria-hidden="true" className="absolute border border-[#8949ff] border-solid inset-0 pointer-events-none rounded-[10px]" />
           <div className="content-stretch flex flex-col gap-[8px] items-start relative shrink-0 w-full" data-name="Form Elements">
             <div className="content-stretch flex gap-[30px] items-start relative shrink-0 w-full" data-name="Container">
               <div className="content-stretch flex flex-[1_0_0] flex-col gap-[14px] items-start min-h-px min-w-px relative" data-name="Sub Container">
                 <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[16px] text-white w-full">{form.name_label}</p>
-                <FauxInput placeholder={`Escribe tu ${String(form.name_label || "").toLowerCase()}`} />
+                <FormInput name="firstName" placeholder={`Escribe tu ${String(form.name_label || "").toLowerCase()}`} />
               </div>
               <div className="content-stretch flex flex-[1_0_0] flex-col gap-[14px] items-start min-h-px min-w-px relative" data-name="Sub Container">
                 <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[16px] text-white w-full">{form.lastname_label}</p>
-                <FauxInput placeholder={`Escribe tu ${String(form.lastname_label || "").toLowerCase()}`} />
+                <FormInput name="lastName" placeholder={`Escribe tu ${String(form.lastname_label || "").toLowerCase()}`} />
               </div>
             </div>
             <div className="content-stretch flex gap-[30px] items-start relative shrink-0 w-full" data-name="Container">
               <div className="content-stretch flex flex-[1_0_0] flex-col gap-[14px] items-start min-h-px min-w-px relative" data-name="Sub Container">
                 <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[16px] text-white w-full">{form.email_label}</p>
-                <FauxInput placeholder={`Ingresa tu ${String(form.email_label || "").toLowerCase()}`} />
+                <FormInput name="email" type="email" placeholder={`Ingresa tu ${String(form.email_label || "").toLowerCase()}`} />
               </div>
               <div className="content-stretch flex flex-[1_0_0] flex-col gap-[14px] items-start min-h-px min-w-px relative" data-name="Sub Container">
                 <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[16px] text-white w-full">{form.phone_label}</p>
-                <FauxInput placeholder={`Ingresa tu ${String(form.phone_label || "").toLowerCase()}`} />
+                <FormInput name="phone" type="tel" placeholder={`Ingresa tu ${String(form.phone_label || "").toLowerCase()}`} />
               </div>
             </div>
             <div className="content-stretch flex flex-col gap-[14px] items-start relative shrink-0 w-full" data-name="Sub Container">
               <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[16px] text-white w-full">{form.role_label || "Cargo"}</p>
-              <FauxInput placeholder={form.role_placeholder || "Cuéntanos tu cargo"} withChevron />
+              <FormSelect name="role" placeholder={form.role_placeholder || "Cuéntanos tu cargo"} />
             </div>
             <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="Container">
               <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[16px] text-white w-full">{form.message_label}</p>
-              <FauxInput placeholder={`Escribe tu ${String(form.message_label || "").toLowerCase()}`} textarea />
+              <FormTextarea name="message" placeholder={`Escribe tu ${String(form.message_label || "").toLowerCase()}`} />
             </div>
           </div>
           <div className="content-stretch flex gap-[50px] items-center justify-center relative shrink-0 w-full" data-name="Container">
-            <div className="content-stretch flex flex-[1_0_0] gap-[6px] items-center min-h-px min-w-px relative" data-name="Check Box">
-              <div className="bg-[#ecddee] relative rounded-[4px] shrink-0 size-[24px]" data-name="Shape">
-                <div aria-hidden="true" className="absolute border border-[#9d9ba8] border-solid inset-0 pointer-events-none rounded-[4px]" />
-              </div>
-              <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[1.1] min-h-px min-w-px not-italic relative text-[#d9d9d9] text-[12px]">{form.terms_label}</p>
-            </div>
-            <div className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0">
+            <label className="content-stretch flex flex-[1_0_0] gap-[10px] items-center min-h-px min-w-px relative cursor-pointer" data-name="Check Box">
+              <input name="terms" type="checkbox" className="size-[18px] accent-[#fcc63d]" />
+              <span className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[1.1] min-h-px min-w-px not-italic relative text-[#d9d9d9] text-[12px]">{form.terms_label}</span>
+            </label>
+            <button type="submit" className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0">
               <p className="font-['Inter:Bold',sans-serif] font-bold leading-[27px] not-italic relative shrink-0 text-[#0f172b] text-[18px] text-center tracking-[1.8px] uppercase whitespace-nowrap">{form.submit_label}</p>
-            </div>
+            </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
@@ -3338,6 +3365,28 @@ function Frame60({ content }: { content: any }) {
   if (!content?.locations?.items?.length) return null;
 
   const cards = content.locations.items.slice(0, 4);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: 'start',
+    slidesToScroll: 1
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
+  }, [emblaApi]);
 
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-center mb-[-2px] py-[80px] relative shrink-0 w-full">
@@ -3354,7 +3403,7 @@ function Frame60({ content }: { content: any }) {
         </div>
       </div>
       <div className="content-stretch flex flex-col gap-[20px] w-full">
-        <div className="h-[204px] relative shrink-0 w-full overflow-hidden">
+        <div className="h-[204px] relative shrink-0 w-full overflow-hidden" ref={emblaRef}>
           <div className="flex gap-[40px] items-start h-full">
             {cards.map((item: any, index: number) => (
               <div key={index} className={`flex-[0_0_auto] min-w-0 bg-[#ecddee] flex flex-col gap-[16px] h-full items-start justify-center pr-[20px] relative rounded-[24px] shrink-0 ${index === 0 ? "ml-[230px]" : ""}`} data-name="SEO local card">
@@ -3386,6 +3435,9 @@ function Frame60({ content }: { content: any }) {
               </div>
             ))}
           </div>
+        </div>
+        <div className="flex justify-center w-full mt-[10px]">
+          <Group1 selectedIndex={selectedIndex} onDotClick={scrollTo} />
         </div>
       </div>
     </div>
@@ -3696,14 +3748,13 @@ function HeroSection({ content }: { content: any }) {
         className="absolute inset-0 max-w-none object-cover pointer-events-none size-full md:hidden"
         src={content.hero.background_mobile || content.hero.background_desktop}
       />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,19,0.84)_0%,rgba(8,8,19,0.58)_44%,rgba(8,8,19,0.2)_100%)]" />
       <div className="relative w-full max-w-[1460px] min-h-[847px] mx-auto px-[24px] md:px-[48px] xl:px-[80px] py-[80px] flex items-center">
         <div className="content-stretch flex flex-col gap-[40px] items-start justify-center relative w-full max-w-[688px] z-10">
-          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[0] min-w-full not-italic relative shrink-0 text-[56px] text-white tracking-[1px] w-[min-content]">
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[0] min-w-full not-italic relative shrink-0 text-[56px] text-white tracking-[1px] w-[min-content] pr-[145px]">
             <span className="leading-[1.1] text-[#fcc63d]">{content.hero.title_part1}</span>
             <span className="leading-[1.1]">{content.hero.title_part2}</span>
           </p>
-          <p className="font-['Trueno:Light',sans-serif] leading-[1.1] min-w-full not-italic relative shrink-0 text-[18px] text-white w-[min-content]">
+          <p className="font-['Trueno:Light',sans-serif] leading-[1.1] min-w-full not-italic relative shrink-0 text-[18px] text-white w-[min-content] pr-[243px]">
             {content.hero.description}
           </p>
           <a href={content.hero.cta?.href || "#"} className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 hover:scale-105 active:scale-95 transition-transform no-underline">
@@ -3720,6 +3771,43 @@ function HeroSection({ content }: { content: any }) {
 function TestimonialsSection({ content }: { content: any }) {
   if (!content?.testimonials) return null;
   const t = content.testimonials;
+  const items = t.items || [];
+  const itemsPerPage = 3;
+  const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    containScroll: false,
+    slidesToScroll: 1
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(Math.floor(emblaApi.selectedScrollSnap() / itemsPerPage) % totalPages);
+  }, [emblaApi, itemsPerPage, totalPages]);
+
+  useEffect(() => {
+    if (!emblaApi || items.length <= 1) return;
+
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
+    const autoScroll = window.setInterval(() => {
+      const currentPage = Math.floor(emblaApi.selectedScrollSnap() / itemsPerPage) % totalPages;
+      const nextPage = (currentPage + 1) % totalPages;
+      emblaApi.scrollTo(nextPage * itemsPerPage);
+    }, 4500);
+
+    return () => {
+      window.clearInterval(autoScroll);
+    };
+  }, [emblaApi, items.length, itemsPerPage, onSelect, totalPages]);
+
+  const scrollTo = useCallback((pageIndex: number) => {
+    if (emblaApi) emblaApi.scrollTo(pageIndex * itemsPerPage);
+  }, [emblaApi, itemsPerPage]);
 
   return (
     <section className="bg-[#f7f5f9] mb-[-2px] relative shrink-0 w-full" data-name="testimonios">
@@ -3728,22 +3816,47 @@ function TestimonialsSection({ content }: { content: any }) {
           <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[40px] text-center w-full">{t.title}</p>
           <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[24px] text-center w-full">{t.description}</p>
         </div>
-        <div className="content-stretch flex gap-[40px] items-start relative shrink-0 w-full justify-center flex-wrap">
-          {t.items?.map((item: any, idx: number) => (
-            <div key={idx} className="bg-white content-stretch flex flex-col gap-[40px] min-h-[400px] items-start justify-center p-[40px] relative rounded-[20px] shrink-0 w-[420px] max-w-full">
-              <div className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full">
-                <img src={item.image} alt={item.name} className="size-[64px] rounded-full object-cover" />
-                <div className="flex flex-col">
-                  <p className="font-bold text-[18px] text-[#080813]">{item.name}</p>
-                  <p className="text-[#9d9ba8] text-[14px]">{item.role}</p>
-                  <div className="flex gap-1 text-[#fcc63d] mt-1">
-                    {renderStars(item.stars || 5)}
-                  </div>
+        <div className="w-full max-w-[1180px] flex flex-col gap-[28px] items-center">
+          <div className="w-full overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {items.map((item: any, idx: number) => (
+                <div key={idx} className="flex-[0_0_100%] md:flex-[0_0_50%] xl:flex-[0_0_33.333%] min-w-0 px-[8px] md:px-[12px]">
+                  <article className="bg-white rounded-[28px] shadow-[0px_30px_60px_0px_rgba(14,17,40,0.12)] min-h-[360px] md:min-h-[400px] xl:min-h-[420px] w-full px-[24px] py-[28px] md:px-[30px] md:py-[32px] xl:px-[34px] xl:py-[36px] flex flex-col justify-between">
+                    <div className="flex flex-col gap-[26px] md:gap-[34px]">
+                      <div className="flex gap-[8px] text-[#8949ff] text-[24px] leading-none">
+                        {renderStars(item.stars || 5)}
+                      </div>
+                      <p className="font-['Inter:Regular',sans-serif] text-[#9d9ba8] text-[18px] md:text-[20px] xl:text-[22px] leading-[1.16] tracking-[-0.02em]">
+                        {item.text}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-[16px] pt-[24px]">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="size-[60px] md:size-[68px] rounded-full object-cover bg-[#f2eff7] shrink-0"
+                      />
+                      <div className="flex flex-col">
+                        <p className="font-['Trueno:Bold',sans-serif] text-[#8949ff] text-[22px] md:text-[24px] xl:text-[26px] leading-[1.1]">
+                          {item.name}
+                        </p>
+                        <p className="font-['Trueno:Light',sans-serif] text-[#080813] text-[16px] md:text-[17px] xl:text-[18px] leading-[1.2]">
+                          {item.role}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
                 </div>
-              </div>
-              <p className="font-['Inter:Regular',sans-serif] text-[16px] leading-[1.6] text-[#080813] italic">"{item.text}"</p>
+              ))}
             </div>
-          ))}
+          </div>
+          {items.length > 1 ? (
+            <CarouselDots
+              count={totalPages}
+              selectedIndex={selectedIndex}
+              onDotClick={scrollTo}
+            />
+          ) : null}
         </div>
       </div>
     </section>
@@ -3756,18 +3869,18 @@ function BenefitsSection({ content }: { content: any }) {
   return (
     <section className="bg-[#f7f5f9] mb-[-2px] relative shrink-0 w-full">
       <div className="w-full max-w-[1460px] mx-auto px-[24px] md:px-[48px] xl:px-[80px] py-[80px]">
-        <div className="bg-[#fcc63d] content-stretch flex flex-col gap-[10px] items-center justify-center relative rounded-[60px] shrink-0 w-full overflow-hidden">
-          <div className="w-full max-w-[1320px] mx-auto content-stretch flex gap-[80px] items-center justify-between relative px-[32px] py-[70px]">
-            <div className="flex-[1_0_0] min-h-px min-w-px relative">
-              <div className="content-stretch flex flex-col items-center relative w-full">
+        <div className="bg-[#fcc63d] content-stretch flex flex-col gap-[10px] items-center justify-center relative rounded-[60px] shrink-0 w-full overflow-visible">
+          <div className="w-full max-w-[1320px] mx-auto content-stretch flex gap-[48px] items-stretch justify-between relative px-0 py-0">
+            <div className="flex-[0_0_50%] min-h-px min-w-px relative px-[72px] py-[70px]">
+              <div className="content-stretch flex flex-col items-center relative w-full h-full justify-center">
                 <Frame5 content={content} />
               </div>
             </div>
-            <div className="h-[407px] relative rounded-br-[60px] rounded-tr-[60px] shrink-0 w-[791px] max-w-[55%]" data-name="Diseño sin título (57) 1">
+            <div className="relative rounded-br-[60px] rounded-tr-[60px] shrink-0 w-[791px] max-w-[50%] h-[407px] self-end overflow-hidden" data-name="Diseño sin título (57) 1">
               <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-br-[60px] rounded-tr-[60px] size-full" src="/images/imgDisenoSinTitulo571.png" />
             </div>
           </div>
-          <div className="absolute h-[491px] left-[52%] top-[-84px] w-[397px] pointer-events-none" data-name="Diseño sin título (58) 1">
+          <div className="absolute h-[491px] left-[52%] top-[-84px] w-[397px] pointer-events-none z-10" data-name="Diseño sin título (58) 1">
             <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden">
               <img alt="" className="absolute h-[128.5%] left-[-28.56%] max-w-none top-0 w-[238.36%]" src="/images/imgDisenoSinTitulo581.png" />
             </div>
@@ -3784,27 +3897,7 @@ function NewsletterSection({ content }: { content: any }) {
 
   return (
     <section className="mb-[-2px] overflow-clip relative shrink-0 w-full bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat">
-      <div className="w-full max-w-[1460px] mx-auto px-[24px] md:px-[48px] xl:px-[80px] py-[80px] relative overflow-hidden">
-        <div className="absolute flex h-[865.826px] items-center justify-center left-[-39px] top-[80px] w-[873.938px] pointer-events-none" style={{ "--transform-inner-width": "1185", "--transform-inner-height": "21" } as React.CSSProperties}>
-          <div className="flex-none rotate-[-42.93deg]">
-            <div className="h-[536px] relative w-[695px]">
-              <div className="absolute inset-[-93.28%_-71.94%]">
-                <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1695 1536">
-                  <g filter="url(#filter0_f_1_1072)" id="Ellipse 3">
-                    <ellipse cx="847.5" cy="768" fill="var(--fill-0, #4F3BF9)" rx="347.5" ry="268" />
-                  </g>
-                  <defs>
-                    <filter colorInterpolationFilters="sRGB" filterUnits="userSpaceOnUse" height="1536" id="filter0_f_1_1072" width="1695" x="0" y="0">
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
-                      <feBlend in="SourceGraphic" in2="BackgroundImageFix" mode="normal" result="shape" />
-                      <feGaussianBlur result="effect1_foregroundBlur_1_1072" stdDeviation="250" />
-                    </filter>
-                  </defs>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="w-full max-w-[1460px] mx-auto px-[24px] md:px-[48px] xl:px-[80px] py-[80px] relative">
         <div className="content-stretch flex gap-[80px] items-center justify-center relative shrink-0 w-full">
           <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-[495px]">
             <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[40px] text-white w-[min-content]">
@@ -3829,6 +3922,35 @@ function NewsletterSection({ content }: { content: any }) {
     </section>
   );
 }
+
+function CarouselDots({
+  count,
+  selectedIndex,
+  onDotClick
+}: {
+  count: number;
+  selectedIndex: number;
+  onDotClick: (index: number) => void;
+}) {
+  return (
+    <div className="flex gap-[10px] items-center justify-center">
+      {Array.from({ length: count }).map((_, index) => (
+        <button
+          key={index}
+          onClick={() => onDotClick(index)}
+          className={`transition-all duration-300 ${
+            selectedIndex === index
+              ? "bg-[#8949ff] w-[34px] h-[9px] rounded-[999px]"
+              : "bg-[#d8d2e3] w-[9px] h-[9px] rounded-full"
+          }`}
+          aria-label={`Ir al testimonio ${index + 1}`}
+          type="button"
+        />
+      ))}
+    </div>
+  );
+}
+
 export function FigmaFooter() {
   return (
     <footer className="bg-[#080813] relative overflow-hidden px-[20px] sm:px-[60px] md:px-[120px] lg:px-[240px] py-[80px] md:py-[120px] w-full" data-name="Footer">

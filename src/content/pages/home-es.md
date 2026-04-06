@@ -103,6 +103,21 @@ testimonials:
       text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt.
       image: /images/imgEllipse5.png
       stars: 5
+    - name: Carlos Gómez
+      role: Cliente desde 2022
+      text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt. Tincidunt vitae tellus consectetur dui morbi vulputate quam aliquam lacus. Quis elit sed pharetra facilisis.
+      image: /images/imgFrame1272638189.png
+      stars: 5
+    - name: Carlos Gómez 3
+      role: Cliente desde 2022
+      text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt. Tincidunt vitae tellus consectetur dui morbi vulputate quam aliquam lacus. Quis elit sed pharetra facilisis.
+      image: /images/blog1.png
+      stars: 4
+    - name: '1'
+      role: '1'
+      text: asdasd
+      image: /images/imgEllipse5.png
+      stars: 4
 partners:
   title: Aliados estratégicos
   description: Trabajamos con entidades financieras y actores del ecosistema inmobiliario.
