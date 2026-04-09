@@ -89,13 +89,35 @@ if (import.meta.env.DEV) {
             }
           }
         }
+        howItWorks {
+          title
+          description
+          cta {
+            label
+            href
+          }
+          items {
+            number
+            title
+            description
+          }
+        }
         steps {
+          eyebrow
           title
           image
           items {
             number
             title
             description
+          }
+        }
+        actionCta {
+          title
+          description
+          button {
+            label
+            href
           }
         }
         benefits {
@@ -115,8 +137,19 @@ if (import.meta.env.DEV) {
             value
           }
         }
+        guides {
+          title
+          items {
+            title
+            cta {
+              label
+              href
+            }
+          }
+        }
         testimonials {
           title
+          backgroundColor
           description
           items {
             name
@@ -124,6 +157,17 @@ if (import.meta.env.DEV) {
             text
             image
             stars
+          }
+        }
+        about {
+          title
+          description
+          image
+          badgeLabel
+          badgeText
+          button {
+            label
+            href
           }
         }
         partners {

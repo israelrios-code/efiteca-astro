@@ -94,7 +94,7 @@ function Frame74({ content }: { content: any }) {
   );
 }
 
-function Frame({ content }: { content: any }) {
+function Frame({ content }: { content?: any }) {
   if (!content?.hero) return null;
   return (
     <div className="h-[847px] mb-[-60px] relative shrink-0 w-full">
@@ -351,7 +351,7 @@ function Frame115({ content }: { content: any }) {
   );
 }
 
-function Frame18({ content }: { content: any }) {
+function Frame18({ content }: { content?: any }) {
   if (!content) return null;
   return (
     <div className="mb-[-60px] relative rounded-[32px] md:rounded-[60px] shrink-0 w-full">
@@ -380,17 +380,17 @@ function Frame107() {
   );
 }
 
-function BackgroundBorder({ item }: { item: any }) {
+function BackgroundBorder({ item, editableItem }: { item: any; editableItem?: any }) {
   if (!item) return null;
   return (
     <div className="bg-[#f7f5f9] flex-[1_0_0] h-full min-h-px min-w-px relative rounded-[10px]" data-name="Background+Border">
       <div aria-hidden="true" className="absolute border border-[#e2e8f0] border-solid inset-0 pointer-events-none rounded-[10px]" />
       <div className="flex flex-row items-center size-full">
         <div className="content-stretch flex gap-[8px] items-center p-[9px] relative size-full">
-          <div className="flex-[1_0_0] h-full min-h-px min-w-px relative">
+          <div className="flex-[1_0_0] h-full min-h-px min-w-px relative" data-tina-field={fieldFor(editableItem, "image")}>
             <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src={item.image} />
           </div>
-          <div className="flex flex-[1_0_0] flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] min-h-px min-w-px not-italic relative text-[#9d9ba8] text-[18px]">
+          <div className="flex flex-[1_0_0] flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] min-h-px min-w-px not-italic relative text-[#9d9ba8] text-[18px]" data-tina-field={fieldFor(editableItem, "title")}>
             <p className="leading-[1.1]">{item.title}</p>
           </div>
         </div>
@@ -453,29 +453,26 @@ function BackgroundBorder3() {
   );
 }
 
-function Frame97({ content }: { content: any }) {
+function Frame97({ content, editable }: { content: any; editable?: any }) {
   if (!content?.whoIsItFor) return null;
   const items = content.whoIsItFor.items || [];
   return (
     <div className="content-stretch flex flex-col gap-[24px] md:gap-[30px] items-start relative shrink-0 w-full max-w-[1280px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] text-center w-full">{content.whoIsItFor.title}</p>
-      <div className="content-stretch grid grid-cols-1 sm:grid-cols-2 gap-[16px] md:gap-[24px] items-start relative shrink-0 w-full">
-        <BackgroundBorder item={items[0]} />
-        <BackgroundBorder item={items[1]} />
-        <BackgroundBorder item={items[2]} />
-        <BackgroundBorder item={items[3]} />
+      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] text-center w-full" data-tina-field={fieldFor(editable?.whoIsItFor, "title")}>{content.whoIsItFor.title}</p>
+      <div className="content-stretch grid grid-cols-2 xl:grid-cols-4 gap-[12px] md:gap-[24px] items-start relative shrink-0 w-full">
+        <BackgroundBorder item={items[0]} editableItem={editable?.whoIsItFor?.items?.[0]} />
+        <BackgroundBorder item={items[1]} editableItem={editable?.whoIsItFor?.items?.[1]} />
+        <BackgroundBorder item={items[2]} editableItem={editable?.whoIsItFor?.items?.[2]} />
+        <BackgroundBorder item={items[3]} editableItem={editable?.whoIsItFor?.items?.[3]} />
       </div>
     </div>
   );
 }
 
-function Frame62() {
+function Frame62({ content, editable }: { content: any; editable?: any }) {
   return (
     <div className="content-stretch flex flex-col gap-[40px] items-start py-[40px] relative shrink-0 w-full">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[40px] text-center w-full">
-        <p className="leading-[1.1]">¿Para quién son nuestros servicios?</p>
-      </div>
-      <Frame97 />
+      <Frame97 content={content} editable={editable} />
     </div>
   );
 }
@@ -675,32 +672,132 @@ function Frame63() {
   );
 }
 
-function Container5() {
+function Container5({ content }: { content: any }) {
+  const steps = content?.steps?.items || [];
   return (
     <div className="content-stretch flex flex-[1_0_0] flex-col gap-[40px] items-start min-h-px min-w-px relative" data-name="Container">
       <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#0f172a] text-[40px] w-full">
-        <p className="leading-[1.1]">Conoce nuestro paso a paso</p>
+        <p className="leading-[1.1]">{content?.steps?.title || "Conoce nuestro paso a paso"}</p>
       </div>
-      <Frame63 />
+      <div className="content-stretch flex flex-col lg:flex-row gap-[24px] md:gap-[32px] items-start relative shrink-0 w-full">
+        {[steps.slice(0, 3), steps.slice(3, 6)].map((column, columnIndex) => (
+          <div key={columnIndex} className="content-stretch flex flex-[1_0_0] flex-col gap-[32px] items-start min-h-px min-w-px relative">
+            {column.map((item: any) => (
+              <div key={item.number} className="content-stretch flex gap-[10px] items-start relative shrink-0 w-full">
+                <div className="bg-[#8949ff] content-stretch flex flex-col items-center justify-center pl-[14px] pr-[15px] py-[9px] relative rounded-[19px] shrink-0 size-[38px]">
+                  <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[18px] text-center text-white whitespace-nowrap">{item.number}</p>
+                </div>
+                <div className="content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start leading-[1.1] min-h-px min-w-px not-italic relative text-[#080813]">
+                  <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] md:text-[28px] w-full">{item.title}</p>
+                  <p className="font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[15px] w-full">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-function Container4() {
+function HowItWorksSection({ content, editable }: { content: any; editable?: any }) {
+  const section = content?.howItWorks;
+  if (!section) return null;
+
   return (
-    <div className="content-stretch flex flex-col lg:flex-row gap-[32px] lg:gap-[80px] items-center justify-center py-[24px] md:py-[40px] relative shrink-0 w-full" data-name="Container">
-      <img alt="" className="h-[260px] md:h-[380px] lg:h-[481px] object-cover rounded-[24px] shrink-0 w-full max-w-[452px]" src="/images/box.png" />
-      <Container5 />
-    </div>
+    <section className="bg-white content-stretch flex flex-col items-center py-[56px] md:py-[80px] relative shrink-0 w-full">
+      <div className="content-stretch flex flex-col gap-[40px] items-center px-[20px] md:px-[48px] xl:px-[72px] relative w-full">
+        <div className="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full max-w-[1296px] text-center">
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] w-full" data-tina-field={fieldFor(editable?.howItWorks, "title")}>{section.title}</p>
+          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[16px] md:text-[18px] w-full" data-tina-field={fieldFor(editable?.howItWorks, "description")}>{section.description}</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-[28px] md:gap-[40px] w-full max-w-[1296px]">
+          {(section.items || []).map((item: any, index: number) => (
+            <div key={index} className="content-stretch flex flex-col items-center text-center gap-[16px] relative" data-tina-field={fieldFor(editable?.howItWorks?.items?.[index], "title")}>
+              <div className="bg-[#8949ff] content-stretch flex items-center justify-center rounded-full shadow-[0px_10px_15px_0px_rgba(137,73,255,0.2)] size-[80px]">
+                <p className="font-['Inter:Bold',sans-serif] font-bold text-[22px] text-white">{item.number}</p>
+              </div>
+              <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] text-[#080813] text-[18px] w-full">{item.title}</p>
+              <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.35] text-[#62748e] text-[15px] w-full">{item.description}</p>
+            </div>
+          ))}
+        </div>
+        {section.cta?.label ? (
+          <a href={section.cta.href || "#"} className="bg-[#fcc63d] content-stretch flex gap-[16px] items-center justify-center px-[28px] md:px-[40px] py-[18px] md:py-[24px] relative rounded-[33554400px] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] no-underline w-full sm:w-auto" data-tina-field={fieldFor(editable?.howItWorks?.cta, "label")}>
+            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] text-[#101828] text-[16px] md:text-[18px] text-center whitespace-normal sm:whitespace-nowrap">{section.cta.label}</p>
+            <span aria-hidden="true" className="font-['Inter:Bold',sans-serif] text-[#101828]">&rarr;</span>
+          </a>
+        ) : null}
+      </div>
+    </section>
   );
 }
 
-function StaggeredMetricsSection() {
+function ActionCtaSection({ content }: { content: any }) {
+  const section = content?.actionCta;
+  if (!section) return null;
+
+  return (
+    <section className="bg-white content-stretch flex flex-col items-center px-[20px] md:px-[48px] xl:px-[312px] py-[56px] md:py-[80px] relative shrink-0 w-full">
+      <div className="bg-[#8949ff] content-stretch flex flex-col lg:flex-row gap-[32px] items-start lg:items-center justify-between overflow-hidden px-[28px] md:px-[60px] py-[48px] md:py-[80px] relative rounded-[24px] w-full max-w-[1296px]">
+        <div className="content-stretch flex flex-col gap-[16px] items-start relative z-10 w-full max-w-[787px]">
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] text-[30px] md:text-[40px] text-white">{section.title}</p>
+          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.35] text-[16px] md:text-[18px] text-white">{section.description}</p>
+        </div>
+        <a href={section.button?.href || "#"} className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[28px] md:px-[40px] py-[18px] md:py-[24px] relative rounded-[33554400px] shrink-0 no-underline z-10 w-full sm:w-auto">
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#101828] text-[16px] md:text-[18px] text-center whitespace-normal sm:whitespace-nowrap">{section.button?.label}</p>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+function StepTimelineSection({ content, editable }: { content: any; editable?: any }) {
+  const steps = content?.steps?.items || [];
+  if (!steps.length) return null;
+
+  return (
+    <section className="bg-white border-y border-white content-stretch flex flex-col items-center px-[20px] md:px-[48px] xl:px-[152px] py-[56px] md:py-[80px] relative shrink-0 w-full">
+      <div className="bg-[#0f172b] content-stretch flex flex-col items-center justify-center overflow-hidden px-[20px] py-[56px] md:p-[80px] relative rounded-[32px] md:rounded-[60px] shrink-0 w-full">
+        <div className="content-stretch flex flex-col gap-[48px] md:gap-[64px] items-center relative w-full">
+          <div className="content-stretch flex flex-col font-['Inter:Bold',sans-serif] font-bold gap-[4px] items-center leading-[1.1] not-italic relative shrink-0 text-center w-full" data-tina-field={fieldFor(editable?.steps, "title")}>
+            <p className="relative shrink-0 text-[#fcc63d] text-[15px] whitespace-nowrap">{content.steps.eyebrow || "Conoce nuestro paso a paso"}</p>
+            <p className="relative shrink-0 text-[32px] md:text-[40px] text-white w-full max-w-[1024px]">{content.steps.title}</p>
+          </div>
+          <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full max-w-[1024px]">
+            <div className="hidden md:block -translate-x-1/2 absolute bg-[rgba(255,255,255,0.1)] h-full left-1/2 top-0 w-px" />
+            {steps.slice(0, 6).map((item: any, index: number) => {
+              const isRight = index % 2 === 1;
+              return (
+                <div key={item.number} className={`relative shrink-0 w-full md:min-h-[108px] flex items-center ${isRight ? "md:justify-end" : "md:justify-start"}`} data-tina-field={fieldFor(editable?.steps?.items?.[index], "title")}>
+                  <div className={`content-stretch flex gap-[24px] md:gap-[32px] items-center relative w-full md:w-[calc(50%+28px)] ${isRight ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                    <div className="bg-[#8949ff] relative rounded-full shadow-[0px_20px_25px_0px_rgba(137,73,255,0.3),0px_8px_10px_0px_rgba(137,73,255,0.3)] shrink-0 size-[48px] md:size-[56px] z-10">
+                      <div className="content-stretch flex items-center justify-center relative size-full">
+                        <p className="font-['Inter:Black',sans-serif] font-black leading-[30px] not-italic relative shrink-0 text-[18px] md:text-[20px] text-white whitespace-nowrap">{item.number}</p>
+                      </div>
+                    </div>
+                    <div className={`content-stretch flex flex-col gap-[8px] justify-center leading-[1.1] not-italic relative flex-1 ${isRight ? "md:items-end md:text-right" : "md:items-start md:text-left"} text-left`}>
+                      <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#fcc63d] text-[15px] w-full">Paso {item.number}</p>
+                      <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[20px] md:text-[22px] text-white w-full">{item.title}</p>
+                      <p className="font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#bec5d2] text-[15px] w-full">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StaggeredMetricsSection({ content, editable }: { content: any; editable?: any }) {
   return (
     <div className="mb-[-2px] relative shrink-0 w-full " data-name="Staggered Metrics Section">
       <div className="content-stretch flex flex-col items-start px-[20px] md:px-[48px] xl:px-[240px] py-[56px] md:py-[80px] relative w-full ">
-        <Frame62 />
-        <Container4 />
+        <Frame62 content={content} editable={editable} />
+        <HowItWorksSection content={content} editable={editable} />
       </div>
     </div>
   );
@@ -1019,8 +1116,8 @@ function Container6({
 
   return (
     <div className="content-stretch grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-[16px] md:gap-[24px] items-stretch relative shrink-0 w-full max-w-[1280px]" data-name="Container">
-      {cards.map((card, index) => (
-        <div key={index} data-tina-field={fieldFor(editable?.benefits?.items?.[index])}>
+      {cards.map((card: any, index: number) => (
+        <div key={index} data-tina-field={fieldFor(editable?.benefits?.items?.[index], "text")}>
           <BenefitStripCard icon={card.icon} fallbackIcon={card.fallbackIcon} text={card.text} />
         </div>
       ))}
@@ -1375,24 +1472,13 @@ function Frame95({
                   </div>
                 ))}
               </div>
-              <div className="rounded-[20px] bg-[#8949ff] px-[20px] py-[18px] md:px-[24px] md:py-[20px]">
-                <p className="font-['Inter:Bold',sans-serif] text-[24px] font-bold leading-[1.1] text-white md:text-[28px]" data-tina-field={fieldFor(editable?.whoIsItFor?.process?.pricing, "title")}>
-                  {process.pricing?.title}
-                </p>
-                <p className="mt-[12px] font-['Inter:Regular',sans-serif] text-[16px] leading-[1.5] text-white md:text-[18px]" data-tina-field={fieldFor(editable?.whoIsItFor?.process?.pricing, "description")}>
-                  {process.pricing?.description}
-                </p>
-                <p className="mt-[10px] font-['Inter:Bold',sans-serif] text-[16px] font-bold leading-[1.4] text-white md:text-[18px]" data-tina-field={fieldFor(editable?.whoIsItFor?.process?.pricing, "highlight")}>
-                  {process.pricing?.highlight}
-                </p>
-                <a
-                  href={process.pricing?.button?.href || "#"}
-                  className="mt-[18px] inline-flex w-full md:w-fit rounded-full bg-[#fcc63d] px-[24px] py-[18px] font-['Inter:Bold',sans-serif] text-[16px] font-bold uppercase tracking-[1.6px] text-[#080813] no-underline md:px-[40px]"
-                  data-tina-field={fieldFor(editable?.whoIsItFor?.process?.pricing, "button")}
-                >
-                  {process.pricing?.button?.label}
-                </a>
-              </div>
+              <a
+                href={process.pricing?.button?.href || "#calculator"}
+                className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[18px] font-['Inter:Bold',sans-serif] text-[16px] font-bold uppercase tracking-[1.6px] text-[#080813] no-underline md:w-fit md:px-[40px]"
+                data-tina-field={fieldFor(editable?.whoIsItFor?.process?.pricing, "button")}
+              >
+                {process.pricing?.button?.label || "Calcular mi hipoteca ahora"}
+              </a>
             </div>
             <div className="relative min-h-[280px] overflow-hidden rounded-[24px] md:min-h-[420px]">
               <img alt="" className="absolute inset-0 h-full w-full object-cover" src="/images/imgRectangle805.png" />
@@ -1786,17 +1872,17 @@ function TextContainer() {
 function Frame86({ content }: { content: any }) {
   if (!content?.partners) return null;
   return (
-    <div className="mb-[-2px] relative shrink-0 w-full">
+    <div className="mb-[-2px] mt-[8px] md:mt-0 relative shrink-0 w-full">
       <div className="flex flex-col items-center overflow-clip rounded-[inherit] size-full">
-        <div className="content-stretch flex flex-col gap-[32px] md:gap-[40px] items-center px-[20px] md:px-[48px] xl:px-[80px] py-[56px] md:py-[80px] relative w-full max-w-[1460px] mx-auto">
-          <div className="content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full max-w-[572px]">
-            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] min-w-full not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] text-center w-[min-content]">{content.partners.title}</p>
-            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] min-w-full not-italic relative shrink-0 text-[#080813] text-[16px] md:text-[18px] text-center w-[min-content]">{content.partners.description}</p>
+        <div className="content-stretch flex flex-col gap-[24px] md:gap-[40px] items-center px-[20px] md:px-[48px] xl:px-[80px] py-[32px] md:py-[80px] relative w-full max-w-[1460px] mx-auto">
+          <div className="content-stretch flex flex-col gap-[16px] items-center relative shrink-0 w-full max-w-[720px]">
+            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[28px] md:text-[40px] text-center w-full">{content.partners.title}</p>
+            <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.2] not-italic relative shrink-0 text-[#080813] text-[16px] md:text-[18px] text-center w-full">{content.partners.description}</p>
           </div>
-          <div className="bg-white content-stretch flex gap-[32px] md:gap-[64px] xl:gap-[80px] items-center relative shrink-0 overflow-x-auto no-scrollbar w-full max-w-[1180px] justify-start md:justify-center px-[8px]">
+          <div className="bg-white content-stretch grid grid-cols-3 md:flex md:flex-nowrap gap-x-[20px] gap-y-[16px] md:gap-[64px] xl:gap-[80px] items-center relative shrink-0 w-full max-w-[1180px] justify-center px-[8px] md:px-0">
             {content.partners.items?.map((partner: any, idx: number) => (
-              <div key={idx} className="h-[28px] relative shrink-0" data-name="span">
-                <p className="font-['Inter:Black',sans-serif] font-black leading-[28px] not-italic text-[#9d9ba8] text-[20px] tracking-[-1px] whitespace-nowrap uppercase">{partner.name}</p>
+              <div key={idx} className="relative shrink-0 flex items-center justify-center" data-name="span">
+                <p className="font-['Inter:Black',sans-serif] font-black leading-[1.1] not-italic text-[#9d9ba8] text-[12px] sm:text-[14px] md:text-[20px] tracking-[-0.3px] md:tracking-[-0.5px] whitespace-nowrap uppercase text-center">{partner.name}</p>
               </div>
             ))}
           </div>
@@ -1863,7 +1949,7 @@ function Frame20({ content }: { content: any }) {
   );
 }
 
-function Frame87({ content }: { content: any }) {
+function Frame87({ content }: { content?: any }) {
   return (
     <div className="relative shrink-0 w-full">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex gap-[80px] items-center justify-center relative w-full">
@@ -1927,11 +2013,11 @@ function Frame85() {
 }
 
 function Container23() {
-  return <div className="absolute blur-[120px] h-[1291.797px] left-[266px] rounded-[33554400px] top-[464px] w-[1121.594px]" data-name="Container" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1121.6 1291.8\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(0 -85.538 -85.538 0 560.8 645.9)\\'><stop stop-color=\\'rgba(137,73,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(108,66,252,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(79,59,249,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />;
+  return <div className="absolute blur-[120px] h-[1291.797px] left-[266px] pointer-events-none rounded-[33554400px] top-[464px] w-[1121.594px] z-0" data-name="Container" style={{ backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\\'0 0 1121.6 1291.8\\' xmlns=\\'http://www.w3.org/2000/svg\\' preserveAspectRatio=\\'none\\'><rect x=\\'0\\' y=\\'0\\' height=\\'100%\\' width=\\'100%\\' fill=\\'url(%23grad)\\' opacity=\\'1\\'/><defs><radialGradient id=\\'grad\\' gradientUnits=\\'userSpaceOnUse\\' cx=\\'0\\' cy=\\'0\\' r=\\'10\\' gradientTransform=\\'matrix(0 -85.538 -85.538 0 560.8 645.9)\\'><stop stop-color=\\'rgba(137,73,255,1)\\' offset=\\'0\\'/><stop stop-color=\\'rgba(108,66,252,1)\\' offset=\\'0.5\\'/><stop stop-color=\\'rgba(79,59,249,1)\\' offset=\\'1\\'/></radialGradient></defs></svg>')" }} />;
 }
 
 function Container24() {
-  return <div className="absolute bg-[rgba(255,255,255,0.6)] h-[673px] left-0 top-0 w-[1920px]" data-name="Container" />;
+  return <div className="absolute inset-0 bg-[rgba(255,255,255,0.72)] pointer-events-none z-0" data-name="Container" />;
 }
 
 function CheckCircle4() {
@@ -2317,10 +2403,10 @@ function Frame83({ content }: { content: any }) {
   const form = content.contact.form || {};
 
   return (
-    <div className="content-stretch flex flex-col gap-[10px] items-center mb-[-2px] py-[56px] md:py-[80px] px-[20px] md:px-0 relative shrink-0 w-full">
+    <div className="bg-white content-stretch isolate flex flex-col gap-[10px] items-center mb-[-2px] overflow-hidden py-[56px] md:py-[80px] px-[20px] md:px-0 relative shrink-0 w-full">
       <Container23 />
       <Container24 />
-      <div className="content-stretch flex flex-col lg:flex-row gap-[32px] lg:gap-[48px] items-start justify-between relative shrink-0 w-full max-w-[1279px]" data-name="Container">
+      <div className="content-stretch flex flex-col lg:flex-row gap-[32px] lg:gap-[48px] items-start justify-between relative shrink-0 w-full max-w-[1279px] z-10" data-name="Container">
         <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full lg:w-[412px]" data-name="Text Container">
           <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] w-full">{content.contact.title}</p>
           <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[15px] w-full">{content.contact.description}</p>
@@ -3474,7 +3560,7 @@ function Group1({ selectedIndex, onDotClick }: { selectedIndex: number, onDotCli
   );
 }
 
-function Frame60({ content }: { content: any }) {
+function Frame60({ content, editable }: { content: any; editable?: any }) {
   if (!content?.locations?.items?.length) return null;
 
   const cards = content.locations.items.slice(0, 4);
@@ -3506,41 +3592,43 @@ function Frame60({ content }: { content: any }) {
       <div className="relative shrink-0 w-full">
         <div className="flex flex-col items-center size-full">
           <div className="content-stretch flex flex-col gap-[20px] md:gap-[40px] items-center leading-[0] not-italic pr-0 relative text-[#080813] text-center w-full">
-            <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center min-w-full relative shrink-0 text-[32px] md:text-[40px] w-[min-content]">
-              <p className="leading-[1.1]">Asesoría hipotecaria en las principales ciudades de España</p>
+            <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center min-w-full relative shrink-0 text-[32px] md:text-[40px] w-[min-content]" data-tina-field={fieldFor(editable?.locations, "title")}>
+              <p className="leading-[1.1]">{content.locations.title}</p>
             </div>
-            <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center relative shrink-0 text-[16px] md:text-[18px] w-full max-w-[860px]">
+            <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center relative shrink-0 text-[16px] md:text-[18px] w-full max-w-[860px]" data-tina-field={fieldFor(editable?.locations, "subtitle")}>
               <p className="leading-[1.1]">{content.locations.subtitle}</p>
             </div>
           </div>
         </div>
       </div>
       <div className="content-stretch flex flex-col gap-[20px] w-full">
-        <div className="h-[400px] md:h-[204px] relative shrink-0 w-full overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-[16px] md:gap-[40px] items-start h-full">
+        <div className="relative shrink-0 w-full overflow-hidden" ref={emblaRef}>
+          <div className="flex items-stretch">
             {cards.map((item: any, index: number) => (
-              <div key={index} className={`flex-[0_0_90%] md:flex-[0_0_auto] min-w-0 bg-[#ecddee] flex flex-col md:flex-row gap-[16px] h-full items-start justify-center p-[16px] md:pr-[20px] relative rounded-[24px] shrink-0 ${index === 0 ? "md:ml-[230px]" : ""}`} data-name="SEO local card">
-                <div className="content-stretch flex flex-col md:flex-row flex-[1_0_0] gap-[16px] items-start min-h-px min-w-px relative">
-                  <div className="flex h-[140px] md:h-full w-full md:w-auto items-center justify-center relative shrink-0">
-                    <div className="h-full relative rounded-[24px] w-full md:w-[306.5px]">
-                      <img alt={item.city} className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src={item.image} />
+              <div key={index} className="flex-[0_0_88%] md:flex-[0_0_760px] lg:flex-[0_0_800px] min-w-0 shrink-0 pr-[16px] md:pr-[40px]">
+                <div className="bg-[#ecddee] flex h-full flex-col md:flex-row gap-[16px] items-stretch justify-start p-[16px] md:pr-[20px] relative rounded-[24px]" data-name="SEO local card">
+                  <div className="content-stretch flex flex-col md:flex-row flex-[1_0_0] gap-[16px] items-stretch min-h-px min-w-px relative">
+                    <div className="flex h-[180px] md:h-[204px] w-full md:w-[306.5px] items-center justify-center relative shrink-0">
+                      <div className="h-full overflow-hidden relative rounded-[24px] w-full" data-tina-field={fieldFor(editable?.locations?.items?.[index], "image")}>
+                        <img alt={item.city} className="absolute inset-0 h-full w-full max-w-none object-cover rounded-[24px]" src={item.image} />
+                      </div>
                     </div>
-                  </div>
-                  <div className="h-full relative shrink-0 flex-1">
-                    <div className="flex flex-col justify-center size-full">
-                      <div className="content-stretch flex flex-col gap-[12px] h-full items-start justify-center py-[8px] md:py-[20px] relative">
-                        <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#8949ff] text-[24px] md:text-[28px] w-[min-content]">
-                          <p className="leading-[1.1]">{item.city}</p>
-                        </div>
-                        <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] min-w-full not-italic relative shrink-0 text-[#080813] text-[15px] w-[min-content]">
-                          <p className="leading-[1.1]">{item.summary || item.address}</p>
-                        </div>
-                        <a href={item.cta?.href || "#"} className="content-stretch flex gap-[8px] items-center relative shrink-0 no-underline">
-                          <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#8949ff] text-[18px] text-center whitespace-nowrap">
-                            <p className="leading-[1.1]">{item.seoLabel || item.cta?.label}</p>
+                    <div className="relative shrink-0 flex-1 min-w-0">
+                      <div className="flex flex-col justify-center size-full">
+                        <div className="content-stretch flex flex-col gap-[12px] h-full items-start justify-center py-[8px] md:py-[20px] relative">
+                          <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#8949ff] text-[24px] md:text-[28px] w-full" data-tina-field={fieldFor(editable?.locations?.items?.[index], "city")}>
+                            <p className="leading-[1.1]">{item.city}</p>
                           </div>
-                          <Container47 />
-                        </a>
+                          <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#080813] text-[15px] w-full" data-tina-field={fieldFor(editable?.locations?.items?.[index], "summary")}>
+                            <p className="leading-[1.1]">{item.summary || item.address}</p>
+                          </div>
+                          <a href={item.cta?.href || "#"} className="content-stretch flex gap-[8px] items-center relative shrink-0 no-underline" data-tina-field={fieldFor(editable?.locations?.items?.[index], "seoLabel")}>
+                            <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#8949ff] text-[18px] text-center whitespace-nowrap">
+                              <p className="leading-[1.1]">{item.seoLabel || item.cta?.label}</p>
+                            </div>
+                            <Container47 />
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3792,51 +3880,84 @@ function Frame49({ content, editable }: { content: any; editable?: any }) {
   if (!content?.metrics) return null;
   const items = content.metrics.items || [];
   return (
-    <div className="w-full max-w-[1180px] mx-auto flex flex-col gap-[28px] md:gap-[36px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold text-[#080813] text-[32px] md:text-[40px] leading-[1.1] text-left w-full" data-tina-field={fieldFor(editable?.metrics, "title")}>
-        {content.metrics.title || "Cifras de valor"}
-      </p>
-      <div className="w-full flex flex-col md:flex-row md:items-end md:justify-between gap-[28px] md:gap-[0px]">
-        <div className="w-full md:flex-[0_0_54%] md:pr-[28px]">
-          {items[0] && (
-            <div className="flex flex-col items-start text-left">
-              <p className="font-['Inter:Light',sans-serif] font-light leading-none text-[#8949ff] text-[88px] sm:text-[120px] lg:text-[160px] xl:text-[199.847px] whitespace-nowrap" data-tina-field={fieldFor(editable?.metrics?.items?.[0], "value")}>
-                {items[0].value}
+    <div className="bg-[#0f172b] content-stretch flex flex-col md:flex-row isolate items-center md:items-center justify-center overflow-hidden px-[20px] sm:px-[28px] py-[28px] md:p-[60px] relative rounded-[32px] md:rounded-[60px] shrink-0 w-full max-w-[1296px]">
+      {(items || []).slice(0, 3).map((item: any, index: number) => (
+        <React.Fragment key={index}>
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[8px] md:gap-[16px] items-center md:items-start leading-[1.1] min-h-px min-w-px not-italic relative w-full text-center md:text-left py-[4px]" data-tina-field={fieldFor(editable?.metrics?.items?.[index], "value")}>
+            <p className="font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#c993ff] text-[28px] sm:text-[34px] md:text-[56px] tracking-[0.3px] md:tracking-[1px] w-full whitespace-nowrap text-center md:text-left">
+              {item.value}
+            </p>
+            <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[14px] sm:text-[15px] md:text-[22px] text-white w-full leading-[1.25] text-center md:text-left" data-tina-field={fieldFor(editable?.metrics?.items?.[index], "title")}>
+              {item.title}
+            </p>
+          </div>
+          {index < Math.min(items.length, 3) - 1 ? (
+            <div className="bg-[#744c98] h-px md:h-[126px] my-[16px] md:mx-[40px] md:my-0 shrink-0 w-[85%] md:w-px" />
+          ) : null}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+function GuidesSection({ content, editable }: { content: any; editable?: any }) {
+  const guides = content?.guides;
+  if (!guides) return null;
+
+  return (
+    <section className="bg-[#080813] content-stretch flex flex-col gap-[40px] items-start px-[20px] md:px-[48px] xl:px-[240px] py-[56px] md:py-[80px] relative shrink-0 w-full">
+      <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[32px] md:text-[40px] text-center text-white w-full" data-tina-field={fieldFor(editable?.guides, "title")}>
+          {guides.title}
+        </p>
+      </div>
+      <div className="content-stretch grid grid-cols-1 md:grid-cols-3 gap-[24px] md:gap-[32px] items-stretch relative shrink-0 w-full">
+        {(guides.items || []).map((item: any, index: number) => (
+          <article key={index} className="bg-white border border-[#bec5d2] border-solid content-stretch flex flex-col items-start overflow-hidden p-px relative rounded-[24px] md:rounded-[32px]" data-tina-field={fieldFor(editable?.guides?.items?.[index], "title")}>
+            <div className="content-stretch flex flex-col gap-[20px] items-start p-[24px] md:p-[32px] relative shrink-0 w-full">
+              <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#101828] text-[17px] md:text-[18px] w-full">
+                {item.title}
               </p>
-              <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.05] text-[#828282] text-[16px] sm:text-[18px] md:text-[20px] max-w-[320px]" data-tina-field={fieldFor(editable?.metrics?.items?.[0], "title")}>
-                {items[0].title}
-              </p>
+              <a href={item.cta?.href || "#"} className="content-stretch flex gap-[8px] items-center relative shrink-0 w-full no-underline">
+                <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#8949ff] text-[15px] whitespace-nowrap">
+                  {item.cta?.label}
+                </p>
+                <span aria-hidden="true" className="font-['Inter:Bold',sans-serif] text-[#8949ff] text-[15px]">&gt;</span>
+              </a>
             </div>
-          )}
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AboutSection({ content, editable }: { content: any; editable?: any }) {
+  const about = content?.about;
+  if (!about) return null;
+
+  return (
+    <section className="bg-white content-stretch flex flex-col items-start px-[20px] md:px-[48px] xl:px-[312px] pt-[56px] pb-[88px] md:py-[80px] relative shrink-0 w-full">
+      <div className="content-stretch flex flex-col lg:flex-row gap-[56px] md:gap-[72px] lg:gap-[80px] items-start lg:items-center relative shrink-0 w-full">
+        <div className="flex-[1_0_0] h-[320px] md:h-[447px] mb-[44px] md:mb-0 min-h-px min-w-px relative rounded-[32px] md:rounded-[40px] w-full" data-tina-field={fieldFor(editable?.about, "image")}>
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] md:rounded-[40px] size-full" src={about.image} />
+          <div className="absolute bg-white border border-[#f8fafc] border-solid content-stretch flex flex-col gap-[4px] items-start bottom-[-40px] right-[16px] md:right-[-24px] px-[20px] md:px-[25px] py-[20px] md:py-[25px] rounded-[24px] shadow-[0px_14px_50px_0px_rgba(0,0,0,0.12)] w-[172px] md:w-[190.766px] z-10">
+            <p className="font-['Inter:Black',sans-serif] font-black leading-[16.5px] not-italic text-[#90a1b9] text-[11px] tracking-[1.1px] uppercase whitespace-nowrap">{about.badgeLabel}</p>
+            <p className="font-['Inter:Black',sans-serif] font-black leading-[1.25] not-italic text-[#0f172b] text-[14px] md:text-[15px] whitespace-normal">{about.badgeText}</p>
+          </div>
         </div>
-        <div className="hidden md:block w-px self-stretch bg-[#d6d2de]" />
-        <div className="w-full md:flex-[0_0_20%] md:px-[28px]">
-          {items[1] && (
-            <div className="flex flex-col items-start text-left md:pt-[6px]">
-              <p className="font-['Inter:Bold',sans-serif] font-bold leading-none text-[#8949ff] text-[52px] md:text-[56px] xl:text-[64px] whitespace-nowrap" data-tina-field={fieldFor(editable?.metrics?.items?.[1], "value")}>
-                {items[1].value}
-              </p>
-              <p className="mt-[14px] font-['Inter:Bold',sans-serif] font-bold leading-[1.05] text-[#9d9ba8] text-[16px] sm:text-[18px] md:text-[20px] max-w-[220px]" data-tina-field={fieldFor(editable?.metrics?.items?.[1], "title")}>
-                {items[1].title}
-              </p>
-            </div>
-          )}
-        </div>
-        <div className="hidden md:block w-px self-stretch bg-[#d6d2de]" />
-        <div className="w-full md:flex-[0_0_20%] md:pl-[28px]">
-          {items[2] && (
-            <div className="flex flex-col items-start text-left md:pt-[6px]">
-              <p className="font-['Inter:Bold',sans-serif] font-bold leading-none text-[#8949ff] text-[52px] md:text-[56px] xl:text-[64px] whitespace-nowrap" data-tina-field={fieldFor(editable?.metrics?.items?.[2], "value")}>
-                {items[2].value}
-              </p>
-              <p className="mt-[14px] font-['Inter:Bold',sans-serif] font-bold leading-[1.05] text-[#9d9ba8] text-[16px] sm:text-[18px] md:text-[20px] max-w-[220px]" data-tina-field={fieldFor(editable?.metrics?.items?.[2], "title")}>
-                {items[2].title}
-              </p>
-            </div>
-          )}
+        <div className="content-stretch flex flex-[1_0_0] flex-col gap-[24px] md:gap-[32px] items-start min-h-px min-w-px pt-[8px] md:py-[40px] relative z-10" data-tina-field={fieldFor(editable?.about, "title")}>
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#101828] text-[28px] md:text-[40px] w-full">{about.title}</p>
+          <div className="font-['Inter:Regular',sans-serif] font-normal not-italic relative shrink-0 text-[#101828] text-[16px] w-full whitespace-pre-wrap">
+            <p className="leading-[1.25]">{about.description}</p>
+          </div>
+          <a href={about.button?.href || "#"} className="bg-[#fcc63d] content-stretch flex gap-[16px] items-center justify-center px-[24px] md:px-[40px] py-[18px] md:py-[24px] relative rounded-[33554400px] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] shrink-0 no-underline w-full sm:w-auto">
+            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#101828] text-[16px] md:text-[18px] whitespace-normal sm:whitespace-nowrap text-center">{about.button?.label}</p>
+            <span aria-hidden="true" className="font-['Inter:Bold',sans-serif] text-[#101828]">&rarr;</span>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -3870,25 +3991,34 @@ export default function Home({
           transform: scale(0.95);
         }
       `}</style>
-      <div className="w-full" data-tina-field={fieldFor(tinaPage, "hero")}>
-        <HeroSection content={page} />
+      <div className="w-full">
+        <HeroSection content={page} editable={tinaPage} />
       </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "services")}>
         <Frame18 content={page} />
       </div>
-      <div className="w-full" data-tina-field={fieldFor(tinaPage, "steps")}> 
-        <StaggeredMetricsSection content={page} />
+      <div className="w-full"> 
+        <StaggeredMetricsSection content={page} editable={tinaPage} />
       </div>
-      <div className="w-full" data-tina-field={fieldFor(tinaPage, "whoIsItFor")}>
+      <div className="w-full">
         <Frame122 content={page} editable={tinaPage} />
+      </div>
+      <div className="w-full" data-tina-field={fieldFor(tinaPage, "steps")}>
+        <StepTimelineSection content={page} editable={tinaPage} />
+      </div>
+      <div className="w-full" data-tina-field={fieldFor(tinaPage, "actionCta")}>
+        <ActionCtaSection content={page} />
       </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "testimonials")}>
         <TestimonialsSection content={page} />
       </div>
+      <div className="w-full" data-tina-field={fieldFor(tinaPage, "about")}>
+        <AboutSection content={page} editable={tinaPage} />
+      </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "partners")}>
         <Frame86 content={page} />
       </div>
-      <div className="bg-white content-stretch flex flex-col items-center mb-[-2px] px-[20px] md:px-[48px] xl:px-[250px] py-[56px] md:py-[80px] relative shrink-0 w-full" data-name="cifras" data-tina-field={fieldFor(tinaPage, "metrics")}> 
+      <div className="bg-white content-stretch flex flex-col items-center mb-[-2px] px-[20px] md:px-[48px] xl:px-[312px] py-[56px] md:py-[80px] relative shrink-0 w-full" data-name="cifras" data-tina-field={fieldFor(tinaPage, "metrics")}> 
         <Frame49 content={page} editable={tinaPage} />
       </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "benefits")}>
@@ -3897,27 +4027,27 @@ export default function Home({
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "contact")}>
         <Frame83 content={page} />
       </div>
+      <div className="w-full" data-tina-field={fieldFor(tinaPage, "guides")}>
+        <GuidesSection content={page} editable={tinaPage} />
+      </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "blog")}>
         <Frame22 content={page} />
       </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "newsletter")}>
         <NewsletterSection content={page} />
       </div>
-      <div className="w-full" data-tina-field={fieldFor(tinaPage, "locations")}>
-        <Frame51 content={page} />
-      </div>
       <div className="w-full" data-tina-field={fieldFor(tinaPage, "faq")}>
         <Frame52 content={page} />
       </div>
       <div className="w-full">
-        <Frame60 content={page} />
+        <Frame60 content={page} editable={tinaPage} />
       </div>
       
     </div>
   );
 }
 
-function HeroSection({ content }: { content: any }) {
+function HeroSection({ content, editable }: { content: any; editable?: any }) {
   if (!content?.hero) return null;
 
   return (
@@ -3926,22 +4056,24 @@ function HeroSection({ content }: { content: any }) {
         alt=""
         className="absolute inset-0 max-w-none object-cover pointer-events-none size-full hidden md:block"
         src={content.hero.background_desktop}
+        data-tina-field={fieldFor(editable?.hero, "background_desktop")}
       />
       <img
         alt=""
         className="absolute inset-0 max-w-none object-cover pointer-events-none size-full md:hidden"
         src={content.hero.background_mobile || content.hero.background_desktop}
+        data-tina-field={fieldFor(editable?.hero, "background_mobile")}
       />
       <div className="relative w-full max-w-[1460px] min-h-[680px] md:min-h-[847px] mx-auto px-[20px] md:px-[48px] xl:px-[80px] py-[56px] md:py-[80px] flex items-center">
         <div className="content-stretch flex flex-col gap-[40px] items-start justify-center relative w-full max-w-[688px] z-10">
           <p className="font-['Inter:Bold',sans-serif] font-bold leading-[0] min-w-full not-italic relative shrink-0 text-[36px] md:text-[56px] text-white tracking-[1px] w-[min-content] pr-0 md:pr-[145px]">
-            <span className="leading-[1.1] text-[#fcc63d]">{content.hero.title_part1}</span>
-            <span className="leading-[1.1]">{content.hero.title_part2}</span>
+            <span className="leading-[1.1] text-[#fcc63d]" data-tina-field={fieldFor(editable?.hero, "title_part1")}>{content.hero.title_part1}</span>
+            <span className="leading-[1.1]" data-tina-field={fieldFor(editable?.hero, "title_part2")}>{content.hero.title_part2}</span>
           </p>
-          <p className="font-['Trueno:Light',sans-serif] leading-[1.1] min-w-full not-italic relative shrink-0 text-[16px] md:text-[18px] text-white w-[min-content] pr-0 md:pr-[243px]">
+          <p className="font-['Trueno:Light',sans-serif] leading-[1.1] min-w-full not-italic relative shrink-0 text-[16px] md:text-[18px] text-white w-[min-content] pr-0 md:pr-[243px]" data-tina-field={fieldFor(editable?.hero, "description")}>
             {content.hero.description}
           </p>
-          <a href={content.hero.cta?.href || "#"} className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[24px] md:px-[40px] py-[16px] md:py-[19px] relative rounded-[33554400px] shrink-0 hover:scale-105 active:scale-95 transition-transform no-underline w-full sm:w-auto">
+          <a href={content.hero.cta?.href || "#"} className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[24px] md:px-[40px] py-[16px] md:py-[19px] relative rounded-[33554400px] shrink-0 hover:scale-105 active:scale-95 transition-transform no-underline w-full sm:w-auto" data-tina-field={fieldFor(editable?.hero?.cta, "label")}>
             <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.2] md:leading-[27px] not-italic relative shrink-0 text-[#0f172b] text-[16px] md:text-[18px] text-center tracking-[1.8px] uppercase whitespace-normal sm:whitespace-nowrap">
               {content.hero.cta?.label}
             </p>
@@ -3956,6 +4088,7 @@ function TestimonialsSection({ content }: { content: any }) {
   if (!content?.testimonials) return null;
   const t = content.testimonials;
   const items = t.items || [];
+  const backgroundColor = t.backgroundColor || "#ecddee";
   const itemsPerPage = 3;
   const totalPages = Math.max(1, Math.ceil(items.length / itemsPerPage));
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -3994,7 +4127,7 @@ function TestimonialsSection({ content }: { content: any }) {
   }, [emblaApi, itemsPerPage]);
 
   return (
-    <section className="bg-[#f7f5f9] mb-[-2px] relative shrink-0 w-full" data-name="testimonios">
+    <section className="mb-[-2px] relative shrink-0 w-full" style={{ backgroundColor }} data-name="testimonios">
       <div className="w-full max-w-[1460px] mx-auto px-[24px] md:px-[48px] xl:px-[80px] py-[80px] flex flex-col gap-[60px] items-center">
         <div className="content-stretch flex flex-col gap-[30px] items-start relative shrink-0 w-full max-w-[947px]">
           <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[40px] text-center w-full">{t.title}</p>
@@ -4139,39 +4272,97 @@ function CarouselDots({
 
 export function FigmaFooter() {
   return (
-    <footer className="bg-[#080813] relative overflow-hidden px-[20px] sm:px-[60px] md:px-[120px] lg:px-[240px] py-[80px] md:py-[120px] w-full text-center md:text-left" data-name="Footer">
-      
-        <div className="absolute hidden md:block left-[1445px] size-[806px] top-[79px]">
-          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 806 806">
-            <circle cx="403" cy="403" fill="url(#footer_radial_1)" id="Ellipse 2" r="403" />
-            <defs>
-              <radialGradient cx="0" cy="0" gradientTransform="translate(403 403) rotate(90) scale(403)" gradientUnits="userSpaceOnUse" id="footer_radial_1" r="1">
-                <stop stopColor="#4F3BF9" />
-                <stop offset="1" stopColor="#3021AE" stopOpacity="0" />
-              </radialGradient>
-            </defs>
-          </svg>
+    <footer className="bg-[#080813] content-stretch flex flex-col gap-[40px] items-center overflow-hidden px-[20px] sm:px-[60px] md:px-[120px] lg:px-[240px] py-[80px] md:py-[120px] relative w-full text-left" data-name="Footer">
+      <div className="absolute hidden md:block left-[75.26%] size-[806px] top-[79px] pointer-events-none">
+        <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 806 806">
+          <circle cx="403" cy="403" fill="url(#footer_radial_1)" r="403" />
+          <defs>
+            <radialGradient cx="0" cy="0" gradientTransform="translate(403 403) rotate(90) scale(403)" gradientUnits="userSpaceOnUse" id="footer_radial_1" r="1">
+              <stop stopColor="#4f3bf9" />
+              <stop offset="1" stopColor="#3021ae" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+      <div className="absolute hidden md:block left-[87.5%] size-[532px] top-[62px] pointer-events-none">
+        <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 532 532">
+          <circle cx="266" cy="266" fill="url(#footer_radial_2)" r="266" />
+          <defs>
+            <radialGradient cx="0" cy="0" gradientTransform="translate(266 266) rotate(90) scale(266)" gradientUnits="userSpaceOnUse" id="footer_radial_2" r="1">
+              <stop stopColor="#8949ff" />
+              <stop offset="1" stopColor="#522c99" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div className="content-stretch grid grid-cols-1 gap-[40px] items-start relative shrink-0 w-full max-w-[1440px] md:grid-cols-[468px_minmax(0,1fr)_minmax(0,1fr)_minmax(260px,1fr)] md:gap-[49px]">
+        <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-full">
+          <div className="h-[56px] md:h-[79.206px] overflow-clip relative shrink-0 w-[236px] md:w-[332.818px]" data-name="Logo blanco">
+            <Capa1 />
+          </div>
+          <p className="font-['Trueno:Light',sans-serif] leading-[1.2] not-italic relative shrink-0 text-[16px] text-white w-full">
+            En Efiteca, somos expertos en transformar tu travesía hipotecaria en una experiencia digital sencilla, cómoda y transparente. Ofrecemos soluciones eficaces y personalizadas respaldadas por el Grupo Suncapital.
+          </p>
+          <Frame73 />
+          <img
+            alt="Grupo Suncapital"
+            className="h-[60.096px] object-contain relative shrink-0 w-[255px]"
+            src="/images/footer-certification.png"
+          />
         </div>
-        <Frame72 />
-        <div className="h-0 mt-[56px] md:mt-[80px] mb-[40px] md:mb-[60px] relative shrink-0 w-full">
-          <div className="absolute inset-[-1px_0]">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 2">
-              <path d="M1440 1H0" id="Vector 453" stroke="var(--stroke-0, #828282)" strokeWidth="2" />
-            </svg>
+
+        <div className="content-stretch flex flex-col gap-[40px] items-start leading-[1.1] not-italic relative w-full">
+          <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#8949ff] text-[22px] w-full">Servicios</p>
+          <div className="content-stretch flex flex-col font-['Inter:Regular',sans-serif] font-normal gap-[22px] items-start relative shrink-0 text-[16px] text-white w-full">
+            <a className="relative shrink-0 w-full no-underline" href="/es/#soluciones">Soluciones de hipoteca</a>
+            <a className="relative shrink-0 w-full no-underline" href="/es/#simulador">Simulador de hipoteca</a>
           </div>
         </div>
-        <div className="absolute hidden md:block left-[1680px] size-[532px] top-[62px]">
-          <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 532 532">
-            <circle cx="266" cy="266" fill="url(#footer_radial_2)" id="Ellipse 1" r="266" />
-            <defs>
-              <radialGradient cx="0" cy="0" gradientTransform="translate(266 266) rotate(90) scale(266)" gradientUnits="userSpaceOnUse" id="footer_radial_2" r="1">
-                <stop stopColor="#8949FF" />
-                <stop offset="1" stopColor="#522C99" stopOpacity="0" />
-              </radialGradient>
-            </defs>
+
+        <div className="content-stretch flex flex-col gap-[40px] items-start leading-[1.1] not-italic relative w-full">
+          <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#8949ff] text-[22px] w-full">Empresa</p>
+          <div className="content-stretch flex flex-col font-['Inter:Regular',sans-serif] font-normal gap-[22px] items-start relative shrink-0 text-[16px] text-white w-full">
+            <a className="relative shrink-0 w-full no-underline" href="/es/#sobre-nosotros">Sobre nosotros</a>
+            <a className="relative shrink-0 w-full no-underline" href="/es/#contacto">Contacto</a>
+            <a className="relative shrink-0 w-full no-underline" href="/es/news/">Blog</a>
+          </div>
+        </div>
+
+        <div className="content-stretch flex flex-col gap-[24px] items-start relative w-full">
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] relative shrink-0 text-[#8949ff] text-[22px] w-full">Contacta</p>
+          <a className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full text-white underline" href="mailto:clientes@efiteca.com">
+            <svg aria-hidden="true" className="relative shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
+              <path d="M4 6h16v12H4V6Z" stroke="#ffffff" strokeWidth="2" />
+              <path d="m4 7 8 6 8-6" stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+            </svg>
+            <span className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] text-[16px] whitespace-nowrap">clientes@efiteca.com</span>
+          </a>
+          <a className="content-stretch flex gap-[16px] items-center relative shrink-0 w-full text-white no-underline" href="mailto:info@efiteca.com">
+            <svg aria-hidden="true" className="relative shrink-0 size-[24px]" fill="none" viewBox="0 0 24 24">
+              <path d="M6.5 4.5h3l1.5 4-2 1.2c1 2.1 2.7 3.8 4.8 4.8l1.2-2 4 1.5v3c0 1.1-.9 2-2 2C10.4 19 5 13.6 5 7c0-1.1.4-2.5 1.5-2.5Z" stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+            </svg>
+            <span className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] text-[16px] whitespace-nowrap">info@efiteca.com</span>
+          </a>
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] relative shrink-0 text-[#8949ff] text-[22px] w-full">Simulador</p>
+          <a className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 no-underline w-full sm:w-auto" href="/es/#simulador">
+            <span className="font-['Inter:Bold',sans-serif] font-bold leading-[27px] relative shrink-0 text-[#0f172b] text-[18px] text-center tracking-[1.8px] uppercase whitespace-nowrap">Ver diagnóstico</span>
+          </a>
+        </div>
+      </div>
+
+      <div className="h-0 relative shrink-0 w-full max-w-[1440px]">
+        <div className="absolute inset-[-1px_0]">
+          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 2">
+            <path d="M1440 1H0" stroke="#828282" strokeWidth="2" />
           </svg>
         </div>
-      
+      </div>
+
+      <div className="content-stretch flex flex-col gap-[16px] font-['Inter:Regular',sans-serif] font-normal items-start justify-between not-italic relative shrink-0 w-full max-w-[1440px] md:flex-row md:gap-[40px]">
+        <p className="leading-[1.1] relative shrink-0 text-[16px] text-white">© Todos los derechos reservados.</p>
+        <p className="leading-[1.1] relative shrink-0 text-[#bec5d2] text-[12px] md:text-right">Protección de Datos | Canal Ético y Reclamaciones | Aviso Legal</p>
+      </div>
     </footer>
   );
 }

@@ -76,7 +76,18 @@ const pages = defineCollection({
         })
       }).optional()
     }).optional(),
+    howItWorks: z.object({
+      title: z.string(),
+      description: z.string(),
+      cta: buttonSchema.optional(),
+      items: z.array(z.object({
+        number: z.string(),
+        title: z.string(),
+        description: z.string()
+      }))
+    }).optional(),
     steps: z.object({
+      eyebrow: z.string().optional(),
       title: z.string(),
       image: z.string(),
       items: z.array(z.object({
@@ -84,6 +95,11 @@ const pages = defineCollection({
         title: z.string(),
         description: z.string()
       }))
+    }).optional(),
+    actionCta: z.object({
+      title: z.string(),
+      description: z.string(),
+      button: buttonSchema
     }).optional(),
     benefits: z.object({
       title: z.string(),
@@ -102,8 +118,16 @@ const pages = defineCollection({
             value: z.string(),
         }))
     }).optional(),
+    guides: z.object({
+      title: z.string(),
+      items: z.array(z.object({
+        title: z.string(),
+        cta: buttonSchema
+        }))
+    }).optional(),
     testimonials: z.object({
         title: z.string(),
+        backgroundColor: z.string().optional(),
         description: z.string(),
         items: z.array(z.object({
             name: z.string(),
@@ -112,6 +136,14 @@ const pages = defineCollection({
             image: z.string(),
             stars: z.number().default(5)
         }))
+    }).optional(),
+    about: z.object({
+      title: z.string(),
+      description: z.string(),
+      image: z.string(),
+      badgeLabel: z.string(),
+      badgeText: z.string(),
+      button: buttonSchema
     }).optional(),
     partners: z.object({
         title: z.string(),

@@ -159,6 +159,24 @@ type PagesWhoIsItFor {
   process: PagesWhoIsItForProcess
 }
 
+type PagesHowItWorksCta {
+  label: String!
+  href: String!
+}
+
+type PagesHowItWorksItems {
+  number: String
+  title: String
+  description: String
+}
+
+type PagesHowItWorks {
+  title: String
+  description: String
+  cta: PagesHowItWorksCta
+  items: [PagesHowItWorksItems]
+}
+
 type PagesStepsItems {
   number: Float
   title: String
@@ -166,9 +184,21 @@ type PagesStepsItems {
 }
 
 type PagesSteps {
+  eyebrow: String
   title: String
   image: String
   items: [PagesStepsItems]
+}
+
+type PagesActionCtaButton {
+  label: String!
+  href: String!
+}
+
+type PagesActionCta {
+  title: String
+  description: String
+  button: PagesActionCtaButton
 }
 
 type PagesBenefitsItems {
@@ -194,6 +224,21 @@ type PagesMetrics {
   items: [PagesMetricsItems]
 }
 
+type PagesGuidesItemsCta {
+  label: String!
+  href: String!
+}
+
+type PagesGuidesItems {
+  title: String
+  cta: PagesGuidesItemsCta
+}
+
+type PagesGuides {
+  title: String
+  items: [PagesGuidesItems]
+}
+
 type PagesTestimonialsItems {
   name: String
   role: String
@@ -204,8 +249,23 @@ type PagesTestimonialsItems {
 
 type PagesTestimonials {
   title: String
+  backgroundColor: String
   description: String
   items: [PagesTestimonialsItems]
+}
+
+type PagesAboutButton {
+  label: String!
+  href: String!
+}
+
+type PagesAbout {
+  title: String
+  description: String
+  image: String
+  badgeLabel: String
+  badgeText: String
+  button: PagesAboutButton
 }
 
 type PagesPartnersItems {
@@ -320,10 +380,14 @@ type Pages implements Node & Document {
   hero: PagesHero
   services: PagesServices
   whoIsItFor: PagesWhoIsItFor
+  howItWorks: PagesHowItWorks
   steps: PagesSteps
+  actionCta: PagesActionCta
   benefits: PagesBenefits
   metrics: PagesMetrics
+  guides: PagesGuides
   testimonials: PagesTestimonials
+  about: PagesAbout
   partners: PagesPartners
   faq: PagesFaq
   locations: PagesLocations
@@ -417,6 +481,24 @@ input PagesWhoIsItForFilter {
   process: PagesWhoIsItForProcessFilter
 }
 
+input PagesHowItWorksCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesHowItWorksItemsFilter {
+  number: StringFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input PagesHowItWorksFilter {
+  title: StringFilter
+  description: StringFilter
+  cta: PagesHowItWorksCtaFilter
+  items: PagesHowItWorksItemsFilter
+}
+
 input NumberFilter {
   lt: Float
   lte: Float
@@ -434,9 +516,21 @@ input PagesStepsItemsFilter {
 }
 
 input PagesStepsFilter {
+  eyebrow: StringFilter
   title: StringFilter
   image: ImageFilter
   items: PagesStepsItemsFilter
+}
+
+input PagesActionCtaButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesActionCtaFilter {
+  title: StringFilter
+  description: StringFilter
+  button: PagesActionCtaButtonFilter
 }
 
 input PagesBenefitsItemsFilter {
@@ -462,6 +556,21 @@ input PagesMetricsFilter {
   items: PagesMetricsItemsFilter
 }
 
+input PagesGuidesItemsCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesGuidesItemsFilter {
+  title: StringFilter
+  cta: PagesGuidesItemsCtaFilter
+}
+
+input PagesGuidesFilter {
+  title: StringFilter
+  items: PagesGuidesItemsFilter
+}
+
 input PagesTestimonialsItemsFilter {
   name: StringFilter
   role: StringFilter
@@ -472,8 +581,23 @@ input PagesTestimonialsItemsFilter {
 
 input PagesTestimonialsFilter {
   title: StringFilter
+  backgroundColor: StringFilter
   description: StringFilter
   items: PagesTestimonialsItemsFilter
+}
+
+input PagesAboutButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesAboutFilter {
+  title: StringFilter
+  description: StringFilter
+  image: ImageFilter
+  badgeLabel: StringFilter
+  badgeText: StringFilter
+  button: PagesAboutButtonFilter
 }
 
 input PagesPartnersItemsFilter {
@@ -594,10 +718,14 @@ input PagesFilter {
   hero: PagesHeroFilter
   services: PagesServicesFilter
   whoIsItFor: PagesWhoIsItForFilter
+  howItWorks: PagesHowItWorksFilter
   steps: PagesStepsFilter
+  actionCta: PagesActionCtaFilter
   benefits: PagesBenefitsFilter
   metrics: PagesMetricsFilter
+  guides: PagesGuidesFilter
   testimonials: PagesTestimonialsFilter
+  about: PagesAboutFilter
   partners: PagesPartnersFilter
   faq: PagesFaqFilter
   locations: PagesLocationsFilter
@@ -813,6 +941,24 @@ input PagesWhoIsItForMutation {
   process: PagesWhoIsItForProcessMutation
 }
 
+input PagesHowItWorksCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesHowItWorksItemsMutation {
+  number: String
+  title: String
+  description: String
+}
+
+input PagesHowItWorksMutation {
+  title: String
+  description: String
+  cta: PagesHowItWorksCtaMutation
+  items: [PagesHowItWorksItemsMutation]
+}
+
 input PagesStepsItemsMutation {
   number: Float
   title: String
@@ -820,9 +966,21 @@ input PagesStepsItemsMutation {
 }
 
 input PagesStepsMutation {
+  eyebrow: String
   title: String
   image: String
   items: [PagesStepsItemsMutation]
+}
+
+input PagesActionCtaButtonMutation {
+  label: String
+  href: String
+}
+
+input PagesActionCtaMutation {
+  title: String
+  description: String
+  button: PagesActionCtaButtonMutation
 }
 
 input PagesBenefitsItemsMutation {
@@ -848,6 +1006,21 @@ input PagesMetricsMutation {
   items: [PagesMetricsItemsMutation]
 }
 
+input PagesGuidesItemsCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesGuidesItemsMutation {
+  title: String
+  cta: PagesGuidesItemsCtaMutation
+}
+
+input PagesGuidesMutation {
+  title: String
+  items: [PagesGuidesItemsMutation]
+}
+
 input PagesTestimonialsItemsMutation {
   name: String
   role: String
@@ -858,8 +1031,23 @@ input PagesTestimonialsItemsMutation {
 
 input PagesTestimonialsMutation {
   title: String
+  backgroundColor: String
   description: String
   items: [PagesTestimonialsItemsMutation]
+}
+
+input PagesAboutButtonMutation {
+  label: String
+  href: String
+}
+
+input PagesAboutMutation {
+  title: String
+  description: String
+  image: String
+  badgeLabel: String
+  badgeText: String
+  button: PagesAboutButtonMutation
 }
 
 input PagesPartnersItemsMutation {
@@ -974,10 +1162,14 @@ input PagesMutation {
   hero: PagesHeroMutation
   services: PagesServicesMutation
   whoIsItFor: PagesWhoIsItForMutation
+  howItWorks: PagesHowItWorksMutation
   steps: PagesStepsMutation
+  actionCta: PagesActionCtaMutation
   benefits: PagesBenefitsMutation
   metrics: PagesMetricsMutation
+  guides: PagesGuidesMutation
   testimonials: PagesTestimonialsMutation
+  about: PagesAboutMutation
   partners: PagesPartnersMutation
   faq: PagesFaqMutation
   locations: PagesLocationsMutation

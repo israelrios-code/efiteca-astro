@@ -155,9 +155,36 @@ var config_default = defineConfig({
           },
           {
             type: "object",
+            name: "howItWorks",
+            label: "How it works",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "object", name: "cta", label: "CTA", fields: linkFields },
+              {
+                type: "object",
+                name: "items",
+                label: "Steps",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || `Step ${item?.number ?? ""}`.trim()
+                  })
+                },
+                fields: [
+                  { type: "string", name: "number", label: "Number" },
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "description", label: "Description", ui: { component: "textarea" } }
+                ]
+              }
+            ]
+          },
+          {
+            type: "object",
             name: "steps",
             label: "Steps",
             fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
               { type: "string", name: "title", label: "Title" },
               { type: "image", name: "image", label: "Image" },
               {
@@ -176,6 +203,16 @@ var config_default = defineConfig({
                   { type: "string", name: "description", label: "Description", ui: { component: "textarea" } }
                 ]
               }
+            ]
+          },
+          {
+            type: "object",
+            name: "actionCta",
+            label: "Action CTA",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "object", name: "button", label: "Button", fields: linkFields }
             ]
           },
           {
@@ -224,10 +261,34 @@ var config_default = defineConfig({
           },
           {
             type: "object",
+            name: "guides",
+            label: "Guides",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              {
+                type: "object",
+                name: "items",
+                label: "Guide cards",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || "Guide"
+                  })
+                },
+                fields: [
+                  { type: "string", name: "title", label: "Title", ui: { component: "textarea" } },
+                  { type: "object", name: "cta", label: "CTA", fields: linkFields }
+                ]
+              }
+            ]
+          },
+          {
+            type: "object",
             name: "testimonials",
             label: "Testimonials",
             fields: [
               { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "backgroundColor", label: "Background color" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
               {
                 type: "object",
@@ -247,6 +308,19 @@ var config_default = defineConfig({
                   { type: "number", name: "stars", label: "Stars" }
                 ]
               }
+            ]
+          },
+          {
+            type: "object",
+            name: "about",
+            label: "About",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "badgeLabel", label: "Badge label" },
+              { type: "string", name: "badgeText", label: "Badge text" },
+              { type: "object", name: "button", label: "Button", fields: linkFields }
             ]
           },
           {

@@ -66,8 +66,28 @@ whoIsItFor:
       button:
         label: Calcular mi hipoteca ahora
         href: '#calculator'
+howItWorks:
+  title: ¿Cómo funciona?
+  description: 'Un proceso claro para tomar decisiones seguras:'
+  cta:
+    label: Agenda diagnóstico gratis
+    href: '#diagnosis'
+  items:
+    - number: '01'
+      title: Nos cuentas tu caso
+      description: Sin tecnicismos. Solo cuéntanos tu objetivo y tu situación actual.
+    - number: '02'
+      title: Analizamos qué bancos aplican a tu perfil.
+      description: 'Revisamos viabilidad, condiciones reales y opciones disponibles.'
+    - number: '03'
+      title: Te mostramos opciones comparadas.
+      description: Recibes alternativas claras para decidir con seguridad.
+    - number: '04'
+      title: Coordinamos el proceso hasta la firma.
+      description: Acompañamos cada paso para evitar retrasos y sorpresas.
 steps:
-  title: Conoce nuestro paso a paso
+  eyebrow: Conoce nuestro paso a paso
+  title: De la primera llamada a la firma
   image: /images/box.png
   items:
     - number: 1
@@ -83,11 +103,20 @@ steps:
       title: Estrategia recomendada
       description: 'Definimos el camino más conveniente según tu perfil, priorizando viabilidad y tiempos.'
     - number: 5
-      title: Coordinación con banco y notaría
-      description: Gestionamos la comunicación entre entidades para asegurar que el proceso avance correctamente.
+      title: Coordinación con intervinientes
+      description: 'Gestionamos la comunicación entre intervinientes particulares, organismos y entidades para asegurar que el proceso avance correctamente y llegues a firma sin retrasos ni sorpresas.'
     - number: 6
       title: Firma con claridad
       description: 'Llegas a la firma entendiendo cada decisión tomada, con acompañamiento experto.'
+actionCta:
+  title: ¿Cuánto vale?
+  description: |-
+    El diagnóstico inicial es gratuito. A partir de ahí, el costo depende del nivel de acompañamiento requerido y la complejidad del caso.
+
+    Siempre sabrás el valor antes de avanzar.
+  button:
+    label: Contactar asesor
+    href: '#diagnosis'
 benefits:
   title: Descubre nuestros beneficios
   description: 'Te acompañamos con una estrategia clara, comparación real de opciones y criterio experto para que avances con confianza.'
@@ -103,14 +132,30 @@ benefits:
 metrics:
   title: Cifras de valor
   items:
-    - title: Casos acompañados hasta firma
+    - title: Casos acompañados
       value: '2.000'
     - title: Procesos optimizados
       value: '+500'
-    - title: Decisiones tomadas con claridad
+    - title: Desiciones tomadas con claridad
       value: '300'
+guides:
+  title: Descarga nuestras guías gratuitas
+  items:
+    - title: 5 errores al pedir una hipoteca que pueden costarte años
+      cta:
+        label: Descargar guía gratuita
+        href: '#guia-errores-hipoteca'
+    - title: errores al pedir una hipoteca que pueden costarte años
+      cta:
+        label: Descargar guía gratuita
+        href: '#guia-costes-hipoteca'
+    - title: Qué revisar antes de firmar una hipoteca para evitar sorpresas a largo plazo
+      cta:
+        label: Descargar guía gratuita
+        href: '#guia-firma-hipoteca'
 testimonials:
   title: Testimonios
+  backgroundColor: '#ecddee'
   description: 'Personas en situaciones reales lograron tomar decisiones con mayor claridad, mejorar condiciones o conseguir su hipoteca.'
   items:
     - name: Carlos Gómez
@@ -128,11 +173,18 @@ testimonials:
       text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt. Tincidunt vitae tellus consectetur dui morbi vulputate quam aliquam lacus. Quis elit sed pharetra facilisis.
       image: /images/blog1.png
       stars: 4
-    - name: '1'
-      role: '1'
-      text: asdasd
-      image: /images/imgEllipse5.png
-      stars: 4
+about:
+  title: Sobre nosotros
+  description: |-
+    Somos un equipo especializado en acompañamiento hipotecario.
+
+    No vendemos intermediación: ayudamos a tomar decisiones seguras, con opciones claras y coordinación integral hasta la firma.
+  image: /images/about-efiteca.png
+  badgeLabel: Registro oficial
+  badgeText: BdE · Número E377
+  button:
+    label: Conoce al equipo
+    href: '#equipo'
 partners:
   title: Aliados estratégicos
   description: Trabajamos con entidades financieras y actores del ecosistema inmobiliario.
@@ -157,7 +209,7 @@ faq:
     - question: ¿Cómo me ayudáis hasta la firma?
       answer: 'Te acompañamos paso a paso, resolviendo tus dudas y encargándonos de la comunicación con el banco hasta la firma en notaría.'
 locations:
-  title: Conoce nuestras ubicaciones
+  title: Acompañamiento hipotecario en las principales ciudades de España
   subtitle: Atendemos de forma digital con acompañamiento personalizado durante todo el proceso.
   items:
     - city: Barcelona
