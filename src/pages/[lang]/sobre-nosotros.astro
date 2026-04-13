@@ -1,0 +1,205 @@
+---
+import ReactAboutPage from "@/components/about/ReactAboutPage";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { LOCALES, type Lang } from "@/data/locales";
+import { buildLanguageAlternates } from "@/lib/seo/meta";
+import { getEntry } from "astro:content";
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({
+    params: {
+      lang: locale.code
+    }
+  }));
+}
+
+const lang = Astro.params.lang as Lang;
+
+const entry = await getEntry("pages", `about-${lang}`);
+let content = entry?.data;
+let tinaProps:
+  | {
+      query: string;
+      variables: Record<string, unknown>;
+      data: Record<string, unknown>;
+    }
+  | undefined;
+
+if (import.meta.env.DEV) {
+  const query = `
+    query AboutPage($relativePath: String!) {
+      pages(relativePath: $relativePath) {
+        id
+        _sys {
+          filename
+          basename
+          path
+          breadcrumbs
+          relativePath
+          extension
+        }
+        lang
+        title
+        seo {
+          title
+          description
+        }
+        aboutHero {
+          eyebrow
+          title
+          highlight
+          description
+          texture
+          outlineImage
+          cta {
+            label
+            href
+          }
+        }
+        trajectory {
+          title
+          description
+          highlight
+          image
+          badgeLabel
+          badgeText
+        }
+        purposeSection {
+          title
+          description
+          highlight
+          image
+          bullets
+        }
+        partners {
+          title
+          description
+          items {
+            name
+          }
+        }
+        testimonials {
+          title
+          backgroundColor
+          description
+          items {
+            name
+            role
+            text
+            image
+            stars
+          }
+        }
+        certifications {
+          title
+          description
+          logoImage
+        }
+        recognitions {
+          title
+          description
+          texture
+          items {
+            title
+            subtitle
+          }
+        }
+        companyInfo {
+          title
+          items
+          image
+          legalLinks {
+            label
+            href
+          }
+        }
+        contact {
+          title
+          description
+          highlights
+          scheduleLabel
+          scheduleText
+          phone
+          email
+          form {
+            name_label
+            name_placeholder
+            lastname_label
+            lastname_placeholder
+            email_label
+            email_placeholder
+            phone_label
+            phone_placeholder
+            message_label
+            message_placeholder
+            terms_label
+            submit_label
+          }
+        }
+        locationsShowcase {
+          title
+          description
+          mapImage
+          cta {
+            title
+            description
+            button {
+              label
+              href
+            }
+          }
+        }
+        locations {
+          title
+          subtitle
+          items {
+            city
+            address
+            image
+            summary
+            seoLabel
+            cta {
+              label
+              href
+            }
+          }
+        }
+      }
+    }
+  `;
+  const variables = {
+    relativePath: `about-${lang}.md`
+  };
+  const response = await fetch("http://localhost:4001/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ query, variables })
+  });
+  const result = await response.json();
+
+  if (result?.data?.pages) {
+    content = result.data.pages;
+    tinaProps = {
+      query,
+      variables,
+      data: result.data
+    };
+  }
+}
+
+if (!content) {
+  return Astro.redirect(`/${lang}/404`);
+}
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.seo?.title || "Sobre nosotros | Efiteca"}
+  description={content.seo?.description || "Conoce la trayectoria, proposito y certificaciones de Efiteca."}
+  path={`/${lang}/sobre-nosotros/`}
+  alternates={buildLanguageAlternates("/sobre-nosotros/")}
+>
+  <ReactAboutPage client:load content={content} {...tinaProps} />
+</BaseLayout>

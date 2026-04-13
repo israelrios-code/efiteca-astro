@@ -28,7 +28,23 @@ var config_default = defineConfig({
         format: "md",
         ui: {
           router: ({ document }) => {
+            const filename = document._sys.filename;
             const lang = document._sys.filename.endsWith("-en") ? "en" : "es";
+            if (filename.startsWith("solutions-")) {
+              return `/${lang}/soluciones-vivienda/`;
+            }
+            if (filename.startsWith("about-")) {
+              return `/${lang}/sobre-nosotros/`;
+            }
+            if (filename.startsWith("contact-")) {
+              return `/${lang}/contacto/`;
+            }
+            if (filename.startsWith("blog-")) {
+              return `/${lang}/news/`;
+            }
+            if (filename.startsWith("simulator-")) {
+              return `/${lang}/simulador-hipoteca/`;
+            }
             return `/${lang}/`;
           }
         },
@@ -81,6 +97,111 @@ var config_default = defineConfig({
           },
           {
             type: "object",
+            name: "aboutHero",
+            label: "About hero",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "highlight", label: "Highlight" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "image", name: "texture", label: "Background texture" },
+              { type: "image", name: "outlineImage", label: "Outline image" },
+              { type: "object", name: "cta", label: "CTA", fields: linkFields }
+            ]
+          },
+          {
+            type: "object",
+            name: "contactHero",
+            label: "Contact hero",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "highlight", label: "Highlight" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "object", name: "primaryCta", label: "Primary CTA", fields: linkFields },
+              { type: "object", name: "secondaryCta", label: "Secondary CTA", fields: linkFields }
+            ]
+          },
+          {
+            type: "object",
+            name: "newsLanding",
+            label: "News landing",
+            fields: [
+              { type: "string", name: "heroTitle", label: "Hero title" },
+              { type: "string", name: "heroHighlight", label: "Hero highlight" },
+              { type: "string", name: "heroDescription", label: "Hero description", ui: { component: "textarea" } },
+              { type: "string", name: "listingTitle", label: "Listing title" },
+              { type: "string", name: "listingDescription", label: "Listing description", ui: { component: "textarea" } }
+            ]
+          },
+          {
+            type: "object",
+            name: "contactIntro",
+            label: "Contact intro",
+            fields: [
+              { type: "string", name: "pretitle", label: "Pretitle" },
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "highlight", label: "Highlight" },
+              { type: "string", name: "bulletsTitle", label: "Bullets title" },
+              { type: "string", name: "bullets", label: "Bullets", list: true },
+              { type: "string", name: "footnote", label: "Footnote", ui: { component: "textarea" } },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "floatingLabel", label: "Floating label" }
+            ]
+          },
+          {
+            type: "object",
+            name: "diagnosticSteps",
+            label: "Diagnostic steps",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description" },
+              { type: "string", name: "footnote", label: "Footnote" },
+              {
+                type: "object",
+                name: "items",
+                label: "Steps",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || `Step ${item?.number ?? ""}`.trim()
+                  })
+                },
+                fields: [
+                  { type: "number", name: "number", label: "Number" },
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "description", label: "Description", ui: { component: "textarea" } }
+                ]
+              }
+            ]
+          },
+          {
+            type: "object",
+            name: "trajectory",
+            label: "Trajectory",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "string", name: "highlight", label: "Highlight" },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "badgeLabel", label: "Badge label" },
+              { type: "string", name: "badgeText", label: "Badge text" }
+            ]
+          },
+          {
+            type: "object",
+            name: "purposeSection",
+            label: "Purpose",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "string", name: "highlight", label: "Highlight" },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "bullets", label: "Bullets", list: true }
+            ]
+          },
+          {
+            type: "object",
             name: "services",
             label: "Services",
             fields: [
@@ -103,6 +224,67 @@ var config_default = defineConfig({
                   { type: "object", name: "button", label: "Button", fields: linkFields }
                 ]
               }
+            ]
+          },
+          {
+            type: "object",
+            name: "simulator",
+            label: "Simulator",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "image", name: "image", label: "Image" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "string", name: "secondaryDescription", label: "Secondary description", ui: { component: "textarea" } },
+              { type: "string", name: "noteTitle", label: "Note title" },
+              { type: "string", name: "noteText", label: "Note text", ui: { component: "textarea" } },
+              { type: "string", name: "offerBadge", label: "Offer badge" },
+              { type: "string", name: "calculatorTitle", label: "Calculator title" },
+              { type: "string", name: "resultLabel", label: "Result label" },
+              { type: "string", name: "resultValue", label: "Result value" },
+              { type: "object", name: "cta", label: "CTA", fields: linkFields },
+              {
+                type: "object",
+                name: "sliders",
+                label: "Sliders",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.label || "Slider"
+                  })
+                },
+                fields: [
+                  { type: "string", name: "label", label: "Label" },
+                  { type: "string", name: "value", label: "Value" },
+                  { type: "number", name: "progress", label: "Progress" }
+                ]
+              }
+            ]
+          },
+          {
+            type: "object",
+            name: "requirementsBanner",
+            label: "Requirements banner",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              {
+                type: "string",
+                name: "items",
+                label: "Requirements",
+                list: true
+              },
+              { type: "image", name: "image", label: "Image" },
+              { type: "object", name: "button", label: "Button", fields: linkFields }
+            ]
+          },
+          {
+            type: "object",
+            name: "calculatorEmbed",
+            label: "Calculator embed",
+            fields: [
+              { type: "string", name: "eyebrow", label: "Eyebrow" },
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "string", name: "src", label: "Source URL" }
             ]
           },
           {
@@ -217,6 +399,19 @@ var config_default = defineConfig({
           },
           {
             type: "object",
+            name: "shortcutCta",
+            label: "Shortcut CTA",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "object", name: "button", label: "Button", fields: linkFields },
+              { type: "image", name: "image", label: "Image" },
+              { type: "image", name: "overlayImage", label: "Overlay image" },
+              { type: "image", name: "accentImage", label: "Accent image" }
+            ]
+          },
+          {
+            type: "object",
             name: "benefits",
             label: "Benefits",
             fields: [
@@ -312,6 +507,63 @@ var config_default = defineConfig({
           },
           {
             type: "object",
+            name: "certifications",
+            label: "Certifications",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "image", name: "logoImage", label: "Logo image" }
+            ]
+          },
+          {
+            type: "object",
+            name: "recognitions",
+            label: "Recognitions",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "image", name: "texture", label: "Background texture" },
+              {
+                type: "object",
+                name: "items",
+                label: "Recognition cards",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.title || "Recognition"
+                  })
+                },
+                fields: [
+                  { type: "string", name: "title", label: "Title" },
+                  { type: "string", name: "subtitle", label: "Subtitle" }
+                ]
+              }
+            ]
+          },
+          {
+            type: "object",
+            name: "companyInfo",
+            label: "Company info",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "items", label: "Paragraphs", list: true },
+              { type: "image", name: "image", label: "Image" },
+              {
+                type: "object",
+                name: "legalLinks",
+                label: "Legal links",
+                list: true,
+                ui: {
+                  itemProps: (item) => ({
+                    label: item?.label || "Legal link"
+                  })
+                },
+                fields: linkFields
+              }
+            ]
+          },
+          {
+            type: "object",
             name: "about",
             label: "About",
             fields: [
@@ -364,6 +616,19 @@ var config_default = defineConfig({
           },
           {
             type: "object",
+            name: "comparison",
+            label: "Comparison",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "leftTitle", label: "Left title" },
+              { type: "string", name: "rightTitle", label: "Right title" },
+              { type: "string", name: "leftItems", label: "Left items", list: true },
+              { type: "string", name: "rightItems", label: "Right items", list: true },
+              { type: "object", name: "cta", label: "CTA", fields: linkFields }
+            ]
+          },
+          {
+            type: "object",
             name: "locations",
             label: "Locations",
             fields: [
@@ -386,6 +651,26 @@ var config_default = defineConfig({
                   { type: "string", name: "seoLabel", label: "SEO CTA label" },
                   { type: "image", name: "image", label: "Image" },
                   { type: "object", name: "cta", label: "Card CTA", fields: linkFields }
+                ]
+              }
+            ]
+          },
+          {
+            type: "object",
+            name: "locationsShowcase",
+            label: "Locations showcase",
+            fields: [
+              { type: "string", name: "title", label: "Title" },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "image", name: "mapImage", label: "Map image" },
+              {
+                type: "object",
+                name: "cta",
+                label: "CTA card",
+                fields: [
+                  { type: "string", name: "title", label: "Card title" },
+                  { type: "string", name: "description", label: "Card description", ui: { component: "textarea" } },
+                  { type: "object", name: "button", label: "Button", fields: linkFields }
                 ]
               }
             ]
@@ -435,6 +720,8 @@ var config_default = defineConfig({
             fields: [
               { type: "string", name: "title", label: "Title" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "string", name: "backgroundColor", label: "Background color" },
+              { type: "string", name: "cardBackground", label: "Card background" },
               {
                 type: "string",
                 name: "highlights",
@@ -447,16 +734,25 @@ var config_default = defineConfig({
                 label: "Form labels",
                 fields: [
                   { type: "string", name: "name_label", label: "Name label" },
+                  { type: "string", name: "name_placeholder", label: "Name placeholder" },
                   { type: "string", name: "lastname_label", label: "Last name label" },
+                  { type: "string", name: "lastname_placeholder", label: "Last name placeholder" },
                   { type: "string", name: "email_label", label: "Email label" },
+                  { type: "string", name: "email_placeholder", label: "Email placeholder" },
                   { type: "string", name: "phone_label", label: "Phone label" },
+                  { type: "string", name: "phone_placeholder", label: "Phone placeholder" },
                   { type: "string", name: "role_label", label: "Role label" },
                   { type: "string", name: "role_placeholder", label: "Role placeholder" },
                   { type: "string", name: "message_label", label: "Message label" },
+                  { type: "string", name: "message_placeholder", label: "Message placeholder" },
                   { type: "string", name: "terms_label", label: "Terms label" },
                   { type: "string", name: "submit_label", label: "Submit label" }
                 ]
-              }
+              },
+              { type: "string", name: "scheduleLabel", label: "Schedule label" },
+              { type: "string", name: "scheduleText", label: "Schedule text", ui: { component: "textarea" } },
+              { type: "string", name: "phone", label: "Phone" },
+              { type: "string", name: "email", label: "Email" }
             ]
           },
           {

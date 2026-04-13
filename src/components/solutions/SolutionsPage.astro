@@ -1,0 +1,501 @@
+---
+import { Frame60, StepTimelineSection } from "@/components/home/ReactHome.tsx";
+
+type Props = {
+  content: any;
+  lang?: "es" | "en";
+};
+
+const { content, lang = "es" } = Astro.props;
+
+const serviceOrder = [
+  "Recibe información",
+  "Busca nueva hipoteca",
+  "Mejora tu hipoteca",
+  "Calcula la hipoteca"
+];
+
+const serviceImageMap: Record<string, string> = {
+  "Recibe información": "/images/solutions-service-info.jpg",
+  "Busca nueva hipoteca": "/images/solutions-service-new.jpg",
+  "Mejora tu hipoteca": "/images/solutions-service-improve.jpg",
+  "Calcula la hipoteca": "/images/solutions-service-calculator.jpg"
+};
+
+const orderedServices = (content?.services?.items || [])
+  .slice()
+  .sort(
+    (a: any, b: any) =>
+      serviceOrder.indexOf(a.title) - serviceOrder.indexOf(b.title)
+  )
+  .map((item: any) => ({
+    ...item,
+    image: serviceImageMap[item.title] || item.image
+  }));
+
+const benefits = content?.benefits?.items || [];
+const comparisonGood = [
+  "Opciones claras",
+  "Comparativas de mercado",
+  "Coordinación integral",
+  "Menos fricción",
+  "Decisión informada"
+];
+const comparisonBad = [
+  "Información dispersa",
+  "Prueba y error",
+  "Gestión individual",
+  "Más burocracia",
+  "Riesgo de errores"
+];
+const testimonialItems = (content?.testimonials?.items || []).slice(0, 3);
+const metricItems = content?.metrics?.items || [];
+const faqItems = content?.faq?.items || [];
+const locationCards = content?.locations?.items || [];
+const mainLocation = locationCards[0];
+const langPrefix = `/${lang}`;
+---
+
+<div class="bg-white">
+  <section class="relative overflow-hidden bg-[#f9fafb]">
+    <img
+      src="/images/solutions-hero-bg.jpg"
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,19,0.18)_0%,rgba(8,8,19,0)_55%)]"></div>
+    <div class="relative mx-auto flex min-h-[720px] w-full max-w-[1920px] items-center px-[20px] py-[56px] md:min-h-[803px] md:px-[48px] xl:px-[230px]">
+      <div class="w-full max-w-[680px] rounded-[20px] bg-[linear-gradient(180deg,#ad81ff_0%,#8949ff_58%,#2b2148_100%)] p-[24px] shadow-[0px_24px_60px_rgba(137,73,255,0.28)] md:p-[40px]">
+        <h1 class="text-[36px] font-bold leading-[1.08] tracking-[0] text-white md:text-[56px] md:tracking-[1px]">
+          <span class="text-[#fcc63d]">Soluciones hipotecarias</span>
+          <span> para comprar o mejorar tu vivienda</span>
+        </h1>
+        <p class="mt-[24px] max-w-[520px] text-[15px] leading-[1.15] text-white md:text-[16px]">
+          Te ayudamos a conseguir o optimizar tu hipoteca con claridad, estrategia personalizada y acompañamiento experto durante todo el proceso hasta la firma.
+        </p>
+        <a
+          href="#contacto-soluciones"
+          class="mt-[24px] inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[16px] text-center text-[14px] font-bold uppercase tracking-[1.6px] text-[#0f172b] no-underline shadow-[0px_18px_40px_rgba(252,198,61,0.3)] sm:w-auto md:px-[40px] md:py-[19px] md:text-[18px] md:tracking-[1.8px]"
+        >
+          Solicita tu estado de viabilidad gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto flex max-w-[1460px] flex-col items-center gap-[24px]">
+      <div class="w-full text-center">
+        <h2 class="text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]">
+          Entidades financieras con las que colaboramos
+        </h2>
+        <p class="mx-auto mt-[16px] max-w-[940px] text-[16px] leading-[1.15] text-[#080813] md:text-[18px]">
+          Trabajamos con entidades financieras y actores del ecosistema inmobiliario para ofrecer opciones reales adaptadas a cada perfil.
+        </p>
+      </div>
+      <div class="flex w-full snap-x snap-mandatory gap-[24px] overflow-x-auto pb-[8px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:justify-center md:overflow-visible">
+        {["Santander", "CaixaBank", "Sabadell", "BBVA", "ING", "Bankinter"].map((brand) => (
+          <div class="min-w-[140px] snap-start rounded-[18px] border border-[#ebe8f2] bg-white px-[18px] py-[18px] text-center shadow-[0px_8px_24px_rgba(16,24,40,0.06)]">
+            <span class:list={[
+              "text-[20px] font-black uppercase leading-none tracking-[-0.8px]",
+              brand === "Santander" && "text-[#ec1c24]",
+              brand === "CaixaBank" && "text-[#0b4ea2]",
+              brand === "Sabadell" && "text-[#1f3b82]",
+              brand === "BBVA" && "text-[#0f4c81]",
+              brand === "ING" && "text-[#f26b21]",
+              brand === "Bankinter" && "text-[#f15a24]"
+            ]}>{brand}</span>
+          </div>
+        ))}
+      </div>
+      <div class="flex items-center gap-[12px]">
+        <span class="h-[8px] w-[8px] rounded-full bg-[#e0d0ef]"></span>
+        <span class="h-[8px] w-[8px] rounded-full bg-[#e0d0ef]"></span>
+        <span class="h-[8px] w-[28px] rounded-full bg-[#8949ff]"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#f7f5f9] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto max-w-[1460px] rounded-[36px] bg-[#f7f5f9]">
+      <h2 class="text-center text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]">
+        Nuestros servicios
+      </h2>
+      <div class="mt-[40px] grid grid-cols-1 gap-[24px] md:grid-cols-2 xl:grid-cols-4">
+        {orderedServices.map((item: any) => (
+          <article class="flex flex-col gap-[16px]">
+            <h3 class="text-[24px] font-bold leading-[1.1] text-[#080813] md:text-[28px]">
+              {item.title}
+            </h3>
+            <div class="relative min-h-[480px] overflow-hidden rounded-[20px]">
+              <img src={item.image} alt={item.title} class="absolute inset-0 h-full w-full object-cover" />
+              <div class="absolute inset-x-[18px] bottom-[18px] rounded-[16px] bg-white p-[16px] shadow-[0px_12px_32px_rgba(16,24,40,0.18)]">
+                <p class="text-[15px] leading-[1.1] text-[#080813]">
+                  {item.description}
+                </p>
+                <a
+                  href={item.button?.href || "#contacto-soluciones"}
+                  class="mt-[20px] inline-flex items-center gap-[8px] text-[18px] font-bold leading-[1.1] text-[#8949ff] no-underline"
+                >
+                  {item.button?.label}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="simulador" class="overflow-hidden bg-[linear-gradient(135deg,#4f3bf9_0%,#8949ff_42%,#ad5cff_100%)] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto max-w-[1460px]">
+      <div class="grid grid-cols-1 items-start gap-[32px] xl:grid-cols-[minmax(0,1fr)_576px] xl:gap-[40px]">
+        <div>
+          <h2 class="text-[28px] font-bold leading-[1.1] text-white md:text-[40px]">
+            Simulador de hipoteca
+          </h2>
+          <img
+            src="/images/solutions-simulator.jpg"
+            alt="Simulador hipotecario"
+            class="mt-[24px] h-[240px] w-full rounded-[20px] object-cover md:h-[299px]"
+          />
+          <div class="mt-[24px] space-y-[16px] text-[15px] leading-[1.15] text-white md:text-[16px]">
+            <p>Nuestro simulador te permite estimar tu cuota y entender si tu objetivo es viable antes de iniciar el proceso.</p>
+            <p>Una herramienta útil para tomar decisiones informadas y avanzar con mayor seguridad.</p>
+          </div>
+          <div class="mt-[24px] rounded-[16px] border-l-4 border-[#8949ff] bg-white p-[24px] shadow-[0px_1px_3px_rgba(0,0,0,0.1)]">
+            <p class="text-[18px] font-bold leading-[1.1] text-[#ad5cff]">Importante</p>
+            <p class="mt-[16px] text-[15px] font-bold leading-[1.1] text-[#101828]">
+              Los resultados son orientativos. Para una viabilidad real, agenda un diagnóstico con nuestro equipo.
+            </p>
+          </div>
+        </div>
+        <div class="rounded-[32px] border border-[#f3f4f6] bg-white p-[24px] shadow-[0px_32px_64px_-16px_rgba(0,0,0,0.1)] md:rounded-[40px] md:p-[32px]">
+          <span class="inline-flex rounded-full bg-[rgba(137,73,255,0.1)] px-[12px] py-[4px] text-[10px] font-bold uppercase tracking-[1px] text-[#8949ff]">
+            Oferta hoy disponible
+          </span>
+          <h3 class="mt-[16px] text-[32px] font-bold leading-none text-[#0f172b] md:text-[37px]">
+            Simulador Hipotecario
+          </h3>
+          <div class="mt-[24px] space-y-[28px]">
+            {[
+              ["Valor inmueble", "280.000 €", "22%"],
+              ["Financiación", "80%", "78%"],
+              ["Plazo", "30 años", "72%"],
+              ["Interés (TIN)", "2.9%", "44%"]
+            ].map(([label, value, width]) => (
+              <div>
+                <div class="mb-[12px] flex items-center justify-between gap-[16px]">
+                  <span class="text-[13px] font-bold uppercase tracking-[0.65px] text-[#99a1af]">{label}</span>
+                  <span class="rounded-full bg-[#ede8fb] px-[16px] py-[4px] text-[14px] font-black text-[#8949ff]">{value}</span>
+                </div>
+                <div class="relative h-[8px] rounded-full bg-[#f3f4f6]">
+                  <div class="h-[8px] rounded-full bg-[#8949ff]" style={`width:${width}`}></div>
+                  <div class="absolute top-1/2 h-[20px] w-[20px] -translate-y-1/2 rounded-full border-2 border-[#8949ff] bg-white shadow-[0px_4px_6px_rgba(0,0,0,0.1)]" style={`left:calc(${width} - 10px)`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="mt-[28px] rounded-[24px] border border-[#f1f5f9] bg-[#f8fafc] p-[24px]">
+            <p class="text-[11px] font-bold uppercase tracking-[0.55px] text-[#90a1b9]">Tu cuota mensual estimada</p>
+            <p class="mt-[4px] text-[30px] font-black leading-[1.1] text-[#0f172b]">932 €</p>
+          </div>
+          <a
+            href="#contacto-soluciones"
+            class="mt-[28px] inline-flex w-full items-center justify-center gap-[12px] rounded-[24px] bg-[#fcc63d] px-[24px] py-[19px] text-center text-[18px] font-bold uppercase tracking-[1.8px] text-[#080813] no-underline shadow-[0px_20px_25px_rgba(252,198,61,0.3)]"
+          >
+            Genera tu viabilidad
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-[56px]">
+        <h3 class="text-center text-[28px] font-bold leading-[1.1] text-white md:text-[40px]">
+          Conoce nuestros beneficios
+        </h3>
+        <div class="mt-[32px] grid grid-cols-2 gap-[16px] lg:grid-cols-5 lg:gap-[24px]">
+          {benefits.map((item: any, index: number) => (
+            <div class="flex min-h-[170px] flex-col items-center rounded-[28px] border border-[#ad81ff] bg-[#ad81ff] px-[14px] py-[24px] text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+              <div class="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#fcc63d] shadow-[0px_10px_15px_rgba(252,198,61,0.2)]">
+                <span class="text-[22px] text-[#080813]">
+                  {["⌘", "↗", "%", "¤", "✓"][index] || "✓"}
+                </span>
+              </div>
+              <p class="mt-[20px] text-[14px] font-bold leading-[1.25] text-white md:text-[16px]">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[312px]">
+    <div class="mx-auto grid max-w-[1296px] grid-cols-1 items-center gap-[32px] lg:grid-cols-[608px_minmax(0,1fr)] lg:gap-[80px]">
+      <img src="/images/about-efiteca.png" alt="Asesoría hipotecaria" class="h-[320px] w-full rounded-[32px] object-cover md:h-[406px]" />
+      <div>
+        <h2 class="text-[28px] font-bold leading-[1.1] text-[#101828] md:text-[40px]">
+          ¿Cómo funciona?
+        </h2>
+        <p class="mt-[24px] text-[16px] leading-[1.15] text-[#101828] md:text-[18px]">
+          Un proceso claro para tomar decisiones seguras:
+        </p>
+        <div class="mt-[32px] space-y-[18px]">
+          {(content?.howItWorks?.items || []).map((item: any) => (
+            <div class="flex items-start gap-[16px]">
+              <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#8949ff] text-white">
+                ✓
+              </div>
+              <p class="pt-[6px] text-[16px] font-bold leading-[1.1] text-[#101828]">{item.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-[#8949ff] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[312px]">
+    <div class="absolute inset-y-0 left-0 w-[40%] bg-[radial-gradient(circle_at_left,rgba(173,92,255,0.4),transparent_72%)]"></div>
+    <div class="absolute inset-y-0 right-0 w-[35%] bg-[radial-gradient(circle_at_right,rgba(252,198,61,0.18),transparent_70%)]"></div>
+    <div class="relative mx-auto flex max-w-[1296px] flex-col items-start justify-between gap-[24px] rounded-[28px] border border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.06)] p-[28px] md:flex-row md:items-center md:rounded-[36px] md:p-[48px]">
+      <div class="max-w-[720px]">
+        <h2 class="text-[28px] font-bold leading-[1.1] text-white md:text-[40px]">
+          ¿Listo para pasar de la teoría a la acción? Agenda
+        </h2>
+        <p class="mt-[20px] text-[16px] leading-[1.2] text-white md:text-[18px]">
+          Déjanos tus datos y un experto te llamará para resolver tus dudas y ayudarte a definir la mejor ruta para tu caso.
+        </p>
+      </div>
+      <a
+        href="#contacto-soluciones"
+        class="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[16px] text-[14px] font-bold uppercase tracking-[1.6px] text-[#080813] no-underline shadow-[0px_18px_40px_rgba(252,198,61,0.28)] sm:w-auto md:px-[40px] md:text-[18px]"
+      >
+        Te llamamos
+      </a>
+    </div>
+  </section>
+
+  <StepTimelineSection content={content} />
+
+  <section class="relative overflow-hidden bg-[#101828] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="absolute left-[-180px] top-[200px] h-[480px] w-[480px] rounded-full bg-[rgba(137,73,255,0.18)] blur-[110px]"></div>
+    <div class="relative mx-auto max-w-[1460px]">
+      <h2 class="text-center text-[28px] font-bold leading-[1.1] text-white md:text-[40px]">
+        <span class="text-[#fcc63d]">Efiteca </span>vs. hacerlo por tu cuenta
+      </h2>
+      <div class="mt-[40px] overflow-hidden rounded-[16px] bg-white">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          <div>
+            <div class="bg-[linear-gradient(90deg,#4f3bf9_0%,#8949ff_100%)] px-[16px] py-[14px] text-[20px] font-bold text-white md:text-[22px]">
+              Con Efiteca
+            </div>
+            {comparisonGood.map((item) => (
+              <div class="flex items-center gap-[16px] border-t border-[#f2f4f7] px-[16px] py-[18px]">
+                <div class="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-[rgba(79,59,249,0.1)] text-[#4f3bf9]">✓</div>
+                <p class="text-[16px] font-bold leading-[1.1] text-[#101828]">{item}</p>
+              </div>
+            ))}
+          </div>
+          <div>
+            <div class="bg-[#9d9ba8] px-[16px] py-[14px] text-[20px] font-bold text-white md:text-[22px]">
+              Por tu cuenta
+            </div>
+            {comparisonBad.map((item) => (
+              <div class="flex items-center gap-[16px] border-t border-[#f2f4f7] px-[16px] py-[18px]">
+                <div class="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-[#9d9ba8] text-white">×</div>
+                <p class="text-[16px] font-bold leading-[1.1] text-[#9d9ba8]">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="mt-[24px] text-center">
+        <a
+          href="#contacto-soluciones"
+          class="inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#101828] no-underline"
+        >
+          Te llamamos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto max-w-[1460px]">
+      <h2 class="text-center text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]">
+        {content?.testimonials?.title}
+      </h2>
+      <p class="mx-auto mt-[16px] max-w-[1120px] text-center text-[16px] leading-[1.15] text-[#080813] md:text-[18px]">
+        Personas en situaciones reales lograron tomar decisiones con mayor claridad, mejorar condiciones o conseguir su hipoteca con acompañamiento experto y coordinación hasta la firma.
+      </p>
+      <div class="mt-[40px] grid grid-cols-1 gap-[24px] xl:grid-cols-3">
+        {testimonialItems.map((item: any) => (
+          <article class="rounded-[28px] border border-[#ead9ef] bg-[#f8eef7] p-[32px] shadow-[0px_12px_32px_rgba(16,24,40,0.05)]">
+            <div class="flex gap-[8px] text-[#fcc63d]">
+              {Array.from({ length: item.stars || 5 }).map(() => <span>★</span>)}
+            </div>
+            <p class="mt-[24px] text-[18px] leading-[1.45] text-[#101828]">"{item.text}"</p>
+            <div class="mt-[24px] flex items-center gap-[12px]">
+              <img src={item.image} alt={item.name} class="h-[48px] w-[48px] rounded-full object-cover" />
+              <div>
+                <p class="text-[18px] font-bold text-[#101828]">{item.name}</p>
+                <p class="text-[14px] text-[#667085]">{item.role}</p>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="mt-[40px] rounded-[32px] bg-[#12192d] px-[24px] py-[28px] md:rounded-[40px] md:px-[60px] md:py-[32px]">
+        <div class="grid grid-cols-1 gap-[20px] md:grid-cols-3 md:gap-[40px]">
+          {metricItems.map((item: any, index: number) => (
+            <div class:list={[
+              "text-center md:text-left",
+              index < metricItems.length - 1 && "md:border-r md:border-[#744c98] md:pr-[40px]"
+            ]}>
+              <p class="text-[40px] font-normal leading-none text-[#c993ff] md:text-[56px]">{item.value}</p>
+              <p class="mt-[10px] text-[18px] font-bold leading-[1.2] text-white md:text-[22px]">{item.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto-soluciones" class="bg-[#f9fafb] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto grid max-w-[1460px] grid-cols-1 gap-[32px] lg:grid-cols-[1fr_798px] lg:items-center">
+      <div>
+        <h2 class="text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]">
+          Empieza hoy tu nueva vida
+        </h2>
+        <p class="mt-[20px] text-[15px] leading-[1.15] text-[#080813]">
+          Déjanos tus datos y un experto te llamará para resolver todas tus dudas.
+        </p>
+        <div class="mt-[24px] space-y-[16px]">
+          {content?.contact?.highlights?.map((highlight: string) => (
+            <div class="flex items-center gap-[12px]">
+              <div class="flex h-[24px] w-[24px] items-center justify-center rounded-full bg-[rgba(137,73,255,0.1)] text-[#8949ff]">✓</div>
+              <p class="text-[16px] font-bold text-[#314158]">{highlight}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mt-[32px] border-t border-[#dfe4ec] pt-[24px]">
+          <p class="text-[15px] font-bold text-[#8949ff]">Horario de Atención</p>
+          <p class="mt-[16px] text-[15px] font-bold leading-[1.15] text-[#101828]">
+            Lunes a jueves 10 a. m. a 6 p. m.<br />
+            Viernes de 10 a. m. a 5 p. m.
+          </p>
+        </div>
+        <div class="mt-[28px] space-y-[12px]">
+          <div class="flex items-center gap-[16px]">
+            <div class="flex h-[32px] w-[32px] items-center justify-center rounded-[16px] bg-[rgba(137,73,255,0.1)] text-[#8949ff]">☎</div>
+            <a href="tel:+34696611291" class="text-[18px] font-bold text-[#101828] no-underline">+34 696611291</a>
+          </div>
+          <div class="flex items-center gap-[16px]">
+            <div class="flex h-[32px] w-[32px] items-center justify-center rounded-[16px] bg-[rgba(137,73,255,0.1)] text-[#8949ff]">✉</div>
+            <a href="mailto:clientes@efiteca.com" class="text-[18px] font-bold text-[#101828] no-underline">clientes@efiteca.com</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="rounded-[12px] bg-[#8949ff] p-[24px] md:p-[40px]">
+        <div class="grid grid-cols-1 gap-[16px] md:grid-cols-2 md:gap-[30px]">
+          <label class="flex flex-col gap-[14px]">
+            <span class="text-[16px] font-bold text-white">Nombre</span>
+            <input class="rounded-[6px] border border-[#9d9ba8] px-[20px] py-[12px] text-[12px] text-[#101828]" placeholder="Escribe tu nombre" />
+          </label>
+          <label class="flex flex-col gap-[14px]">
+            <span class="text-[16px] font-bold text-white">Apellido</span>
+            <input class="rounded-[6px] border border-[#9d9ba8] px-[20px] py-[12px] text-[12px] text-[#101828]" placeholder="Escribe tu apellido" />
+          </label>
+          <label class="flex flex-col gap-[14px]">
+            <span class="text-[16px] font-bold text-white">Email</span>
+            <input class="rounded-[6px] border border-[#9d9ba8] px-[20px] py-[12px] text-[12px] text-[#101828]" placeholder="Ingresa tu correo" />
+          </label>
+          <label class="flex flex-col gap-[14px]">
+            <span class="text-[16px] font-bold text-white">Teléfono</span>
+            <input class="rounded-[6px] border border-[#9d9ba8] px-[20px] py-[12px] text-[12px] text-[#101828]" placeholder="Ingresa tu teléfono" />
+          </label>
+        </div>
+        <label class="mt-[16px] flex flex-col gap-[16px]">
+          <span class="text-[16px] font-bold text-white">Mensaje</span>
+          <textarea class="min-h-[110px] rounded-[6px] border border-[#9d9ba8] px-[20px] py-[16px] text-[12px] text-[#101828]" placeholder="Escribe tu mensaje"></textarea>
+        </label>
+        <div class="mt-[24px] flex flex-col gap-[20px] md:flex-row md:items-center md:justify-between md:gap-[50px]">
+          <label class="flex items-center gap-[8px]">
+            <input type="checkbox" class="h-[24px] w-[24px] rounded-[4px] border border-[#9d9ba8] bg-[#ecddee]" />
+            <span class="text-[12px] font-bold text-[#d9d9d9]">Acepto los términos y condiciones</span>
+          </label>
+          <button type="button" class="inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[40px] py-[19px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#0f172b]">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto grid max-w-[1460px] grid-cols-1 gap-[32px] lg:grid-cols-[690px_minmax(0,1fr)]">
+      <div class="flex flex-col justify-between">
+        <div>
+          <h2 class="text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]">
+            Conoce nuestras ubicaciones
+          </h2>
+          <p class="mt-[16px] max-w-[650px] text-[16px] leading-[1.15] text-[#080813] md:text-[18px]">
+            Atendemos de forma digital con acompañamiento personalizado durante todo el proceso.
+          </p>
+          {mainLocation ? (
+            <div class="mt-[32px] rounded-[24px] border border-[#eceff4] bg-[#f8fafc] p-[24px]">
+              <div class="flex items-start gap-[12px]">
+                <div class="mt-[4px] flex h-[40px] w-[40px] items-center justify-center rounded-full bg-[rgba(137,73,255,0.1)] text-[#8949ff]">⌖</div>
+                <p class="text-[16px] leading-[1.2] text-[#101828]">{mainLocation.address}</p>
+              </div>
+            </div>
+          ) : null}
+        </div>
+        <div class="mt-[24px] rounded-[28px] bg-[linear-gradient(135deg,#8949ff_0%,#ad5cff_100%)] p-[32px] text-white">
+          <h3 class="max-w-[260px] text-[28px] font-bold leading-[1.1]">
+            ¿Listo para pasar de la teoría a la acción?
+          </h3>
+          <p class="mt-[16px] max-w-[260px] text-[16px] leading-[1.15]">
+            Déjanos tus datos y un experto te llamará para resolver tus dudas.
+          </p>
+          <a
+            href="#contacto-soluciones"
+            class="mt-[24px] inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[28px] py-[16px] text-[14px] font-bold uppercase tracking-[1.4px] text-[#080813] no-underline md:px-[40px] md:text-[18px]"
+          >
+            Te llamamos
+          </a>
+        </div>
+      </div>
+      <img src="/images/map.png" alt="Mapa de ubicaciones" class="h-full min-h-[420px] w-full rounded-[28px] object-cover" />
+    </div>
+  </section>
+
+  <section class="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
+    <div class="mx-auto max-w-[1460px]">
+      <h2 class="text-center text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]">
+        Preguntas frecuentes sobre simulador de hipoteca
+      </h2>
+      <div class="mt-[40px] space-y-[12px]">
+        {faqItems.map((item: any) => (
+          <details class="group rounded-[20px] bg-[#8949ff] px-[24px] py-[24px] text-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-[16px] text-[18px] font-bold leading-[1.15]">
+              <span>{item.question}</span>
+              <span class="text-[28px] transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p class="pt-[16px] text-[16px] leading-[1.3] text-white/90">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-white">
+    <Frame60 client:load content={content} />
+  </div>
+</div>

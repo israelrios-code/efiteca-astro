@@ -20,6 +20,85 @@ fragment PagesParts on Pages {
       href
     }
   }
+  aboutHero {
+    __typename
+    eyebrow
+    title
+    highlight
+    description
+    texture
+    outlineImage
+    cta {
+      __typename
+      label
+      href
+    }
+  }
+  contactHero {
+    __typename
+    eyebrow
+    title
+    highlight
+    description
+    primaryCta {
+      __typename
+      label
+      href
+    }
+    secondaryCta {
+      __typename
+      label
+      href
+    }
+  }
+  newsLanding {
+    __typename
+    heroTitle
+    heroHighlight
+    heroDescription
+    listingTitle
+    listingDescription
+  }
+  contactIntro {
+    __typename
+    pretitle
+    title
+    highlight
+    bulletsTitle
+    bullets
+    footnote
+    image
+    floatingLabel
+  }
+  diagnosticSteps {
+    __typename
+    title
+    description
+    footnote
+    items {
+      __typename
+      number
+      title
+      description
+    }
+  }
+  trajectory {
+    __typename
+    title
+    description
+    highlight
+    image
+    badgeLabel
+    badgeText
+  }
+  purposeSection {
+    __typename
+    title
+    description
+    highlight
+    image
+    bullets
+  }
   services {
     __typename
     title
@@ -35,6 +114,48 @@ fragment PagesParts on Pages {
         href
       }
     }
+  }
+  simulator {
+    __typename
+    title
+    image
+    description
+    secondaryDescription
+    noteTitle
+    noteText
+    offerBadge
+    calculatorTitle
+    resultLabel
+    resultValue
+    cta {
+      __typename
+      label
+      href
+    }
+    sliders {
+      __typename
+      label
+      value
+      progress
+    }
+  }
+  requirementsBanner {
+    __typename
+    title
+    items
+    image
+    button {
+      __typename
+      label
+      href
+    }
+  }
+  calculatorEmbed {
+    __typename
+    eyebrow
+    title
+    description
+    src
   }
   whoIsItFor {
     __typename
@@ -99,6 +220,19 @@ fragment PagesParts on Pages {
       href
     }
   }
+  shortcutCta {
+    __typename
+    title
+    description
+    button {
+      __typename
+      label
+      href
+    }
+    image
+    overlayImage
+    accentImage
+  }
   benefits {
     __typename
     title
@@ -147,6 +281,34 @@ fragment PagesParts on Pages {
       stars
     }
   }
+  certifications {
+    __typename
+    title
+    description
+    logoImage
+  }
+  recognitions {
+    __typename
+    title
+    description
+    texture
+    items {
+      __typename
+      title
+      subtitle
+    }
+  }
+  companyInfo {
+    __typename
+    title
+    items
+    image
+    legalLinks {
+      __typename
+      label
+      href
+    }
+  }
   about {
     __typename
     title
@@ -178,6 +340,19 @@ fragment PagesParts on Pages {
       answer
     }
   }
+  comparison {
+    __typename
+    title
+    leftTitle
+    rightTitle
+    leftItems
+    rightItems
+    cta {
+      __typename
+      label
+      href
+    }
+  }
   locations {
     __typename
     title
@@ -190,6 +365,22 @@ fragment PagesParts on Pages {
       seoLabel
       image
       cta {
+        __typename
+        label
+        href
+      }
+    }
+  }
+  locationsShowcase {
+    __typename
+    title
+    description
+    mapImage
+    cta {
+      __typename
+      title
+      description
+      button {
         __typename
         label
         href
@@ -232,19 +423,30 @@ fragment PagesParts on Pages {
     __typename
     title
     description
+    backgroundColor
+    cardBackground
     highlights
     form {
       __typename
       name_label
+      name_placeholder
       lastname_label
+      lastname_placeholder
       email_label
+      email_placeholder
       phone_label
+      phone_placeholder
       role_label
       role_placeholder
       message_label
+      message_placeholder
       terms_label
       submit_label
     }
+    scheduleLabel
+    scheduleText
+    phone
+    email
   }
   footer {
     __typename

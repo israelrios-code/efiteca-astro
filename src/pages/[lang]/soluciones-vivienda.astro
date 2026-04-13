@@ -1,0 +1,268 @@
+---
+import ReactSolutionsPage from "@/components/solutions/ReactSolutionsPage";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { LOCALES, type Lang } from "@/data/locales";
+import { buildLanguageAlternates } from "@/lib/seo/meta";
+import { getEntry } from "astro:content";
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({
+    params: {
+      lang: locale.code
+    }
+  }));
+}
+
+const lang = Astro.params.lang as Lang;
+
+const entry = await getEntry("pages", `solutions-${lang}`);
+let content = entry?.data;
+let tinaProps:
+  | {
+      query: string;
+      variables: Record<string, unknown>;
+      data: Record<string, unknown>;
+    }
+  | undefined;
+
+if (import.meta.env.DEV) {
+  const query = `
+    query SolutionsPage($relativePath: String!) {
+      pages(relativePath: $relativePath) {
+        id
+        _sys {
+          filename
+          basename
+          path
+          breadcrumbs
+          relativePath
+          extension
+        }
+        lang
+        title
+        seo {
+          title
+          description
+        }
+        hero {
+          title_part1
+          title_part2
+          description
+          background_desktop
+          background_mobile
+          cta {
+            label
+            href
+          }
+        }
+        services {
+          title
+          description
+          items {
+            title
+            description
+            image
+            button {
+              label
+              href
+            }
+          }
+        }
+        simulator {
+          title
+          image
+          description
+          secondaryDescription
+          noteTitle
+          noteText
+          offerBadge
+          calculatorTitle
+          resultLabel
+          resultValue
+          cta {
+            label
+            href
+          }
+          sliders {
+            label
+            value
+            progress
+          }
+        }
+        howItWorks {
+          title
+          description
+          cta {
+            label
+            href
+          }
+          items {
+            number
+            title
+            description
+          }
+        }
+        actionCta {
+          title
+          description
+          button {
+            label
+            href
+          }
+        }
+        steps {
+          eyebrow
+          title
+          image
+          items {
+            number
+            title
+            description
+          }
+        }
+        comparison {
+          title
+          leftTitle
+          rightTitle
+          leftItems
+          rightItems
+          cta {
+            label
+            href
+          }
+        }
+        testimonials {
+          title
+          backgroundColor
+          description
+          items {
+            name
+            role
+            text
+            image
+            stars
+          }
+        }
+        metrics {
+          title
+          items {
+            title
+            value
+          }
+        }
+        benefits {
+          title
+          description
+          ctaText
+          ctaLink
+          items {
+            icon
+            text
+          }
+        }
+        partners {
+          title
+          description
+          items {
+            name
+          }
+        }
+        contact {
+          title
+          description
+          highlights
+          scheduleLabel
+          scheduleText
+          phone
+          email
+          form {
+            name_label
+            name_placeholder
+            lastname_label
+            lastname_placeholder
+            email_label
+            email_placeholder
+            phone_label
+            phone_placeholder
+            role_label
+            role_placeholder
+            message_label
+            message_placeholder
+            terms_label
+            submit_label
+          }
+        }
+        locationsShowcase {
+          title
+          description
+          mapImage
+          cta {
+            title
+            description
+            button {
+              label
+              href
+            }
+          }
+        }
+        faq {
+          title
+          items {
+            question
+            answer
+          }
+        }
+        locations {
+          title
+          subtitle
+          items {
+            city
+            address
+            image
+            summary
+            seoLabel
+            cta {
+              label
+              href
+            }
+          }
+        }
+      }
+    }
+  `;
+  const variables = {
+    relativePath: `solutions-${lang}.md`
+  };
+  const response = await fetch("http://localhost:4001/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ query, variables })
+  });
+  const result = await response.json();
+
+  if (result?.data?.pages) {
+    content = result.data.pages;
+    tinaProps = {
+      query,
+      variables,
+      data: result.data
+    };
+  }
+}
+
+if (!content) {
+  return Astro.redirect(`/${lang}/404`);
+}
+---
+
+<BaseLayout
+  lang={lang}
+  title={content.seo?.title || "Soluciones de vivienda | Efiteca"}
+  description={content.seo?.description || "Soluciones hipotecarias para comprar o mejorar tu vivienda con claridad, estrategia personalizada y acompanamiento experto."}
+  path={`/${lang}/soluciones-vivienda/`}
+  alternates={buildLanguageAlternates("/soluciones-vivienda/")}
+>
+  <ReactSolutionsPage client:load content={content} {...tinaProps} />
+</BaseLayout>

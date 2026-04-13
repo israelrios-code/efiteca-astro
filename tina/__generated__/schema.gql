@@ -112,6 +112,89 @@ type PagesHero {
   cta: PagesHeroCta
 }
 
+type PagesAboutHeroCta {
+  label: String!
+  href: String!
+}
+
+type PagesAboutHero {
+  eyebrow: String
+  title: String
+  highlight: String
+  description: String
+  texture: String
+  outlineImage: String
+  cta: PagesAboutHeroCta
+}
+
+type PagesContactHeroPrimaryCta {
+  label: String!
+  href: String!
+}
+
+type PagesContactHeroSecondaryCta {
+  label: String!
+  href: String!
+}
+
+type PagesContactHero {
+  eyebrow: String
+  title: String
+  highlight: String
+  description: String
+  primaryCta: PagesContactHeroPrimaryCta
+  secondaryCta: PagesContactHeroSecondaryCta
+}
+
+type PagesNewsLanding {
+  heroTitle: String
+  heroHighlight: String
+  heroDescription: String
+  listingTitle: String
+  listingDescription: String
+}
+
+type PagesContactIntro {
+  pretitle: String
+  title: String
+  highlight: String
+  bulletsTitle: String
+  bullets: [String]
+  footnote: String
+  image: String
+  floatingLabel: String
+}
+
+type PagesDiagnosticStepsItems {
+  number: Float
+  title: String
+  description: String
+}
+
+type PagesDiagnosticSteps {
+  title: String
+  description: String
+  footnote: String
+  items: [PagesDiagnosticStepsItems]
+}
+
+type PagesTrajectory {
+  title: String
+  description: String
+  highlight: String
+  image: String
+  badgeLabel: String
+  badgeText: String
+}
+
+type PagesPurposeSection {
+  title: String
+  description: String
+  highlight: String
+  image: String
+  bullets: [String]
+}
+
 type PagesServicesItemsButton {
   label: String!
   href: String!
@@ -128,6 +211,51 @@ type PagesServices {
   title: String
   description: String
   items: [PagesServicesItems]
+}
+
+type PagesSimulatorCta {
+  label: String!
+  href: String!
+}
+
+type PagesSimulatorSliders {
+  label: String
+  value: String
+  progress: Float
+}
+
+type PagesSimulator {
+  title: String
+  image: String
+  description: String
+  secondaryDescription: String
+  noteTitle: String
+  noteText: String
+  offerBadge: String
+  calculatorTitle: String
+  resultLabel: String
+  resultValue: String
+  cta: PagesSimulatorCta
+  sliders: [PagesSimulatorSliders]
+}
+
+type PagesRequirementsBannerButton {
+  label: String!
+  href: String!
+}
+
+type PagesRequirementsBanner {
+  title: String
+  items: [String]
+  image: String
+  button: PagesRequirementsBannerButton
+}
+
+type PagesCalculatorEmbed {
+  eyebrow: String
+  title: String
+  description: String
+  src: String
 }
 
 type PagesWhoIsItForItems {
@@ -201,6 +329,20 @@ type PagesActionCta {
   button: PagesActionCtaButton
 }
 
+type PagesShortcutCtaButton {
+  label: String!
+  href: String!
+}
+
+type PagesShortcutCta {
+  title: String
+  description: String
+  button: PagesShortcutCtaButton
+  image: String
+  overlayImage: String
+  accentImage: String
+}
+
 type PagesBenefitsItems {
   icon: String
   text: String
@@ -254,6 +396,36 @@ type PagesTestimonials {
   items: [PagesTestimonialsItems]
 }
 
+type PagesCertifications {
+  title: String
+  description: String
+  logoImage: String
+}
+
+type PagesRecognitionsItems {
+  title: String
+  subtitle: String
+}
+
+type PagesRecognitions {
+  title: String
+  description: String
+  texture: String
+  items: [PagesRecognitionsItems]
+}
+
+type PagesCompanyInfoLegalLinks {
+  label: String!
+  href: String!
+}
+
+type PagesCompanyInfo {
+  title: String
+  items: [String]
+  image: String
+  legalLinks: [PagesCompanyInfoLegalLinks]
+}
+
 type PagesAboutButton {
   label: String!
   href: String!
@@ -288,6 +460,20 @@ type PagesFaq {
   items: [PagesFaqItems]
 }
 
+type PagesComparisonCta {
+  label: String!
+  href: String!
+}
+
+type PagesComparison {
+  title: String
+  leftTitle: String
+  rightTitle: String
+  leftItems: [String]
+  rightItems: [String]
+  cta: PagesComparisonCta
+}
+
 type PagesLocationsItemsCta {
   label: String!
   href: String!
@@ -306,6 +492,24 @@ type PagesLocations {
   title: String
   subtitle: String
   items: [PagesLocationsItems]
+}
+
+type PagesLocationsShowcaseCtaButton {
+  label: String!
+  href: String!
+}
+
+type PagesLocationsShowcaseCta {
+  title: String
+  description: String
+  button: PagesLocationsShowcaseCtaButton
+}
+
+type PagesLocationsShowcase {
+  title: String
+  description: String
+  mapImage: String
+  cta: PagesLocationsShowcaseCta
 }
 
 type PagesBlogCta {
@@ -346,12 +550,17 @@ type PagesNewsletter {
 
 type PagesContactForm {
   name_label: String
+  name_placeholder: String
   lastname_label: String
+  lastname_placeholder: String
   email_label: String
+  email_placeholder: String
   phone_label: String
+  phone_placeholder: String
   role_label: String
   role_placeholder: String
   message_label: String
+  message_placeholder: String
   terms_label: String
   submit_label: String
 }
@@ -359,8 +568,14 @@ type PagesContactForm {
 type PagesContact {
   title: String
   description: String
+  backgroundColor: String
+  cardBackground: String
   highlights: [String]
   form: PagesContactForm
+  scheduleLabel: String
+  scheduleText: String
+  phone: String
+  email: String
 }
 
 type PagesFooterLinks {
@@ -378,19 +593,35 @@ type Pages implements Node & Document {
   title: String!
   seo: PagesSeo
   hero: PagesHero
+  aboutHero: PagesAboutHero
+  contactHero: PagesContactHero
+  newsLanding: PagesNewsLanding
+  contactIntro: PagesContactIntro
+  diagnosticSteps: PagesDiagnosticSteps
+  trajectory: PagesTrajectory
+  purposeSection: PagesPurposeSection
   services: PagesServices
+  simulator: PagesSimulator
+  requirementsBanner: PagesRequirementsBanner
+  calculatorEmbed: PagesCalculatorEmbed
   whoIsItFor: PagesWhoIsItFor
   howItWorks: PagesHowItWorks
   steps: PagesSteps
   actionCta: PagesActionCta
+  shortcutCta: PagesShortcutCta
   benefits: PagesBenefits
   metrics: PagesMetrics
   guides: PagesGuides
   testimonials: PagesTestimonials
+  certifications: PagesCertifications
+  recognitions: PagesRecognitions
+  companyInfo: PagesCompanyInfo
   about: PagesAbout
   partners: PagesPartners
   faq: PagesFaq
+  comparison: PagesComparison
   locations: PagesLocations
+  locationsShowcase: PagesLocationsShowcase
   blog: PagesBlog
   newsletter: PagesNewsletter
   contact: PagesContact
@@ -434,6 +665,99 @@ input PagesHeroFilter {
   cta: PagesHeroCtaFilter
 }
 
+input PagesAboutHeroCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesAboutHeroFilter {
+  eyebrow: StringFilter
+  title: StringFilter
+  highlight: StringFilter
+  description: StringFilter
+  texture: ImageFilter
+  outlineImage: ImageFilter
+  cta: PagesAboutHeroCtaFilter
+}
+
+input PagesContactHeroPrimaryCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesContactHeroSecondaryCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesContactHeroFilter {
+  eyebrow: StringFilter
+  title: StringFilter
+  highlight: StringFilter
+  description: StringFilter
+  primaryCta: PagesContactHeroPrimaryCtaFilter
+  secondaryCta: PagesContactHeroSecondaryCtaFilter
+}
+
+input PagesNewsLandingFilter {
+  heroTitle: StringFilter
+  heroHighlight: StringFilter
+  heroDescription: StringFilter
+  listingTitle: StringFilter
+  listingDescription: StringFilter
+}
+
+input PagesContactIntroFilter {
+  pretitle: StringFilter
+  title: StringFilter
+  highlight: StringFilter
+  bulletsTitle: StringFilter
+  bullets: StringFilter
+  footnote: StringFilter
+  image: ImageFilter
+  floatingLabel: StringFilter
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input PagesDiagnosticStepsItemsFilter {
+  number: NumberFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input PagesDiagnosticStepsFilter {
+  title: StringFilter
+  description: StringFilter
+  footnote: StringFilter
+  items: PagesDiagnosticStepsItemsFilter
+}
+
+input PagesTrajectoryFilter {
+  title: StringFilter
+  description: StringFilter
+  highlight: StringFilter
+  image: ImageFilter
+  badgeLabel: StringFilter
+  badgeText: StringFilter
+}
+
+input PagesPurposeSectionFilter {
+  title: StringFilter
+  description: StringFilter
+  highlight: StringFilter
+  image: ImageFilter
+  bullets: StringFilter
+}
+
 input PagesServicesItemsButtonFilter {
   label: StringFilter
   href: StringFilter
@@ -450,6 +774,51 @@ input PagesServicesFilter {
   title: StringFilter
   description: StringFilter
   items: PagesServicesItemsFilter
+}
+
+input PagesSimulatorCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesSimulatorSlidersFilter {
+  label: StringFilter
+  value: StringFilter
+  progress: NumberFilter
+}
+
+input PagesSimulatorFilter {
+  title: StringFilter
+  image: ImageFilter
+  description: StringFilter
+  secondaryDescription: StringFilter
+  noteTitle: StringFilter
+  noteText: StringFilter
+  offerBadge: StringFilter
+  calculatorTitle: StringFilter
+  resultLabel: StringFilter
+  resultValue: StringFilter
+  cta: PagesSimulatorCtaFilter
+  sliders: PagesSimulatorSlidersFilter
+}
+
+input PagesRequirementsBannerButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesRequirementsBannerFilter {
+  title: StringFilter
+  items: StringFilter
+  image: ImageFilter
+  button: PagesRequirementsBannerButtonFilter
+}
+
+input PagesCalculatorEmbedFilter {
+  eyebrow: StringFilter
+  title: StringFilter
+  description: StringFilter
+  src: StringFilter
 }
 
 input PagesWhoIsItForItemsFilter {
@@ -499,16 +868,6 @@ input PagesHowItWorksFilter {
   items: PagesHowItWorksItemsFilter
 }
 
-input NumberFilter {
-  lt: Float
-  lte: Float
-  gte: Float
-  gt: Float
-  eq: Float
-  exists: Boolean
-  in: [Float]
-}
-
 input PagesStepsItemsFilter {
   number: NumberFilter
   title: StringFilter
@@ -531,6 +890,20 @@ input PagesActionCtaFilter {
   title: StringFilter
   description: StringFilter
   button: PagesActionCtaButtonFilter
+}
+
+input PagesShortcutCtaButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesShortcutCtaFilter {
+  title: StringFilter
+  description: StringFilter
+  button: PagesShortcutCtaButtonFilter
+  image: ImageFilter
+  overlayImage: ImageFilter
+  accentImage: ImageFilter
 }
 
 input PagesBenefitsItemsFilter {
@@ -586,6 +959,36 @@ input PagesTestimonialsFilter {
   items: PagesTestimonialsItemsFilter
 }
 
+input PagesCertificationsFilter {
+  title: StringFilter
+  description: StringFilter
+  logoImage: ImageFilter
+}
+
+input PagesRecognitionsItemsFilter {
+  title: StringFilter
+  subtitle: StringFilter
+}
+
+input PagesRecognitionsFilter {
+  title: StringFilter
+  description: StringFilter
+  texture: ImageFilter
+  items: PagesRecognitionsItemsFilter
+}
+
+input PagesCompanyInfoLegalLinksFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesCompanyInfoFilter {
+  title: StringFilter
+  items: StringFilter
+  image: ImageFilter
+  legalLinks: PagesCompanyInfoLegalLinksFilter
+}
+
 input PagesAboutButtonFilter {
   label: StringFilter
   href: StringFilter
@@ -620,6 +1023,20 @@ input PagesFaqFilter {
   items: PagesFaqItemsFilter
 }
 
+input PagesComparisonCtaFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesComparisonFilter {
+  title: StringFilter
+  leftTitle: StringFilter
+  rightTitle: StringFilter
+  leftItems: StringFilter
+  rightItems: StringFilter
+  cta: PagesComparisonCtaFilter
+}
+
 input PagesLocationsItemsCtaFilter {
   label: StringFilter
   href: StringFilter
@@ -638,6 +1055,24 @@ input PagesLocationsFilter {
   title: StringFilter
   subtitle: StringFilter
   items: PagesLocationsItemsFilter
+}
+
+input PagesLocationsShowcaseCtaButtonFilter {
+  label: StringFilter
+  href: StringFilter
+}
+
+input PagesLocationsShowcaseCtaFilter {
+  title: StringFilter
+  description: StringFilter
+  button: PagesLocationsShowcaseCtaButtonFilter
+}
+
+input PagesLocationsShowcaseFilter {
+  title: StringFilter
+  description: StringFilter
+  mapImage: ImageFilter
+  cta: PagesLocationsShowcaseCtaFilter
 }
 
 input PagesBlogCtaFilter {
@@ -678,12 +1113,17 @@ input PagesNewsletterFilter {
 
 input PagesContactFormFilter {
   name_label: StringFilter
+  name_placeholder: StringFilter
   lastname_label: StringFilter
+  lastname_placeholder: StringFilter
   email_label: StringFilter
+  email_placeholder: StringFilter
   phone_label: StringFilter
+  phone_placeholder: StringFilter
   role_label: StringFilter
   role_placeholder: StringFilter
   message_label: StringFilter
+  message_placeholder: StringFilter
   terms_label: StringFilter
   submit_label: StringFilter
 }
@@ -691,8 +1131,14 @@ input PagesContactFormFilter {
 input PagesContactFilter {
   title: StringFilter
   description: StringFilter
+  backgroundColor: StringFilter
+  cardBackground: StringFilter
   highlights: StringFilter
   form: PagesContactFormFilter
+  scheduleLabel: StringFilter
+  scheduleText: StringFilter
+  phone: StringFilter
+  email: StringFilter
 }
 
 input PagesFooterLinksFilter {
@@ -716,19 +1162,35 @@ input PagesFilter {
   title: StringFilter
   seo: PagesSeoFilter
   hero: PagesHeroFilter
+  aboutHero: PagesAboutHeroFilter
+  contactHero: PagesContactHeroFilter
+  newsLanding: PagesNewsLandingFilter
+  contactIntro: PagesContactIntroFilter
+  diagnosticSteps: PagesDiagnosticStepsFilter
+  trajectory: PagesTrajectoryFilter
+  purposeSection: PagesPurposeSectionFilter
   services: PagesServicesFilter
+  simulator: PagesSimulatorFilter
+  requirementsBanner: PagesRequirementsBannerFilter
+  calculatorEmbed: PagesCalculatorEmbedFilter
   whoIsItFor: PagesWhoIsItForFilter
   howItWorks: PagesHowItWorksFilter
   steps: PagesStepsFilter
   actionCta: PagesActionCtaFilter
+  shortcutCta: PagesShortcutCtaFilter
   benefits: PagesBenefitsFilter
   metrics: PagesMetricsFilter
   guides: PagesGuidesFilter
   testimonials: PagesTestimonialsFilter
+  certifications: PagesCertificationsFilter
+  recognitions: PagesRecognitionsFilter
+  companyInfo: PagesCompanyInfoFilter
   about: PagesAboutFilter
   partners: PagesPartnersFilter
   faq: PagesFaqFilter
+  comparison: PagesComparisonFilter
   locations: PagesLocationsFilter
+  locationsShowcase: PagesLocationsShowcaseFilter
   blog: PagesBlogFilter
   newsletter: PagesNewsletterFilter
   contact: PagesContactFilter
@@ -894,6 +1356,89 @@ input PagesHeroMutation {
   cta: PagesHeroCtaMutation
 }
 
+input PagesAboutHeroCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesAboutHeroMutation {
+  eyebrow: String
+  title: String
+  highlight: String
+  description: String
+  texture: String
+  outlineImage: String
+  cta: PagesAboutHeroCtaMutation
+}
+
+input PagesContactHeroPrimaryCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesContactHeroSecondaryCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesContactHeroMutation {
+  eyebrow: String
+  title: String
+  highlight: String
+  description: String
+  primaryCta: PagesContactHeroPrimaryCtaMutation
+  secondaryCta: PagesContactHeroSecondaryCtaMutation
+}
+
+input PagesNewsLandingMutation {
+  heroTitle: String
+  heroHighlight: String
+  heroDescription: String
+  listingTitle: String
+  listingDescription: String
+}
+
+input PagesContactIntroMutation {
+  pretitle: String
+  title: String
+  highlight: String
+  bulletsTitle: String
+  bullets: [String]
+  footnote: String
+  image: String
+  floatingLabel: String
+}
+
+input PagesDiagnosticStepsItemsMutation {
+  number: Float
+  title: String
+  description: String
+}
+
+input PagesDiagnosticStepsMutation {
+  title: String
+  description: String
+  footnote: String
+  items: [PagesDiagnosticStepsItemsMutation]
+}
+
+input PagesTrajectoryMutation {
+  title: String
+  description: String
+  highlight: String
+  image: String
+  badgeLabel: String
+  badgeText: String
+}
+
+input PagesPurposeSectionMutation {
+  title: String
+  description: String
+  highlight: String
+  image: String
+  bullets: [String]
+}
+
 input PagesServicesItemsButtonMutation {
   label: String
   href: String
@@ -910,6 +1455,51 @@ input PagesServicesMutation {
   title: String
   description: String
   items: [PagesServicesItemsMutation]
+}
+
+input PagesSimulatorCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesSimulatorSlidersMutation {
+  label: String
+  value: String
+  progress: Float
+}
+
+input PagesSimulatorMutation {
+  title: String
+  image: String
+  description: String
+  secondaryDescription: String
+  noteTitle: String
+  noteText: String
+  offerBadge: String
+  calculatorTitle: String
+  resultLabel: String
+  resultValue: String
+  cta: PagesSimulatorCtaMutation
+  sliders: [PagesSimulatorSlidersMutation]
+}
+
+input PagesRequirementsBannerButtonMutation {
+  label: String
+  href: String
+}
+
+input PagesRequirementsBannerMutation {
+  title: String
+  items: [String]
+  image: String
+  button: PagesRequirementsBannerButtonMutation
+}
+
+input PagesCalculatorEmbedMutation {
+  eyebrow: String
+  title: String
+  description: String
+  src: String
 }
 
 input PagesWhoIsItForItemsMutation {
@@ -983,6 +1573,20 @@ input PagesActionCtaMutation {
   button: PagesActionCtaButtonMutation
 }
 
+input PagesShortcutCtaButtonMutation {
+  label: String
+  href: String
+}
+
+input PagesShortcutCtaMutation {
+  title: String
+  description: String
+  button: PagesShortcutCtaButtonMutation
+  image: String
+  overlayImage: String
+  accentImage: String
+}
+
 input PagesBenefitsItemsMutation {
   icon: String
   text: String
@@ -1036,6 +1640,36 @@ input PagesTestimonialsMutation {
   items: [PagesTestimonialsItemsMutation]
 }
 
+input PagesCertificationsMutation {
+  title: String
+  description: String
+  logoImage: String
+}
+
+input PagesRecognitionsItemsMutation {
+  title: String
+  subtitle: String
+}
+
+input PagesRecognitionsMutation {
+  title: String
+  description: String
+  texture: String
+  items: [PagesRecognitionsItemsMutation]
+}
+
+input PagesCompanyInfoLegalLinksMutation {
+  label: String
+  href: String
+}
+
+input PagesCompanyInfoMutation {
+  title: String
+  items: [String]
+  image: String
+  legalLinks: [PagesCompanyInfoLegalLinksMutation]
+}
+
 input PagesAboutButtonMutation {
   label: String
   href: String
@@ -1070,6 +1704,20 @@ input PagesFaqMutation {
   items: [PagesFaqItemsMutation]
 }
 
+input PagesComparisonCtaMutation {
+  label: String
+  href: String
+}
+
+input PagesComparisonMutation {
+  title: String
+  leftTitle: String
+  rightTitle: String
+  leftItems: [String]
+  rightItems: [String]
+  cta: PagesComparisonCtaMutation
+}
+
 input PagesLocationsItemsCtaMutation {
   label: String
   href: String
@@ -1088,6 +1736,24 @@ input PagesLocationsMutation {
   title: String
   subtitle: String
   items: [PagesLocationsItemsMutation]
+}
+
+input PagesLocationsShowcaseCtaButtonMutation {
+  label: String
+  href: String
+}
+
+input PagesLocationsShowcaseCtaMutation {
+  title: String
+  description: String
+  button: PagesLocationsShowcaseCtaButtonMutation
+}
+
+input PagesLocationsShowcaseMutation {
+  title: String
+  description: String
+  mapImage: String
+  cta: PagesLocationsShowcaseCtaMutation
 }
 
 input PagesBlogCtaMutation {
@@ -1128,12 +1794,17 @@ input PagesNewsletterMutation {
 
 input PagesContactFormMutation {
   name_label: String
+  name_placeholder: String
   lastname_label: String
+  lastname_placeholder: String
   email_label: String
+  email_placeholder: String
   phone_label: String
+  phone_placeholder: String
   role_label: String
   role_placeholder: String
   message_label: String
+  message_placeholder: String
   terms_label: String
   submit_label: String
 }
@@ -1141,8 +1812,14 @@ input PagesContactFormMutation {
 input PagesContactMutation {
   title: String
   description: String
+  backgroundColor: String
+  cardBackground: String
   highlights: [String]
   form: PagesContactFormMutation
+  scheduleLabel: String
+  scheduleText: String
+  phone: String
+  email: String
 }
 
 input PagesFooterLinksMutation {
@@ -1160,19 +1837,35 @@ input PagesMutation {
   title: String
   seo: PagesSeoMutation
   hero: PagesHeroMutation
+  aboutHero: PagesAboutHeroMutation
+  contactHero: PagesContactHeroMutation
+  newsLanding: PagesNewsLandingMutation
+  contactIntro: PagesContactIntroMutation
+  diagnosticSteps: PagesDiagnosticStepsMutation
+  trajectory: PagesTrajectoryMutation
+  purposeSection: PagesPurposeSectionMutation
   services: PagesServicesMutation
+  simulator: PagesSimulatorMutation
+  requirementsBanner: PagesRequirementsBannerMutation
+  calculatorEmbed: PagesCalculatorEmbedMutation
   whoIsItFor: PagesWhoIsItForMutation
   howItWorks: PagesHowItWorksMutation
   steps: PagesStepsMutation
   actionCta: PagesActionCtaMutation
+  shortcutCta: PagesShortcutCtaMutation
   benefits: PagesBenefitsMutation
   metrics: PagesMetricsMutation
   guides: PagesGuidesMutation
   testimonials: PagesTestimonialsMutation
+  certifications: PagesCertificationsMutation
+  recognitions: PagesRecognitionsMutation
+  companyInfo: PagesCompanyInfoMutation
   about: PagesAboutMutation
   partners: PagesPartnersMutation
   faq: PagesFaqMutation
+  comparison: PagesComparisonMutation
   locations: PagesLocationsMutation
+  locationsShowcase: PagesLocationsShowcaseMutation
   blog: PagesBlogMutation
   newsletter: PagesNewsletterMutation
   contact: PagesContactMutation

@@ -752,7 +752,7 @@ function ActionCtaSection({ content }: { content: any }) {
   );
 }
 
-function StepTimelineSection({ content, editable }: { content: any; editable?: any }) {
+export function StepTimelineSection({ content, editable }: { content: any; editable?: any }) {
   const steps = content?.steps?.items || [];
   if (!steps.length) return null;
 
@@ -2403,7 +2403,7 @@ function Frame83({ content }: { content: any }) {
   const form = content.contact.form || {};
 
   return (
-    <div className="bg-white content-stretch isolate flex flex-col gap-[10px] items-center mb-[-2px] overflow-hidden py-[56px] md:py-[80px] px-[20px] md:px-0 relative shrink-0 w-full">
+    <div id="contacto" className="bg-white content-stretch isolate flex flex-col gap-[10px] items-center mb-[-2px] overflow-hidden py-[56px] md:py-[80px] px-[20px] md:px-0 relative shrink-0 w-full">
       <Container23 />
       <Container24 />
       <div className="content-stretch flex flex-col lg:flex-row gap-[32px] lg:gap-[48px] items-start justify-between relative shrink-0 w-full max-w-[1279px] z-10" data-name="Container">
@@ -3222,22 +3222,22 @@ function Container46() {
   );
 }
 
-function Frame52({ content }: { content: any }) {
+export function FaqSection({ content, editable, backgroundColor = "#ecddee" }: { content: any; editable?: any; backgroundColor?: string }) {
   if (!content?.faq) return null;
 
   return (
-    <div className="bg-[#ecddee] content-stretch flex flex-col items-center mb-[-2px] px-[20px] md:px-[48px] xl:px-[230px] py-[56px] md:py-[80px] relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-center mb-[-2px] px-[20px] md:px-[48px] xl:px-[230px] py-[56px] md:py-[80px] relative shrink-0 w-full" style={{ backgroundColor }} data-tina-field={fieldFor(editable, "faq")}>
       <div className="content-stretch flex flex-col gap-[40px] items-center relative shrink-0 w-full" data-name="Container">
         <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
           <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Text Container">
-            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] text-center w-full">{content.faq.title}</p>
+            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] text-center w-full" data-tina-field={fieldFor(editable?.faq, "title")}>{content.faq.title}</p>
           </div>
         </div>
         <Accordion.Root type="single" collapsible className="w-full max-w-[787px] flex flex-col gap-[16px] items-start justify-center relative shrink-0">
           {content.faq.items?.map((item: any, index: number) => (
             <Accordion.Item key={index} value={`item-${index + 1}`} className="w-full">
               <Accordion.Trigger className="w-full text-left focus:outline-none">
-                <div className="bg-[#8949ff] content-stretch flex flex-col items-center justify-center px-[20px] md:px-[40px] py-[16px] relative rounded-[10px] shrink-0 w-full" data-name="FAQ">
+                <div className="bg-[#8949ff] content-stretch flex flex-col items-center justify-center px-[20px] md:px-[40px] py-[16px] relative rounded-[10px] shrink-0 w-full" data-name="FAQ" data-tina-field={fieldFor(editable?.faq?.items?.[index], "question")}>
                   <div aria-hidden="true" className="absolute border border-[#8949ff] border-solid inset-0 pointer-events-none rounded-[10px]" />
                   <div className="content-stretch flex gap-[16px] md:gap-[40px] items-center relative shrink-0 w-full">
                     <p className="flex-[1_0_0] font-['Inter:Bold',sans-serif] font-bold leading-[1.1] min-h-px min-w-px not-italic relative text-[16px] md:text-[18px] text-left text-white">{item.question}</p>
@@ -3246,7 +3246,7 @@ function Frame52({ content }: { content: any }) {
                 </div>
               </Accordion.Trigger>
               <Accordion.Content className="w-full bg-[#f7f5f9] rounded-b-[10px] mt-[-8px] overflow-hidden data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
-                <div className="p-[20px] md:p-[30px] font-['Inter:Regular',sans-serif] text-[16px] md:text-[18px] text-[#080813] leading-[1.4]">
+                <div className="p-[20px] md:p-[30px] font-['Inter:Regular',sans-serif] text-[16px] md:text-[18px] text-[#080813] leading-[1.4]" data-tina-field={fieldFor(editable?.faq?.items?.[index], "answer")}>
                   {item.answer}
                 </div>
               </Accordion.Content>
@@ -3256,6 +3256,10 @@ function Frame52({ content }: { content: any }) {
       </div>
     </div>
   );
+}
+
+function Frame52({ content }: { content: any }) {
+  return <FaqSection content={content} />;
 }
 
 function Frame126() {
@@ -3560,10 +3564,10 @@ function Group1({ selectedIndex, onDotClick }: { selectedIndex: number, onDotCli
   );
 }
 
-function Frame60({ content, editable }: { content: any; editable?: any }) {
+export function Frame60({ content, editable }: { content: any; editable?: any }) {
   if (!content?.locations?.items?.length) return null;
 
-  const cards = content.locations.items.slice(0, 4);
+  const cards = content.locations.items;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: 'start',
@@ -3581,6 +3585,14 @@ function Frame60({ content, editable }: { content: any; editable?: any }) {
     onSelect();
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
+
+    const autoScroll = window.setInterval(() => {
+      emblaApi.scrollNext();
+    }, 4500);
+
+    return () => {
+      window.clearInterval(autoScroll);
+    };
   }, [emblaApi, onSelect]);
 
   const scrollTo = useCallback((index: number) => {
@@ -3777,23 +3789,42 @@ function Frame72() {
   );
 }
 
+function getHeaderNavigation() {
+  const pathname = typeof window !== "undefined" ? window.location.pathname : "/es/";
+  const lang = pathname.startsWith("/en") ? "en" : "es";
+  const prefix = `/${lang}`;
+
+  return {
+    home: `${prefix}/`,
+    solutions: `${prefix}/soluciones-vivienda/`,
+    simulator: `${prefix}/simulador-hipoteca/`,
+    about: `${prefix}/sobre-nosotros/`,
+    blog: `${prefix}/news/`,
+    contact: `${prefix}/contacto/`
+  };
+}
+
 function Img() {
+  const links = getHeaderNavigation();
+
   return (
-    <div className="h-[40px] relative shrink-0 w-[167.719px]" data-name="img">
+    <a className="block h-[40px] relative shrink-0 w-[167.719px]" data-name="img" href={links.home}>
       <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-contain pointer-events-none size-full" src="/images/imgImg.png" />
-    </div>
+    </a>
   );
 }
 
 function Frame136() {
+  const links = getHeaderNavigation();
+
   return (
     <div className="relative shrink-0">
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex font-['Inter:Bold',sans-serif] font-bold gap-[40px] items-center leading-[1.1] not-italic relative text-[#62748e] text-[15px] text-center whitespace-nowrap">
-        <p className="relative shrink-0">{`Soluciones de vivienda `}</p>
-        <p className="relative shrink-0">Simulador de hipoteca</p>
-        <p className="relative shrink-0">Sobre nosotros</p>
-        <p className="relative shrink-0">Blog</p>
-        <p className="relative shrink-0">Contacto</p>
+        <a className="relative shrink-0 no-underline text-inherit" href={links.solutions}>{`Soluciones de vivienda `}</a>
+        <a className="relative shrink-0 no-underline text-inherit" href={links.simulator}>Simulador de hipoteca</a>
+        <a className="relative shrink-0 no-underline text-inherit" href={links.about}>Sobre nosotros</a>
+        <a className="relative shrink-0 no-underline text-inherit" href={links.blog}>Blog</a>
+        <a className="relative shrink-0 no-underline text-inherit" href={links.contact}>Contacto</a>
       </div>
     </div>
   );
@@ -3813,13 +3844,15 @@ function ArrowRight() {
 }
 
 function Button() {
+  const links = getHeaderNavigation();
+
   return (
-    <div className="bg-[#fcc63d] flex-[1_0_0] h-[52px] min-h-px min-w-px relative rounded-[16px]" data-name="button">
+    <a className="bg-[#fcc63d] block flex-[1_0_0] h-[52px] min-h-px min-w-px relative rounded-[16px] no-underline" data-name="button" href={links.contact}>
       <div className="bg-clip-padding border-0 border-[transparent] border-solid relative size-full">
         <p className="-translate-x-1/2 absolute font-['Inter:Bold',sans-serif] font-bold leading-[20px] left-[92.5px] not-italic text-[#080813] text-[16px] text-center top-[15px] whitespace-nowrap">{`Asesor Experto `}</p>
         <ArrowRight />
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -3835,6 +3868,7 @@ function Container51() {
 
 export function FigmaHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const links = getHeaderNavigation();
 
   return (
     <div className="bg-white pointer-events-auto sticky top-0 w-full z-50 shadow-sm" data-name="div">
@@ -3861,11 +3895,11 @@ export function FigmaHeader() {
       {isOpen ? (
         <div className="md:hidden border-t border-[#e5e7eb] px-[20px] py-[20px]">
           <div className="flex flex-col gap-[18px] text-[#62748e] text-[16px] font-['Inter:Bold',sans-serif] font-bold">
-            <a href="#" className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Soluciones de vivienda</a>
-            <a href="#" className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Simulador de hipoteca</a>
-            <a href="#" className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Sobre nosotros</a>
-            <a href="#" className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Blog</a>
-            <a href="#" className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Contacto</a>
+            <a href={links.solutions} className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Soluciones de vivienda</a>
+            <a href={links.simulator} className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Simulador de hipoteca</a>
+            <a href={links.about} className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Sobre nosotros</a>
+            <a href={links.blog} className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Blog</a>
+            <a href={links.contact} className="no-underline text-inherit" onClick={() => setIsOpen(false)}>Contacto</a>
             <div className="pt-[8px]">
               <Container51 />
             </div>
@@ -3937,7 +3971,7 @@ function AboutSection({ content, editable }: { content: any; editable?: any }) {
   if (!about) return null;
 
   return (
-    <section className="bg-white content-stretch flex flex-col items-start px-[20px] md:px-[48px] xl:px-[312px] pt-[56px] pb-[88px] md:py-[80px] relative shrink-0 w-full">
+    <section id="sobre-nosotros" className="bg-white content-stretch flex flex-col items-start px-[20px] md:px-[48px] xl:px-[312px] pt-[56px] pb-[88px] md:py-[80px] relative shrink-0 w-full">
       <div className="content-stretch flex flex-col lg:flex-row gap-[56px] md:gap-[72px] lg:gap-[80px] items-start lg:items-center relative shrink-0 w-full">
         <div className="flex-[1_0_0] h-[320px] md:h-[447px] mb-[44px] md:mb-0 min-h-px min-w-px relative rounded-[32px] md:rounded-[40px] w-full" data-tina-field={fieldFor(editable?.about, "image")}>
           <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[32px] md:rounded-[40px] size-full" src={about.image} />
@@ -4084,7 +4118,7 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
   );
 }
 
-function TestimonialsSection({ content }: { content: any }) {
+export function TestimonialsSection({ content, editable }: { content: any; editable?: any }) {
   if (!content?.testimonials) return null;
   const t = content.testimonials;
   const items = t.items || [];
@@ -4127,23 +4161,28 @@ function TestimonialsSection({ content }: { content: any }) {
   }, [emblaApi, itemsPerPage]);
 
   return (
-    <section className="mb-[-2px] relative shrink-0 w-full" style={{ backgroundColor }} data-name="testimonios">
+    <section
+      className="mb-[-2px] relative shrink-0 w-full"
+      style={{ backgroundColor }}
+      data-name="testimonios"
+      data-tina-field={fieldFor(editable, "testimonials")}
+    >
       <div className="w-full max-w-[1460px] mx-auto px-[24px] md:px-[48px] xl:px-[80px] py-[80px] flex flex-col gap-[60px] items-center">
         <div className="content-stretch flex flex-col gap-[30px] items-start relative shrink-0 w-full max-w-[947px]">
-          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[40px] text-center w-full">{t.title}</p>
-          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[24px] text-center w-full">{t.description}</p>
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[40px] text-center w-full" data-tina-field={fieldFor(editable?.testimonials, "title")}>{t.title}</p>
+          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] not-italic relative shrink-0 text-[#080813] text-[24px] text-center w-full" data-tina-field={fieldFor(editable?.testimonials, "description")}>{t.description}</p>
         </div>
         <div className="w-full max-w-[1180px] flex flex-col gap-[28px] items-center">
           <div className="w-full overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {items.map((item: any, idx: number) => (
-                <div key={idx} className="flex-[0_0_100%] md:flex-[0_0_50%] xl:flex-[0_0_33.333%] min-w-0 px-[8px] md:px-[12px]">
+                <div key={idx} className="flex-[0_0_100%] md:flex-[0_0_50%] xl:flex-[0_0_33.333%] min-w-0 px-[8px] md:px-[12px]" data-tina-field={fieldFor(editable?.testimonials?.items?.[idx], "text")}>
                   <article className="bg-white rounded-[28px] shadow-[0px_30px_60px_0px_rgba(14,17,40,0.12)] min-h-[360px] md:min-h-[400px] xl:min-h-[420px] w-full px-[24px] py-[28px] md:px-[30px] md:py-[32px] xl:px-[34px] xl:py-[36px] flex flex-col justify-between">
                     <div className="flex flex-col gap-[26px] md:gap-[34px]">
                       <div className="flex gap-[8px] text-[#8949ff] text-[24px] leading-none">
                         {renderStars(item.stars || 5)}
                       </div>
-                      <p className="font-['Inter:Regular',sans-serif] text-[#9d9ba8] text-[18px] md:text-[20px] xl:text-[22px] leading-[1.16] tracking-[-0.02em]">
+                      <p className="font-['Inter:Regular',sans-serif] text-[#9d9ba8] text-[18px] md:text-[20px] xl:text-[22px] leading-[1.16] tracking-[-0.02em]" data-tina-field={fieldFor(editable?.testimonials?.items?.[idx], "text")}>
                         {item.text}
                       </p>
                     </div>
@@ -4152,12 +4191,13 @@ function TestimonialsSection({ content }: { content: any }) {
                         src={item.image}
                         alt={item.name}
                         className="size-[60px] md:size-[68px] rounded-full object-cover bg-[#f2eff7] shrink-0"
+                        data-tina-field={fieldFor(editable?.testimonials?.items?.[idx], "image")}
                       />
                       <div className="flex flex-col">
-                        <p className="font-['Trueno:Bold',sans-serif] text-[#8949ff] text-[22px] md:text-[24px] xl:text-[26px] leading-[1.1]">
+                        <p className="font-['Trueno:Bold',sans-serif] text-[#8949ff] text-[22px] md:text-[24px] xl:text-[26px] leading-[1.1]" data-tina-field={fieldFor(editable?.testimonials?.items?.[idx], "name")}>
                           {item.name}
                         </p>
-                        <p className="font-['Trueno:Light',sans-serif] text-[#080813] text-[16px] md:text-[17px] xl:text-[18px] leading-[1.2]">
+                        <p className="font-['Trueno:Light',sans-serif] text-[#080813] text-[16px] md:text-[17px] xl:text-[18px] leading-[1.2]" data-tina-field={fieldFor(editable?.testimonials?.items?.[idx], "role")}>
                           {item.role}
                         </p>
                       </div>
@@ -4271,6 +4311,8 @@ function CarouselDots({
 }
 
 export function FigmaFooter() {
+  const links = getHeaderNavigation();
+
   return (
     <footer className="bg-[#080813] content-stretch flex flex-col gap-[40px] items-center overflow-hidden px-[20px] sm:px-[60px] md:px-[120px] lg:px-[240px] py-[80px] md:py-[120px] relative w-full text-left" data-name="Footer">
       <div className="absolute hidden md:block left-[75.26%] size-[806px] top-[79px] pointer-events-none">
@@ -4315,17 +4357,17 @@ export function FigmaFooter() {
         <div className="content-stretch flex flex-col gap-[40px] items-start leading-[1.1] not-italic relative w-full">
           <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#8949ff] text-[22px] w-full">Servicios</p>
           <div className="content-stretch flex flex-col font-['Inter:Regular',sans-serif] font-normal gap-[22px] items-start relative shrink-0 text-[16px] text-white w-full">
-            <a className="relative shrink-0 w-full no-underline" href="/es/#soluciones">Soluciones de hipoteca</a>
-            <a className="relative shrink-0 w-full no-underline" href="/es/#simulador">Simulador de hipoteca</a>
+            <a className="relative shrink-0 w-full no-underline" href={links.solutions}>Soluciones de hipoteca</a>
+            <a className="relative shrink-0 w-full no-underline" href={links.simulator}>Simulador de hipoteca</a>
           </div>
         </div>
 
         <div className="content-stretch flex flex-col gap-[40px] items-start leading-[1.1] not-italic relative w-full">
           <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#8949ff] text-[22px] w-full">Empresa</p>
           <div className="content-stretch flex flex-col font-['Inter:Regular',sans-serif] font-normal gap-[22px] items-start relative shrink-0 text-[16px] text-white w-full">
-            <a className="relative shrink-0 w-full no-underline" href="/es/#sobre-nosotros">Sobre nosotros</a>
-            <a className="relative shrink-0 w-full no-underline" href="/es/#contacto">Contacto</a>
-            <a className="relative shrink-0 w-full no-underline" href="/es/news/">Blog</a>
+            <a className="relative shrink-0 w-full no-underline" href={links.about}>Sobre nosotros</a>
+            <a className="relative shrink-0 w-full no-underline" href={links.contact}>Contacto</a>
+            <a className="relative shrink-0 w-full no-underline" href={links.blog}>Blog</a>
           </div>
         </div>
 
@@ -4345,7 +4387,7 @@ export function FigmaFooter() {
             <span className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] text-[16px] whitespace-nowrap">info@efiteca.com</span>
           </a>
           <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] relative shrink-0 text-[#8949ff] text-[22px] w-full">Simulador</p>
-          <a className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 no-underline w-full sm:w-auto" href="/es/#simulador">
+          <a className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 no-underline w-full sm:w-auto" href={links.simulator}>
             <span className="font-['Inter:Bold',sans-serif] font-bold leading-[27px] relative shrink-0 text-[#0f172b] text-[18px] text-center tracking-[1.8px] uppercase whitespace-nowrap">Ver diagnóstico</span>
           </a>
         </div>

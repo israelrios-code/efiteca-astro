@@ -1,0 +1,1675 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EFITECA · Calculadoras (Viabilidad · Gastos · Comparador)</title>
+  <style>
+    :root{
+      --ef-purple:#3a2a86;
+      --ef-purple-2:#2e2070;
+      --ef-yellow:#f8d77a;
+      --ef-yellow-2:#ffe6a5;
+      --ef-bg:#f4f4f6;
+      --ef-text:#1c1c1f;
+      --ef-muted:#6b6b77;
+      --ef-card-shadow: 0 6px 18px rgba(0,0,0,.08);
+      --ef-radius: 14px;
+      --ef-font: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --ef-font-body: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--ef-bg);
+      color:var(--ef-text);
+      font-family: var(--ef-font-body);
+    }
+
+    .wrap{max-width:1100px;margin:0 auto;padding:26px 16px 60px;}
+    header{ text-align:center; margin: 10px 0 22px; }
+    header h1{
+      margin:0 0 6px;
+      font-family: var(--ef-font);
+      color: var(--ef-purple);
+      font-weight: 700;
+      letter-spacing:.2px;
+      font-size: clamp(28px, 4vw, 44px);
+    }
+    header p{
+      margin:0 auto;
+      max-width: 760px;
+      color: #3b3b45;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    /* Tabs */
+    .tabs{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin: 18px 0 18px;
+    }
+    .tab-btn{
+      appearance:none;border:0;
+      cursor:pointer;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ef-purple);
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid rgba(58,42,134,.12);
+      transition: transform .08s ease, background .12s ease, color .12s ease;
+    }
+    .tab-btn:hover{ transform: translateY(-1px); }
+    .tab-btn[aria-selected="true"]{
+      background: var(--ef-purple);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    /* Layout like reference */
+    .panel{
+      display:none;
+      background: #fff;
+      border-radius: var(--ef-radius);
+      box-shadow: var(--ef-card-shadow);
+      padding: 26px 18px;
+    }
+    .panel.active{ display:block; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap: 20px;
+      align-items:start;
+      justify-items:stretch;
+    }
+.grid > *{ min-width: 0; }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--ef-yellow);
+      border-radius: var(--ef-radius);
+      box-shadow: var(--ef-card-shadow);
+      padding: 18px 16px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: 16px;
+      color: var(--ef-purple);
+      font-family: var(--ef-font-body);
+      font-weight: 800;
+      letter-spacing:.2px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      align-items:center;
+      margin: 10px 0;
+    }
+    .row > *{ min-width: 0; }
+    .row.single{ grid-template-columns: 1fr; }
+    label{
+      display:block;
+      font-weight: 700;
+      color: var(--ef-purple);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .field{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    input[type="text"], input[type="number"], select{
+      width:100%;
+      padding: 10px 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,.12);
+      background: #fff;
+      outline:none;
+      font-size: 14px;
+    }
+    input[type="number"]{ appearance:textfield; }
+    input:focus, select:focus{
+      border-color: rgba(58,42,134,.45);
+      box-shadow: 0 0 0 3px rgba(58,42,134,.12);
+    }
+
+    .help{
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display:grid; place-items:center;
+      background: var(--ef-purple);
+      color:#fff;
+      font-weight:900;
+      font-size: 13px;
+      cursor: help;
+      flex: 0 0 22px;
+      user-select:none;
+    }
+
+    .inline{
+      display:flex; gap:10px; align-items:center;
+    }
+    .inline > *{ flex:1; }
+    .inline .help{ flex:0 0 22px; }
+
+    .check{
+      display:flex; gap:10px; align-items:center;
+      margin: 10px 0 0;
+      color: var(--ef-purple);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .check input{ width: 16px; height: 16px; }
+
+    .btns{
+      display:flex;
+      gap: 12px;
+      justify-content:flex-end;
+      margin-top: 14px;
+    }
+    .btn{
+      appearance:none;border:0;
+      cursor:pointer;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: var(--ef-purple);
+      color:#fff;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(58,42,134,.18);
+      transition: transform .08s ease, filter .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.04); }
+    .btn.secondary{
+      background:#fff;
+      color: var(--ef-purple);
+      border: 1px solid rgba(58,42,134,.22);
+      box-shadow: none;
+    }
+
+    /* Result block like reference */
+    .resultWrap{
+      display:flex;
+      gap: 14px;
+      align-items:stretch;
+      flex-wrap:wrap;
+    }
+    .bigResult{
+      background: var(--ef-yellow);
+      border-radius: var(--ef-radius);
+      box-shadow: var(--ef-card-shadow);
+      padding: 18px 16px;
+      min-width: min(520px, 100%);
+      flex: 1 1 520px;
+    }
+    .bigResult .title{
+      text-align:center;
+      font-weight: 900;
+      color: var(--ef-purple);
+      letter-spacing:.5px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .bigNumber{
+      background:#fff;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,.10);
+      padding: 14px 12px;
+      text-align:center;
+      font-size: 22px;
+      font-weight: 900;
+      color: #1d1d22;
+    }
+
+    .miniCards{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 540px){
+      .miniCards{ grid-template-columns: 1fr; }
+    }
+    .mini{
+      background:#fff;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.10);
+      padding: 12px 12px;
+    }
+    .mini .k{ color: var(--ef-muted); font-size: 12px; font-weight: 800; }
+    .mini .v{ margin-top: 6px; font-size: 16px; font-weight: 900; color: #1d1d22; }
+
+    .note{
+      margin-top: 14px;
+      color: #2b2b33;
+      font-size: 13px;
+      line-height: 1.35;
+      max-width: 680px;
+    }
+    .badge{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing:.3px;
+    }
+    .b-ok{ background: rgba(46, 204, 113, .18); color:#0b6b31; border: 1px solid rgba(46, 204, 113, .35);}
+    .b-warn{ background: rgba(241, 196, 15, .25); color:#7a5a00; border: 1px solid rgba(241, 196, 15, .5);}
+    .b-bad{ background: rgba(231, 76, 60, .18); color:#8a1f14; border: 1px solid rgba(231, 76, 60, .35);}
+
+    .ctaBox{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .ctaBox a{
+      text-decoration:none;
+      background: var(--ef-purple);
+      color:#fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+    .ctaBox a.secondary{
+      background:#fff;
+      color: var(--ef-purple);
+      border: 1px solid rgba(58,42,134,.22);
+    }
+
+    .legal{
+      margin-top: 16px;
+      background: rgba(255,255,255,.65);
+      border: 1px dashed rgba(58,42,134,.28);
+      border-radius: 12px;
+      padding: 12px 12px;
+      font-size: 12px;
+      color: #2b2b33;
+      line-height: 1.35;
+    }
+
+    .divider{
+      height:1px;
+      background: rgba(0,0,0,.10);
+      margin: 14px 0;
+    }
+
+    /* Comparador table */
+    .compareGrid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+      min-width: 0;
+    }
+.compareGrid > *{ min-width: 0; }
+    @media (max-width: 980px){
+      .compareGrid{ grid-template-columns: 1fr; }
+    }
+    .compareCol{
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,.10);
+      padding: 12px 12px;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .compareCol h3{
+      margin: 0 0 8px;
+      color: var(--ef-purple);
+      font-size: 14px;
+      font-weight: 900;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+    th, td{
+      text-align:left;
+      padding: 8px 6px;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      font-size: 12px;
+    }
+    th{
+      color: var(--ef-muted);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing:.4px;
+      font-size: 11px;
+    }
+
+    /* Print */
+    .printOnly{ display:none; }
+    @media print{
+      body{ background:#fff; }
+      .noPrint{ display:none !important; }
+      .printOnly{ display:block; }
+      .panel{ box-shadow:none; padding:0; }
+      .wrap{ max-width: 100%; padding: 0; }
+      .bigResult, .card, .compareCol, .mini{ box-shadow:none; }
+    }
+
+    .error{
+      margin-top:10px;
+      background: rgba(231,76,60,.12);
+      border: 1px solid rgba(231,76,60,.30);
+      padding: 10px 12px;
+      border-radius: 12px;
+      color:#7a1710;
+      font-weight: 700;
+      font-size: 12px;
+      line-height:1.35;
+      display:none;
+    }
+    .error.show{ display:block; }
+
+    .muted{ color: var(--ef-muted); font-size: 12px; line-height:1.35; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background:#fff;
+      border: 1px solid rgba(0,0,0,.10);
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--ef-purple);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="noPrint">
+      <h1>EFITECA · Calculadoras</h1>
+      <p>
+        Herramientas orientativas para estimar viabilidad hipotecaria, gastos de compra y comparar hipotecas.
+        Los resultados no constituyen oferta vinculante ni asesoramiento legal/fiscal.
+      </p>
+    </header>
+
+    <div class="tabs noPrint" role="tablist" aria-label="Calculadoras EFITECA">
+      <button class="tab-btn" role="tab" aria-selected="true" aria-controls="tab-viab" id="btn-viab">Viabilidad hipotecaria</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-gastos" id="btn-gastos">Gastos de compra</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-comp" id="btn-comp">Comparador hipotecas</button>
+    </div>
+
+    <!-- PANEL 1: VIABILIDAD -->
+    <section class="panel active" id="tab-viab" role="tabpanel" aria-labelledby="btn-viab">
+      <div class="grid">
+        <div class="card">
+          <h2>EFITECA · Calculadora de viabilidad hipotecaria (orientativa)</h2>
+
+          <div class="row">
+            <div>
+              <label>Edad del titular más joven (años)</label>
+              <div class="inline">
+                <input id="v_edad_joven" type="number" min="18" max="80" placeholder="Ej: 28" />
+                <span class="help" title="Se usa como dato informativo; el plazo se limita por la edad del titular de mayor edad.">i</span>
+              </div>
+            </div>
+            <div>
+              <label>Edad del titular más mayor (años)</label>
+              <div class="inline">
+                <input id="v_edad_mayor" type="number" min="18" max="80" placeholder="Ej: 41" />
+                <span class="help" title="El préstamo no puede vencer después de los 75 años (y nunca supera 40 años).">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row single">
+            <div>
+              <label>Situación laboral</label>
+              <div class="inline">
+                <select id="v_laboral">
+                  <option value="">Selecciona…</option>
+                  <option>Indefinido</option>
+                  <option>Autónomo</option>
+                  <option>Funcionario</option>
+                  <option>Otros</option>
+                </select>
+                <span class="help" title="Dato orientativo para el estudio. La decisión final dependerá del análisis completo del banco.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Ingresos netos mensuales (€)</label>
+              <div class="inline">
+                <input id="v_ingresos" type="text" inputmode="decimal" placeholder="Ej: 2.800" />
+                <span class="help" title="Suma de ingresos netos mensuales del/de los titulares.">i</span>
+              </div>
+            </div>
+            <div>
+              <label>Deudas mensuales (€)</label>
+              <div class="inline">
+                <input id="v_deudas" type="text" inputmode="decimal" placeholder="Ej: 250" />
+                <span class="help" title="Cuotas mensuales ya existentes (préstamos, tarjetas, etc.).">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Precio de la vivienda (€)</label>
+              <div class="inline">
+                <input id="v_precio" type="text" inputmode="decimal" placeholder="Ej: 240.000" />
+                <span class="help" title="Precio de compraventa. Los gastos se estiman como un % orientativo configurable.">i</span>
+              </div>
+            </div>
+            <div>
+              <label>Ahorros disponibles (€)</label>
+              <div class="inline">
+                <input id="v_ahorros" type="text" inputmode="decimal" placeholder="Ej: 45.000" />
+                <span class="help" title="Capital disponible para entrada y gastos.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row single">
+            <div>
+              <label>Finalidad de la compra</label>
+              <div class="inline">
+                <select id="v_finalidad">
+                  <option value="">Selecciona…</option>
+                  <option value="habitual">Vivienda habitual</option>
+                  <option value="segunda">Segunda residencia</option>
+                  <option value="inversion">Inversión</option>
+                </select>
+                <span class="help" title="Afecta a la financiación máxima (LTV) orientativa.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="check">
+            <input id="v_flag_joven" type="checkbox" />
+            <label for="v_flag_joven" style="margin:0;">Perfil joven (≤ 35 años) · permite LTV mayor en vivienda habitual</label>
+            <span class="help" title="Ajusta LTV de vivienda habitual (hasta 95%) y el % de gastos estimados por defecto (6% vs 11%).">i</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row">
+            <div>
+              <label>Tipo de interés orientativo (TIN anual %)</label>
+              <div class="inline">
+                <input id="v_tin" type="number" min="0" step="0.01" placeholder="Ej: 3.50" />
+                <span class="help" title="Se usa solo para simular cuota. No se promete tipo ni entidad.">i</span>
+              </div>
+            </div>
+            <div>
+              <label>Plazo a simular (años)</label>
+              <div class="inline">
+                <input id="v_plazo" type="number" min="15" max="40" step="1" placeholder="Auto" />
+                <span class="help" title="Si lo dejas en blanco, se aplica el plazo máximo permitido por edad (mín. 15 / máx. 40).">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn secondary" id="v_clear">Limpiar</button>
+            <button class="btn" id="v_calc">Calcular</button>
+          </div>
+
+          <div class="error" id="v_error"></div>
+
+          <div class="legal">
+            •	El resultado es orientativo y se basa en criterios habituales del mercado.
+            <br/>
+            •	La concesión final y las condiciones dependen del análisis del banco y del perfil completo del cliente.
+          </div>
+        </div>
+
+        <div>
+          <div class="bigResult">
+            <div class="title">RESULTADO ORIENTATIVO</div>
+            <div class="bigNumber" id="v_result_badge">—</div>
+
+            <div class="miniCards">
+              <div class="mini">
+                <div class="k">Importe máximo de hipoteca estimado</div>
+                <div class="v" id="v_out_hipoteca">—</div>
+              </div>
+              <div class="mini">
+                <div class="k">Cuota mensual estimada</div>
+                <div class="v" id="v_out_cuota">—</div>
+              </div>
+              <div class="mini">
+                <div class="k">Plazo aplicado</div>
+                <div class="v" id="v_out_plazo">—</div>
+              </div>
+              <div class="mini">
+                <div class="k">DTI resultante</div>
+                <div class="v" id="v_out_dti">—</div>
+              </div>
+            </div>
+
+            <div class="note" id="v_out_msg"></div>
+
+            <div class="ctaBox noPrint">
+              <a href="#contacto" id="v_cta1">Hablar con un gestor</a>
+              <span class="pill" id="v_out_extra">—</span>
+            </div>
+
+            <div class="legal">
+              •	Criterios prudentes (DTI recomendado ≤ 35%, máximo absoluto 44%, plazo 15–40 años y vencimiento antes de 75 años).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 2: GASTOS -->
+    <section class="panel" id="tab-gastos" role="tabpanel" aria-labelledby="btn-gastos">
+      <div class="grid">
+        <div class="card">
+          <h2>EFITECA · Calculadora integral de gastos de compra de vivienda</h2>
+
+          <div class="row single">
+            <div>
+              <label>Precio de la vivienda (€)</label>
+              <div class="inline">
+                <input id="g_precio" type="text" inputmode="decimal" placeholder="Ej: 240.000" />
+                <span class="help" title="Algunos impuestos pueden liquidarse sobre el mayor valor entre el precio y el valor de referencia catastral, si aplica.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Tipo de vivienda</label>
+              <select id="g_tipo">
+                <option value="obra_nueva">Obra nueva</option>
+                <option value="segunda_mano">Segunda mano</option>
+              </select>
+            </div>
+            <div>
+              <label>Comunidad Autónoma</label>
+              <div class="inline">
+                <select id="g_ccaa"></select>
+                <span class="help" title="Se aplican porcentajes orientativos configurables. Revisa y ajusta los tipos si es necesario.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>¿Vivienda habitual?</label>
+              <select id="g_habitual">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div>
+              <label>¿Compra con hipoteca?</label>
+              <select id="g_hipoteca">
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row">
+            <div>
+              <label>Joven (orientativo, ≤ 35 años)</label>
+              <select id="g_joven">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+              </select>
+            </div>
+            <div>
+              <label>Familia numerosa</label>
+              <select id="g_fam">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Discapacidad</label>
+              <select id="g_disc">
+                <option value="no">No</option>
+                <option value="si">Sí</option>
+              </select>
+            </div>
+            <div>
+              <label>Tipos aplicados (editables)</label>
+              <div class="inline">
+                <input id="g_tipo_impuesto" type="number" step="0.01" min="0" placeholder="%" />
+                <span class="help" title="Por defecto se carga un tipo orientativo por Comunidad. Puedes editarlo antes de calcular.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="muted">
+            * Para segunda mano, este % es ITP. Para obra nueva, este % corresponde a AJD de compraventa (el IVA es 10% por defecto).
+          </div>
+
+          <div class="btns">
+            <button class="btn secondary" id="g_clear">Limpiar</button>
+            <button class="btn" id="g_calc">Calcular</button>
+          </div>
+
+          <div class="error" id="g_error"></div>
+
+          <div class="legal">
+            •	Los importes mostrados son estimaciones orientativas basadas en la información facilitada por el usuario y en la normativa vigente.
+            No constituyen una oferta vinculante ni sustituyen el asesoramiento legal o fiscal. Los gastos e impuestos reales pueden variar en función de la Comunidad Autónoma,
+            del valor de referencia catastral y de las circunstancias personales del comprador.
+            <br/>
+            •	Como intermediarios de crédito inmobiliario inscritos en el Banco de España, actuamos conforme a la Ley 5/2019, de 15 de marzo.
+          </div>
+        </div>
+
+        <div>
+          <div class="bigResult">
+            <div class="title">TOTAL GENERAL ESTIMADO</div>
+            <div class="bigNumber" id="g_out_total">—</div>
+
+            <div class="divider"></div>
+
+            <div class="resultWrap">
+              <div style="flex:1 1 420px;">
+                <div class="pill" style="margin-bottom:10px;">1) Gastos de compraventa</div>
+                <div class="miniCards" style="margin-top:0;">
+                  <div class="mini">
+                    <div class="k" id="g_lbl_impuesto">Impuestos</div>
+                    <div class="v" id="g_out_impuesto">—</div>
+                  </div>
+                  <div class="mini">
+                    <div class="k">Notaría (compraventa)</div>
+                    <div class="v" id="g_out_notaria_cv">—</div>
+                  </div>
+                  <div class="mini">
+                    <div class="k">Registro (compraventa)</div>
+                    <div class="v" id="g_out_reg_cv">—</div>
+                  </div>
+                  <div class="mini">
+                    <div class="k">Gestoría (orientativo)</div>
+                    <div class="v" id="g_out_gestoria">—</div>
+                  </div>
+                </div>
+                <div class="note" id="g_out_note_cv"></div>
+                <div class="mini" style="margin-top:12px;">
+                  <div class="k">Total gastos compraventa</div>
+                  <div class="v" id="g_out_total_cv">—</div>
+                </div>
+              </div>
+
+              <div style="flex:1 1 420px;">
+                <div class="pill" style="margin-bottom:10px;">2) Gastos de hipoteca (si aplica)</div>
+                <div class="miniCards" style="margin-top:0;">
+                  <div class="mini">
+                    <div class="k">Tasación (comprador)</div>
+                    <div class="v" id="g_out_tasacion">—</div>
+                  </div>
+                  <div class="mini">
+                    <div class="k">Gastos a cargo del banco (informativo)</div>
+                    <div class="v" id="g_out_banco_info">—</div>
+                  </div>
+                  <div class="mini">
+                    <div class="k">Total hipoteca (comprador)</div>
+                    <div class="v" id="g_out_total_hip_comp">—</div>
+                  </div>
+                  <div class="mini">
+                    <div class="k">AJD préstamo (paga el banco)</div>
+                    <div class="v" id="g_out_ajd_prestamo">—</div>
+                  </div>
+                </div>
+                <div class="note" id="g_out_note_hip"></div>
+              </div>
+            </div>
+
+            <div class="legal">
+              •	Esta calculadora ofrece estimaciones orientativas. Los importes finales pueden variar según la normativa autonómica, el valor de referencia catastral y la situación personal del comprador
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 3: COMPARADOR -->
+    <section class="panel" id="tab-comp" role="tabpanel" aria-labelledby="btn-comp">
+      <div class="grid">
+        <div class="card">
+          <h2>EFITECA · Comparador de Hipotecas (2 opciones)</h2>
+
+          <div class="row single">
+            <div>
+              <label>Importe del préstamo (€)</label>
+              <div class="inline">
+                <input id="c_principal" type="text" inputmode="decimal" placeholder="Ej: 200.000" />
+                <span class="help" title="El comparador usa sistema de amortización francés.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row single">
+            <div>
+              <label>Plazo (años, máx. 40)</label>
+              <div class="inline">
+                <input id="c_plazo" type="number" min="1" max="40" step="1" placeholder="Ej: 30" />
+                <span class="help" title="Restricción: no se permiten plazos superiores a 40 años.">i</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row single">
+            <div>
+              <label>Tipo de interés</label>
+              <select id="c_tipo">
+                <option value="fijo">Fijo</option>
+                <option value="variable">Variable (simulación con TIN actual)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row">
+            <div>
+              <label>Opción A · TIN anual (%)</label>
+              <input id="c_tin_a" type="number" min="0" step="0.01" placeholder="Ej: 3.20" />
+            </div>
+            <div>
+              <label>Opción B · TIN anual (%)</label>
+              <input id="c_tin_b" type="number" min="0" step="0.01" placeholder="Ej: 3.75" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Comisión apertura A (%)</label>
+              <input id="c_apertura_a" type="number" min="0" step="0.01" placeholder="Ej: 0.50" />
+            </div>
+            <div>
+              <label>Comisión apertura B (%)</label>
+              <input id="c_apertura_b" type="number" min="0" step="0.01" placeholder="Ej: 0.00" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Amortización anticipada A (%)</label>
+              <input id="c_anti_a" type="number" min="0" step="0.01" placeholder="Ej: 0.25" />
+            </div>
+            <div>
+              <label>Amortización anticipada B (%)</label>
+              <input id="c_anti_b" type="number" min="0" step="0.01" placeholder="Ej: 0.25" />
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row single">
+            <div>
+              <label>Email (opcional, para “enviar por email”)</label>
+              <input id="c_email" type="email" placeholder="nombre@dominio.com" />
+              <div class="check" style="margin-top:10px;">
+                <input id="c_consent" type="checkbox" />
+                <label for="c_consent" style="margin:0;">Consiento el tratamiento para enviar la comparación por email (se abrirá mi cliente de correo)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn secondary" id="c_clear">Limpiar</button>
+            <button class="btn" id="c_calc">Comparar</button>
+          </div>
+
+          <div class="btns noPrint" style="justify-content:flex-start;">
+            <button class="btn secondary" id="c_pdf">Descargar PDF</button>
+            <button class="btn secondary" id="c_send">Enviar por email</button>
+          </div>
+
+          <div class="error" id="c_error"></div>
+
+          <div class="legal">
+            •	Los resultados mostrados son simulaciones orientativas basadas en los datos introducidos. No constituyen oferta vinculante ni sustituyen la información precontractual que, en su caso, se facilitará por escrito.
+            Como intermediarios de crédito inmobiliario inscritos en el Banco de España (nº E377), actuamos de forma independiente y no somos prestamistas.
+          </div>
+        </div>
+
+        <div>
+          <div class="bigResult" id="c_print_area">
+            <div class="title">COMPARACIÓN</div>
+            <div class="bigNumber" id="c_out_winner">Introduce datos y pulsa “Comparar”</div>
+
+            <div class="compareGrid">
+              <div class="compareCol">
+                <h3>Opción A</h3>
+                <div class="muted" style="margin:-2px 0 10px;"><strong>Tipo:</strong> <span id="c_out_tipo_a">—</span></div>
+                <div class="miniCards" style="margin-top:0;">
+                  <div class="mini"><div class="k">Cuota mensual</div><div class="v" id="c_out_cuota_a">—</div></div>
+                  <div class="mini"><div class="k">Intereses totales</div><div class="v" id="c_out_int_a">—</div></div>
+                  <div class="mini"><div class="k">Coste total (cuotas)</div><div class="v" id="c_out_total_a">—</div></div>
+                  <div class="mini"><div class="k">TAE aprox. (incl. apertura)</div><div class="v" id="c_out_tae_a">—</div></div>
+                </div>
+                <div class="divider"></div>
+                <div class="muted"><strong>Tabla amortización (resumen anual)</strong></div>
+                <div style="max-height: 260px; overflow:auto; border-radius:12px; border:1px solid rgba(0,0,0,.08); margin-top:8px;">
+                  <table id="c_table_a"></table>
+                </div>
+              </div>
+
+              <div class="compareCol">
+                <h3>Opción B</h3>
+                <div class="muted" style="margin:-2px 0 10px;"><strong>Tipo:</strong> <span id="c_out_tipo_b">—</span></div>
+                <div class="miniCards" style="margin-top:0;">
+                  <div class="mini"><div class="k">Cuota mensual</div><div class="v" id="c_out_cuota_b">—</div></div>
+                  <div class="mini"><div class="k">Intereses totales</div><div class="v" id="c_out_int_b">—</div></div>
+                  <div class="mini"><div class="k">Coste total (cuotas)</div><div class="v" id="c_out_total_b">—</div></div>
+                  <div class="mini"><div class="k">TAE aprox. (incl. apertura)</div><div class="v" id="c_out_tae_b">—</div></div>
+                </div>
+                <div class="divider"></div>
+                <div class="muted"><strong>Tabla amortización (resumen anual)</strong></div>
+                <div style="max-height: 260px; overflow:auto; border-radius:12px; border:1px solid rgba(0,0,0,.08); margin-top:8px;">
+                  <table id="c_table_b"></table>
+                </div>
+              </div>
+            </div>
+
+            <div class="legal">
+              •	Esta calculadora ofrece estimaciones orientativas. Los importes finales pueden variar según la normativa autonómica, el valor de referencia catastral y la situación personal del comprador.
+            </div>
+          </div>
+
+          <div class="printOnly" style="padding:12px 0;">
+            <p class="muted">Generado por EFITECA (simulación orientativa).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    /******************************************************************
+     * CONFIGURACIÓN (ajusta aquí valores por defecto)
+     ******************************************************************/
+    const CONFIG = {
+      // Viabilidad
+      gastosPctMayores35: 0.11,     // 11% (orientativo)
+      gastosPctJovenes: 0.06,       // 6% (orientativo)
+      dtiRecomendado: 0.35,
+      dtiMaximo: 0.44,
+      plazoMin: 15,
+      plazoMaxAbsoluto: 40,
+      edadMaxVencimiento: 75,       // Regla de plazo
+      ltv: {
+        habitual: 0.90,
+        habitualJoven: 0.95,
+        segunda: 0.70,
+        inversion: 0.60
+      },
+      // Gastos de compra (rangos orientativos)
+      ivaObraNueva: 0.10,
+      notariaCvPct: 0.004,          // 0,4% (dentro del rango 0,2%–0,6%)
+      registroCvPct: 0.0018,        // 0,18% (dentro del rango 0,1%–0,25%)
+      gestoriaFija: 350,            // 300–400 €
+      tasacionFija: 400,            // 300–500 €
+      // Nota: “tipos” por comunidad deben revisarse/actualizarse internamente
+      impuestosOrientativosPorCCAA: {
+        "Andalucía":     { itp: 7.0,  ajd_cv: 1.2, ajd_prestamo: 1.2 },
+        "Aragón":        { itp: 8.0,  ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Asturias":      { itp: 8.0,  ajd_cv: 1.2, ajd_prestamo: 1.2 },
+        "Baleares":      { itp: 8.0,  ajd_cv: 1.2, ajd_prestamo: 1.2 },
+        "Canarias":      { itp: 6.5,  ajd_cv: 1.0, ajd_prestamo: 1.0 },
+        "Cantabria":     { itp: 9.0,  ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Castilla-La Mancha": { itp: 9.0, ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Castilla y León":    { itp: 8.0, ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Cataluña":      { itp: 10.0, ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "C. Valenciana": { itp: 10.0, ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Extremadura":   { itp: 8.0,  ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Galicia":       { itp: 9.0,  ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "La Rioja":      { itp: 7.0,  ajd_cv: 1.0, ajd_prestamo: 1.0 },
+        "Madrid":        { itp: 6.0,  ajd_cv: 0.75, ajd_prestamo: 0.75 },
+        "Murcia":        { itp: 8.0,  ajd_cv: 1.5, ajd_prestamo: 1.5 },
+        "Navarra":       { itp: 6.0,  ajd_cv: 0.5, ajd_prestamo: 0.5 },
+        "País Vasco":    { itp: 7.0,  ajd_cv: 0.5, ajd_prestamo: 0.5 },
+        "Ceuta":         { itp: 6.0,  ajd_cv: 0.5, ajd_prestamo: 0.5 },
+        "Melilla":       { itp: 6.0,  ajd_cv: 0.5, ajd_prestamo: 0.5 }
+      }
+    };
+
+    /******************************************************************
+     * Helpers
+     ******************************************************************/
+    const euro = new Intl.NumberFormat("es-ES", { style:"currency", currency:"EUR", maximumFractionDigits: 0 });
+    const euro2 = new Intl.NumberFormat("es-ES", { style:"currency", currency:"EUR", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const pct2 = (x) => (isFinite(x) ? (x*100).toFixed(2).replace(".", ",") + "%" : "—");
+
+    function parseMoney(str){
+      if (str === null || str === undefined) return NaN;
+      const s = String(str).trim();
+      if(!s) return NaN;
+      // Accept "1.234,56" or "1234.56" or "1234"
+      const normalized = s
+        .replace(/\s/g,"")
+        .replace(/\./g,"")
+        .replace(",",".")
+        .replace(/[^0-9.-]/g,"");
+      const n = Number(normalized);
+      return Number.isFinite(n) ? n : NaN;
+    }
+    function clamp(n, a, b){ return Math.min(b, Math.max(a, n)); }
+
+    function monthlyPaymentFrench(P, annualTinPct, years){
+      const r = (annualTinPct/100)/12;
+      const n = Math.round(years*12);
+      if (!isFinite(P) || !isFinite(r) || !isFinite(n) || P<=0 || n<=0) return NaN;
+      if (r === 0) return P/n;
+      return P * r / (1 - Math.pow(1 + r, -n));
+    }
+
+    function amortizationAnnualSummary(P, annualTinPct, years){
+      const payment = monthlyPaymentFrench(P, annualTinPct, years);
+      const r = (annualTinPct/100)/12;
+      const n = Math.round(years*12);
+      if(!isFinite(payment)) return [];
+      let bal = P;
+      let month = 0;
+      const rows = [];
+      for(let y=1; y<=years; y++){
+        let intY=0, prinY=0, payY=0;
+        for(let m=0; m<12; m++){
+          month++;
+          if(month>n) break;
+          const interest = bal * r;
+          let principal = payment - interest;
+          if(principal > bal) principal = bal;
+          bal = bal - principal;
+          intY += interest;
+          prinY += principal;
+          payY += (principal+interest);
+          if(bal <= 0.0001) { bal=0; break; }
+        }
+        rows.push({year:y, pago:payY, interes:intY, principal:prinY, saldo:bal});
+        if(bal<=0) break;
+      }
+      return rows;
+    }
+
+    // TAE aprox (IRR mensual) con comisión de apertura (sobre principal)
+    function taeApprox(principal, annualTinPct, years, openingFeePct){
+      const fee = principal * (openingFeePct/100);
+      const payment = monthlyPaymentFrench(principal, annualTinPct, years);
+      const n = Math.round(years*12);
+      if(!isFinite(payment) || principal<=0 || n<=0) return NaN;
+
+      // Cashflows: t0 + (principal - fee), then -payment each month
+      const c0 = principal - fee;
+      if(c0 <= 0) return NaN;
+
+      // Solve for monthly rate r: c0 = payment * (1 - (1+r)^-n)/r
+      // Use Newton-Raphson
+      let r = (annualTinPct/100)/12; // start guess
+      for(let i=0;i<50;i++){
+        const f = c0 - payment * (1 - Math.pow(1+r, -n)) / r;
+        // derivative wrt r
+        const df = -payment * (
+          ( (n*Math.pow(1+r, -n-1))*r - (1 - Math.pow(1+r,-n)) )
+          / (r*r)
+        );
+        const step = f/df;
+        r = r - step;
+        if(!isFinite(r) || r <= -0.99) { r = 0.0001; }
+        if(Math.abs(step) < 1e-10) break;
+      }
+      const tae = Math.pow(1+r, 12) - 1;
+      return tae;
+    }
+
+    function setError(el, msg){
+      if(!msg){
+        el.classList.remove("show");
+        el.textContent="";
+      }else{
+        el.textContent = msg;
+        el.classList.add("show");
+      }
+    }
+
+    /******************************************************************
+     * Tabs
+     ******************************************************************/
+    const tabs = [
+      {btn:document.getElementById("btn-viab"), panel:document.getElementById("tab-viab")},
+      {btn:document.getElementById("btn-gastos"), panel:document.getElementById("tab-gastos")},
+      {btn:document.getElementById("btn-comp"), panel:document.getElementById("tab-comp")}
+    ];
+    tabs.forEach((t, idx) => {
+      t.btn.addEventListener("click", () => {
+        tabs.forEach(x => { x.btn.setAttribute("aria-selected", "false"); x.panel.classList.remove("active"); });
+        t.btn.setAttribute("aria-selected", "true");
+        t.panel.classList.add("active");
+        // smooth scroll a panel top on mobile
+        t.panel.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+
+    /******************************************************************
+     * 1) Viabilidad hipotecaria
+     ******************************************************************/
+    const v = {
+      edadJoven: document.getElementById("v_edad_joven"),
+      edadMayor: document.getElementById("v_edad_mayor"),
+      laboral: document.getElementById("v_laboral"),
+      ingresos: document.getElementById("v_ingresos"),
+      deudas: document.getElementById("v_deudas"),
+      precio: document.getElementById("v_precio"),
+      ahorros: document.getElementById("v_ahorros"),
+      finalidad: document.getElementById("v_finalidad"),
+      flagJoven: document.getElementById("v_flag_joven"),
+      tin: document.getElementById("v_tin"),
+      plazo: document.getElementById("v_plazo"),
+      calc: document.getElementById("v_calc"),
+      clear: document.getElementById("v_clear"),
+      err: document.getElementById("v_error"),
+
+      badge: document.getElementById("v_result_badge"),
+      outHip: document.getElementById("v_out_hipoteca"),
+      outCuota: document.getElementById("v_out_cuota"),
+      outPlazo: document.getElementById("v_out_plazo"),
+      outDti: document.getElementById("v_out_dti"),
+      outMsg: document.getElementById("v_out_msg"),
+      outExtra: document.getElementById("v_out_extra"),
+      cta1: document.getElementById("v_cta1"),
+      cta2: document.getElementById("v_cta2")
+    };
+
+    function calcViabilidad(){
+      setError(v.err, "");
+
+      const edadMayor = Number(v.edadMayor.value);
+      const edadJoven = Number(v.edadJoven.value);
+      const ingresos = parseMoney(v.ingresos.value);
+      const deudas = parseMoney(v.deudas.value) || 0;
+      const precio = parseMoney(v.precio.value);
+      const ahorros = parseMoney(v.ahorros.value);
+      const finalidad = v.finalidad.value;
+      const jovenFlag = v.flagJoven.checked;
+      const tin = Number(v.tin.value || 0);
+      const plazoUser = v.plazo.value ? Number(v.plazo.value) : NaN;
+
+      const missing = [];
+      if(!isFinite(edadJoven) || edadJoven<=0) missing.push("Edad del titular más joven");
+      if(!isFinite(edadMayor) || edadMayor<=0) missing.push("Edad del titular más mayor");
+      if(!v.laboral.value) missing.push("Situación laboral");
+      if(!isFinite(ingresos) || ingresos<=0) missing.push("Ingresos netos mensuales");
+      if(!isFinite(precio) || precio<=0) missing.push("Precio de la vivienda");
+      if(!isFinite(ahorros) || ahorros<0) missing.push("Ahorros disponibles");
+      if(!finalidad) missing.push("Finalidad de la compra");
+      if(!isFinite(tin) || tin<0) missing.push("Tipo de interés (TIN)");
+
+      if(missing.length){
+        setError(v.err, "Faltan campos obligatorios: " + missing.join(", ") + ".");
+        return;
+      }
+
+      // 1) Plazo máximo por edad
+      const plazoMaxEdad = CONFIG.edadMaxVencimiento - edadMayor;
+      const plazoMax = clamp(Math.min(CONFIG.plazoMaxAbsoluto, plazoMaxEdad), 0, CONFIG.plazoMaxAbsoluto);
+      const edadImpidePlazoMin = plazoMax < CONFIG.plazoMin;
+
+      // 2) LTV según finalidad
+      let ltv = CONFIG.ltv[finalidad];
+      if(finalidad === "habitual" && jovenFlag) ltv = CONFIG.ltv.habitualJoven;
+      const ltvOk = isFinite(ltv) && ltv > 0 && ltv <= 1;
+
+      const maxHipoteca = precio * ltv;
+
+      // 3) Gastos estimados (% orientativo) + ahorro mínimo requerido
+      const gastosPct = jovenFlag ? CONFIG.gastosPctJovenes : CONFIG.gastosPctMayores35;
+      const gastosEstimados = precio * gastosPct;
+
+      // Ahorro mínimo requerido (según doc): (precio - hipoteca máx) + gastos
+      const ahorroNecesario = (precio - maxHipoteca) + gastosEstimados;
+
+      // Importe necesario a financiar (precio + gastos - ahorros), limitado a LTV
+      const loanNeed = Math.max(0, (precio + gastosEstimados) - ahorros);
+      const importeFinanciar = Math.min(maxHipoteca, loanNeed);
+
+      // Plazo aplicado (si no se indica, usar máximo permitido)
+      const plazoAplicado = (isFinite(plazoUser) && plazoUser>0)
+        ? clamp(plazoUser, CONFIG.plazoMin, Math.floor(plazoMax))
+        : Math.floor(plazoMax);
+
+      // 4) Cuota y DTI
+      const cuota = monthlyPaymentFrench(importeFinanciar, tin, plazoAplicado);
+      const dti = (cuota + deudas) / ingresos;
+
+      // 5) Reglas de ahorro
+      const deficitAhorro = ahorroNecesario - ahorros;
+      const ahorrosSuficientes = deficitAhorro <= 0;
+
+      // "Ligeramente insuficientes" (heurístico prudente): hasta 5% del ahorro requerido o 2.000€ (lo mayor)
+      const umbralLigero = Math.max(2000, ahorroNecesario * 0.05);
+      const ahorrosLigeramenteInsuf = deficitAhorro > 0 && deficitAhorro <= umbralLigero;
+      const ahorrosClaramenteInsuf = deficitAhorro > umbralLigero;
+
+      // 6) Fuera de criterios de financiación (cuando la necesidad supera el máximo por LTV)
+      const financingGap = Math.max(0, loanNeed - maxHipoteca);
+      const fueraFinanciacion = financingGap > 0;
+
+      // 7) Viable solo con ajustes de plazo (si el usuario puso un plazo menor y con el máximo por edad entra en criterio)
+      let viableSoloConAjustePlazo = false;
+      if(isFinite(plazoUser) && plazoUser > 0 && plazoUser < Math.floor(plazoMax) && !edadImpidePlazoMin){
+        const cuotaMaxPlazo = monthlyPaymentFrench(importeFinanciar, tin, Math.floor(plazoMax));
+        const dtiMaxPlazo = (cuotaMaxPlazo + deudas) / ingresos;
+        if(isFinite(dtiMaxPlazo) && dtiMaxPlazo <= CONFIG.dtiMaximo) viableSoloConAjustePlazo = true;
+      }
+
+      // ---------------------------
+      // RESULTADO (según criterios)
+      // ---------------------------
+      // ✅ VIABLE: DTI ≤ 35%, ahorros suficientes, LTV ok
+      // ⚠️ VIABLE CON AJUSTES: 35% < DTI ≤ 44% OR ahorros ligeramente insuficientes OR viable solo con ajustes de plazo / importe
+      // ❌ NO VIABLE: DTI > 44% OR ahorros claramente insuficientes OR edad impide plazo mínimo OR fuera de financiación
+      let status = "ok";
+
+      if(edadImpidePlazoMin || !ltvOk || (isFinite(dti) && dti > CONFIG.dtiMaximo) || ahorrosClaramenteInsuf || (fueraFinanciacion && !ahorrosLigeramenteInsuf)){
+        status = "bad";
+      } else if(
+        (isFinite(dti) && dti > CONFIG.dtiRecomendado && dti <= CONFIG.dtiMaximo) ||
+        ahorrosLigeramenteInsuf ||
+        fueraFinanciacion ||
+        viableSoloConAjustePlazo
+      ){
+        status = "warn";
+      } else if(!(isFinite(dti) && dti <= CONFIG.dtiRecomendado) || !ahorrosSuficientes){
+        // Por seguridad: si no cumple estrictamente viable, cae en ajustes
+        status = "warn";
+      }
+
+      // Outputs comunes
+      v.outHip.textContent = isFinite(maxHipoteca) ? euro.format(Math.round(maxHipoteca)) : "—";
+      v.outCuota.textContent = isFinite(cuota) ? euro2.format(cuota) : "—";
+      v.outPlazo.textContent = edadImpidePlazoMin ? "—" : `${plazoAplicado} años (máx. ${Math.floor(plazoMax)} por edad)`;
+      v.outDti.textContent = isFinite(dti) ? pct2(dti) : "—";
+
+      const motivos = [];
+      if(edadImpidePlazoMin) motivos.push("Edad impide plazo mínimo");
+      if(!ltvOk) motivos.push("LTV no válido");
+      if(isFinite(dti) && dti > CONFIG.dtiMaximo) motivos.push("DTI > 44%");
+      if(isFinite(dti) && dti > CONFIG.dtiRecomendado && dti <= CONFIG.dtiMaximo) motivos.push("DTI 35–44%");
+      if(ahorrosLigeramenteInsuf) motivos.push("Ahorro ligeramente insuficiente");
+      if(ahorrosClaramenteInsuf) motivos.push("Ahorro claramente insuficiente");
+      if(fueraFinanciacion) motivos.push("Fuera de financiación (LTV)");
+      if(viableSoloConAjustePlazo) motivos.push("Mejora con plazo máximo");
+
+      const extra = [
+        `LTV aplicado: ${(ltv*100).toFixed(0)}%`,
+        `Gastos est.: ${(gastosPct*100).toFixed(0)}%`,
+        `Ahorro mínimo: ${euro.format(Math.round(ahorroNecesario))}`,
+        motivos.length ? `Motivo(s): ${motivos.join(" · ")}` : "Criterios: OK"
+      ];
+      v.outExtra.textContent = extra.join(" · ");
+
+      // Textos EXACTOS (resultado simplificado)
+      if(status === "ok"){
+        v.badge.innerHTML = `<span class="badge b-ok">✅ VIABLE</span>`;
+        v.outMsg.innerHTML =
+          `Con los datos indicados, la operación podría ser viable dentro de los criterios habituales del mercado.`;
+        v.cta1.textContent = "Habla con un gestor y confirma tu estudio personalizado";
+      } else if(status === "warn"){
+        v.badge.innerHTML = `<span class="badge b-warn">⚠️ VIABLE CON AJUSTES</span>`;
+        v.outMsg.innerHTML =
+          `La operación podría ser viable, pero está ajustada por ingresos, ahorro o endeudamiento.`;
+        v.cta1.textContent = "Un gestor puede revisar alternativas para tu caso";
+      } else {
+        v.badge.innerHTML = `<span class="badge b-bad">❌ NO VIABLE</span>`;
+        v.outMsg.innerHTML =
+          `Con los datos actuales, la operación no encaja en los criterios habituales, pero existen opciones para mejorar el perfil.`;
+        v.cta1.textContent = "Te explicamos cómo mejorar tu viabilidad";
+      }
+    }
+
+    v.calc.addEventListener("click", calcViabilidad);
+    v.clear.addEventListener("click", () => {
+      [v.edadJoven, v.edadMayor, v.laboral, v.ingresos, v.deudas, v.precio, v.ahorros, v.finalidad, v.tin, v.plazo].forEach(x => x.value="");
+      v.flagJoven.checked = false;
+      setError(v.err, "");
+      v.badge.textContent="—";
+      v.outHip.textContent="—"; v.outCuota.textContent="—"; v.outPlazo.textContent="—"; v.outDti.textContent="—";
+      v.outMsg.textContent=""; v.outExtra.textContent="—";
+    });
+
+    // Optional: auto-update on input
+    ["input","change"].forEach(evt => {
+      ["v_edad_joven","v_edad_mayor","v_laboral","v_ingresos","v_deudas","v_precio","v_ahorros","v_finalidad","v_flag_joven","v_tin","v_plazo"]
+        .forEach(id => document.getElementById(id).addEventListener(evt, () => {
+          // only recalc if there is already a result
+          if(v.badge.textContent !== "—" && v.badge.innerHTML.trim() !== "—") calcViabilidad();
+        }));
+    });
+
+    /******************************************************************
+     * 2) Gastos compra vivienda
+     ******************************************************************/
+    const g = {
+      precio: document.getElementById("g_precio"),
+      tipo: document.getElementById("g_tipo"),
+      ccaa: document.getElementById("g_ccaa"),
+      habitual: document.getElementById("g_habitual"),
+      hipoteca: document.getElementById("g_hipoteca"),
+      joven: document.getElementById("g_joven"),
+      fam: document.getElementById("g_fam"),
+      disc: document.getElementById("g_disc"),
+      tipoImpuesto: document.getElementById("g_tipo_impuesto"),
+      calc: document.getElementById("g_calc"),
+      clear: document.getElementById("g_clear"),
+      err: document.getElementById("g_error"),
+      // outputs
+      outTotal: document.getElementById("g_out_total"),
+      lblImp: document.getElementById("g_lbl_impuesto"),
+      outImp: document.getElementById("g_out_impuesto"),
+      outNotCv: document.getElementById("g_out_notaria_cv"),
+      outRegCv: document.getElementById("g_out_reg_cv"),
+      outGest: document.getElementById("g_out_gestoria"),
+      outTotalCv: document.getElementById("g_out_total_cv"),
+      outNoteCv: document.getElementById("g_out_note_cv"),
+
+      outTas: document.getElementById("g_out_tasacion"),
+      outBancoInfo: document.getElementById("g_out_banco_info"),
+      outTotalHipComp: document.getElementById("g_out_total_hip_comp"),
+      outAjdPrest: document.getElementById("g_out_ajd_prestamo"),
+      outNoteHip: document.getElementById("g_out_note_hip")
+    };
+
+    function initCCAA(){
+      const names = Object.keys(CONFIG.impuestosOrientativosPorCCAA).sort((a,b)=>a.localeCompare(b,"es"));
+      g.ccaa.innerHTML = names.map(n => `<option value="${n}">${n}</option>`).join("");
+      g.ccaa.value = "Cataluña" in CONFIG.impuestosOrientativosPorCCAA ? "Cataluña" : names[0];
+      syncImpuestoRate();
+    }
+    function syncImpuestoRate(){
+      const ccaa = g.ccaa.value;
+      const tax = CONFIG.impuestosOrientativosPorCCAA[ccaa];
+      if(!tax){ g.tipoImpuesto.value = ""; return; }
+      if(g.tipo.value === "segunda_mano"){
+        g.tipoImpuesto.value = tax.itp.toFixed(2);
+      }else{
+        g.tipoImpuesto.value = tax.ajd_cv.toFixed(2);
+      }
+    }
+    g.ccaa.addEventListener("change", syncImpuestoRate);
+    g.tipo.addEventListener("change", syncImpuestoRate);
+
+    function calcGastos(){
+      setError(g.err, "");
+      const precio = parseMoney(g.precio.value);
+      if(!isFinite(precio) || precio<=0){
+        setError(g.err, "Introduce un precio de vivienda válido.");
+        return;
+      }
+      const tipoV = g.tipo.value;
+      const ccaa = g.ccaa.value;
+      const taxCfg = CONFIG.impuestosOrientativosPorCCAA[ccaa] || {itp:8, ajd_cv:1.5, ajd_prestamo:1.5};
+
+      // Tipos (editables) - interpret as ITP (segunda mano) or AJD compraventa (obra nueva)
+      const tipoEditablePct = Number(g.tipoImpuesto.value);
+      if(!isFinite(tipoEditablePct) || tipoEditablePct < 0){
+        setError(g.err, "Revisa el campo 'Tipos aplicados'. Debe ser un porcentaje válido.");
+        return;
+      }
+
+      // Reducciones orientativas (muy simplificadas)
+      // Nota: esto es un placeholder prudente y debe ajustarse con la política fiscal de EFITECA.
+      let tipoAplicado = tipoEditablePct;
+      const flags = {
+        habitual: g.habitual.value === "si",
+        joven: g.joven.value === "si",
+        fam: g.fam.value === "si",
+        disc: g.disc.value === "si",
+      };
+      const anyRed = flags.habitual && (flags.joven || flags.fam || flags.disc);
+      if(tipoV === "segunda_mano" && anyRed){
+        // Bonificación orientativa: -1 punto porcentual con mínimo 4%
+        tipoAplicado = Math.max(4.0, tipoAplicado - 1.0);
+      }
+
+      // Impuestos
+      let impuestos = 0;
+      let impuestoDetalle = "";
+      if(tipoV === "obra_nueva"){
+        const iva = precio * CONFIG.ivaObraNueva;
+        const ajdCv = precio * (tipoAplicado/100);
+        impuestos = iva + ajdCv;
+        impuestoDetalle = `IVA (10%) + AJD compraventa (${tipoAplicado.toFixed(2)}%)`;
+        g.lblImp.textContent = "Impuestos (IVA + AJD)";
+      }else{
+        const itp = precio * (tipoAplicado/100);
+        impuestos = itp;
+        impuestoDetalle = `ITP (${tipoAplicado.toFixed(2)}%)`;
+        g.lblImp.textContent = "Impuestos (ITP)";
+      }
+
+      // Otros gastos compraventa
+      const notariaCv = precio * CONFIG.notariaCvPct;
+      const registroCv = precio * CONFIG.registroCvPct;
+      const gestoria = CONFIG.gestoriaFija;
+
+      const totalCv = impuestos + notariaCv + registroCv + gestoria;
+
+      // Hipoteca (solo comprador)
+      const hipotecaSi = g.hipoteca.value === "si";
+      const tasacion = hipotecaSi ? CONFIG.tasacionFija : 0;
+      const totalHipComprador = tasacion;
+
+      // Informativos banco (estimación)
+      const ajdPrestPct = taxCfg.ajd_prestamo;
+      const ajdPrestamo = precio * (ajdPrestPct/100); // *A título informativo, suele pagarlo el banco
+      const bancoInfo = hipotecaSi ? "Notaría + Registro + AJD préstamo (Ley 5/2019)" : "—";
+
+      const totalGeneral = totalCv + totalHipComprador;
+
+      // Outputs
+      g.outImp.textContent = euro.format(Math.round(impuestos));
+      g.outNotCv.textContent = euro.format(Math.round(notariaCv));
+      g.outRegCv.textContent = euro.format(Math.round(registroCv));
+      g.outGest.textContent = euro.format(Math.round(gestoria));
+      g.outTotalCv.textContent = euro.format(Math.round(totalCv));
+      g.outNoteCv.textContent = `Tipo aplicado: ${impuestoDetalle}. (Orientativo; puede variar por normativa autonómica, valor de referencia catastral y circunstancias personales.)`;
+
+      g.outTas.textContent = hipotecaSi ? euro.format(Math.round(tasacion)) : "—";
+      g.outBancoInfo.textContent = bancoInfo;
+      g.outTotalHipComp.textContent = hipotecaSi ? euro.format(Math.round(totalHipComprador)) : "—";
+      g.outAjdPrest.textContent = hipotecaSi ? euro.format(Math.round(ajdPrestamo)) : "—";
+      g.outNoteHip.textContent = hipotecaSi
+        ? `Se muestra AJD del préstamo (${ajdPrestPct.toFixed(2)}%) a título informativo. El total del comprador incluye tasación.`
+        : "Indica “Compra con hipoteca: Sí” para ver esta sección.";
+
+      g.outTotal.textContent = euro.format(Math.round(totalGeneral));
+    }
+
+    g.calc.addEventListener("click", calcGastos);
+    g.clear.addEventListener("click", () => {
+      g.precio.value = "";
+      g.tipo.value = "obra_nueva";
+      g.habitual.value = "si";
+      g.hipoteca.value = "si";
+      g.joven.value = "no";
+      g.fam.value = "no";
+      g.disc.value = "no";
+      initCCAA();
+      setError(g.err, "");
+      g.outTotal.textContent="—";
+      g.outImp.textContent="—"; g.outNotCv.textContent="—"; g.outRegCv.textContent="—"; g.outGest.textContent="—"; g.outTotalCv.textContent="—";
+      g.outTas.textContent="—"; g.outBancoInfo.textContent="—"; g.outTotalHipComp.textContent="—"; g.outAjdPrest.textContent="—";
+      g.outNoteCv.textContent=""; g.outNoteHip.textContent="";
+    });
+
+    /******************************************************************
+     * 3) Comparador hipotecas
+     ******************************************************************/
+    const c = {
+      principal: document.getElementById("c_principal"),
+      plazo: document.getElementById("c_plazo"),
+      tipo: document.getElementById("c_tipo"),
+      tinA: document.getElementById("c_tin_a"),
+      tinB: document.getElementById("c_tin_b"),
+      aperturaA: document.getElementById("c_apertura_a"),
+      aperturaB: document.getElementById("c_apertura_b"),
+      antiA: document.getElementById("c_anti_a"),
+      antiB: document.getElementById("c_anti_b"),
+      email: document.getElementById("c_email"),
+      consent: document.getElementById("c_consent"),
+      calc: document.getElementById("c_calc"),
+      clear: document.getElementById("c_clear"),
+      pdf: document.getElementById("c_pdf"),
+      send: document.getElementById("c_send"),
+      err: document.getElementById("c_error"),
+
+      outWinner: document.getElementById("c_out_winner"),
+      outCuotaA: document.getElementById("c_out_cuota_a"),
+      outIntA: document.getElementById("c_out_int_a"),
+      outTotalA: document.getElementById("c_out_total_a"),
+      outTaeA: document.getElementById("c_out_tae_a"),
+      outCuotaB: document.getElementById("c_out_cuota_b"),
+      outIntB: document.getElementById("c_out_int_b"),
+      outTotalB: document.getElementById("c_out_total_b"),
+      outTaeB: document.getElementById("c_out_tae_b"),
+      outTipoA: document.getElementById("c_out_tipo_a"),
+      outTipoB: document.getElementById("c_out_tipo_b"),
+      tableA: document.getElementById("c_table_a"),
+      tableB: document.getElementById("c_table_b"),
+      printArea: document.getElementById("c_print_area")
+    };
+
+    function buildAnnualTable(el, rows){
+      const head = `
+        <tr>
+          <th>Año</th>
+          <th>Pagos</th>
+          <th>Interés</th>
+          <th>Principal</th>
+          <th>Saldo</th>
+        </tr>`;
+      const body = rows.map(r => `
+        <tr>
+          <td>${r.year}</td>
+          <td>${euro.format(Math.round(r.pago))}</td>
+          <td>${euro.format(Math.round(r.interes))}</td>
+          <td>${euro.format(Math.round(r.principal))}</td>
+          <td>${euro.format(Math.round(r.saldo))}</td>
+        </tr>`).join("");
+      el.innerHTML = head + body;
+    }
+
+    function compare(){
+      setError(c.err, "");
+      const principal = parseMoney(c.principal.value);
+      const plazo = Number(c.plazo.value);
+      if(!isFinite(principal) || principal<=0) return setError(c.err, "Introduce un importe de préstamo válido.");
+      if(!isFinite(plazo) || plazo<=0) return setError(c.err, "Introduce un plazo válido.");
+      if(plazo > 40) return setError(c.err, "El plazo máximo permitido es 40 años. Ajusta el plazo para continuar.");
+
+      const tinA = Number(c.tinA.value);
+      const tinB = Number(c.tinB.value);
+      if(!isFinite(tinA) || tinA<0) return setError(c.err, "Revisa el TIN de la opción A.");
+      if(!isFinite(tinB) || tinB<0) return setError(c.err, "Revisa el TIN de la opción B.");
+
+      const tipo = c.tipo.value;
+      const tipoLabel = (v) => v === "variable" ? "Variable" : "Fijo";
+      c.outTipoA.textContent = tipoLabel(tipo);
+      c.outTipoB.textContent = tipoLabel(tipo);
+
+      const aperturaA = Number(c.aperturaA.value || 0);
+      const aperturaB = Number(c.aperturaB.value || 0);
+
+      const cuotaA = monthlyPaymentFrench(principal, tinA, plazo);
+      const cuotaB = monthlyPaymentFrench(principal, tinB, plazo);
+
+      const n = plazo*12;
+      const totalCuotasA = cuotaA * n;
+      const totalCuotasB = cuotaB * n;
+
+      const interesesA = totalCuotasA - principal;
+      const interesesB = totalCuotasB - principal;
+
+      const taeA = taeApprox(principal, tinA, plazo, aperturaA);
+      const taeB = taeApprox(principal, tinB, plazo, aperturaB);
+
+      const rowsA = amortizationAnnualSummary(principal, tinA, plazo);
+      const rowsB = amortizationAnnualSummary(principal, tinB, plazo);
+
+      c.outCuotaA.textContent = euro2.format(cuotaA);
+      c.outIntA.textContent = euro.format(Math.round(interesesA));
+      c.outTotalA.textContent = euro.format(Math.round(totalCuotasA));
+      c.outTaeA.textContent = isFinite(taeA) ? (taeA*100).toFixed(2).replace(".", ",") + "%" : "—";
+
+      c.outCuotaB.textContent = euro2.format(cuotaB);
+      c.outIntB.textContent = euro.format(Math.round(interesesB));
+      c.outTotalB.textContent = euro.format(Math.round(totalCuotasB));
+      c.outTaeB.textContent = isFinite(taeB) ? (taeB*100).toFixed(2).replace(".", ",") + "%" : "—";
+
+      buildAnnualTable(c.tableA, rowsA);
+      buildAnnualTable(c.tableB, rowsB);
+
+      // Winner heuristic: lower total cost (cuotas + apertura)
+      const feeA = principal * (aperturaA/100);
+      const feeB = principal * (aperturaB/100);
+      const costeA = totalCuotasA + feeA;
+      const costeB = totalCuotasB + feeB;
+
+      let msg = "";
+      if(costeA < costeB){
+        msg = `Opción A parece más conveniente por menor coste total estimado (incl. apertura).`;
+      }else if(costeB < costeA){
+        msg = `Opción B parece más conveniente por menor coste total estimado (incl. apertura).`;
+      }else{
+        msg = `Ambas opciones tienen un coste total estimado muy similar (incl. apertura).`;
+      }
+      c.outWinner.textContent = msg;
+    }
+
+    c.calc.addEventListener("click", compare);
+    c.clear.addEventListener("click", () => {
+      [c.principal, c.plazo, c.tinA, c.tinB, c.aperturaA, c.aperturaB, c.antiA, c.antiB, c.email].forEach(x => x.value="");
+      c.tipo.value = "fijo";
+      c.consent.checked = false;
+      setError(c.err, "");
+      c.outWinner.textContent = "Introduce datos y pulsa “Comparar”";
+      ["c_out_tipo_a","c_out_cuota_a","c_out_int_a","c_out_total_a","c_out_tae_a","c_out_tipo_b","c_out_cuota_b","c_out_int_b","c_out_total_b","c_out_tae_b"]
+        .forEach(id => document.getElementById(id).textContent = "—");
+      c.tableA.innerHTML=""; c.tableB.innerHTML="";
+    });
+
+    c.pdf.addEventListener("click", () => {
+      // Print dialog -> user can Save as PDF
+      window.print();
+    });
+
+    c.send.addEventListener("click", () => {
+      setError(c.err, "");
+      const email = c.email.value.trim();
+      if(!email) return setError(c.err, "Introduce un email para generar el borrador.");
+      if(!c.consent.checked) return setError(c.err, "Marca el consentimiento explícito antes de generar el email.");
+
+      // Ensure results exist
+      if(c.outCuotaA.textContent === "—") compare();
+
+      const subject = encodeURIComponent("EFITECA · Comparación orientativa de hipotecas");
+      const body = encodeURIComponent(
+`Hola,
+
+Te envío una comparación orientativa (no vinculante) basada en los datos introducidos.
+
+DATOS COMUNES
+- Importe: ${c.principal.value} €
+- Plazo: ${c.plazo.value} años
+- Tipo: ${c.tipo.value}
+
+
+OPCIÓN A
+- Cuota: ${c.outCuotaA.textContent}
+- Intereses: ${c.outIntA.textContent}
+- Coste total (cuotas): ${c.outTotalA.textContent}
+- TAE aprox.: ${c.outTaeA.textContent}
+- Comisión apertura: ${c.aperturaA.value || 0}%
+
+OPCIÓN B
+- Cuota: ${c.outCuotaB.textContent}
+- Intereses: ${c.outIntB.textContent}
+- Coste total (cuotas): ${c.outTotalB.textContent}
+- TAE aprox.: ${c.outTaeB.textContent}
+- Comisión apertura: ${c.aperturaB.value || 0}%
+
+Aviso legal:
+Los resultados son simulaciones orientativas. No constituyen oferta vinculante ni sustituyen la información precontractual.
+EFITECA actúa como intermediario de crédito inmobiliario inscrito (E377).
+
+Un saludo.`
+      );
+
+      // Open mail client
+      window.location.href = `mailto:${encodeURIComponent(email)}?subject=${subject}&body=${body}`;
+    });
+
+    /******************************************************************
+     * Init defaults
+     ******************************************************************/
+    // Defaults for viability
+    document.getElementById("v_tin").value = "3.50";
+
+    initCCAA();
+    // Defaults for gastos
+    document.getElementById("g_hipoteca").value = "si";
+    document.getElementById("g_habitual").value = "si";
+
+    function reportEmbedHeight(){
+      const wrap = document.querySelector(".wrap");
+      const activePanel = document.querySelector(".panel.active");
+      const wrapRect = wrap ? wrap.getBoundingClientRect() : null;
+      const activeRect = activePanel ? activePanel.getBoundingClientRect() : null;
+      const wrapStyles = wrap ? window.getComputedStyle(wrap) : null;
+      const paddingBottom = wrapStyles ? parseFloat(wrapStyles.paddingBottom || "0") : 0;
+
+      const nextHeight = Math.ceil(
+        Math.max(
+          wrap ? wrap.scrollHeight : 0,
+          wrap ? wrap.offsetHeight : 0,
+          wrapRect ? wrapRect.height : 0,
+          wrapRect && activeRect ? (activeRect.bottom - wrapRect.top + paddingBottom) : 0,
+          760
+        )
+      );
+
+      document.documentElement.style.overflowY = "hidden";
+      document.body.style.overflowY = "hidden";
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage(
+          { type: "efiteca-calculator-height", height: nextHeight },
+          window.location.origin
+        );
+      }
+    }
+
+    const scheduleHeightReport = () => {
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(reportEmbedHeight);
+      });
+    };
+
+    window.addEventListener("load", scheduleHeightReport);
+    window.addEventListener("resize", scheduleHeightReport);
+    document.addEventListener("click", scheduleHeightReport, true);
+    document.addEventListener("input", scheduleHeightReport, true);
+    document.addEventListener("change", scheduleHeightReport, true);
+
+    const mutationObserver = new MutationObserver(scheduleHeightReport);
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      characterData: true
+    });
+
+    scheduleHeightReport();
+  </script>
+</body>
+</html>

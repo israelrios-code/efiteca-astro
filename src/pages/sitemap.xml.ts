@@ -12,7 +12,11 @@ export const GET: APIRoute = async () => {
   const urls = [
     ...LOCALES.flatMap((locale) => [
       absoluteUrl(`/${locale.code}/`),
-      absoluteUrl(`/${locale.code}/news/`)
+      absoluteUrl(`/${locale.code}/news/`),
+      absoluteUrl(`/${locale.code}/soluciones-vivienda/`),
+      absoluteUrl(`/${locale.code}/simulador-hipoteca/`),
+      absoluteUrl(`/${locale.code}/sobre-nosotros/`),
+      absoluteUrl(`/${locale.code}/contacto/`)
     ]),
     ...MARKETS.flatMap((market) =>
       market.languages.map((lang) => absoluteUrl(`/${lang}/${market.slug}/`))

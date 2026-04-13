@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import ReactBlogPage from "@/components/blog/ReactBlogPage";
 import { LOCALES, type Lang } from "@/data/locales";
 import { buildLanguageAlternates } from "@/lib/seo/meta";
-import { getNewsForLang } from "@/lib/content/news";
-import { formatDate } from "@/lib/utils/format";
+import { getEntry } from "astro:content";
 
 export function getStaticPaths() {
   return LOCALES.map((locale) => ({
@@ -14,48 +14,113 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Lang;
-const entries = await getNewsForLang(lang);
 
-const copy = {
-  es: {
-    title: "Noticias | Efiteca",
-    description: "Noticias, analisis e hitos corporativos de Efiteca por idioma y mercado.",
-    heading: "Noticias y analisis"
-  },
-  en: {
-    title: "News | Efiteca",
-    description: "News, analysis and corporate updates from Efiteca across languages and markets.",
-    heading: "News and analysis"
+const entry = await getEntry("pages", `blog-${lang}`);
+let content = entry?.data;
+let tinaProps:
+  | {
+      query: string;
+      variables: Record<string, unknown>;
+      data: Record<string, unknown>;
+    }
+  | undefined;
+
+if (import.meta.env.DEV) {
+  const query = `
+    query BlogPage($relativePath: String!) {
+      pages(relativePath: $relativePath) {
+        id
+        _sys {
+          filename
+          basename
+          path
+          breadcrumbs
+          relativePath
+          extension
+        }
+        lang
+        title
+        seo {
+          title
+          description
+        }
+        newsLanding {
+          heroTitle
+          heroHighlight
+          heroDescription
+          listingTitle
+          listingDescription
+        }
+        blog {
+          title
+          subtitle
+          cta {
+            label
+            href
+          }
+          items {
+            title
+            description
+            image
+            cta {
+              label
+              href
+            }
+          }
+        }
+        newsletter {
+          title
+          description
+          emailPlaceholder
+          button {
+            label
+            href
+          }
+        }
+        actionCta {
+          title
+          description
+          button {
+            label
+            href
+          }
+        }
+      }
+    }
+  `;
+  const variables = {
+    relativePath: `blog-${lang}.md`
+  };
+  const response = await fetch("http://localhost:4001/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ query, variables })
+  });
+  const result = await response.json();
+
+  if (result?.data?.pages) {
+    content = result.data.pages;
+    tinaProps = {
+      query,
+      variables,
+      data: result.data
+    };
   }
-};
+}
+
+if (!content) {
+  return Astro.redirect(`/${lang}/404`);
+}
 ---
 
 <BaseLayout
   lang={lang}
-  title={copy[lang].title}
-  description={copy[lang].description}
+  title={content.seo?.title || (lang === "es" ? "Blog | Efiteca" : "Blog | Efiteca")}
+  description={content.seo?.description || (lang === "es" ? "Blog hipotecario de Efiteca." : "Efiteca mortgage blog.")}
   path={`/${lang}/news/`}
   alternates={buildLanguageAlternates("/news/")}
 >
-  <section class="mx-auto max-w-6xl px-6 py-16 md:py-24">
-    <p class="text-sm uppercase tracking-[0.18em] text-coral">Journal</p>
-    <h1 class="mt-4 font-display text-5xl text-ink">{copy[lang].heading}</h1>
-
-    <div class="mt-10 grid gap-5">
-      {
-        entries.map((entry) => (
-          <article class="rounded-[30px] border border-ink/10 bg-white/75 p-7 shadow-card">
-            <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-coral">
-              <span>{entry.data.category}</span>
-              <span>{formatDate(entry.data.publishedAt, lang)}</span>
-            </div>
-            <h2 class="mt-4 font-display text-3xl text-ink">
-              <a href={`/${lang}/news/${entry.slug}/`}>{entry.data.title}</a>
-            </h2>
-            <p class="mt-3 max-w-3xl text-base leading-7 text-ink/70">{entry.data.excerpt}</p>
-          </article>
-        ))
-      }
-    </div>
-  </section>
+  <ReactBlogPage client:load content={content} {...tinaProps} lang={lang} />
 </BaseLayout>
