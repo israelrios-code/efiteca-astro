@@ -6,7 +6,7 @@ type Props = {
   lang?: "es" | "en";
 };
 
-const { content, lang = "es" } = Astro.props;
+const { content } = Astro.props;
 
 const serviceOrder = [
   "Recibe información",
@@ -53,7 +53,6 @@ const metricItems = content?.metrics?.items || [];
 const faqItems = content?.faq?.items || [];
 const locationCards = content?.locations?.items || [];
 const mainLocation = locationCards[0];
-const langPrefix = `/${lang}`;
 ---
 
 <div class="bg-white">
