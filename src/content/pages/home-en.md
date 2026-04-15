@@ -59,6 +59,7 @@ whoIsItFor:
       - "Have a clear goal: purchase or improvement."
       - Show income and job stability.
       - Have an approximate savings amount available.
+    image: "/images/imgRectangle805.png"
     pricing:
       title: How much does it cost?
       description: The initial diagnosis is free. After that, the cost depends on the level of support required and the complexity of the case.

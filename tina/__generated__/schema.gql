@@ -278,6 +278,7 @@ type PagesWhoIsItForProcessPricing {
 type PagesWhoIsItForProcess {
   title: String
   requirements: [String]
+  image: String
   pricing: PagesWhoIsItForProcessPricing
 }
 
@@ -294,6 +295,7 @@ type PagesHowItWorksCta {
 
 type PagesHowItWorksItems {
   number: String
+  icon: String
   title: String
   description: String
 }
@@ -301,6 +303,7 @@ type PagesHowItWorksItems {
 type PagesHowItWorks {
   title: String
   description: String
+  image: String
   cta: PagesHowItWorksCta
   items: [PagesHowItWorksItems]
 }
@@ -841,6 +844,7 @@ input PagesWhoIsItForProcessPricingFilter {
 input PagesWhoIsItForProcessFilter {
   title: StringFilter
   requirements: StringFilter
+  image: ImageFilter
   pricing: PagesWhoIsItForProcessPricingFilter
 }
 
@@ -857,6 +861,7 @@ input PagesHowItWorksCtaFilter {
 
 input PagesHowItWorksItemsFilter {
   number: StringFilter
+  icon: ImageFilter
   title: StringFilter
   description: StringFilter
 }
@@ -864,6 +869,7 @@ input PagesHowItWorksItemsFilter {
 input PagesHowItWorksFilter {
   title: StringFilter
   description: StringFilter
+  image: ImageFilter
   cta: PagesHowItWorksCtaFilter
   items: PagesHowItWorksItemsFilter
 }
@@ -1522,6 +1528,7 @@ input PagesWhoIsItForProcessPricingMutation {
 input PagesWhoIsItForProcessMutation {
   title: String
   requirements: [String]
+  image: String
   pricing: PagesWhoIsItForProcessPricingMutation
 }
 
@@ -1538,6 +1545,7 @@ input PagesHowItWorksCtaMutation {
 
 input PagesHowItWorksItemsMutation {
   number: String
+  icon: String
   title: String
   description: String
 }
@@ -1545,6 +1553,7 @@ input PagesHowItWorksItemsMutation {
 input PagesHowItWorksMutation {
   title: String
   description: String
+  image: String
   cta: PagesHowItWorksCtaMutation
   items: [PagesHowItWorksItemsMutation]
 }

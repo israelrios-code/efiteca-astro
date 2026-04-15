@@ -74,25 +74,35 @@ benefits:
   ctaText: Talk to an expert
   ctaLink: "#contacto-soluciones"
   items:
-    - text: You understand exactly what you are signing.
-    - text: You make decisions with clear information.
-    - text: You reduce process time and friction.
-    - text: You access more suitable conditions.
-    - text: You reach signing with full support.
+    - icon: /images/DOC.png
+      text: "You understand exactly what you are signing."
+    - icon: /images/item.icon.png
+      text: "You make decisions with clear information."
+    - icon: /images/item.icon.png
+      text: "You reduce process time and friction."
+    - icon: /images/item.icon.png
+      text: "You access more suitable conditions."
+    - icon: /images/item.icon.png
+      text: "You reach signing with full support."
 howItWorks:
   title: How does it work?
   description: "A clear process for making confident decisions:"
+  image: /images/about-efiteca.png
   items:
     - number: "01"
+      icon: /images/item.icon.png
       title: Tell us about your case
       description: "No jargon. Just tell us your goal and your current situation."
     - number: "02"
+      icon: /images/item.icon.png
       title: We analyze which banks fit your profile.
       description: "We review feasibility, real conditions and available options."
     - number: "03"
+      icon: /images/item.icon.png
       title: We show you compared options.
       description: "You receive clear alternatives to decide confidently."
     - number: "04"
+      icon: /images/item.icon.png
       title: We coordinate the process until signing.
       description: "We support every step to avoid delays and surprises."
 actionCta:

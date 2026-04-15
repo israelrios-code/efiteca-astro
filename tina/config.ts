@@ -327,6 +327,7 @@ export default defineConfig({
                     label: "Requirements",
                     list: true
                   },
+                  { type: "image", name: "image", label: "Image" },
                   {
                     type: "object",
                     name: "pricing",
@@ -349,6 +350,7 @@ export default defineConfig({
             fields: [
               { type: "string", name: "title", label: "Title" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
+              { type: "image", name: "image", label: "Image" },
               { type: "object", name: "cta", label: "CTA", fields: linkFields },
               {
                 type: "object",
@@ -362,6 +364,7 @@ export default defineConfig({
                 },
                 fields: [
                   { type: "string", name: "number", label: "Number" },
+                  { type: "image", name: "icon", label: "Icon" },
                   { type: "string", name: "title", label: "Title" },
                   { type: "string", name: "description", label: "Description", ui: { component: "textarea" } }
                 ]

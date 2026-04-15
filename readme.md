@@ -1,243 +1,186 @@
-# Efiteca Corporate Web
+# Efiteca Astro
 
-Base para la web corporativa de Efiteca: una arquitectura orientada a rendimiento extremo, SEO internacional y operación simple a largo plazo.
+Proyecto web de Efiteca construido con Astro, React, Tailwind y TinaCMS.
 
-La estrategia técnica prioriza contenido estático para maximizar velocidad, estabilidad y cacheabilidad, y reserva la logica en el edge solo para decisiones ligeras de entrada, como la sugerencia inicial de idioma o mercado.
+Este repositorio ya incluye varias páginas maquetadas a partir de Figma, módulos reutilizables, contenido editable desde TinaCMS y una salida estática que se puede subir a hosting tradicional como BanaHosting.
 
-## Objetivos del proyecto
+## Stack
 
-- Carga casi instantanea en cualquier mercado.
-- SEO tecnico solido para idiomas y regiones.
-- Mantenimiento bajo, sin dependencias innecesarias ni capas dinamicas complejas.
-- Seguridad compatible con un sitio corporativo del sector financiero.
-- Flujo editorial sencillo mediante Markdown/MDX y validacion estricta.
+- Astro 5
+- React 19
+- Tailwind CSS
+- TinaCMS
+- TypeScript
+- Vercel adapter
 
-## Stack recomendado
+## Requisitos
 
-- Framework: Astro como base principal del sitio.
-- Modo de renderizado: SSG por defecto con capacidades hybrid solo donde aporten valor real.
-- Estilos: Tailwind CSS.
-- Lenguaje: TypeScript en modo estricto.
-- Contenido tipado: `astro:content` + Zod.
-- Infraestructura: Vercel para CDN global, previews y edge middleware.
-- CI/CD: GitHub + GitHub Actions + despliegue en Vercel.
+- Node.js `24.x`
+- npm
 
-## Decisiones de arquitectura
-
-### 1. SSG primero, edge despues
-
-La mayor parte del sitio debe compilarse como HTML estatico. Esto incluye:
-
-- Home por idioma.
-- Landings por mercado.
-- Paginas corporativas.
-- Noticias, blog y recursos.
-
-El edge middleware no debe convertirse en la base del routing. Su uso recomendado es:
-
-- Detectar idioma o mercado al entrar por `/`.
-- Respetar una cookie de preferencia si el usuario ya eligio.
-- No reescribir ni redirigir rutas profundas.
-- No bloquear rastreo ni indexacion de bots.
-
-Esto mantiene la complejidad baja y protege el rendimiento de cache.
-
-### 2. i18n separado de geo-segmentacion
-
-Idioma y region no deben mezclarse sin criterio. La estructura recomendada es:
-
-- `/es/` y `/en/` como capas principales de idioma.
-- `/es/[region]/` o `/en/[region]/` solo cuando exista una necesidad SEO o comercial real.
-
-No todas las regiones merecen una URL dedicada. Solo deben existir rutas regionales cuando haya al menos una de estas condiciones:
-
-- Contenido legal o regulatorio diferente.
-- Propuesta comercial distinta por mercado.
-- Equipo local, oficinas, telefonos o pruebas sociales locales.
-- Objetivo SEO claro con contenido suficientemente diferenciado.
-
-Si una pagina regional replica casi todo el contenido del idioma base, es mejor no crearla.
-
-### 3. SEO internacional controlado
-
-La base del proyecto debe generar automaticamente:
-
-- `canonical` por pagina.
-- `hreflang` por idioma y mercado.
-- `x-default` para la version global.
-- sitemap XML.
-- `robots.txt`.
-- Open Graph y metadatos base.
-
-Ademas, debe existir un mapa central de mercados para evitar decisiones repartidas por todo el proyecto.
-
-## Estructura recomendada
-
-```text
-/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── public/
-│   ├── fonts/
-│   ├── images/
-│   ├── favicon.svg
-│   └── robots.txt
-├── src/
-│   ├── content/
-│   │   ├── news/
-│   │   ├── pages/
-│   │   ├── markets/
-│   │   └── config.ts
-│   ├── data/
-│   │   ├── locales.ts
-│   │   ├── markets.ts
-│   │   └── navigation.ts
-│   ├── components/
-│   │   ├── common/
-│   │   ├── seo/
-│   │   ├── i18n/
-│   │   └── regions/
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   ├── [lang]/
-│   │   │   ├── index.astro
-│   │   │   ├── news/
-│   │   │   │   ├── index.astro
-│   │   │   │   └── [slug].astro
-│   │   │   └── [region]/
-│   │   │       └── index.astro
-│   │   ├── sitemap.xml.ts
-│   │   └── 404.astro
-│   ├── lib/
-│   │   ├── seo/
-│   │   ├── i18n/
-│   │   ├── content/
-│   │   └── utils/
-│   ├── styles/
-│   │   └── global.css
-│   ├── env.d.ts
-│   └── middleware.ts
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── tsconfig.json
-├── package.json
-└── vercel.json
-```
-
-## Gestion de contenido
-
-La web debe operar sin base de datos para el contenido editorial.
-
-- Noticias y blog en Markdown o MDX.
-- Validacion de frontmatter con Zod.
-- Colecciones de contenido mediante `astro:content`.
-- Assets optimizados desde Astro para generar formatos modernos como WebP y Avif.
-
-Esto permite seguridad alta, bajo mantenimiento y una experiencia editorial simple para el equipo.
-
-## Middleware: alcance recomendado
-
-`src/middleware.ts` debe ser pequeno, predecible y facil de auditar.
-
-Responsabilidades recomendadas:
-
-- Leer geolocalizacion disponible en Vercel.
-- Resolver idioma o mercado sugerido.
-- Redirigir solo desde `/`.
-- Persistir preferencia del usuario en una cookie.
-
-Responsabilidades que conviene evitar:
-
-- Redirigir cualquier URL interna.
-- Reescribir contenido SEO critico.
-- Tomar decisiones complejas de negocio.
-- Generar HTML dinamico segun IP.
-
-## Seguridad
-
-La base del proyecto debe salir con una base de cabeceras robusta:
-
-- `Strict-Transport-Security`
-- `Content-Security-Policy`
-- `X-Frame-Options`
-- `X-Content-Type-Options`
-- `Referrer-Policy`
-- `Permissions-Policy`
-
-La CSP debe definirse en funcion de los recursos reales del proyecto. Si se agregan terceros como analitica, formularios, mapas o video, la politica debe ajustarse conscientemente.
-
-Tambien se recomienda:
-
-- Fuentes alojadas localmente.
-- Minimo numero de scripts de terceros.
-- Consentimiento explicito si se incorporan herramientas de tracking.
-- No depender de Google Fonts ni recursos remotos no esenciales.
-
-## Rendimiento
-
-El objetivo correcto no es prometer siempre `100/100` en Lighthouse, sino construir el sistema para maximizar Core Web Vitals desde la base.
-
-Principios de esta base:
-
-- HTML estatico cuando sea posible.
-- CSS utilitario purgado.
-- Imagenes responsivas y optimizadas.
-- Fuentes locales con carga controlada.
-- JavaScript minimo.
-- Sin dependencias pesadas en cliente salvo necesidad real.
-
-## CI/CD recomendado
-
-### GitHub Actions
-
-Antes de considerar un despliegue sano, el pipeline debe ejecutar:
-
-- `npm run lint`
-- `npm run typecheck`
-- `npm run astro:check`
-- `npm run build`
-
-### Vercel
-
-- Preview deployments por pull request.
-- Produccion conectada a la rama principal.
-- Variables de entorno gestionadas en Vercel cuando apliquen.
-
-GitHub Actions valida calidad. Vercel se encarga del ciclo de despliegue y distribucion global.
-
-## Requisitos tecnicos
-
-- Node.js 20 o superior.
-- NPM o PNPM.
-
-## Scripts esperados
+## Comandos principales
 
 ```bash
 npm install
 npm run dev
-npm run lint
-npm run typecheck
-npm run astro:check
+npm run build
+npm run build:static
+npm run preview
+```
+
+## Modo desarrollo
+
+El proyecto se trabaja normalmente con TinaCMS activo:
+
+```bash
+npm run dev
+```
+
+Eso levanta:
+
+- Astro
+- TinaCMS local
+- panel admin para edición visual
+
+Rutas útiles en local:
+
+- Sitio: `http://localhost:4321`
+- Admin Tina: `http://localhost:4321/admin/index.html`
+
+## Build
+
+### Build normal
+
+```bash
 npm run build
 ```
 
-## Criterios para considerar esta base robusta
+Genera la build estándar del proyecto.
 
-La base se considera lista para produccion cuando cumpla estos minimos:
+### Build estático para hosting tradicional
 
-- Todas las rutas clave compilan en estatico.
-- El middleware solo afecta la entrada y no degrada SEO.
-- Existe una fuente unica de verdad para idiomas y mercados.
-- Las etiquetas SEO se generan automaticamente desde utilidades compartidas.
-- El contenido editorial se valida con esquemas estrictos.
-- El pipeline falla si hay errores de tipos, lint o build.
-- Las cabeceras de seguridad se envian de forma consistente.
+```bash
+npm run build:static
+```
 
-## Conclusión
+Esto genera una salida estática en `dist/` pensada para subir a hosting tipo cPanel / BanaHosting.
 
-Esta arquitectura es recomendable para Efiteca porque combina rendimiento, claridad operativa y capacidad de crecimiento internacional sin introducir una capa de complejidad innecesaria.
+También existe `.htaccess` en `public/.htaccess` para ayudar con el despliegue estático.
 
-La clave para que funcione bien no es usar edge en todas partes, sino mantenerlo bajo control. Si el proyecto conserva ese principio, este stack es una base muy solida para la web corporativa.
+## Estructura importante
+
+```text
+src/
+  components/
+    about/
+    blog/
+    contact/
+    home/
+    simulator/
+    solutions/
+  content/
+    config.ts
+    pages/
+  layouts/
+  pages/
+    [lang]/
+```
+
+## Contenido editable
+
+El contenido principal vive en:
+
+- `src/content/pages/*.md`
+
+La validación del contenido está en:
+
+- `src/content/config.ts`
+
+La configuración de TinaCMS está en:
+
+- `tina/config.ts`
+
+Cuando se agregue un campo nuevo editable, normalmente hay que tocar estas 4 piezas:
+
+1. `src/content/config.ts`
+2. `tina/config.ts`
+3. el `.md` correspondiente en `src/content/pages/`
+4. la query Tina en la página `.astro` que consume ese contenido
+
+Si falta una de esas piezas, el campo puede dejar de aparecer o no actualizarse bien.
+
+## Páginas implementadas
+
+Actualmente el proyecto tiene estas rutas principales por idioma:
+
+- `/[lang]/`
+- `/[lang]/soluciones-vivienda/`
+- `/[lang]/simulador-hipoteca/`
+- `/[lang]/sobre-nosotros/`
+- `/[lang]/contacto/`
+- `/[lang]/news/`
+- `/[lang]/news/[slug]/`
+- `/[lang]/[region]/`
+
+Idiomas activos:
+
+- `es`
+- `en`
+
+## Convenciones del proyecto
+
+- Se reutilizan módulos entre páginas siempre que el diseño lo permita.
+- La prioridad visual ha sido seguir Figma lo más fiel posible.
+- Muchas secciones usan un sistema de contenedor centrado consistente.
+- Hay varios componentes React grandes por página; antes de refactorizar, conviene revisar qué bloques ya se reutilizan.
+
+## TinaCMS
+
+Notas prácticas:
+
+- En dev, Tina usa GraphQL local.
+- Si un bloque no aparece editable, revisar primero:
+  - schema de contenido
+  - schema de Tina
+  - query de la página
+  - `data-tina-field`
+- Hay archivos generados en `tina/__generated__/` que cambian cuando se actualiza el schema.
+
+## Deploy
+
+### Vercel
+
+El repo ya tiene remoto configurado para despliegue desde GitHub.
+
+### Hosting estático
+
+Para hosting compartido:
+
+1. ejecutar `npm run build:static`
+2. subir el contenido de `dist/`
+
+## Estado del repo
+
+Este proyecto ha tenido varias iteraciones rápidas de maquetación y ajuste visual. Antes de hacer limpieza profunda:
+
+- revisar módulos duplicados
+- revisar assets en `public/images`
+- revisar archivos zip/log temporales del workspace
+
+No conviene hacer refactor grande sin validar primero que no se rompan los mapeos de TinaCMS.
+
+## Recomendación para el siguiente programador
+
+Orden sugerido para trabajar con seguridad:
+
+1. levantar `npm run dev`
+2. validar la página visualmente
+3. abrir Tina y comprobar campos editables
+4. tocar schema + query + componente en el mismo cambio cuando haga falta
+5. correr `npm run build` antes de subir
+
+## Repositorio
+
+Remoto actual:
+
+- [https://github.com/israelrios-code/efiteca-astro](https://github.com/israelrios-code/efiteca-astro)

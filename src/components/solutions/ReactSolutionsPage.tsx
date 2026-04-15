@@ -194,7 +194,7 @@ function SimulatorSection({ content, editable }: { content: any; editable?: any 
   const benefits = content?.benefits;
   if (!simulator) return null;
 
-  const icons = ["⌘", "↗", "%", "¤", "✓"];
+  const fallbackIcons = ["i", "+", "%", "$", "*"];
 
   return (
     <section id="simulador" className="overflow-hidden bg-[linear-gradient(135deg,#4f3bf9_0%,#8949ff_42%,#ad5cff_100%)] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
@@ -249,11 +249,17 @@ function SimulatorSection({ content, editable }: { content: any; editable?: any 
             <p className="mx-auto mt-[16px] max-w-[960px] text-center text-[16px] leading-[1.15] text-white md:text-[18px]" data-tina-field={fieldFor(editable?.benefits, "description")}>{benefits.description}</p>
             <div className="mt-[32px] grid grid-cols-2 gap-[16px] lg:grid-cols-5 lg:gap-[24px]">
               {(benefits.items || []).map((item: any, index: number) => (
-                <div key={`${item.text}-${index}`} className="flex min-h-[170px] flex-col items-center rounded-[28px] border border-[#ad81ff] bg-[#ad81ff] px-[14px] py-[24px] text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" data-tina-field={fieldFor(editable?.benefits?.items?.[index], "text")}>
-                  <div className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#fcc63d] shadow-[0px_10px_15px_rgba(252,198,61,0.2)]">
-                    <span className="text-[22px] text-[#080813]">{icons[index] || "✓"}</span>
+                <div key={
+                  `${item.text}-${index}`
+                } className="flex min-h-[170px] flex-col items-center rounded-[28px] border border-[#ad81ff] bg-[#ad81ff] px-[14px] py-[24px] text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
+                  <div className="flex h-[64px] w-[64px] items-center justify-center rounded-full bg-[#fcc63d] shadow-[0px_10px_15px_rgba(252,198,61,0.2)]" data-tina-field={fieldFor(editable?.benefits?.items?.[index], "icon")}>
+                    {item.icon ? (
+                      <img src={item.icon} alt="" className="h-[28px] w-[28px] object-contain" />
+                    ) : (
+                      <span className="text-[22px] text-[#080813]">{fallbackIcons[index] || "*"}</span>
+                    )}
                   </div>
-                  <p className="mt-[20px] text-[14px] font-bold leading-[1.25] text-white md:text-[16px]">{item.text}</p>
+                  <p className="mt-[20px] text-[14px] font-bold leading-[1.25] text-white md:text-[16px]" data-tina-field={fieldFor(editable?.benefits?.items?.[index], "text")}>{item.text}</p>
                 </div>
               ))}
             </div>
@@ -271,17 +277,19 @@ function HowItWorksSection({ content, editable }: { content: any; editable?: any
   return (
     <section className="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[312px]" data-tina-field={fieldFor(editable, "howItWorks")}>
       <div className="mx-auto grid max-w-[1296px] grid-cols-1 items-center gap-[32px] lg:grid-cols-[608px_minmax(0,1fr)] lg:gap-[80px]">
-        <img src="/images/about-efiteca.png" alt="Asesoria hipotecaria" className="h-[320px] w-full rounded-[32px] object-cover md:h-[406px]" />
+        <img src={section.image || "/images/about-efiteca.png"} alt="Asesoria hipotecaria" className="h-[320px] w-full rounded-[32px] object-cover md:h-[406px]" data-tina-field={fieldFor(editable?.howItWorks, "image")} />
         <div>
           <h2 className="text-[28px] font-bold leading-[1.1] text-[#101828] md:text-[40px]" data-tina-field={fieldFor(editable?.howItWorks, "title")}>{section.title}</h2>
           <p className="mt-[24px] text-[16px] leading-[1.15] text-[#101828] md:text-[18px]" data-tina-field={fieldFor(editable?.howItWorks, "description")}>{section.description}</p>
           <div className="mt-[32px] space-y-[18px]">
             {(section.items || []).map((item: any, index: number) => (
-              <div key={`${item.title}-${index}`} className="flex items-start gap-[16px]" data-tina-field={fieldFor(editable?.howItWorks?.items?.[index], "title")}>
-                <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#8949ff] text-white">✓</div>
+              <div key={`${item.title}-${index}`} className="flex items-start gap-[16px]">
+                <div className="flex h-[32px] w-[32px] shrink-0 items-center justify-center rounded-full bg-[#8949ff] text-white" data-tina-field={fieldFor(editable?.howItWorks?.items?.[index], "icon")}>
+                  {item.icon ? <img src={item.icon} alt="" className="h-[18px] w-[18px] object-contain" /> : "v"}
+                </div>
                 <div className="pt-[2px]">
-                  <p className="text-[16px] font-bold leading-[1.1] text-[#101828]">{item.title}</p>
-                  {item.description ? <p className="mt-[8px] text-[15px] leading-[1.15] text-[#667085]">{item.description}</p> : null}
+                  <p className="text-[16px] font-bold leading-[1.1] text-[#101828]" data-tina-field={fieldFor(editable?.howItWorks?.items?.[index], "title")}>{item.title}</p>
+                  {item.description ? <p className="mt-[8px] text-[15px] leading-[1.15] text-[#667085]" data-tina-field={fieldFor(editable?.howItWorks?.items?.[index], "description")}>{item.description}</p> : null}
                 </div>
               </div>
             ))}
@@ -297,17 +305,19 @@ function ActionCtaSection({ content, editable }: { content: any; editable?: any 
   if (!actionCta) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#8949ff] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[312px]" data-tina-field={fieldFor(editable, "actionCta")}>
+    <section className="relative overflow-hidden bg-[#8949ff] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]" data-tina-field={fieldFor(editable, "actionCta")}>
       <div className="absolute inset-y-0 left-0 w-[40%] bg-[radial-gradient(circle_at_left,rgba(173,92,255,0.4),transparent_72%)]" />
       <div className="absolute inset-y-0 right-0 w-[35%] bg-[radial-gradient(circle_at_right,rgba(252,198,61,0.18),transparent_70%)]" />
-      <div className="relative mx-auto flex max-w-[1296px] flex-col items-start justify-between gap-[24px] rounded-[28px] border border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.06)] p-[28px] md:flex-row md:items-center md:rounded-[36px] md:p-[48px]">
-        <div className="max-w-[720px]">
+      <div className="relative mx-auto max-w-[1460px]">
+        <div className="flex w-full flex-col items-start justify-between gap-[24px] rounded-[28px] border border-[rgba(255,255,255,0.15)] bg-[rgba(255,255,255,0.06)] px-[28px] py-[32px] md:flex-row md:items-center md:rounded-[36px] md:px-[48px] md:py-[48px] xl:px-[60px]">
+        <div className="max-w-[760px]">
           <h2 className="text-[28px] font-bold leading-[1.1] text-white md:text-[40px]" data-tina-field={fieldFor(editable?.actionCta, "title")}>{actionCta.title}</h2>
           <p className="mt-[20px] text-[16px] leading-[1.2] text-white md:text-[18px]" data-tina-field={fieldFor(editable?.actionCta, "description")}>{actionCta.description}</p>
         </div>
         <a href={actionCta.button?.href || "#contacto-soluciones"} className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[16px] text-[14px] font-bold uppercase tracking-[1.6px] text-[#080813] no-underline shadow-[0px_18px_40px_rgba(252,198,61,0.28)] sm:w-auto md:px-[40px] md:text-[18px]" data-tina-field={fieldFor(editable?.actionCta?.button, "label")}>
           {actionCta.button?.label}
         </a>
+      </div>
       </div>
     </section>
   );
@@ -556,3 +566,5 @@ export default function ReactSolutionsPage({
     </div>
   );
 }
+
+

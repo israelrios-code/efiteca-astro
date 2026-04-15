@@ -11,12 +11,18 @@ hero:
   background_desktop: /images/bg-hero.jpg
   background_mobile: /images/bg-hero.jpg
   cta:
-    label: Agenda tu diagnóstico en 10 minutos
+    label: Agenda tu diagnóstico en 3 minutos
     href: '#diagnosis'
 services:
   title: Nuestros servicios
   description: Te acompañamos en cada paso para asegurar tu éxito financiero.
   items:
+    - title: Recibe información
+      description: 'Si aún estás explorando, te explicamos tus opciones sin tecnicismos para que entiendas qué puedes hacer.'
+      image: /images/imgFrame1272638189.png
+      button:
+        label: Hablar con un experto
+        href: '#expert'
     - title: Busca nueva hipoteca
       description: 'Te ayudamos a conseguir una hipoteca que realmente encaje contigo, comparando opciones del mercado.'
       image: /images/imgFrame1272638187.png
@@ -29,12 +35,6 @@ services:
       button:
         label: Evaluar mejora
         href: '#improve-mortgage'
-    - title: Recibe información
-      description: 'Si aún estás explorando, te explicamos tus opciones sin tecnicismos para que entiendas qué puedes hacer.'
-      image: /images/imgFrame1272638189.png
-      button:
-        label: Hablar con un experto
-        href: '#expert'
     - title: Calcula la hipoteca
       description: Calcula tu cuota estimada y descubre si tu objetivo es viable según tus ingresos y perfil.
       image: /images/imgFrame1272638190.png
@@ -59,6 +59,7 @@ whoIsItFor:
       - 'Objetivo claro: compra o mejora.'
       - Ingresos y estabilidad laboral.
       - Ahorro aproximado disponible.
+    image: /images/imgRectangle805.png
     pricing:
       title: ¿Cuánto vale?
       description: 'El diagnóstico inicial es gratuito. Después, el costo depende del nivel de acompañamiento requerido y la complejidad del caso.'
@@ -70,7 +71,7 @@ howItWorks:
   title: ¿Cómo funciona?
   description: 'Un proceso claro para tomar decisiones seguras:'
   cta:
-    label: Agenda diagnóstico gratis
+    label: AGENDA TU DIAGNÓSTICO GRATUITO
     href: '#diagnosis'
   items:
     - number: '01'
@@ -119,16 +120,20 @@ actionCta:
     href: '#diagnosis'
 benefits:
   title: Descubre nuestros beneficios
-  description: 'Te acompañamos con una estrategia clara, comparación real de opciones y criterio experto para que avances con confianza.'
-  ctaText: Hablar con un experto
+  description: "Habla con un experto hipotecario\L y obtén claridad"
+  ctaText: Contacta a un experto hipotecario
   ctaLink: '#contacto'
   items:
-    - icon: /images/item.icon.png
+    - icon: /images/DOC.png
       text: Entiendes exactamente lo que estás firmando.
-    - text: Tomas decisiones con información clara.
-    - text: Reduces tiempos y fricciones del proceso.
-    - text: Accedes a condiciones más adecuadas.
-    - text: Llegas a firma con acompañamiento integral.
+    - icon: /images/TQ2341.png
+      text: Tomas decisiones con información clara.
+    - icon: /images/4123.png
+      text: Reduces tiempos y fricciones del proceso.
+    - icon: /images/41.png
+      text: Accedes a condiciones más adecuadas.
+    - icon: /images/123123.png
+      text: Llegas a firma con acompañamiento integral.
 metrics:
   title: Cifras de valor
   items:
@@ -156,21 +161,21 @@ guides:
 testimonials:
   title: Testimonios
   backgroundColor: '#ecddee'
-  description: 'Personas en situaciones reales lograron tomar decisiones con mayor claridad, mejorar condiciones o conseguir su hipoteca.'
+  description: "Sin duda la experiencia con el equipo de Efiteca ha sido 100% satisfactoria\L\LAndres es un profesional que se implica y sin duda pone toda la carne en el asador en cada operación"
   items:
-    - name: Carlos Gómez
-      role: Cliente desde 2022
-      text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt.
+    - name: Guillermo
+      role: "Local\_Guide·40\_opiniones·11\_fotos"
+      text: Gran experiencia con Andrés. Un profesional muy serio que estudia tu caso al milímetro. Nos ha dado mucha seguridad tener su visión realista sobre nuestros números y opciones de hipoteca. Trato cercano y muy claro. 100% recomendable
       image: /images/imgEllipse5.png
       stars: 5
-    - name: Carlos Gómez
-      role: Cliente desde 2022
+    - name: Pablo Orozco Espada
+      role: 5 opiniones
       text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt. Tincidunt vitae tellus consectetur dui morbi vulputate quam aliquam lacus. Quis elit sed pharetra facilisis.
       image: /images/imgFrame1272638189.png
       stars: 5
-    - name: Carlos Gómez 3
+    - name: Loly zazo
       role: Cliente desde 2022
-      text: Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt. Tincidunt vitae tellus consectetur dui morbi vulputate quam aliquam lacus. Quis elit sed pharetra facilisis.
+      text: "Mi experiencia ha sido de más de cinco estrellas, Andrés gran profesional y excelente persona, llegando a gestionar más allá de su responsabilidad.\LSólo puedo agradecer el trato recibido y la humanidad mostrada por el."
       image: /images/blog1.png
       stars: 4
 about:
@@ -186,8 +191,8 @@ about:
     label: Conoce al equipo
     href: '#equipo'
 partners:
-  title: Aliados estratégicos
-  description: Trabajamos con entidades financieras y actores del ecosistema inmobiliario.
+  title: Entidades financieras con las que colaboramos
+  description: Trabajamos con entidades financieras y actores del ecosistema inmobiliario para ofrecer opciones reales adaptadas a cada perfil.
   items:
     - name: SANTANDER
     - name: BBVA
@@ -198,16 +203,16 @@ partners:
 faq:
   title: Preguntas frecuentes
   items:
-    - question: ¿Cómo analizáis mi caso?
-      answer: Analizamos tu historial financiero para entender qué tipo de hipoteca es la más viable para tu caso específico.
-    - question: ¿Cuánto tiempo tarda el proceso?
-      answer: 'Depende de la entidad, pero trabajamos para agilizar los procesos y obtener respuestas en tiempos récord.'
-    - question: ¿Qué requisitos necesito cumplir?
-      answer: La estabilidad laboral y unos ingresos recurrentes son fundamentales para garantizar la aprobación del banco.
-    - question: ¿Puedo mejorar mi hipoteca actual?
-      answer: Evaluamos las condiciones actuales de tu hipoteca y las comparamos con las mejores ofertas del mercado para ahorrarte dinero.
-    - question: ¿Cómo me ayudáis hasta la firma?
-      answer: 'Te acompañamos paso a paso, resolviendo tus dudas y encargándonos de la comunicación con el banco hasta la firma en notaría.'
+    - question: ¿Por qué no basta con un comparador?
+      answer: 'Porque ver opciones no garantiza que tu caso sea viable ni que llegues a firmar correctamente. Un comparador muestra productos financieros, pero no analiza tu situación real ni define una estrategia adecuada. Lo importante no es solo saber qué hipotecas existen, sino entender cuáles aplican a tu perfil, cómo presentar tu caso correctamente y qué pasos seguir para evitar rechazos o condiciones poco favorables.'
+    - question: ¿Y si mi caso es difícil?
+      answer: 'Ahí es donde más valor aportamos: identificamos qué ajustar y qué bancos sí aplican a tu situación. Un rechazo previo no define tu viabilidad. Analizamos qué bloqueó el proceso, cómo mejorar tu presentación financiera y qué entidades tienen mayor probabilidad de aprobación según tu perfil real. Incluso en casos complejos, una estrategia adecuada puede abrir opciones que antes parecían imposibles.'
+    - question: ¿Cuánto tarda el proceso?
+      answer: 'Depende del caso, la documentación disponible y los tiempos internos de cada entidad financiera. Nuestro enfoque es reducir fricción y acelerar decisiones mediante una estrategia clara desde el inicio. Al evitar errores comunes y coordinar correctamente cada etapa, ayudamos a que avances con mayor control, minimizando retrasos innecesarios y facilitando que llegues a firma dentro de los tiempos previstos.'
+    - question: ¿Necesito tener una vivienda para empezar?
+      answer: 'No es obligatorio tener vivienda identificada para iniciar el proceso. De hecho, evaluar tu viabilidad antes de encontrar una propiedad puede darte mayor seguridad al momento de buscar. Conocer tu capacidad real de financiación te permite tomar decisiones con confianza, negociar mejor y evitar perder oportunidades por falta de claridad sobre lo que realmente puedes asumir.'
+    - question: ¿Qué pasa si aún no soy viable?
+      answer: 'Si tu perfil aún no está listo, no significa que no puedas lograrlo. Te indicamos qué ajustes pueden mejorar tu situación en el corto o mediano plazo, como optimizar ratios, fortalecer estabilidad laboral o aumentar ahorro. De esta forma, tendrás un plan claro para avanzar hacia la viabilidad en lugar de quedarte en la incertidumbre o repetir intentos fallidos.'
 locations:
   title: Acompañamiento hipotecario en las principales ciudades de España
   subtitle: Atendemos de forma digital con acompañamiento personalizado durante todo el proceso.

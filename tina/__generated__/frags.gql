@@ -169,6 +169,7 @@ fragment PagesParts on Pages {
       __typename
       title
       requirements
+      image
       pricing {
         __typename
         title
@@ -186,6 +187,7 @@ fragment PagesParts on Pages {
     __typename
     title
     description
+    image
     cta {
       __typename
       label
@@ -194,6 +196,7 @@ fragment PagesParts on Pages {
     items {
       __typename
       number
+      icon
       title
       description
     }

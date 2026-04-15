@@ -168,6 +168,7 @@ const pages = defineCollection({
       process: z.object({
         title: z.string(),
         requirements: z.array(z.string()),
+        image: z.string().optional(),
         pricing: z.object({
           title: z.string(),
           description: z.string(),
@@ -179,9 +180,11 @@ const pages = defineCollection({
     howItWorks: z.object({
       title: z.string(),
       description: z.string(),
+      image: z.string().optional(),
       cta: buttonSchema.optional(),
       items: z.array(z.object({
         number: z.string(),
+        icon: z.string().optional(),
         title: z.string(),
         description: z.string()
       }))

@@ -1447,9 +1447,9 @@ function Frame95({
   };
 
   return (
-    <div className="relative w-full shrink-0 overflow-hidden rounded-[20px] bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat">
-      <div className="flex flex-col items-center size-full">
-        <div className="content-stretch relative flex size-full flex-col items-center gap-[32px] px-[20px] py-[48px] md:gap-[40px] md:px-[48px] md:py-[80px] xl:px-[80px]">
+    <div className="relative w-full shrink-0 bg-[#f7f5f9]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center px-[20px] py-[48px] md:px-[48px] md:py-[80px] xl:px-[80px]">
+        <div className="content-stretch relative flex w-full flex-col items-center gap-[32px] overflow-hidden rounded-[32px] bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat px-[20px] py-[48px] md:gap-[40px] md:rounded-[40px] md:px-[48px] md:py-[80px]">
           <Frame19 />
           <Container6 content={content} editable={editable} />
           <div className="grid w-full max-w-[1280px] grid-cols-1 gap-[24px] rounded-[28px] bg-[#080813] p-[20px] md:gap-[32px] md:rounded-[40px] md:p-[40px] xl:grid-cols-[minmax(0,1fr)_minmax(360px,480px)] xl:items-center">
@@ -1481,7 +1481,7 @@ function Frame95({
               </a>
             </div>
             <div className="relative min-h-[280px] overflow-hidden rounded-[24px] md:min-h-[420px]">
-              <img alt="" className="absolute inset-0 h-full w-full object-cover" src="/images/imgRectangle805.png" />
+              <img alt="" className="absolute inset-0 h-full w-full object-cover" src={content?.whoIsItFor?.process?.image || "/images/imgRectangle805.png"} data-tina-field={fieldFor(editable?.whoIsItFor?.process, "image")} />
             </div>
           </div>
         </div>
@@ -4214,6 +4214,55 @@ export function TestimonialsSection({ content, editable }: { content: any; edita
               onDotClick={scrollTo}
             />
           ) : null}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function SharedHomeBenefitsBlock({
+  title,
+  description,
+  ctaLabel,
+  ctaHref,
+  editable
+}: {
+  title: string;
+  description: string;
+  ctaLabel: string;
+  ctaHref?: string;
+  editable?: any;
+}) {
+  return (
+    <section className="bg-[#f7f5f9] mb-[-2px] relative shrink-0 w-full">
+      <div className="w-full max-w-[1460px] mx-auto px-[20px] md:px-[48px] xl:px-[80px] py-[56px] md:py-[80px]">
+        <div className="bg-[#fcc63d] relative rounded-[32px] md:rounded-[60px] w-full overflow-hidden xl:overflow-visible">
+          <div className="relative z-10 w-full px-[24px] md:px-[72px] pt-[32px] md:pt-[70px] pb-[24px] md:pb-[70px] lg:pr-[50%] min-h-[280px] md:min-h-[360px] lg:min-h-[447px] flex items-center">
+            <div className="w-full max-w-[520px]">
+              <div className="content-stretch flex flex-col gap-[24px] md:gap-[40px] items-center relative shrink-0 w-full max-w-[572px]">
+                <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] min-w-full not-italic relative shrink-0 text-[#080813] text-[32px] md:text-[40px] text-center w-[min-content]" data-tina-field={fieldFor(editable, "title")}>
+                  {title}
+                </p>
+                <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.1] min-w-full not-italic relative shrink-0 text-[#080813] text-[18px] md:text-[22px] text-center w-[min-content] whitespace-pre-wrap" data-tina-field={fieldFor(editable, "description")}>
+                  {description}
+                </p>
+                <a href={ctaHref || "#"} className="bg-[#8949ff] content-stretch flex items-center justify-center px-[28px] md:px-[40px] py-[16px] md:py-[19px] relative rounded-[33554400px] shrink-0 no-underline hover:scale-105 transition-transform w-full sm:w-auto" data-tina-field={fieldFor(editable?.button, "label")}>
+                  <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.2] md:leading-[27px] not-italic relative shrink-0 text-[16px] md:text-[18px] text-center text-white tracking-[1.8px] uppercase whitespace-normal sm:whitespace-nowrap">{ctaLabel}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="relative w-full min-h-[280px] md:min-h-[360px] lg:absolute lg:inset-y-0 lg:right-0 lg:w-[50%] overflow-hidden rounded-b-[32px] lg:rounded-b-none lg:rounded-r-[60px]" data-name="DiseÃ±o sin tÃ­tulo (57) 1">
+            <img alt="" className="absolute inset-0 block h-full w-full object-cover pointer-events-none" src="/images/imgDisenoSinTitulo571.png" />
+          </div>
+          <div className="absolute hidden xl:block bottom-0 right-[13%] h-[540px] w-[430px] pointer-events-none z-10" data-name="DiseÃ±o sin tÃ­tulo (58) 1">
+            <div className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 overflow-hidden">
+              <img alt="" className="absolute h-[128.5%] left-[-28.56%] max-w-none top-0 w-[238.36%]" src="/images/imgDisenoSinTitulo581.png" />
+            </div>
+          </div>
+          <div className="hidden xl:block absolute inset-0 pointer-events-none">
+            <Recurso2EfitecaELinea />
+          </div>
         </div>
       </div>
     </section>

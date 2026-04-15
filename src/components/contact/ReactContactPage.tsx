@@ -1,7 +1,7 @@
 import React from "react";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { ContactSection } from "@/components/about/ReactAboutPage";
-import { FaqSection, Frame60 } from "@/components/home/ReactHome";
+import { FaqSection, Frame60, SharedHomeBenefitsBlock } from "@/components/home/ReactHome";
 
 function fieldFor(object: any, property: string) {
   return object ? tinaField(object, property) : undefined;
@@ -162,39 +162,15 @@ function ShortcutCtaSection({ content, editable }: { content: any; editable?: an
   if (!section) return null;
 
   return (
-    <section className="bg-[#f9f6f3] px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]">
-      <div className="mx-auto max-w-[1460px]">
-        <div className="relative overflow-hidden rounded-[36px] bg-[#fcc63d]" data-tina-field={fieldFor(editable, "shortcutCta")}>
-          <div className="grid grid-cols-1 items-center lg:grid-cols-[1fr_636px]">
-            <div className="px-[24px] py-[40px] text-center md:px-[72px] lg:py-[70px]">
-              <h2 className="text-[30px] font-bold leading-[1.1] text-[#080813] md:text-[40px]" data-tina-field={fieldFor(editable?.shortcutCta, "title")}>
-                {section.title}
-              </h2>
-              <p className="mx-auto mt-[20px] max-w-[520px] text-[18px] leading-[1.15] text-[#080813]" data-tina-field={fieldFor(editable?.shortcutCta, "description")}>
-                {section.description}
-              </p>
-              <a
-                id="whatsapp"
-                href={section.button?.href || "#"}
-                className="mt-[32px] inline-flex items-center justify-center rounded-full bg-[#8949ff] px-[28px] py-[16px] text-[12px] font-bold uppercase tracking-[1.6px] text-white no-underline md:px-[40px] md:py-[19px]"
-                data-tina-field={fieldFor(editable?.shortcutCta?.button, "label")}
-              >
-                {section.button?.label}
-              </a>
-            </div>
-            <div className="relative min-h-[300px] overflow-hidden lg:min-h-[407px]">
-              <img src={section.image} alt={section.title} className="absolute inset-0 h-full w-full object-cover" data-tina-field={fieldFor(editable?.shortcutCta, "image")} />
-            </div>
-          </div>
-          {section.overlayImage ? (
-            <img src={section.overlayImage} alt="" className="pointer-events-none absolute bottom-0 right-[13%] hidden h-[540px] w-[430px] xl:block" data-tina-field={fieldFor(editable?.shortcutCta, "overlayImage")} />
-          ) : null}
-          {section.accentImage ? (
-            <img src={section.accentImage} alt="" className="pointer-events-none absolute bottom-[18px] right-[8%] hidden w-[310px] xl:block" data-tina-field={fieldFor(editable?.shortcutCta, "accentImage")} />
-          ) : null}
-        </div>
-      </div>
-    </section>
+    <div data-tina-field={fieldFor(editable, "shortcutCta")}>
+      <SharedHomeBenefitsBlock
+        title={section.title}
+        description={section.description}
+        ctaLabel={section.button?.label || ""}
+        ctaHref={section.button?.href || "#"}
+        editable={editable?.shortcutCta}
+      />
+    </div>
   );
 }
 
