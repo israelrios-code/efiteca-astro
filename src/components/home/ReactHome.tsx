@@ -13862,11 +13862,11 @@ export function Frame60({ content, editable }: { content: any; editable?: any })
 
 
 
-                <div className="bg-[#ecddee] flex h-full flex-col md:flex-row gap-[16px] items-stretch justify-start p-[12px] md:p-[16px] md:pr-[20px] relative rounded-[24px]" data-name="SEO local card">
+                <div className="bg-[#ecddee] flex h-auto md:h-full flex-col md:flex-row gap-[16px] items-stretch justify-start p-[12px] md:p-[16px] md:pr-[20px] relative rounded-[24px]" data-name="SEO local card">
 
 
 
-                  <div className="content-stretch flex flex-col md:flex-row flex-[1_0_0] gap-[16px] items-stretch min-h-px min-w-px relative">
+                  <div className="content-stretch flex flex-col md:flex-row flex-auto md:flex-[1_0_0] gap-[16px] items-stretch min-h-px min-w-px relative">
 
 
 
