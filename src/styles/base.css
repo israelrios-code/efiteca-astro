@@ -58,7 +58,16 @@ img {
 }
 
 .site-container {
-  width: min(100% - 2rem, var(--container-width));
+  width: min(calc(100% - (var(--site-gutter) * 2)), var(--container-width));
+  margin-inline: auto;
+}
+
+.page-gutter {
+  padding-inline: var(--site-gutter);
+}
+
+.page-width {
+  width: min(calc(100% - (var(--site-gutter) * 2)), var(--container-width));
   margin-inline: auto;
 }
 

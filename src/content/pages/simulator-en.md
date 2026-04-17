@@ -40,7 +40,7 @@ requirementsBanner:
     - Available savings.
   image: /images/contact-intro.jpg
   button:
-    label: Request your viability review
+    label: Re¿quéest your viability review
     href: "#contacto-simulador"
 calculatorEmbed:
   eyebrow: Efiteca calculators
@@ -117,7 +117,7 @@ locationsShowcase:
       label: Contact an expert
       href: "#contacto-simulador"
 faq:
-  title: Frequently asked questions about the mortgage calculator
+  title: Fre¿quéently asked questions about the mortgage calculator
   items:
     - question: "Is the calculator result definitive?"
       answer: "No. It is an initial estimate to help you get oriented. Real viability depends on a full review of your profile."

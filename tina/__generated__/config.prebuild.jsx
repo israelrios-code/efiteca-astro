@@ -590,7 +590,10 @@ var config_default = defineConfig({
                 name: "items",
                 label: "Partners",
                 list: true,
-                fields: [{ type: "string", name: "name", label: "Name" }]
+                fields: [
+                  { type: "string", name: "name", label: "Name" },
+                  { type: "image", name: "image", label: "Logo" }
+                ]
               }
             ]
           },

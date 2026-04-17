@@ -11,7 +11,7 @@ hero:
   background_desktop: /images/solutions-hero-bg.jpg
   background_mobile: /images/solutions-hero-bg.jpg
   cta:
-    label: Request your free feasibility check
+    label: Re¿quéest your free feasibility check
     href: "#contacto-soluciones"
 services:
   title: Our services
@@ -231,7 +231,7 @@ locationsShowcase:
       label: We call you
       href: "#contacto-soluciones"
 faq:
-  title: Frequently asked questions about the mortgage simulator
+  title: Fre¿quéently asked questions about the mortgage simulator
   items:
     - question: How does the simulator work?
       answer: It helps you estimate your payment and understand whether your goal might be feasible before starting the process.

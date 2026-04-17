@@ -136,7 +136,7 @@ function NewsletterAndCta({ page, editable }: { page: any; editable?: any }) {
                 {newsletter.button?.label}
               </a>
             </div>
-            <p className="mt-[18px] text-[15px] leading-[1.1] text-white/80">Sin spam. Puedes darte de baja cuando quieras.</p>
+            <p className="mt-[18px] text-[15px] leading-[1.1] text-white/80">Sin spam. Puedes darte de baja cuando ¿quéieras.</p>
           </div>
         ) : null}
 

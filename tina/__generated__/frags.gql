@@ -332,6 +332,7 @@ fragment PagesParts on Pages {
     items {
       __typename
       name
+      image
     }
   }
   faq {

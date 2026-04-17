@@ -445,6 +445,7 @@ type PagesAbout {
 
 type PagesPartnersItems {
   name: String
+  image: String
 }
 
 type PagesPartners {
@@ -1011,6 +1012,7 @@ input PagesAboutFilter {
 
 input PagesPartnersItemsFilter {
   name: StringFilter
+  image: ImageFilter
 }
 
 input PagesPartnersFilter {
@@ -1695,6 +1697,7 @@ input PagesAboutMutation {
 
 input PagesPartnersItemsMutation {
   name: String
+  image: String
 }
 
 input PagesPartnersMutation {

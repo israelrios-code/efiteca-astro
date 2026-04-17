@@ -11,8 +11,8 @@ hero:
   cta:
     label: "Schedule your 10-minute diagnosis"
     href: "#diagnosis"
-  background_desktop: "/images/imgFrame5.png"
-  background_mobile: "/images/imgFrame5.png"
+  background_desktop: /images/hero-background.png
+  background_mobile: /images/hero-background.png
 services:
   title: "Our Services"
   description: "We accompany you every step of the way to ensure your financial success."
@@ -62,7 +62,7 @@ whoIsItFor:
     image: "/images/imgRectangle805.png"
     pricing:
       title: How much does it cost?
-      description: The initial diagnosis is free. After that, the cost depends on the level of support required and the complexity of the case.
+      description: The initial diagnosis is free. After that, the cost depends on the level of support re¿quéired and the complexity of the case.
       highlight: You will always know the price before moving forward.
       button:
         label: Calculate my mortgage now
@@ -76,7 +76,7 @@ steps:
       description: "We analyze your current situation and mortgage goal to understand if there is a viable path."
     - number: 2
       title: "Feasibility Study"
-      description: "We evaluate your financial and employment profile to determine which banks could approve your request."
+      description: "We evaluate your financial and employment profile to determine which banks could approve your re¿quéest."
     - number: 3
       title: "Option Comparison"
       description: "We show you the alternatives that fit you, explained in clear language."
@@ -122,12 +122,26 @@ partners:
   title: "Strategic Allies"
   description: "We work with financial entities and actors from the real estate ecosystem."
   items:
-    - name: "SANTANDER"
-    - name: "BBVA"
-    - name: "SABADELL"
-    - name: "CAIXABANK"
-    - name: "ING"
-    - name: "BANKINTER"
+    - name: Partner 1
+      image: /images/partners/partner-2067.png
+    - name: Partner 2
+      image: /images/partners/partner-2069.png
+    - name: Partner 3
+      image: /images/partners/partner-2070.png
+    - name: Partner 4
+      image: /images/partners/partner-2071.png
+    - name: Partner 5
+      image: /images/partners/partner-2072.png
+    - name: Partner 6
+      image: /images/partners/partner-2073.png
+    - name: Partner 7
+      image: /images/partners/santander.png
+    - name: Partner 8
+      image: /images/partners/bbva.png
+    - name: Partner 9
+      image: /images/partners/caixabank.png
+    - name: Partner 10
+      image: /images/partners/bankinter.png
 faq:
   title: "Frequently Asked Questions"
   items:
@@ -234,4 +248,5 @@ footer:
     - label: "Mortgage simulator"
       href: "#simulator"
 ---
+
 

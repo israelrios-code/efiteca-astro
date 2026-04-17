@@ -1386,7 +1386,7 @@ function Frame118({ item }: { item: any }) {
 
 
 
-function Frame115({ content }: { content: any }) {
+export function Frame115({ content }: { content: any }) {
 
 
 

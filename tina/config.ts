@@ -592,15 +592,18 @@ export default defineConfig({
             fields: [
               { type: "string", name: "title", label: "Title" },
               { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
-              {
-                type: "object",
-                name: "items",
-                label: "Partners",
-                list: true,
-                fields: [{ type: "string", name: "name", label: "Name" }]
-              }
-            ]
-          },
+            {
+              type: "object",
+              name: "items",
+              label: "Partners",
+              list: true,
+              fields: [
+                { type: "string", name: "name", label: "Name" },
+                { type: "image", name: "image", label: "Logo" }
+              ]
+            }
+          ]
+        },
           {
             type: "object",
             name: "faq",

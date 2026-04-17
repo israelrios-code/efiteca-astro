@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { LocationsShowcaseSection } from "@/components/about/ReactAboutPage";
+import { LocationsShowcaseSection } from "@/components/shared/LocationsShowcase";
 import { FaqSection, Frame60, TestimonialsSection } from "@/components/home/ReactHome";
 
 function fieldFor(object: any, property: string) {
@@ -117,9 +117,7 @@ function SimulatorHeroSection({ page, editable }: { page: any; editable?: any })
       </div>
     </section>
   );
-}
-
-function RequirementsBannerSection({ page, editable }: { page: any; editable?: any }) {
+}function RequirementsBannerSection({ page, editable }: { page: any; editable?: any }) {
   const section = page?.requirementsBanner;
   if (!section) return null;
 
@@ -250,7 +248,6 @@ function CalculatorEmbedSection({ page, editable }: { page: any; editable?: any 
             title={section.title}
             className="block w-full border-0"
             style={{ height: `${height}px` }}
-            scrolling="no"
             data-tina-field={fieldFor(editable?.calculatorEmbed, "src")}
           />
         </div>
@@ -424,3 +421,4 @@ export default function ReactSimulatorPage({
     </div>
   );
 }
+

@@ -276,13 +276,14 @@ const pages = defineCollection({
       badgeText: z.string(),
       button: buttonSchema
     }).optional(),
-    partners: z.object({
+      partners: z.object({
         title: z.string(),
         description: z.string(),
         items: z.array(z.object({
-            name: z.string()
+            name: z.string(),
+            image: z.string().optional()
         }))
-    }).optional(),
+      }).optional(),
     faq: z.object({
       title: z.string(),
       items: z.array(z.object({

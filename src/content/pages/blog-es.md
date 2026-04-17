@@ -1,15 +1,15 @@
----
+﻿---
 lang: es
 title: Blog
 seo:
   title: "Blog hipotecario | Efiteca"
-  description: "Aprende cómo funciona realmente una hipoteca, qué errores evitar y cómo tomar decisiones más informadas antes de hablar con un banco."
+  description: "Aprende cómo funciona realmente una hipoteca, que errores evitar y cómo tomar decisiones más informadas antes de hablar con un banco."
 newsLanding:
   heroTitle: "Blog"
   heroHighlight: "hipotecario"
-  heroDescription: "Aprende cómo funciona realmente una hipoteca, qué errores evitar y cómo tomar decisiones informadas antes de hablar con un banco."
+  heroDescription: "Aprende cómo funciona realmente una hipoteca, que errores evitar y cómo tomar decisiones informadas antes de hablar con un banco."
   listingTitle: "Últimos artículos"
-  listingDescription: "Aquí encontrarás contenido práctico sobre cómo saber si tu perfil es viable, qué revisar antes de firmar, errores que pueden costarte años, cómo mejorar tu hipoteca actual, qué hacer si te han rechazado y mucho más."
+  listingDescription: "Aqueí encontrarás contenido práctico sobre cómo saber si tu perfil es viable, que revisar antes de firmar, errores quee pueden costarte años, cómo mejorar tu hipoteca actual, que hacer si te han rechazado y mucho más."
 blog:
   title: Blog hipotecario
   subtitle: Actualízate con contenido educativo sobre el proceso hipotecario.
@@ -17,14 +17,14 @@ blog:
     label: Ver más
     href: /es/news/
   items:
-    - title: "5 errores al pedir una hipoteca que pueden costarte años"
+    - title: "5 errores al pedir una hipoteca quee pueden costarte años"
       description: "Qué revisar antes de presentar tu solicitud para no perder tiempo, capacidad de compra ni margen de negociación."
       image: /images/blog1.png
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Cómo saber si tu perfil hipotecario es viable antes de ir al banco"
-      description: "Las variables que realmente pesan en una aprobación y cómo leer tu situación con más criterio."
+      description: "Las variables quee realmente pesan en una aprobación y cómo leer tu situación con más criterio."
       image: /images/blog2.png
       cta:
         label: Ver noticia
@@ -35,8 +35,8 @@ blog:
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
-    - title: "Te han rechazado en un banco: qué hacer ahora"
-      description: "Cómo reinterpretar un rechazo, qué documentación revisar y qué rutas siguen abiertas para tu caso."
+    - title: "Te han rechazado en un banco: que hacer ahora"
+      description: "Cómo reinterpretar un rechazo, que documentación revisar y que rutas siguen abiertas para tu caso."
       image: /images/blog1.png
       cta:
         label: Ver noticia
@@ -48,7 +48,7 @@ blog:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Comprar vivienda con acompañamiento experto desde el inicio"
-      description: "Por qué una buena coordinación temprana puede ayudarte a tomar mejores decisiones hasta la firma."
+      description: "¿Por que una buena coordinación temprana puede ayudarte a tomar mejores decisiones hasta la firma."
       image: /images/blog3.png
       cta:
         label: Ver noticia

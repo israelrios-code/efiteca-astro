@@ -1,4 +1,4 @@
----
+﻿---
 lang: es
 title: Contacto
 seo:
@@ -24,7 +24,7 @@ contactIntro:
     - Deseas mejorar tu hipoteca actual.
     - Te han rechazado en un banco.
     - Necesitas entender si tu objetivo es viable.
-  footnote: "Nuestro equipo revisara tu caso y te dara claridad antes de que tomes una decision importante."
+  footnote: "Nuestro equeipo revisara tu caso y te dara claridad antes de quee tomes una decision importante."
   image: /images/contact-intro.jpg
   floatingLabel: "10 minutos"
 diagnosticSteps:
@@ -37,16 +37,16 @@ diagnosticSteps:
       description: "Compartenos de forma sencilla tu objetivo, ingresos y contexto actual."
     - number: 2
       title: Analizamos viabilidad real
-      description: "Evaluamos tu perfil y determinamos que opciones existen hoy para tu caso."
+      description: "Evaluamos tu perfil y determinamos quee opciones existen hoy para tu caso."
     - number: 3
       title: Te proponemos 2-3 rutas posibles
-      description: "Con pros y contras claros para que puedas decidir el siguiente paso."
+      description: "Con pros y contras claros para quee puedas decidir el siguiente paso."
 contact:
   title: Empieza hoy tu nueva vida
   description: "Dejanos tus datos y un experto hipotecario revisara tus dudas."
   highlights:
     - Claridad total en costos reales
-    - Sin letra pequena ni sorpresas
+    - Sin letra pequeena ni sorpresas
     - Comparativa imparcial de mercado
   scheduleLabel: Horario de Atencion
   scheduleText: |-
@@ -126,7 +126,7 @@ faq:
     - question: "El diagnostico tiene coste?"
       answer: "No. Revisamos tu caso, tu objetivo y tu situacion para darte una primera lectura clara sin compromiso inicial."
     - question: "Cuanto tardan en responder?"
-      answer: "Normalmente respondemos el mismo dia habil o en el siguiente tramo de atencion, segun el canal por el que nos contactes."
+      answer: "Normalmente respondemos el mismo dia habil o en el siguiente tramo de atencion, segun el canal por el quee nos contactes."
     - question: "Que necesito para empezar?"
       answer: "Con contarnos tu objetivo, ingresos aproximados, ahorro disponible y situacion laboral ya podemos orientarte con bastante claridad."
 ---

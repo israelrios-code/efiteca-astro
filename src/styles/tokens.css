@@ -22,7 +22,8 @@
   --font-sans: "Inter", "Satoshi", "Segoe UI", sans-serif;
   --font-display: "Inter", "Clash Display", sans-serif;
 
-  --container-width: 73%;
+  --container-width: 1460px;
+  --site-gutter: 20px;
   --header-height: 5rem;
 
   --radius-xs: 0.75rem;
@@ -50,4 +51,22 @@
   --motion-fast: 160ms ease;
   --motion-base: 220ms ease;
   --motion-slow: 320ms ease;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-gutter: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --site-gutter: 64px;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --site-gutter: 80px;
+  }
 }

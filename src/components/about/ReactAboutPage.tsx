@@ -1,3 +1,4 @@
+﻿import { LocationsShowcaseSection } from "@/components/shared/LocationsShowcase";
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { tinaField, useTina } from "tinacms/dist/react";
@@ -118,8 +119,10 @@ function CarouselDots({
 }
 
 function renderStars(count = 5) {
-  return Array.from({ length: count }).map((_, index) => <span key={index}>★</span>);
+  return Array.from({ length: count }).map((_, index) => <span key={index}>â˜…</span>);
 }
+
+void renderStars;
 
 function FormField({
   label,
@@ -560,45 +563,6 @@ export function ContactSection({ content, editable, sectionId = "contacto-sobre-
   );
 }
 
-export function LocationsShowcaseSection({ content, editable }: { content: any; editable?: any }) {
-  const locationsShowcase = content?.locationsShowcase;
-  const mainLocation = content?.locations?.items?.[0];
-  if (!locationsShowcase) return null;
-
-  return (
-    <section className="bg-white px-[20px] py-[56px] md:px-[48px] md:py-[80px] xl:px-[230px]" data-tina-field={fieldFor(editable, "locationsShowcase")}>
-      <div className="mx-auto grid max-w-[1460px] grid-cols-1 gap-[32px] lg:grid-cols-[690px_minmax(0,1fr)]">
-        <div className="flex flex-col justify-between">
-          <div>
-            <h2 className="text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[40px]" data-tina-field={fieldFor(editable?.locationsShowcase, "title")}>{locationsShowcase.title}</h2>
-            {locationsShowcase.description ? (
-              <p className="mt-[16px] max-w-[650px] text-[16px] leading-[1.15] text-[#080813] md:text-[18px]" data-tina-field={fieldFor(editable?.locationsShowcase, "description")}>{locationsShowcase.description}</p>
-            ) : null}
-            {mainLocation ? (
-              <div className="mt-[32px] rounded-[24px] border border-[#eceff4] bg-[#f8fafc] p-[24px]" data-tina-field={fieldFor(editable?.locations?.items?.[0], "address")}>
-                <div className="flex items-start gap-[12px]">
-                  <div className="mt-[2px] flex h-[40px] w-[40px] items-center justify-center rounded-[16px] bg-[rgba(137,73,255,0.1)] text-[#8949ff]">
-                    <LocationPinIcon />
-                  </div>
-                  <p className="text-[16px] font-bold leading-[1.2] text-[#101828]">{mainLocation.address}</p>
-                </div>
-              </div>
-            ) : null}
-          </div>
-          <div className="mt-[24px] rounded-[28px] bg-[linear-gradient(135deg,#8949ff_0%,#ad5cff_100%)] p-[32px] text-white" data-tina-field={fieldFor(editable?.locationsShowcase, "cta")}>
-            <h3 className="max-w-[260px] text-[28px] font-bold leading-[1.1]" data-tina-field={fieldFor(editable?.locationsShowcase?.cta, "title")}>{locationsShowcase.cta?.title}</h3>
-            <p className="mt-[16px] max-w-[260px] text-[16px] leading-[1.15]" data-tina-field={fieldFor(editable?.locationsShowcase?.cta, "description")}>{locationsShowcase.cta?.description}</p>
-            <a href={locationsShowcase.cta?.button?.href || "#contacto-sobre-nosotros"} className="mt-[24px] inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[28px] py-[16px] text-[14px] font-bold uppercase tracking-[1.4px] text-[#080813] no-underline md:px-[40px] md:text-[18px]" data-tina-field={fieldFor(editable?.locationsShowcase?.cta?.button, "label")}>
-              {locationsShowcase.cta?.button?.label}
-            </a>
-          </div>
-        </div>
-        <img src={locationsShowcase.mapImage} alt="Mapa de ubicaciones" className="h-full min-h-[420px] w-full rounded-[28px] object-cover" data-tina-field={fieldFor(editable?.locationsShowcase, "mapImage")} />
-      </div>
-    </section>
-  );
-}
-
 export default function ReactAboutPage({
   content,
   data,
@@ -628,5 +592,4 @@ export default function ReactAboutPage({
     </div>
   );
 }
-
 

@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ReactHome from "@/components/home/ReactHome.tsx";
 import { LOCALES, type Lang } from "@/data/locales";
 import { buildLanguageAlternates } from "@/lib/seo/meta";
+import { getLatestNews } from "@/lib/content/news";
 
 import { getEntry } from "astro:content";
 
@@ -15,6 +16,12 @@ export function getStaticPaths() {
 }
 
 const lang = Astro.params.lang as Lang;
+const latestNewsEntries = await getLatestNews(lang, 3);
+const latestNews = latestNewsEntries.map((entry) => ({
+  title: entry.data.title,
+  description: entry.data.excerpt,
+  href: `/${lang}/news/${entry.slug}/`
+}));
 
 const entry = await getEntry("pages", `home-${lang}`);
 let content = entry?.data;
@@ -176,6 +183,7 @@ if (import.meta.env.DEV) {
           description
           items {
             name
+            image
           }
         }
         faq {
@@ -287,5 +295,5 @@ if (!content) {
   path={`/${lang}/`}
   alternates={buildLanguageAlternates("/")}
 >
-  <ReactHome client:load content={content} {...tinaProps} />
+  <ReactHome client:load content={content} latestNews={latestNews} {...tinaProps} />
 </BaseLayout>

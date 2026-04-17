@@ -121,7 +121,7 @@ locations:
         label: View on map
         href: "#contacto"
 faq:
-  title: Frequently asked questions
+  title: Fre¿quéently asked questions
   items:
     - question: "Does the diagnostic have a cost?"
       answer: "No. We review your case, your goal and your situation to give you a clear first reading with no initial commitment."

@@ -1,0 +1,201 @@
+
+> web-efiteca@0.1.0 dev
+> tinacms dev -c "astro dev"
+
+🦙 TinaCMS Dev Server is initializing...
+
+│
+○  ✅ 🦙 TinaCMS Dev Server is active: ──────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                   │
+│  🦙 TinaCMS URLs                                                                                                                  │
+│     CMS:                <your-dev-server-url>/D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\public\admin\index.html           │
+│     API playground:     <your-dev-server-url>/D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\public\admin\index.html#/graphql  │
+│     API url:            http://localhost:4001/graphql                                                                             │
+│                                                                                                                                   │
+│  🤖 Auto-generated files                                                                                                          │
+│     GraphQL Client:     D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\tina\__generated__\client.ts                            │
+│     Typescript Types:   D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\tina\__generated__\types.ts                             │
+│                                                                                                                                   │
+│                                                                                                                                   │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Running web application with command: astro dev
+[2m23:41:42[22m [34m[types][39m Generated [2m2ms[22m
+[2m23:41:44[22m [34m[content][39m Syncing content
+[2m23:41:45[22m [34m[content][39m Synced content
+[2m23:41:45[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+
+[42m[1m astro [22m[49m [32mv5.18.1[39m [2mready in[22m 3542 [2mms[22m
+
+[2m┃[22m Local    [36mhttp://localhost:4321/[39m
+[2m┃[22m Network  [2muse --host to expose[22m
+
+[2m23:41:45[22m [32mwatching for file changes...[39m
+[2m23:42:46[22m [34m[200][39m /es/ [2m3543ms[22m
+[2m23:42:59[22m [34m[200][39m /es/ [2m167ms[22m
+[33m[1m23:43:05[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/favicon.ico`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro.
+[2m23:46:57[22m [34m[200][39m /es/soluciones-vivienda/ [2m263ms[22m
+[2m23:46:59[22m [34m[200][39m /es/simulador-hipoteca/ [2m174ms[22m
+[2m23:47:12[22m [34m[200][39m /es/ [2m314ms[22m
+[2m23:47:39[22m [34m[200][39m /es/contacto/ [2m242ms[22m
+[2m23:47:43[22m [34m[200][39m /es/sobre-nosotros/ [2m170ms[22m
+[2m23:47:48[22m [34m[200][39m /es/ [2m342ms[22m
+[2m23:59:06[22m [34m[200][39m /es/soluciones-vivienda/ [2m154ms[22m
+[2m23:59:08[22m [34m[200][39m /es/ [2m268ms[22m
+[2m00:01:08[22m [34m[200][39m /es/ [2m297ms[22m
+[2m00:03:12[22m [34m[200][39m /es/ [2m424ms[22m
+[33m[1m00:03:16[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/favicon.ico`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro.
+[2m00:09:10[22m [34m[200][39m /es/ [2m446ms[22m
+[2m00:10:16[22m [34m[200][39m /es/ [2m339ms[22m
+[2m00:10:29[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:10:29[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:10:42[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:10:42[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:11:00[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:11:00[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:11:17[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:11:17[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:11:25[22m [34m[watch][39m /src/styles/global.css
+[2m00:11:25[22m [34m[watch][39m src/styles/tokens.css
+[2m00:11:30[22m [34m[watch][39m /src/styles/global.css
+[2m00:11:30[22m [34m[watch][39m src/styles/base.css
+[2m00:11:48[22m [34m[200][39m /es/ [2m1590ms[22m
+[2m00:12:06[22m [34m[200][39m /es/soluciones-vivienda/ [2m214ms[22m
+[2m00:12:12[22m [34m[200][39m /es/ [2m504ms[22m
+[2m00:18:53[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:18:53[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:19:03[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:19:03[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:19:23[22m [34m[200][39m /es/ [2m964ms[22m
+[2m00:22:20[22m [34m[watch][39m src/content/pages/home-es.md
+[2m00:22:20[22m [34m[watch][39m src/content/pages/home-es.md
+[33m[1m00:22:20[22m [WARN] [glob-loader][39m Duplicate id "home-es" found in D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\src\content\pages\home-es.md. Later items with the same id will overwrite earlier ones.
+[2m00:22:20[22m [34m[glob-loader][39m Reloaded data from [32mhome-es.md[39m
+[2m00:22:21[22m [34m[200][39m /es/ [2m371ms[22m
+[2m00:22:44[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:22:44[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:24:02[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:24:02[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:27:02[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:27:02[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:27:10[22m [34m[watch][39m src/content/pages/home-es.md
+[2m00:27:11[22m [34m[watch][39m src/content/pages/home-es.md
+[33m[1m00:27:11[22m [WARN] [glob-loader][39m Duplicate id "home-es" found in D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\src\content\pages\home-es.md. Later items with the same id will overwrite earlier ones.
+[2m00:27:11[22m [34m[glob-loader][39m Reloaded data from [32mhome-es.md[39m
+[2m00:27:13[22m [34m[200][39m /es/ [2m621ms[22m
+[2m00:28:08[22m [34m[200][39m /es/ [2m393ms[22m
+[2m00:29:54[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:29:54[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:30:26[22m [34m[200][39m /es/ [2m1608ms[22m
+[2m00:31:04[22m [34m[200][39m /es/ [2m312ms[22m
+[2m00:31:14[22m [34m[200][39m /es/ [2m240ms[22m
+[33m[1m00:31:17[22m [WARN] [router][39m A `getStaticPaths()` route pattern was matched, but no matching static path was found for requested path `/favicon.ico`.
+
+Possible dynamic routes being matched: src/pages/[lang]/index.astro.
+[2m00:32:14[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:32:14[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:32:57[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:32:57[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:33:41[22m [34m[200][39m /es/ [2m565ms[22m
+[2m00:35:10[22m [34m[200][39m /es/ [2m279ms[22m
+[2m00:35:23[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:35:23[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:36:27[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:36:27[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:40:24[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:40:24[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:40:30[22m [34m[watch][39m src/content/pages/home-es.md
+[2m00:40:31[22m [34m[watch][39m src/content/pages/home-es.md
+[33m[1m00:40:31[22m [WARN] [glob-loader][39m Duplicate id "home-es" found in D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\src\content\pages\home-es.md. Later items with the same id will overwrite earlier ones.
+[2m00:40:31[22m [34m[glob-loader][39m Reloaded data from [32mhome-es.md[39m
+[2m00:40:32[22m [34m[200][39m /es/ [2m799ms[22m
+[2m00:40:33[22m [34m[200][39m /es/ [2m1068ms[22m
+[2m00:42:53[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:42:53[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:46:09[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:46:09[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:46:24[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:46:24[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:46:37[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:46:37[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:46:45[22m [34m[200][39m /es/soluciones-vivienda/ [2m516ms[22m
+[2m00:46:49[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:46:49[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:47:00[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:47:00[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:47:12[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:47:12[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:47:17[22m [34m[200][39m /es/ [2m592ms[22m
+[2m00:47:23[22m [34m[200][39m /es/simulador-hipoteca/ [2m288ms[22m
+[2m00:47:26[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:47:26[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:47:31[22m [34m[200][39m /es/sobre-nosotros/ [2m593ms[22m
+[2m00:47:41[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:47:41[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:47:44[22m [34m[200][39m /es/contacto/ [2m673ms[22m
+[2m00:47:53[22m [34m[200][39m /es/ [2m299ms[22m
+[2m00:47:55[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:47:56[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:48:06[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:48:06[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:50:55[22m [34m[200][39m /es/contacto/ [2m564ms[22m
+[2m00:50:59[22m [34m[200][39m /es/ [2m304ms[22m
+[2m00:51:05[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:51:05[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:51:15[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:51:15[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:52:08[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m00:52:08[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m00:54:53[22m [34m[watch][39m /src/styles/global.css
+[2m00:54:53[22m [34m[watch][39m src/styles/tokens.css
+[2m00:55:01[22m [34m[watch][39m /src/styles/global.css
+[2m00:55:01[22m [34m[watch][39m src/styles/base.css
+[2m01:00:58[22m [34m[200][39m /es/simulador-hipoteca/ [2m1548ms[22m
+[2m01:01:12[22m [34m[200][39m /es/ [2m287ms[22m
+[2m01:05:40[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:05:40[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:05:56[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:05:56[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:06:09[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:06:09[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:06:23[22m [34m[watch][39m src/content/pages/home-es.md
+[2m01:06:23[22m [34m[watch][39m src/content/pages/home-es.md
+[33m[1m01:06:23[22m [WARN] [glob-loader][39m Duplicate id "home-es" found in D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\src\content\pages\home-es.md. Later items with the same id will overwrite earlier ones.
+[2m01:06:23[22m [34m[glob-loader][39m Reloaded data from [32mhome-es.md[39m
+[2m01:06:25[22m [34m[200][39m /es/ [2m908ms[22m
+[2m01:06:25[22m [34m[200][39m /es/ [2m617ms[22m
+[2m01:08:12[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:08:12[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:09:58[22m [34m[200][39m /es/ [2m558ms[22m
+[2m01:11:13[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:11:13[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:14:09[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:14:09[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:14:30[22m [34m[200][39m /es/ [2m991ms[22m
+[2m01:17:17[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:17:17[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:19:52[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:19:52[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:22:51[22m [34m[watch][39m src/content/pages/home-es.md
+[2m01:22:51[22m [34m[watch][39m src/content/pages/home-es.md
+[33m[1m01:22:51[22m [WARN] [glob-loader][39m Duplicate id "home-es" found in D:\Los Creativos\Efiteca\Pagina Web\efiteca-astro\src\content\pages\home-es.md. Later items with the same id will overwrite earlier ones.
+[2m01:22:51[22m [34m[glob-loader][39m Reloaded data from [32mhome-es.md[39m
+[2m01:22:54[22m [34m[200][39m /es/ [2m956ms[22m
+[2m01:22:55[22m [34m[200][39m /es/ [2m1110ms[22m
+[2m01:23:06[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:23:06[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:25:37[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:25:37[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:28:50[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:28:50[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:31:03[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:31:03[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:32:51[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:32:51[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:35:07[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:35:07[22m [34m[watch][39m src/components/home/ReactHome.tsx
+[2m01:37:29[22m [34m[watch][39m /src/components/home/ReactHome.tsx, /src/styles/global.css
+[2m01:37:29[22m [34m[watch][39m src/components/home/ReactHome.tsx
