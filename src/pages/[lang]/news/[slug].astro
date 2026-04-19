@@ -53,6 +53,31 @@ const alternates = [
   path={`/${lang}/news/${entry.slug}/`}
   alternates={alternates}
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": lang === "en" ? "Home" : "Inicio",
+        "item": absoluteUrl(`/${lang}/`)
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": absoluteUrl(`/${lang}/news/`)
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": entry.data.title,
+        "item": absoluteUrl(`/${lang}/news/${entry.slug}/`)
+      }
+    ]
+  })} />
+
   <ReactBlogPost
     client:load
     title={entry.data.title}

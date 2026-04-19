@@ -150,7 +150,7 @@ locations:
         label: View on map
         href: "#contacto-simulador"
     - city: Barcelona
-      address: "Calle cartagena 245, planta 3 puerta e, 08025, barcelona"
+      address: "Calle Cartagena 245, Planta 3 Puerta E, 08025, Barcelona"
       summary: "In Barcelona we review your mortgage profile to find the best path, compare real options and coordinate the process until completion."
       seoLabel: Mortgage advice in Barcelona
       image: /images/barcelona.png

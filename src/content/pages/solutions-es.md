@@ -54,7 +54,7 @@ hero:
 
 
 
-    href: '#contacto-soluciones'
+    href: '/es/contacto/'
 
 
 
@@ -79,28 +79,28 @@ services:
       image: /images/solutions-service-info.jpg
       button:
         label: Hablar con un experto
-        href: '#contacto-soluciones'
+        href: '/es/contacto/'
 
     - title: Busca nueva hipoteca
       description: 'Te ayudamos a conseguir una hipoteca que realmente encaje contigo, comparando opciones del mercado y guiándote hasta la firma con claridad y estrategia.'
       image: /images/solutions-service-new.jpg
       button:
-        label: quiero una nueva hipoteca
-        href: '#contacto-soluciones'
+        label: Quiero una nueva hipoteca
+        href: '/es/contacto/'
 
     - title: Mejora tu hipoteca
       description: 'Revisamos tu hipoteca actual para detectar si puedes reducir cuota, mejorar condiciones con una estrategia más conveniente para tu situación actual.'
       image: /images/solutions-service-improve.jpg
       button:
         label: Evaluar mejora
-        href: '#contacto-soluciones'
+        href: '/es/contacto/'
 
     - title: Calcula la hipoteca
       description: 'Calcula tu cuota estimada y descubre si tu objetivo es viable según tus ingresos, ahorro y perfil financiero actual.'
       image: /images/solutions-service-calculator.jpg
       button:
         label: Usar simulador
-        href: '#simulador'
+        href: '/es/simulador-hipoteca/'
 
 
 
@@ -156,7 +156,7 @@ simulator:
 
 
 
-    href: '#contacto-soluciones'
+    href: '/es/contacto/'
 
 
 
@@ -329,7 +329,7 @@ actionCta:
   description: 'El diagnóstico inicial es gratuito. A partir de ahí, el costo depende del nivel de acompañamiento requerido y la complejidad del caso. Siempre sabrás el valor antes de avanzar.'
   button:
     label: Contactar asesor
-    href: '#contacto-soluciones'
+    href: '/es/contacto/'
 
 
 
@@ -349,7 +349,7 @@ benefits:
 
 
 
-  ctaLink: '#contacto-soluciones'
+  ctaLink: '/es/contacto/'
 
 
 
@@ -591,7 +591,7 @@ comparison:
     - Negociación desigual ante la entidad.
   cta:
     label: Empieza ahora
-    href: '#contacto-soluciones'
+    href: '/es/contacto/'
 
 
 
@@ -676,7 +676,7 @@ locationsShowcase:
 
 
 
-      href: '#contacto-soluciones'
+      href: '/es/contacto/'
 
 
 

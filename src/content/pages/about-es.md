@@ -14,7 +14,7 @@ aboutHero:
   outlineImage: /images/about-hero-outline.svg
   cta:
     label: Agenda tu diagnóstico en 10 minutos
-    href: "#contacto-sobre-nosotros"
+    href: "/es/contacto/"
 
 trajectory:
   title: Nuestra trayectoria
@@ -168,7 +168,7 @@ locationsShowcase:
     description: "Déjanos tus datos y un experto te llamará para resolver tus dudas."
     button:
       label: Agenda diagnóstico gratis
-      href: "#contacto-sobre-nosotros"
+      href: "/es/contacto/"
 
 locations:
   title: ""

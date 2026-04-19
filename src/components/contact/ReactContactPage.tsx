@@ -61,9 +61,7 @@ function ContactHeroSection({ content, editable }: { content: any; editable?: an
           </a>
           {hero.secondaryCta ? (
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={hero.secondaryCta.href || "#contacto"}
               className="inline-flex w-full items-center justify-center rounded-full border border-white/35 bg-white px-[24px] py-[14px] text-[12px] font-bold uppercase tracking-[1.5px] text-[#4f3bf9] no-underline sm:w-auto md:px-[32px] md:py-[16px] transition-all duration-300 hover:-translate-y-[2px] hover:bg-white/90 hover:shadow-lg"
               data-tina-field={fieldFor(editable?.contactHero?.secondaryCta, "label")}
             >

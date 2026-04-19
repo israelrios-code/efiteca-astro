@@ -95,6 +95,27 @@ export const ReactBlogPost: React.FC<BlogPostProps> = ({
         <img src="/images/about-hero-outline.svg" alt="" className="pointer-events-none absolute bottom-[-232px] right-[-300px] hidden w-[900px] max-w-none opacity-80 lg:block xl:bottom-[-280px] xl:right-[-220px] xl:w-[1040px]" />
 
         <div className="relative z-10">
+          {/* Breadcrumbs — auto-generated from title + lang */}
+          <nav aria-label="Breadcrumb" className="mb-[24px]">
+            <ol className="flex flex-wrap items-center gap-[6px] text-[13px]">
+              <li>
+                <a href={`/${lang}/`} className="text-white/60 hover:text-white transition-colors no-underline">
+                  {lang === 'en' ? 'Home' : 'Inicio'}
+                </a>
+              </li>
+              <li aria-hidden="true" className="text-white/30">›</li>
+              <li>
+                <a href={`/${lang}/news/`} className="text-white/60 hover:text-white transition-colors no-underline">
+                  Blog
+                </a>
+              </li>
+              <li aria-hidden="true" className="text-white/30">›</li>
+              <li>
+                <span className="text-white/90 line-clamp-1" aria-current="page">{title}</span>
+              </li>
+            </ol>
+          </nav>
+
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

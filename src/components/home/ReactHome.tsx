@@ -1410,7 +1410,7 @@ export function Frame115({ content }: { content: any }) {
 
 
 
-        <div className="content-stretch flex min-w-0 flex-col gap-[16px] min-h-[520px] items-start relative shrink-0 w-full" data-name="Component 7">
+        <div className="content-stretch flex min-w-0 flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="Component 7">
 
 
 
@@ -1426,7 +1426,7 @@ export function Frame115({ content }: { content: any }) {
 
 
 
-        <div className="content-stretch flex min-w-0 flex-col gap-[16px] min-h-[520px] items-start relative shrink-0 w-full" data-name="Component 8">
+        <div className="content-stretch flex min-w-0 flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="Component 8">
 
 
 
@@ -1442,7 +1442,7 @@ export function Frame115({ content }: { content: any }) {
 
 
 
-        <div className="content-stretch flex min-w-0 flex-col gap-[16px] min-h-[520px] items-start relative shrink-0 w-full" data-name="Component 9">
+        <div className="content-stretch flex min-w-0 flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="Component 9">
 
 
 
@@ -1458,7 +1458,7 @@ export function Frame115({ content }: { content: any }) {
 
 
 
-        <div className="content-stretch flex min-w-0 flex-col gap-[16px] min-h-[520px] items-start relative shrink-0 w-full" data-name="Component 10">
+        <div className="content-stretch flex min-w-0 flex-col gap-[16px] items-start relative shrink-0 w-full" data-name="Component 10">
 
 
 
@@ -1534,7 +1534,7 @@ function Frame18({ content }: { content?: any }) {
 
 
 
-        <div className="content-stretch flex flex-col gap-[40px] md:gap-[60px] items-center px-[20px] md:px-[40px] xl:px-[64px] 2xl:px-[80px] py-[56px] md:py-[80px] relative w-full">
+        <div className="content-stretch flex flex-col gap-[40px] md:gap-[60px] items-center px-[20px] md:px-[40px] xl:px-[64px] 2xl:px-[64px] py-[56px] md:py-[80px] relative w-full">
 
 
 
@@ -15011,7 +15011,7 @@ function GuidesSection({ content, editable }: { content: any; editable?: any }) 
 
 
 
-      <section className="bg-[#080813] content-stretch flex flex-col gap-[40px] items-start px-[20px] md:px-[40px] xl:px-[64px] 2xl:px-[80px] py-[56px] md:py-[80px] relative shrink-0 w-full">
+      <section className="bg-[#080813] content-stretch flex flex-col gap-[40px] items-start px-[20px] md:px-[40px] xl:px-[160px] 2xl:px-[160px] py-[56px] md:py-[80px] relative shrink-0 w-full">
 
 
 
@@ -16162,7 +16162,7 @@ function TestimonialsSectionLegacy({ content, editable }: { content: any; editab
 
 
 
-      <div className="mx-auto flex w-full max-w-[1460px] flex-col items-center gap-[40px] px-[20px] py-[56px] md:gap-[48px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[80px]">
+      <div className="mx-auto flex w-full max-w-[1460px] flex-col items-center gap-[40px] px-[20px] py-[56px] md:gap-[48px] md:px-[40px] md:py-[80px] xl:px-[160px] 2xl:px-[160px]">
 
 
 

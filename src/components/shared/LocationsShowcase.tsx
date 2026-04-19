@@ -62,7 +62,8 @@ export function LocationsShowcaseSection({ content, editable }: { content: any; 
 
   const ctaDescription = "Habla con un experto hipotecario y obtén claridad en 10 minutos";
 
-  const ctaButtonLabel = "Contactar experto";
+  const ctaButtonLabel = locationsShowcase?.cta?.button?.label || "Contactar experto";
+  const ctaButtonHref = locationsShowcase?.cta?.button?.href || "/es/contacto/";
 
 
 
@@ -144,7 +145,7 @@ export function LocationsShowcaseSection({ content, editable }: { content: any; 
 
               </div>
 
-              <a href="#contacto" className={`${MAIN_BUTTON_CLASS} shrink-0 w-full`}>
+              <a href={ctaButtonHref} className={`${MAIN_BUTTON_CLASS} shrink-0 w-full`}>
 
                 <span className={MAIN_BUTTON_TEXT_CLASS}>{ctaButtonLabel}</span>
 

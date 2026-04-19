@@ -74,7 +74,7 @@ simulator:
 
 
 
-    href: "#contacto-simulador"
+    href: "/es/contacto/"
 
 
 
@@ -151,7 +151,7 @@ requirementsBanner:
 
 
 
-    href: "#contacto-simulador"
+    href: "/es/contacto/"
 
 
 
@@ -441,7 +441,7 @@ locationsShowcase:
 
 
 
-      href: "#contacto-simulador"
+      href: "/es/contacto/"
 
 
 

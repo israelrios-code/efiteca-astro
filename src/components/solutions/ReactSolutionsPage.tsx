@@ -881,9 +881,9 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,8,19,0.18)_0%,rgba(8,8,19,0)_55%)] hidden lg:block" />
 
-      <div className="relative mx-auto flex flex-col lg:flex-row min-h-0 lg:min-h-[803px] w-full max-w-[1460px] items-center px-0 md:px-[40px] xl:px-[64px] 2xl:px-[80px] py-0 md:py-[56px]">
+      <div className="relative flex flex-col lg:flex-row min-h-0 lg:min-h-[803px] w-full items-center px-0 py-0 xl:px-[160px] xl:py-[56px] 2xl:px-[160px]">
 
-        <div className="w-full max-w-none lg:max-w-[680px] rounded-none lg:rounded-[20px] bg-[linear-gradient(180deg,#ad81ff_0%,#8949ff_58%,#2b2148_100%)] p-[24px] shadow-[0px_24px_60px_rgba(137,73,255,0.28)] md:p-[40px]">
+        <div className="w-full max-w-none lg:max-w-[680px] rounded-none lg:rounded-[20px] bg-[linear-gradient(180deg,#ad81ff_0%,#8949ff_58%,#2b2148_100%)] px-[24px] py-[40px] shadow-[0px_24px_60px_rgba(137,73,255,0.28)] md:p-[40px]">
 
 
 
@@ -1007,7 +1007,7 @@ function PartnersSection({ content, editable }: { content: any; editable?: any }
 
 
 
-      <div className="content-stretch relative mx-auto flex w-full max-w-[1460px] flex-col items-center gap-[24px] px-[20px] py-[40px] md:gap-[32px] md:px-[40px] md:py-[72px] xl:px-[64px] 2xl:px-[80px]">
+      <div className="content-stretch relative flex w-full flex-col items-center gap-[24px] px-[20px] py-[40px] md:gap-[32px] md:px-[40px] md:py-[72px] xl:px-[160px] 2xl:px-[160px]">
 
 
 
@@ -1259,117 +1259,26 @@ function ServicesSection({ content, editable }: { content: any; editable?: any }
 
 
 
-    <section className="relative w-full bg-[#f7f5f9]" data-tina-field={fieldFor(editable, "services")}>
+    <section className="relative w-full bg-[#f7f5f9] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[64px]" data-tina-field={fieldFor(editable, "services")}>
 
-
-
-      <div className="content-stretch flex w-full flex-col items-center gap-[40px] px-[20px] py-[56px] md:gap-[60px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[80px] relative">
-
-
-
-        <div className="relative shrink-0 w-full max-w-[1300px]">
-
-
-
-          <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center relative w-full">
-
-
-
-            <div className="content-stretch flex flex-col items-center relative shrink-0 w-full">
-
-
-
-              <div className="content-stretch flex flex-col gap-[24px] items-center leading-[1.1] not-italic relative shrink-0 text-[#080813] text-center w-full">
-
-
-
-                <h2
-
-
-
-                  className="font-bold relative shrink-0 text-[32px] md:text-[40px] w-full"
-
-
-
-                  data-tina-field={fieldFor(editable?.services, "title")}
-
-
-
-                >
-
-
-
-                  {services.title}
-
-
-
-                </h2>
-
-
-
-                <p
-
-
-
-                  className="relative shrink-0 text-[16px] md:text-[18px] w-full"
-
-
-
-                  data-tina-field={fieldFor(editable?.services, "description")}
-
-
-
-                >
-
-
-
-                  {services.description}
-
-
-
-                </p>
-
-
-
-              </div>
-
-
-
-            </div>
-
-
-
-          </div>
-
-
-
+        <div className="w-full text-center mb-[40px] md:mb-[56px]">
+          <h2
+            className="font-bold text-[32px] md:text-[40px] text-[#080813] leading-[1.1]"
+            data-tina-field={fieldFor(editable?.services, "title")}
+          >
+            {services.title}
+          </h2>
+          <p
+            className="mt-[16px] text-[16px] md:text-[18px] text-[#475467] leading-[1.5] max-w-[680px] mx-auto"
+            data-tina-field={fieldFor(editable?.services, "description")}
+          >
+            {services.description}
+          </p>
         </div>
 
-
-
-        <div className="relative shrink-0 w-full">
-
-
-
-          <div className="mx-auto w-full max-w-[1460px]">
-
-
-
-            <Frame115 content={{ services: { items: orderedServices } }} />
-
-
-
-          </div>
-
-
-
+        <div className="w-full">
+          <Frame115 content={{ services: { items: orderedServices } }} />
         </div>
-
-
-
-      </div>
-
-
 
     </section>
 
@@ -1615,11 +1524,11 @@ function SimulatorSection({ content, editable }: { content: any; editable?: any 
 
 
 
-    <section id="simulador" className="overflow-hidden bg-[linear-gradient(135deg,#4f3bf9_0%,#8949ff_42%,#ad5cff_100%)] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[80px]">
+    <section id="simulador" className="overflow-hidden bg-[linear-gradient(135deg,#4f3bf9_0%,#8949ff_42%,#ad5cff_100%)] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[160px] 2xl:px-[160px]">
 
 
 
-      <div className="mx-auto max-w-[1460px]">
+      <div className="w-full">
 
 
 
@@ -1663,7 +1572,7 @@ function SimulatorSection({ content, editable }: { content: any; editable?: any 
 
 
 
-            <div className="mt-[24px] rounded-[16px] border-l-4 border-[#8949ff] bg-white p-[24px] shadow-[0px_1px_3px_rgba(0,0,0,0.1)]">
+            <div className="mt-[24px] rounded-[16px] bg-white p-[24px]">
 
 
 
@@ -1835,7 +1744,7 @@ function SimulatorSection({ content, editable }: { content: any; editable?: any 
 
 
 
-            <div className="relative mx-auto mt-[32px] grid w-full max-w-[1120px] grid-cols-2 items-stretch gap-[12px] md:grid-cols-3 md:gap-[16px] xl:grid-cols-5">
+            <div className="relative mt-[32px] grid w-full grid-cols-1 items-stretch gap-[12px] sm:grid-cols-2 md:grid-cols-3 md:gap-[16px] xl:grid-cols-5">
 
 
 
@@ -1927,11 +1836,11 @@ function HowItWorksSection({ content, editable }: { content: any; editable?: any
 
 
 
-    <section className="bg-white px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[80px]" data-tina-field={fieldFor(editable, "howItWorks")}>
+    <section className="bg-white px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[160px] 2xl:px-[160px]" data-tina-field={fieldFor(editable, "howItWorks")}>
 
 
 
-      <div className="mx-auto grid max-w-[1460px] grid-cols-1 items-center gap-[32px] lg:grid-cols-[608px_minmax(0,1fr)] lg:gap-[80px]">
+      <div className="grid w-full grid-cols-1 items-center gap-[32px] lg:grid-cols-[minmax(0,560px)_minmax(0,1fr)] lg:gap-[60px]">
 
 
 
@@ -2063,7 +1972,7 @@ function ActionCtaSection({ content, editable }: { content: any; editable?: any 
 
 
 
-      className="bg-white px-[20px] py-0 md:px-[40px] md:py-0 xl:px-[64px] 2xl:px-[80px]"
+      className="bg-white px-[20px] py-0 md:px-[40px] md:py-0 xl:px-[160px] 2xl:px-[160px]"
 
 
 
@@ -2075,7 +1984,7 @@ function ActionCtaSection({ content, editable }: { content: any; editable?: any 
 
 
 
-      <div className="mx-auto max-w-[1460px]">
+      <div className="w-full">
 
 
 
@@ -2211,7 +2120,7 @@ function ComparisonSection({ content, editable }: { content: any; editable?: any
 
 
 
-    <section className="relative overflow-hidden bg-[#101828] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[80px]" data-tina-field={fieldFor(editable, "comparison")}>
+    <section className="relative overflow-hidden bg-[#101828] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[160px] 2xl:px-[160px]" data-tina-field={fieldFor(editable, "comparison")}>
 
 
 
@@ -2219,7 +2128,7 @@ function ComparisonSection({ content, editable }: { content: any; editable?: any
 
 
 
-      <div className="relative mx-auto max-w-[1460px]">
+      <div className="relative w-full">
 
 
 
@@ -2696,7 +2605,7 @@ export function TestimonialsMetricsSection({ content, editable }: { content: any
 
 
 
-            <div className="grid grid-cols-1 gap-[20px] md:grid-cols-3 md:gap-[40px]">
+            <div className="flex flex-col md:flex-row md:items-stretch">
 
 
 
@@ -2704,35 +2613,26 @@ export function TestimonialsMetricsSection({ content, editable }: { content: any
 
 
 
-                <div
+                <React.Fragment key={`${item.title}-${index}`}>
+
+                  {index > 0 && (
+                    <div className="h-px w-full shrink-0 md:h-auto md:w-px md:self-stretch" style={{ backgroundColor: '#744c98' }} aria-hidden="true" />
+                  )}
+
+                  <div
+                    className={`flex-1 py-[20px] md:py-0 ${index === 0 ? 'md:pr-[40px]' : index === (metrics.items?.length || 0) - 1 ? 'md:pl-[40px]' : 'md:px-[40px]'}`}
+                    data-tina-field={fieldFor(editable?.metrics?.items?.[index], "value")}
+                  >
+
+                  <p className="text-[40px] font-normal leading-none text-[#c993ff] md:text-[56px]">{item.value}</p>
 
 
 
-                  key={`${item.title}-${index}`}
+                  <p className="mt-[10px] text-[18px] font-bold leading-[1.2] text-white md:text-[22px]">{item.title}</p>
 
+                  </div>
 
-
-                  className={`text-center md:text-left ${index < (metrics.items?.length || 0) - 1 ? "md:border-r md:border-[#744c98] md:pr-[40px]" : ""}`}
-
-
-
-                  data-tina-field={fieldFor(editable?.metrics?.items?.[index], "value")}
-
-
-
-                >
-
-
-
-                  <p className="text-[40px] font-normal leading-none text-[#c993ff] md:text-[56px]">{index === 0 ? "€10M" : index === 1 ? "+500" : "€30k"}</p>
-
-
-
-                  <p className="mt-[10px] text-[18px] font-bold leading-[1.2] text-white md:text-[22px]">{index === 0 ? "Volumen gestionado en el ultimo año" : index === 1 ? "Personas atendidas" : "Promedio de ahorro para las familias en su casa"}</p>
-
-
-
-                </div>
+                </React.Fragment>
 
 
 
@@ -2784,11 +2684,11 @@ function ContactSection({ content, editable }: { content: any; editable?: any })
 
 
 
-    <section id="contacto-soluciones" className="bg-[#f9fafb] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[64px] 2xl:px-[80px]" data-tina-field={fieldFor(editable, "contact")}>
+    <section id="contacto-soluciones" className="bg-[#f9fafb] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[160px] 2xl:px-[160px]" data-tina-field={fieldFor(editable, "contact")}>
 
 
 
-      <div className="mx-auto grid max-w-[1460px] grid-cols-1 gap-[32px] lg:grid-cols-[1fr_798px] md:items-center">
+      <div className="grid w-full grid-cols-1 gap-[32px] lg:grid-cols-[1fr_minmax(0,560px)] lg:items-center">
 
 
 

@@ -97,7 +97,7 @@ locations:
         label: View on map
         href: "#contacto"
     - city: Barcelona
-      address: "Calle cartagena 245, planta 3 puerta e, 08025, barcelona"
+      address: "Calle Cartagena 245, Planta 3 Puerta E, 08025, Barcelona"
       summary: "In Barcelona we have an in-person office where we analyze your mortgage profile and coordinate the process until signing correctly."
       seoLabel: Mortgage advice in Barcelona
       image: /images/barcelona.png
