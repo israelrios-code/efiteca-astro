@@ -2,8 +2,8 @@
 lang: en
 title: "Home"
 seo:
-  title: "Efiteca | Investment, strategy and real estate"
-  description: "Get a mortgage in Spain without surprises. We help you understand your options and choose the best strategy."
+  title: "Mortgage in Spain Without Surprises — Efiteca"
+  description: "Get your mortgage in Spain with expert guidance. We analyse banks, coordinate the full process and accompany you to signing. No jargon, no surprises."
 hero:
   title_part1: "Get a mortgage "
   title_part2: "in Spain without surprises"
@@ -11,8 +11,8 @@ hero:
   cta:
     label: "Schedule your 10-minute diagnosis"
     href: "#diagnosis"
-  background_desktop: /images/hero-background.png
-  background_mobile: /images/hero-background.png
+  background_desktop: /images/hero-background.webp
+  background_mobile: /images/hero-background.webp
 services:
   title: "Our Services"
   description: "We accompany you every step of the way to ensure your financial success."
@@ -22,36 +22,36 @@ services:
       button:
         label: "I want a new mortgage"
         href: "#new-mortgage"
-      image: "/images/imgFrame1272638187.png"
+      image: "/images/imgFrame1272638187.webp"
     - title: "Improve your mortgage"
       description: "We review your current mortgage to see if you can reduce payments or improve conditions."
       button:
         label: "Evaluate improvement"
         href: "#improve-mortgage"
-      image: "/images/imgFrame1272638188.png"
+      image: "/images/imgFrame1272638188.webp"
     - title: "Receive information"
       description: "If you're still exploring, we explain your options without jargon so you understand what you can do."
       button:
         label: "Talk to an expert"
         href: "#expert"
-      image: "/images/imgFrame1272638189.png"
+      image: "/images/imgFrame1272638189.webp"
     - title: "Calculate the mortgage"
       description: "Calculate your estimated payment and discover if your goal is viable according to your profile."
       button:
         label: "Use calculator"
         href: "#calculator"
-      image: "/images/imgFrame1272638190.png"
+      image: "/images/imgFrame1272638190.webp"
 whoIsItFor:
   title: "Who are our services for?"
   items:
     - title: "People who want to buy a home"
-      image: "/images/imgRectangle802.png"
+      image: "/images/imgRectangle802.webp"
     - title: "People who want to improve their mortgage"
-      image: "/images/imgRectangle803.png"
+      image: "/images/imgRectangle803.webp"
     - title: "Complex cases or bank rejections"
-      image: "/images/imgRectangle804.png"
+      image: "/images/imgRectangle804.webp"
     - title: "Buyers who already have a home in mind"
-      image: "/images/imgRectangle805.png"
+      image: "/images/imgRectangle805.webp"
   process:
     title: What are the requirements for our process?
     requirements:
@@ -59,7 +59,7 @@ whoIsItFor:
       - "Have a clear goal: purchase or improvement."
       - Show income and job stability.
       - Have an approximate savings amount available.
-    image: "/images/imgRectangle805.png"
+    image: "/images/imgRectangle805.webp"
     pricing:
       title: How much does it cost?
       description: The initial diagnosis is free. After that, the cost depends on the level of support re¿quéired and the complexity of the case.
@@ -69,7 +69,7 @@ whoIsItFor:
         href: '#calculator'
 steps:
   title: "Our step-by-step process"
-  image: "/images/box.png"
+  image: "/images/box.webp"
   items:
     - number: 1
       title: "Initial Diagnosis"
@@ -116,32 +116,32 @@ testimonials:
     - name: "Carlos Gómez"
       role: "Client since 2022"
       text: "Lorem ipsum dolor sit amet consectetur. Gravida amet tempus id tincidunt in lorem sem tincidunt."
-      image: "/images/imgEllipse5.png"
+      image: "/images/imgEllipse5.webp"
       stars: 5
 partners:
   title: "Strategic Allies"
   description: "We work with financial entities and actors from the real estate ecosystem."
   items:
     - name: Partner 1
-      image: /images/partners/partner-2067.png
+      image: /images/partners/partner-2067.webp
     - name: Partner 2
-      image: /images/partners/partner-2069.png
+      image: /images/partners/partner-2069.webp
     - name: Partner 3
-      image: /images/partners/partner-2070.png
+      image: /images/partners/partner-2070.webp
     - name: Partner 4
-      image: /images/partners/partner-2071.png
+      image: /images/partners/partner-2071.webp
     - name: Partner 5
-      image: /images/partners/partner-2072.png
+      image: /images/partners/partner-2072.webp
     - name: Partner 6
-      image: /images/partners/partner-2073.png
+      image: /images/partners/partner-2073.webp
     - name: Partner 7
-      image: /images/partners/santander.png
+      image: /images/partners/santander.webp
     - name: Partner 8
-      image: /images/partners/bbva.png
+      image: /images/partners/bbva.webp
     - name: Partner 9
-      image: /images/partners/caixabank.png
+      image: /images/partners/caixabank.webp
     - name: Partner 10
-      image: /images/partners/bankinter.png
+      image: /images/partners/bankinter.webp
 faq:
   title: "Frequently Asked Questions"
   items:
@@ -161,7 +161,7 @@ locations:
   items:
     - city: "Barcelona"
       address: "C/ d'Aragó, 383, Pl. 5ª, 08013"
-      image: "/images/barcelona.png"
+      image: "/images/barcelona.webp"
       summary: "In Barcelona we analyze your mortgage profile to find the best possible route, comparing real options and coordinating the process until the signing."
       seoLabel: "Mortgage advisory in Barcelona"
       cta:
@@ -169,7 +169,7 @@ locations:
         href: "#map-barcelona"
     - city: "Madrid"
       address: "Paseo de la Castellana, 193, 28046"
-      image: "/images/madrid.png"
+      image: "/images/madrid.webp"
       summary: "If you want to buy a home or improve your mortgage in Madrid, we guide you with clear options, the right strategy and full support until the signing."
       seoLabel: "Mortgage advisory in Madrid"
       cta:
@@ -177,7 +177,7 @@ locations:
         href: "#map-madrid"
     - city: "Valencia"
       address: "Av. Corts Valencianes, 58, 46015"
-      image: "/images/valencia.png"
+      image: "/images/valencia.webp"
       summary: "We help you get or improve your mortgage in Valencia with a clear process, compared options and expert support from diagnosis to signing."
       seoLabel: "Mortgage advisory in Valencia"
       cta:
@@ -185,7 +185,7 @@ locations:
         href: "#map-valencia"
     - city: "Marbella"
       address: "Av. Ricardo Soriano, 4, Pl. 6ª D, 29601"
-      image: "/images/marbella.png"
+      image: "/images/marbella.webp"
       summary: "We help you get or improve your mortgage in Marbella with expert support, personalized analysis and full coordination to reach signing without surprises."
       seoLabel: "Mortgage advisory in Marbella"
       cta:
@@ -197,19 +197,19 @@ blog:
   items:
     - title: "Lorem ipsum lorem"
       description: "Lorem ipsum dolor sit amet consectetur. Massa imperdiet in fermentum tellus eget egestas vitae."
-      image: "/images/blog1.png"
+      image: "/images/blog1.webp"
       cta:
         label: "See news"
         href: "#news-1"
     - title: "Lorem ipsum lorem"
       description: "Lorem ipsum dolor sit amet consectetur. Massa imperdiet in fermentum tellus eget egestas vitae."
-      image: "/images/blog2.png"
+      image: "/images/blog2.webp"
       cta:
         label: "See news"
         href: "#news-2"
     - title: "Lorem ipsum lorem"
       description: "Lorem ipsum dolor sit amet consectetur. Massa imperdiet in fermentum tellus eget egestas vitae."
-      image: "/images/blog3.png"
+      image: "/images/blog3.webp"
       cta:
         label: "See news"
         href: "#news-3"

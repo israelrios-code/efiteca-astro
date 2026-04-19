@@ -126,10 +126,10 @@ const newsItems = sortedNews.map((entry) => ({
 
 <BaseLayout
   lang={lang}
-  title={content.seo?.title || (lang === "es" ? "Blog | Efiteca" : "Blog | Efiteca")}
-  description={content.seo?.description || (lang === "es" ? "Blog hipotecario de Efiteca." : "Efiteca mortgage blog.")}
+  title={content.seo?.title || (lang === "es" ? "Blog hipotecario — Consejos y guías — Efiteca" : "Mortgage Blog — Tips & Guides — Efiteca")}
+  description={content.seo?.description || (lang === "es" ? "Guías, consejos y artículos sobre hipotecas en España. Aprende cómo comprar vivienda, mejorar tu hipoteca y acceder al mejor financiamiento con Efiteca." : "Guides, tips and articles about mortgages in Spain. Learn how to buy a home and get the best financing with Efiteca.")}
   path={`/${lang}/news/`}
   alternates={buildLanguageAlternates("/news/")}
 >
-  <ReactBlogPage client:load content={content} {...tinaProps} lang={lang} newsItems={newsItems} />
+  <ReactBlogPage client:idle content={content} {...tinaProps} lang={lang} newsItems={newsItems} />
 </BaseLayout>

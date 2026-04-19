@@ -2,8 +2,8 @@
 lang: es
 title: Contacto
 seo:
-  title: "Contacto | Efiteca"
-  description: "Contacta con un experto hipotecario de Efiteca y recibe un diagnóstico claro sobre tu viabilidad hipotecaria."
+  title: "Contacta con un asesor hipotecario — Efiteca"
+  description: "Habla con un experto hipotecario de Efiteca y recibe en 10 minutos un diagnóstico real sobre tu viabilidad. Sin compromiso. Disponible por WhatsApp o formulario"
 contactHero:
   eyebrow: Hablemos
   title: Contacta con un experto
@@ -25,7 +25,7 @@ contactIntro:
     - Te han rechazado en un banco.
     - Necesitas entender si tu objetivo es viable.
   footnote: "Nuestro equipo revisará tu caso y te dará claridad antes de que tomes una decisión importante."
-  image: /images/contact-intro.jpg
+  image: /images/contact-intro.webp
   floatingLabel: "10 minutos"
 diagnosticSteps:
   title: Diagnóstico en 3 pasos
@@ -73,9 +73,9 @@ shortcutCta:
   button:
     label: Abrir WhatsApp
     href: "#whatsapp"
-  image: /images/imgDisenoSinTitulo571.png
-  overlayImage: /images/imgDisenoSinTitulo581.png
-  accentImage: /images/contact-shortcut-accent.png
+  image: /images/imgDisenoSinTitulo571.webp
+  overlayImage: /images/imgDisenoSinTitulo581.webp
+  accentImage: /images/contact-shortcut-accent.webp
 locations:
   title: Acompañamiento hipotecario en las principales ciudades de España
   subtitle: Atendemos de forma digital con acompañamiento personalizado durante todo el proceso.
@@ -84,7 +84,7 @@ locations:
       address: 'C/ d''Aragó, 383, Pl. 5ª, 08013'
       summary: 'En Barcelona analizamos tu perfil hipotecario para encontrar la mejor ruta posible, comparando opciones reales y coordinando el proceso hasta llegar a firma correctamente.'
       seoLabel: Asesoría hipotecaria en Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -92,7 +92,7 @@ locations:
       address: 'Paseo de la Castellana, 193, 28046'
       summary: 'Si buscas comprar vivienda o mejorar tu hipoteca en Madrid, te guiamos con opciones claras, estrategia adecuada y acompañamiento completo hasta la firma final.'
       seoLabel: Asesoría hipotecaria en Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -100,7 +100,7 @@ locations:
       address: 'Av. Corts Valencianes, 58, 46015'
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Valencia con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma.'
       seoLabel: Asesoría hipotecaria en Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -108,7 +108,7 @@ locations:
       address: 'Av. Ricardo Soriano, 4, Pl. 6ª D, 29601'
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Marbella con acompañamiento experto, análisis personalizado y coordinación integral para llegar a firma sin sorpresas ni retrasos innecesarios.'
       seoLabel: Asesoría hipotecaria en Marbella
-      image: /images/marbella.png
+      image: /images/marbella.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -116,7 +116,7 @@ locations:
       address: ''
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Málaga con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma.'
       seoLabel: Asesoría hipotecaria en Málaga
-      image: /images/locations/malaga.png
+      image: /images/locations/malaga.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'

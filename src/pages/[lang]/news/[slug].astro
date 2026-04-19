@@ -44,6 +44,40 @@ const alternates = [
     href: absoluteUrl(`/${lang}/news/${entry.slug}/`)
   }
 ];
+
+const articleUrl = absoluteUrl(`/${lang}/news/${entry.slug}/`);
+const articleImage = entry.data.image
+  ? (entry.data.image.startsWith("http") ? entry.data.image : absoluteUrl(entry.data.image))
+  : absoluteUrl("/images/og-default.svg");
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": entry.data.title,
+  "description": entry.data.seo.description,
+  "image": articleImage,
+  "datePublished": entry.data.publishedAt,
+  "dateModified": entry.data.publishedAt,
+  "author": {
+    "@type": "Organization",
+    "name": "Efiteca",
+    "url": "https://www.efiteca.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Efiteca",
+    "logo": {
+      "@type": "ImageObject",
+      "url": absoluteUrl("/images/favicon-efiteca.svg")
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": articleUrl
+  },
+  "url": articleUrl,
+  "inLanguage": lang === "es" ? "es-ES" : "en"
+};
 ---
 
 <BaseLayout
@@ -52,7 +86,12 @@ const alternates = [
   description={entry.data.seo.description}
   path={`/${lang}/news/${entry.slug}/`}
   alternates={alternates}
+  ogType="article"
+  image={entry.data.image}
 >
+  <!-- Schema.org: Article -->
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <!-- Schema.org: BreadcrumbList -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

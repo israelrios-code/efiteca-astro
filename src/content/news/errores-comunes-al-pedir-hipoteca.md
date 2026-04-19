@@ -2,7 +2,7 @@
 lang: es
 title: "5 errores al pedir una hipoteca que pueden costarte años y miles de euros"
 excerpt: "Conocer los errores más frecuentes antes de presentar tu solicitud hipotecaria puede marcar la diferencia entre conseguir buenas condiciones o perder capacidad de compra."
-image: /images/blog2.png
+image: /images/blog2.webp
 publishedAt: "2026-04-01"
 category: insight
 featured: false

@@ -42,7 +42,7 @@ function HeroSection({ page, editable }: { page: any; editable?: any }) {
 
   return (
     <section className="relative overflow-hidden bg-[#7c42f3] px-[20px] py-[72px] md:px-[40px] md:py-[110px] xl:px-[160px] 2xl:px-[160px]" data-tina-field={fieldFor(editable, "newsLanding")}>
-      <img src="/images/about-hero-texture.png" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover" />
+      <img src="/images/about-hero-texture.webp" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(255,255,255,0.06),transparent_28%),radial-gradient(circle_at_24%_112%,rgba(8,8,19,0.42),transparent_34%)]" />
       <img src="/images/about-hero-outline.svg" alt="" className="pointer-events-none absolute bottom-[-232px] right-[-300px] hidden w-[900px] max-w-none opacity-80 lg:block xl:bottom-[-280px] xl:right-[-220px] xl:w-[1040px]" />
       <div className="relative z-10 flex flex-col items-center text-center">

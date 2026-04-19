@@ -2,7 +2,7 @@
 lang: es
 title: "Hipoteca fija, variable o mixta: cómo elegir la que mejor se adapta a tu perfil"
 excerpt: "La elección entre hipoteca fija, variable o mixta no depende solo de los tipos de interés actuales. Depende de tu perfil, tu horizonte temporal y tu tolerancia al riesgo."
-image: /images/blog3.png
+image: /images/blog3.webp
 publishedAt: "2026-04-10"
 category: insight
 featured: false

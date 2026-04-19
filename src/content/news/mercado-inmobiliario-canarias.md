@@ -3,7 +3,7 @@ lang: es
 market: canarias
 title: "Efiteca refuerza su posicionamiento en el mercado inmobiliario de Canarias"
 excerpt: "Una estrategia basada en datos, velocidad comercial y posicionamiento premium para captar demanda internacional sin sacrificar eficiencia operativa."
-image: /images/blog1.png
+image: /images/blog1.webp
 publishedAt: "2026-03-15"
 category: market
 featured: true

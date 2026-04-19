@@ -2,14 +2,14 @@
 lang: en
 title: Housing solutions
 seo:
-  title: "Housing solutions | Efiteca"
-  description: "Mortgage solutions to buy or improve your home with clarity, tailored strategy and expert support."
+  title: "Mortgage Solutions to Buy a Home in Spain — Efiteca"
+  description: "Buy, improve or refinance your home with a personalised mortgage strategy. We access the best lenders and coordinate every step until you sign."
 hero:
   title_part1: "Mortgage solutions"
   title_part2: " to buy or improve your home"
   description: "We help you get or optimize your mortgage with clarity, tailored strategy and expert guidance throughout the process until signing."
-  background_desktop: /images/solutions-hero-bg.jpg
-  background_mobile: /images/solutions-hero-bg.jpg
+  background_desktop: /images/solutions-hero-bg.webp
+  background_mobile: /images/solutions-hero-bg.webp
   cta:
     label: Re¿quéest your free feasibility check
     href: "#contacto-soluciones"
@@ -19,31 +19,31 @@ services:
   items:
     - title: Receive information
       description: "We explain your mortgage options clearly, without jargon and with expert criteria."
-      image: /images/solutions-service-info.jpg
+      image: /images/solutions-service-info.webp
       button:
         label: Talk to an expert
         href: "#contacto-soluciones"
     - title: Search for a new mortgage
       description: "We compare real alternatives to help you secure a mortgage that truly fits you."
-      image: /images/solutions-service-new.jpg
+      image: /images/solutions-service-new.webp
       button:
         label: I want a new mortgage
         href: "#contacto-soluciones"
     - title: Improve your mortgage
       description: "We review whether you can lower your payment, improve conditions or rework your current strategy."
-      image: /images/solutions-service-improve.jpg
+      image: /images/solutions-service-improve.webp
       button:
         label: Evaluate improvement
         href: "#contacto-soluciones"
     - title: Calculate the mortgage
       description: "Estimate your monthly payment and discover whether your goal is feasible based on your income, savings and profile."
-      image: /images/solutions-service-calculator.jpg
+      image: /images/solutions-service-calculator.webp
       button:
         label: Use simulator
         href: "#simulador"
 simulator:
   title: Mortgage simulator
-  image: /images/solutions-simulator.jpg
+  image: /images/solutions-simulator.webp
   description: "Our simulator lets you estimate your monthly payment and understand whether your goal may be feasible before starting the process."
   secondaryDescription: "A useful tool to make informed decisions and move forward with more confidence."
   noteTitle: Important
@@ -74,35 +74,35 @@ benefits:
   ctaText: Talk to an expert
   ctaLink: "#contacto-soluciones"
   items:
-    - icon: /images/DOC.png
+    - icon: /images/DOC.webp
       text: "You understand exactly what you are signing."
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
       text: "You make decisions with clear information."
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
       text: "You reduce process time and friction."
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
       text: "You access more suitable conditions."
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
       text: "You reach signing with full support."
 howItWorks:
   title: How does it work?
   description: "A clear process for making confident decisions:"
-  image: /images/about-efiteca.png
+  image: /images/about-efiteca.webp
   items:
     - number: "01"
-      icon: /images/item.icon.png
+      icon: /images/item.icon.webp
       title: Tell us about your case
       description: "No jargon. Just tell us your goal and your current situation."
     - number: "02"
-      icon: /images/item.icon.png
+      icon: /images/item.icon.webp
       title: We analyze which banks fit your profile.
       description: "We review feasibility, real conditions and available options."
     - number: "03"
-      icon: /images/item.icon.png
+      icon: /images/item.icon.webp
       title: We show you compared options.
       description: "You receive clear alternatives to decide confidently."
     - number: "04"
-      icon: /images/item.icon.png
+      icon: /images/item.icon.webp
       title: We coordinate the process until signing.
       description: "We support every step to avoid delays and surprises."
 actionCta:
@@ -114,7 +114,7 @@ actionCta:
 steps:
   eyebrow: Discover our step by step
   title: From the first call to signing
-  image: /images/box.png
+  image: /images/box.webp
   items:
     - number: 1
       title: Initial diagnosis
@@ -161,17 +161,17 @@ testimonials:
     - name: Carlos Gomez
       role: Client since 2022
       text: "We had a clear route from the first diagnosis. We compared real options and reached signing with much more peace of mind."
-      image: /images/imgEllipse5.png
+      image: /images/imgEllipse5.webp
       stars: 5
     - name: Marta Ruiz
       role: Client since 2023
       text: "They helped us understand which bank best matched our profile and avoid mistakes during the process."
-      image: /images/imgFrame1272638189.png
+      image: /images/imgFrame1272638189.webp
       stars: 5
     - name: Javier Perez
       role: Client since 2024
       text: "The support was consistent and every step was coordinated. We reached signing without surprises."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       stars: 4
 metrics:
   title: Value metrics
@@ -223,7 +223,7 @@ contact:
 locationsShowcase:
   title: Know our locations
   description: "We work digitally with personalized support during the entire process."
-  mapImage: /images/map.png
+  mapImage: /images/map.webp
   cta:
     title: "Ready to move from theory to action?"
     description: "Leave us your details and an expert will call you to answer your questions."
@@ -251,7 +251,7 @@ locations:
       address: "C/ d'Aragó, 383, 5th floor, 08013"
       summary: "In Barcelona we analyze your mortgage profile to find the best route, comparing real options and coordinating the process until signing."
       seoLabel: Mortgage advice in Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: View on map
         href: "#map-barcelona"
@@ -259,7 +259,7 @@ locations:
       address: "Paseo de la Castellana, 193, 28046"
       summary: "If you want to buy a home or improve your mortgage in Madrid, we guide you with clear options, the right strategy and full support until signing."
       seoLabel: Mortgage advice in Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: View on map
         href: "#map-madrid"
@@ -267,7 +267,7 @@ locations:
       address: "Av. Corts Valencianes, 58, 46015"
       summary: "We help you get or improve your mortgage in Valencia with a clear process, compared options and expert support from diagnosis to signing."
       seoLabel: Mortgage advice in Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: View on map
         href: "#map-valencia"
@@ -275,7 +275,7 @@ locations:
       address: "Av. Ricardo Soriano, 4, 6th floor D, 29601"
       summary: "We help you get or improve your mortgage in Marbella with expert support, personalized analysis and end-to-end coordination."
       seoLabel: Mortgage advice in Marbella
-      image: /images/marbella.png
+      image: /images/marbella.webp
       cta:
         label: View on map
         href: "#map-marbella"

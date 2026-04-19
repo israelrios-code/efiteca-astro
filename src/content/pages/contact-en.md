@@ -2,8 +2,8 @@
 lang: en
 title: Contact
 seo:
-  title: "Contact | Efiteca"
-  description: "Contact an Efiteca mortgage expert and get a clear diagnostic about your mortgage viability."
+  title: "Contact a Mortgage Advisor — Efiteca"
+  description: "Speak with an Efiteca mortgage expert and get a real feasibility diagnosis in 10 minutes. No commitment. Available by WhatsApp or contact form."
 contactHero:
   eyebrow: Lets talk
   title: Contact a mortgage
@@ -25,7 +25,7 @@ contactIntro:
     - A bank has rejected your application.
     - You need to understand whether your goal is viable.
   footnote: "Our team reviews your case and gives you clarity before you make an important decision."
-  image: /images/contact-intro.jpg
+  image: /images/contact-intro.webp
   floatingLabel: "10 minutes"
 diagnosticSteps:
   title: Diagnostic in 3 steps
@@ -73,9 +73,9 @@ shortcutCta:
   button:
     label: Open WhatsApp
     href: "#whatsapp"
-  image: /images/imgDisenoSinTitulo571.png
-  overlayImage: /images/imgDisenoSinTitulo581.png
-  accentImage: /images/contact-shortcut-accent.png
+  image: /images/imgDisenoSinTitulo571.webp
+  overlayImage: /images/imgDisenoSinTitulo581.webp
+  accentImage: /images/contact-shortcut-accent.webp
 locations:
   title: "Mortgage support in Spain's main cities"
   subtitle: "We work digitally with personalized guidance throughout the process."
@@ -84,7 +84,7 @@ locations:
       address: "Digital support in Seville"
       summary: "We help you get or improve your mortgage in Seville with expert guidance, personalized analysis and full coordination until signing."
       seoLabel: Mortgage advice in Seville
-      image: /images/sevilla.png
+      image: /images/sevilla.webp
       cta:
         label: View on map
         href: "#contacto"
@@ -92,7 +92,7 @@ locations:
       address: "Digital support in Madrid"
       summary: "If you want to buy a home or improve your mortgage in Madrid, we guide you with clear options and full support until signing."
       seoLabel: Mortgage advice in Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: View on map
         href: "#contacto"
@@ -100,7 +100,7 @@ locations:
       address: "Calle Cartagena 245, Planta 3 Puerta E, 08025, Barcelona"
       summary: "In Barcelona we have an in-person office where we analyze your mortgage profile and coordinate the process until signing correctly."
       seoLabel: Mortgage advice in Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: View on map
         href: "#contacto"
@@ -108,7 +108,7 @@ locations:
       address: "Digital support in Valencia"
       summary: "We help you get or improve your mortgage in Valencia with a clear process, compared options and expert guidance from diagnosis to signing."
       seoLabel: Mortgage advice in Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: View on map
         href: "#contacto"
@@ -116,7 +116,7 @@ locations:
       address: "Digital support in Malaga"
       summary: "We help you get or improve your mortgage in Malaga with a clear process, compared options and expert guidance from diagnosis to signing."
       seoLabel: Mortgage advice in Malaga
-      image: /images/malaga.png
+      image: /images/malaga.webp
       cta:
         label: View on map
         href: "#contacto"

@@ -8,6 +8,8 @@ type Props = {
   image?: string;
   noindex?: boolean;
   alternates?: AlternateLink[];
+  lang?: string;
+  ogType?: "website" | "article";
 };
 
 const {
@@ -16,8 +18,15 @@ const {
   canonical,
   image = "/images/og-default.svg",
   noindex = false,
-  alternates = []
+  alternates = [],
+  lang = "es",
+  ogType = "website"
 } = Astro.props;
+
+// NOTE: /images/og-default.svg should be replaced with a real JPG/PNG OG image.
+// Recommended: create /public/images/og-image.jpg (1200x630px) for social sharing.
+const ogImage = image.startsWith("http") ? image : new URL(image, Astro.site).toString();
+const ogLocale = lang === "en" ? "en_US" : "es_ES";
 ---
 
 <meta charset="utf-8" />
@@ -26,15 +35,23 @@ const {
 <meta name="description" content={description} />
 <link rel="canonical" href={canonical} />
 {noindex && <meta name="robots" content="noindex, nofollow" />}
+{!noindex && <meta name="robots" content="index, follow" />}
 {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
 
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content="Efiteca" />
+<meta property="og:locale" content={ogLocale} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
-<meta property="og:image" content={image.startsWith("http") ? image : new URL(image, Astro.site).toString()} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
 
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@efiteca" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={image.startsWith("http") ? image : new URL(image, Astro.site).toString()} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={title} />

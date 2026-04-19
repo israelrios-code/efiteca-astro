@@ -6,9 +6,9 @@ title: Home
 
 seo:
 
-  title: 'Efiteca | Inversión, estrategia y real estate'
+  title: 'Hipoteca en España sin sorpresas — Efiteca'
 
-  description: Consigue una hipoteca en España sin sorpresas. Te ayudamos a entender tus opciones y elegir la mejor estrategia.
+  description: 'Consigue tu hipoteca en España con claridad y acompañamiento experto. Analizamos bancos, coordinamos el proceso y te guiamos hasta la firma. Sin tecnicismos.'
 
 hero:
 
@@ -18,9 +18,9 @@ hero:
 
   description: 'Te ayudamos a entender tus opciones, elegir la mejor estrategia y coordinar todo el proceso hasta la firma, con claridad, acompañamiento experto y decisiones que realmente encajaún contigo.'
 
-  background_desktop: /images/hero-background.png
+  background_desktop: /images/hero-background.webp
 
-  background_mobile: /images/hero-background.png
+  background_mobile: /images/hero-background.webp
 
   cta:
 
@@ -40,7 +40,7 @@ services:
 
       description: 'Si aún estás explorando, te explicamos tus opciones sin tecnicismos para que entiendas que puedes hacer.'
 
-      image: /images/imgFrame1272638189.png
+      image: /images/imgFrame1272638189.webp
 
       button:
 
@@ -52,7 +52,7 @@ services:
 
       description: 'Te ayudamos a conseguir una hipoteca que realmente encaje contigo, comparando opciones del mercado.'
 
-      image: /images/imgFrame1272638187.png
+      image: /images/imgFrame1272638187.webp
 
       button:
 
@@ -64,7 +64,7 @@ services:
 
       description: Revisamos tu hipoteca actual para detectar si puedes reducir cuota o mejorar condiciones.
 
-      image: /images/imgFrame1272638188.png
+      image: /images/imgFrame1272638188.webp
 
       button:
 
@@ -76,7 +76,7 @@ services:
 
       description: Calcula tu cuota estimada y descubre si tu objetivo es viable según tus ingresos y perfil.
 
-      image: /images/imgFrame1272638190.png
+      image: /images/imgFrame1272638190.webp
 
       button:
 
@@ -92,19 +92,19 @@ whoIsItFor:
 
     - title: Personas que queieren comprar vivienda
 
-      image: /images/imgRectangle802.png
+      image: /images/imgRectangle802.webp
 
     - title: Personas que desean mejorar su hipoteca
 
-      image: /images/imgRectangle803.png
+      image: /images/imgRectangle803.webp
 
     - title: Casos complejos o rechazados por bancos
 
-      image: /images/imgRectangle804.png
+      image: /images/imgRectangle804.webp
 
     - title: Comunidad de propietarios que busquen financiación de obras comunitarias
 
-      image: /images/imgRectangle805.png
+      image: /images/imgRectangle805.webp
 
   process:
 
@@ -120,7 +120,7 @@ whoIsItFor:
 
       - Ahorro aproximado disponible.
 
-    image: /images/requisitos-nuestro-proceso.jpg
+    image: /images/requisitos-nuestro-proceso.webp
 
     pricing:
 
@@ -180,7 +180,7 @@ steps:
 
   title: De la primera llamada a la firma
 
-  image: /images/box.png
+  image: /images/box.webp
 
   items:
 
@@ -250,23 +250,23 @@ benefits:
 
   items:
 
-    - icon: /images/DOC.png
+    - icon: /images/DOC.webp
 
       text: Entiendes exactamente lo que estás firmando.
 
-    - icon: /images/TQ2341.png
+    - icon: /images/TQ2341.webp
 
       text: Tomas decisiones con información clara.
 
-    - icon: /images/4123.png
+    - icon: /images/4123.webp
 
       text: Reduces tiempos y fricciones del proceso.
 
-    - icon: /images/41.png
+    - icon: /images/41.webp
 
       text: Accedes a condiciones más adecuadas.
 
-    - icon: /images/123123.png
+    - icon: /images/123123.webp
 
       text: Llegas a firma con acompañamiento integral.
 
@@ -334,7 +334,7 @@ testimonials:
 
       text: "Gran experiencia con Andrés. Un profesional muy serio que estudia tu caso al milímetro. Nos ha dado mucha seguridad tener su visión realista sobre nuestros números y opciones de hipoteca. Trato cercano y muy claro. 100% recomendable"
 
-      image: /images/testimonials/guillermo.png
+      image: /images/testimonials/guillermo.webp
 
       stars: 5
 
@@ -344,7 +344,7 @@ testimonials:
 
       text: "Sin duda la experiencia con el equipo de Efiteca ha sido 100% satisfactoria. Andres es un profesional que se implica y sin duda pone toda la carne en el asador en cada operación. Su intermediación ha sido fundamental en todos los sentidos ya que ha facilitado todas las gestiones de manera rápida, eficaz y con solvencia contrastada. Sin duda lo recomiendo al 100%"
 
-      image: /images/testimonials/pablo-orozco-espada.png
+      image: /images/testimonials/pablo-orozco-espada.webp
 
       stars: 5
 
@@ -354,7 +354,7 @@ testimonials:
 
       text: "Mi experiencia ha sido de más de cinco estrellas, Andrés gran profesional y excelente persona, llegando a gestionar más allá de su responsabilidad. Sólo puedo agradecer el trato recibido y la humanidad mostrada por el. Nos hemos sentido acompañados y perfectamente asesorados. Estaremos siempre muy agradecidos por toda la gestión realizada. Muchísimas gracias Andrés. Por supuesto que lo recomiendo."
 
-      image: /images/testimonials/loly-zazo.png
+      image: /images/testimonials/loly-zazo.webp
 
       stars: 5
 
@@ -369,7 +369,7 @@ about:
 
     No vendemos intermediación: ayudamos a tomar decisiones seguras, con opciones claras y coordinación integral hasta la firma.
 
-  image: /images/about-efiteca.png
+  image: /images/about-efiteca.webp
 
   badgeLabel: Registro oficial
 
@@ -391,43 +391,43 @@ partners:
 
     - name: Ibercaja
 
-      image: /images/partners/ibercaja.png
+      image: /images/partners/ibercaja.webp
 
     - name: ABANCA
 
-      image: /images/partners/abanca.png
+      image: /images/partners/abanca.webp
 
     - name: Santander
 
-      image: /images/partners/santander.png
+      image: /images/partners/santander.webp
 
     - name: Bankinter
 
-      image: /images/partners/bankinter.png
+      image: /images/partners/bankinter.webp
 
     - name: ING
 
-      image: /images/partners/ing.png
+      image: /images/partners/ing.webp
 
     - name: BBVA
 
-      image: /images/partners/bbva.png
+      image: /images/partners/bbva.webp
 
     - name: B100
 
-      image: /images/partners/b100.png
+      image: /images/partners/b100.webp
 
     - name: Unicaja
 
-      image: /images/partners/unicaja.png
+      image: /images/partners/unicaja.webp
 
     - name: CaixaBank
 
-      image: /images/partners/caixabank.png
+      image: /images/partners/caixabank.webp
 
     - name: Laboral Kutxa
 
-      image: /images/partners/laboral-kutxa.png
+      image: /images/partners/laboral-kutxa.webp
 
 faq:
 
@@ -471,7 +471,7 @@ locations:
 
       seoLabel: Asesoría hipotecaria en Barcelona
 
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
 
       cta:
 
@@ -487,7 +487,7 @@ locations:
 
       seoLabel: Asesoría hipotecaria en Madrid
 
-      image: /images/madrid.png
+      image: /images/madrid.webp
 
       cta:
 
@@ -503,7 +503,7 @@ locations:
 
       seoLabel: Asesoría hipotecaria en Valencia
 
-      image: /images/valencia.png
+      image: /images/valencia.webp
 
       cta:
 
@@ -519,7 +519,7 @@ locations:
 
       seoLabel: Asesoría hipotecaria en Marbella
 
-      image: /images/marbella.png
+      image: /images/marbella.webp
 
       cta:
 
@@ -535,7 +535,7 @@ locations:
 
       seoLabel: Asesoría hipotecaria en Málaga
 
-      image: /images/locations/malaga.png
+      image: /images/locations/malaga.webp
 
       cta:
 
@@ -561,7 +561,7 @@ blog:
 
       description: Lorem ipsum dolor sit amet consectetur. Massa imperdiet in fermentum tellus eget egestas vitae.
 
-      image: /images/blog1.png
+      image: /images/blog1.webp
 
       cta:
 
@@ -573,7 +573,7 @@ blog:
 
       description: Lorem ipsum dolor sit amet consectetur. Massa imperdiet in fermentum tellus eget egestas vitae.
 
-      image: /images/blog2.png
+      image: /images/blog2.webp
 
       cta:
 
@@ -585,7 +585,7 @@ blog:
 
       description: Lorem ipsum dolor sit amet consectetur. Massa imperdiet in fermentum tellus eget egestas vitae.
 
-      image: /images/blog3.png
+      image: /images/blog3.webp
 
       cta:
 

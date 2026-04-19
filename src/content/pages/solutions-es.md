@@ -14,11 +14,11 @@ seo:
 
 
 
-  title: Soluciones de vivienda | Efiteca
+  title: 'Soluciones hipotecarias para comprar vivienda — Efiteca'
 
 
 
-  description: 'Soluciones hipotecarias para comprar o mejorar tu vivienda con claridad, estrategia personalizada y acompanamiento experto.'
+  description: 'Compra, mejora o financia tu vivienda con estrategia hipotecaria personalizada. Accedemos a los mejores bancos y coordinamos todo el proceso hasta la firma.'
 
 
 
@@ -38,11 +38,11 @@ hero:
 
 
 
-  background_desktop: /images/solutions-hero-bg.jpg
+  background_desktop: /images/solutions-hero-bg.webp
 
 
 
-  background_mobile: /images/solutions-hero-bg.jpg
+  background_mobile: /images/solutions-hero-bg.webp
 
 
 
@@ -76,28 +76,28 @@ services:
 
     - title: Recibe información
       description: 'Si aún estás explorando, te explicamos tus opciones sin tecnicismos para que entiendas qué puedes hacer hoy y qué pasos debes seguir.'
-      image: /images/solutions-service-info.jpg
+      image: /images/solutions-service-info.webp
       button:
         label: Hablar con un experto
         href: '/es/contacto/'
 
     - title: Busca nueva hipoteca
       description: 'Te ayudamos a conseguir una hipoteca que realmente encaje contigo, comparando opciones del mercado y guiándote hasta la firma con claridad y estrategia.'
-      image: /images/solutions-service-new.jpg
+      image: /images/solutions-service-new.webp
       button:
         label: Quiero una nueva hipoteca
         href: '/es/contacto/'
 
     - title: Mejora tu hipoteca
       description: 'Revisamos tu hipoteca actual para detectar si puedes reducir cuota, mejorar condiciones con una estrategia más conveniente para tu situación actual.'
-      image: /images/solutions-service-improve.jpg
+      image: /images/solutions-service-improve.webp
       button:
         label: Evaluar mejora
         href: '/es/contacto/'
 
     - title: Calcula la hipoteca
       description: 'Calcula tu cuota estimada y descubre si tu objetivo es viable según tus ingresos, ahorro y perfil financiero actual.'
-      image: /images/solutions-service-calculator.jpg
+      image: /images/solutions-service-calculator.webp
       button:
         label: Usar simulador
         href: '/es/simulador-hipoteca/'
@@ -112,7 +112,7 @@ simulator:
 
 
 
-  image: /images/solutions-simulator.jpg
+  image: /images/solutions-simulator.webp
 
 
 
@@ -215,7 +215,7 @@ simulator:
 howItWorks:
   title: ¿Cómo funciona?
   description: 'Un proceso claro para tomar decisiones seguras:'
-  image: /images/como-funciona.png
+  image: /images/como-funciona.webp
   items:
     - number: "01"
       title: Nos cuentas tu caso sin tecnicismos.
@@ -244,7 +244,7 @@ steps:
 
 
 
-  image: /images/box.png
+  image: /images/box.webp
 
 
 
@@ -357,7 +357,7 @@ benefits:
 
 
 
-    - icon: /images/DOC.png
+    - icon: /images/DOC.webp
 
 
 
@@ -365,7 +365,7 @@ benefits:
 
 
 
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
 
 
 
@@ -373,7 +373,7 @@ benefits:
 
 
 
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
 
 
 
@@ -381,7 +381,7 @@ benefits:
 
 
 
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
 
 
 
@@ -389,7 +389,7 @@ benefits:
 
 
 
-    - icon: /images/item.icon.png
+    - icon: /images/item.icon.webp
 
 
 
@@ -465,7 +465,7 @@ testimonials:
 
 
 
-      image: /images/imgEllipse5.png
+      image: /images/imgEllipse5.webp
 
 
 
@@ -485,7 +485,7 @@ testimonials:
 
 
 
-      image: /images/imgFrame1272638189.png
+      image: /images/imgFrame1272638189.webp
 
 
 
@@ -505,7 +505,7 @@ testimonials:
 
 
 
-      image: /images/blog1.png
+      image: /images/blog1.webp
 
 
 
@@ -603,7 +603,7 @@ locations:
       address: 'C/ d''Aragó, 383, Pl. 5ª, 08013'
       summary: 'En Barcelona analizamos tu perfil hipotecario para encontrar la mejor ruta posible, comparando opciones reales y coordinando el proceso hasta llegar a firma correctamente.'
       seoLabel: Asesoría hipotecaria en Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -611,7 +611,7 @@ locations:
       address: 'Paseo de la Castellana, 193, 28046'
       summary: 'Si buscas comprar vivienda o mejorar tu hipoteca en Madrid, te guiamos con opciones claras, estrategia adecuada y acompañamiento completo hasta la firma final.'
       seoLabel: Asesoría hipotecaria en Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -619,7 +619,7 @@ locations:
       address: 'Av. Corts Valencianes, 58, 46015'
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Valencia con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma.'
       seoLabel: Asesoría hipotecaria en Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -627,7 +627,7 @@ locations:
       address: 'Av. Ricardo Soriano, 4, Pl. 6ª D, 29601'
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Marbella con acompañamiento experto, análisis personalizado y coordinación integral para llegar a firma sin sorpresas ni retrasos innecesarios.'
       seoLabel: Asesoría hipotecaria en Marbella
-      image: /images/marbella.png
+      image: /images/marbella.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -635,7 +635,7 @@ locations:
       address: ''
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Málaga con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma.'
       seoLabel: Asesoría hipotecaria en Málaga
-      image: /images/locations/malaga.png
+      image: /images/locations/malaga.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -652,7 +652,7 @@ locationsShowcase:
 
 
 
-  mapImage: /images/map.png
+  mapImage: /images/map.webp
 
 
 

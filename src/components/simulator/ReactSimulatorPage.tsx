@@ -65,7 +65,7 @@ function SimulatorHeroSection({ page, editable }: { page: any; editable?: any })
 
   return (
     <section className="relative overflow-hidden bg-[#7c42f3] px-[20px] py-[56px] md:px-[40px] md:py-[80px] xl:px-[160px] 2xl:px-[160px]">
-      <img src="/images/about-hero-texture.png" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover" />
+      <img src="/images/about-hero-texture.webp" alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(255,255,255,0.06),transparent_28%),radial-gradient(circle_at_24%_112%,rgba(8,8,19,0.42),transparent_34%)]" />
       <img src="/images/about-hero-outline.svg" alt="" className="pointer-events-none absolute bottom-[-232px] right-[-300px] hidden w-[900px] max-w-none opacity-80 lg:block xl:bottom-[-280px] xl:right-[-220px] xl:w-[1040px]" />
       <div className="relative z-10 grid w-full grid-cols-1 gap-[40px] xl:grid-cols-[minmax(0,1fr)_minmax(0,520px)] xl:items-center xl:gap-[72px]" data-tina-field={fieldFor(editable, "simulator")}>
@@ -116,6 +116,8 @@ function SimulatorHeroSection({ page, editable }: { page: any; editable?: any })
                 src={simulator.image}
                 alt={simulator.calculatorTitle || simulator.title}
                 className="block h-[320px] w-full object-cover md:h-[420px]"
+                loading="eager"
+                fetchPriority="high"
                 data-tina-field={fieldFor(editable?.simulator, "image")}
               />
             </div>
@@ -158,9 +160,10 @@ function RequirementsBannerSection({ page, editable }: { page: any; editable?: a
         <div className="relative min-h-[260px] overflow-hidden rounded-[24px] bg-[#1a2340] md:min-h-[320px]">
           <div className="pointer-events-none absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(8,8,19,0.12)_0%,rgba(8,8,19,0)_42%,rgba(8,8,19,0.1)_100%)]" />
           <img
-            src={section.image || "/images/contact-intro.jpg"}
+            src={section.image || "/images/contact-intro.webp"}
             alt={section.title}
             className="absolute inset-0 z-0 block h-full w-full object-cover object-center"
+            loading="lazy"
             data-tina-field={fieldFor(editable?.requirementsBanner, "image")}
           />
         </div>

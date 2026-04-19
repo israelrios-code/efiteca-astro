@@ -296,5 +296,19 @@ if (!content) {
   path={`/${lang}/`}
   alternates={buildLanguageAlternates("/")}
 >
+  {content.faq?.items?.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": content.faq.items.map((item: { question: string; answer: string }) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    })} />
+  )}
   <ReactHome client:load content={content} latestNews={latestNews} {...tinaProps} />
 </BaseLayout>

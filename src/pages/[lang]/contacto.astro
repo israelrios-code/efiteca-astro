@@ -168,10 +168,24 @@ if (!content) {
 
 <BaseLayout
   lang={lang}
-  title={content.seo?.title || "Contacto | Efiteca"}
-  description={content.seo?.description || "Contacta con un experto hipotecario de Efiteca."}
+  title={content.seo?.title || "Contacta con un asesor hipotecario — Efiteca"}
+  description={content.seo?.description || "Habla con un experto hipotecario de Efiteca y recibe en 10 minutos un diagnóstico real sobre tu viabilidad. Sin compromiso. Disponible por WhatsApp o formulario."}
   path={`/${lang}/contacto/`}
   alternates={buildLanguageAlternates("/contacto/")}
 >
+  {content.faq?.items?.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": content.faq.items.map((item: { question: string; answer: string }) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    })} />
+  )}
   <ReactContactPage client:load content={content} {...tinaProps} />
 </BaseLayout>

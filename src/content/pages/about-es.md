@@ -2,15 +2,15 @@
 lang: es
 title: Sobre nosotros
 seo:
-  title: "Sobre nosotros | Efiteca"
-  description: "Conoce la trayectoria, propósito, certificaciones y reconocimiento de Efiteca como aliado hipotecario regulado en España."
+  title: "Sobre Efiteca — Tu asesor hipotecario regulado en España"
+  description: "Conoce la trayectoria, propósito y certificaciones de Efiteca. Asesores hipotecarios registrados en el Banco de España (nº E377) comprometidos con tu viabilidad"
 
 aboutHero:
   eyebrow: Sobre Efiteca
   title: Somos tu aliado regulado para conseguir
   highlight: tu hipoteca sin sorpresas
   description: "En Efiteca ayudamos a personas a tomar decisiones hipotecarias con claridad, estrategia y acompañamiento integral hasta la firma, reduciendo fricción y evitando errores que pueden costar años. Conoce más sobre nosotros."
-  texture: /images/about-hero-texture.png
+  texture: /images/about-hero-texture.webp
   outlineImage: /images/about-hero-outline.svg
   cta:
     label: Agenda tu diagnóstico en 10 minutos
@@ -20,7 +20,7 @@ trajectory:
   title: Nuestra trayectoria
   description: "Efiteca nace con un objetivo claro: transformar la forma en que las personas viven el proceso hipotecario. Durante años, el acceso a financiación ha estado marcado por tecnicismos, tiempos inciertos y decisiones poco explicadas. Nuestra trayectoria se ha centrado en simplificar ese proceso y coordinar cada etapa para que nuestros clientes avancen con mayor control."
   highlight: "No somos un comparador. Somos un equipo especializado en viabilidad, estructura y acompañamiento hasta la firma."
-  image: /images/about-trajectory.jpg
+  image: /images/about-trajectory.webp
   badgeLabel: Registro BdE
   badgeText: Número E377
 
@@ -28,7 +28,7 @@ purposeSection:
   title: Nuestro propósito
   description: "Creemos que no debería ser tan difícil acceder a una vivienda. Nuestro propósito es devolver claridad y control a una de las decisiones financieras más importantes de la vida. Trabajamos para que cada cliente entienda exactamente qué está firmando, qué alternativas existen y qué implicaciones tiene cada decisión a corto y largo plazo."
   highlight: "No vendemos productos financieros. Aportamos estrategias para que tú decidas y acompañamiento hasta la firma."
-  image: /images/about-purpose.jpg
+  image: /images/about-purpose.webp
   bullets:
     - Claridad en cada etapa del proceso
     - Variedad de opciones personalizada para tu perfil
@@ -39,25 +39,25 @@ partners:
   description: "Trabajamos con entidades financieras y actores del ecosistema inmobiliario para ofrecer opciones reales adaptadas a cada perfil."
   items:
     - name: Ibercaja
-      image: /images/partners/ibercaja.png
+      image: /images/partners/ibercaja.webp
     - name: ABANCA
-      image: /images/partners/abanca.png
+      image: /images/partners/abanca.webp
     - name: Santander
-      image: /images/partners/santander.png
+      image: /images/partners/santander.webp
     - name: Bankinter
-      image: /images/partners/bankinter.png
+      image: /images/partners/bankinter.webp
     - name: ING
-      image: /images/partners/ing.png
+      image: /images/partners/ing.webp
     - name: BBVA
-      image: /images/partners/bbva.png
+      image: /images/partners/bbva.webp
     - name: B100
-      image: /images/partners/b100.png
+      image: /images/partners/b100.webp
     - name: Unicaja
-      image: /images/partners/unicaja.png
+      image: /images/partners/unicaja.webp
     - name: CaixaBank
-      image: /images/partners/caixabank.png
+      image: /images/partners/caixabank.webp
     - name: Laboral Kutxa
-      image: /images/partners/laboral-kutxa.png
+      image: /images/partners/laboral-kutxa.webp
 
 testimonials:
   title: Testimonios
@@ -67,7 +67,7 @@ testimonials:
     - name: Guillermo
       role: "Local Guide·40 opiniones·11 fotos"
       text: "Gran experiencia con Andrés. Un profesional muy serio que estudia tu caso al milímetro. Nos ha dado mucha seguridad tener su visión realista sobre nuestros números y opciones de hipoteca. Trato cercano y muy claro. 100% recomendable"
-      image: /images/testimonials/guillermo.png
+      image: /images/testimonials/guillermo.webp
       stars: 5
     - name: Pablo Orozco Espada
       role: "5 opiniones"
@@ -79,7 +79,7 @@ testimonials:
         Su intermediación ha sido fundamental en todos los sentidos ya que ha facilitado todas las gestiones de manera rápida, eficaz y con solvencia contrastada.
 
         Sin duda lo recomiendo al 100% 👏🏻👏🏻
-      image: /images/testimonials/pablo-orozco-espada.png
+      image: /images/testimonials/pablo-orozco-espada.webp
       stars: 5
     - name: Loly zazo
       role: Cliente desde 2022
@@ -95,18 +95,18 @@ testimonials:
         Muchísimas gracias Andrés.
 
         Por supuesto que lo recomiendo.
-      image: /images/testimonials/loly-zazo.png
+      image: /images/testimonials/loly-zazo.webp
       stars: 4
 
 certifications:
   title: Certificaciones
   description: "Operamos bajo actividad regulada y verificable, por el Banco de España y la Dirección General de Consumo. Nuestro compromiso es trabajar con transparencia, trazabilidad y responsabilidad en cada caso."
-  logoImage: /images/footer-certification.png
+  logoImage: /images/footer-certification.webp
 
 recognitions:
   title: Reconocimientos
   description: "El reconocimiento más importante para nosotros es la satisfacción post-firma. Sin embargo, también valoramos la confianza depositada por clientes y aliados estratégicos que han permitido consolidar nuestro modelo de acompañamiento integral."
-  texture: /images/about-recognitions-texture.png
+  texture: /images/about-recognitions-texture.webp
   items:
     - title: Mejor Asesoría Hipotecaria
       subtitle: "2024 - Sector Inmobiliario España"
@@ -121,7 +121,7 @@ companyInfo:
     - Efiteca es una empresa especializada en acompañamiento hipotecario y soluciones de financiación para vivienda.
     - Atendemos tanto procesos de nueva hipoteca como mejora de condiciones existentes, ofreciendo análisis de viabilidad, comparativa de opciones y coordinación integral hasta la firma.
     - Nuestro enfoque combina claridad en el lenguaje, estrategia personalizada y control del proceso.
-  image: /images/requisitos-nuestro-proceso.jpg
+  image: /images/requisitos-nuestro-proceso.webp
   legalLinks:
     - label: Aviso legal
       href: "#"
@@ -162,7 +162,7 @@ contact:
 locationsShowcase:
   title: Conoce nuestras ubicaciones
   description: "Atendemos de forma digital en toda España con acompañamiento personalizado durante todo el proceso."
-  mapImage: /images/map.png
+  mapImage: /images/map.webp
   cta:
     title: "¿Listo para pasar de la teoría a la acción?"
     description: "Déjanos tus datos y un experto te llamará para resolver tus dudas."
@@ -178,7 +178,7 @@ locations:
       address: "Calle Cartagena 245, Planta 3 Puerta E, 08025, Barcelona"
       summary: "En Barcelona analizamos tu perfil hipotecario para encontrar la mejor ruta posible, comparando opciones reales y coordinando el proceso hasta llegar a firma correctamente."
       seoLabel: Asesoría hipotecaria en Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: Ver en mapa
         href: "#map-barcelona"
@@ -186,7 +186,7 @@ locations:
       address: "Paseo de la Castellana, 193, 28046"
       summary: "Si buscas comprar vivienda o mejorar tu hipoteca en Madrid, te guiamos con opciones claras, estrategia adecuada y acompañamiento completo hasta la firma final."
       seoLabel: Asesoría hipotecaria en Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: Ver en mapa
         href: "#map-madrid"
@@ -194,7 +194,7 @@ locations:
       address: "Av. Corts Valencianes, 58, 46015"
       summary: "Te ayudamos a conseguir o mejorar tu hipoteca en Valencia con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma."
       seoLabel: Asesoría hipotecaria en Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: Ver en mapa
         href: "#map-valencia"
@@ -202,7 +202,7 @@ locations:
       address: "Av. Ricardo Soriano, 4, Pl. 6a D, 29601"
       summary: "Te ayudamos a conseguir o mejorar tu hipoteca en Marbella con acompañamiento experto, análisis personalizado y coordinación integral para llegar a firma sin sorpresas ni retrasos innecesarios."
       seoLabel: Asesoría hipotecaria en Marbella
-      image: /images/marbella.png
+      image: /images/marbella.webp
       cta:
         label: Ver en mapa
         href: "#map-marbella"

@@ -205,7 +205,7 @@
   align-items: center;
   padding: 4rem 0;
   overflow: hidden;
-  background-image: url(/images/bg-hero.jpg);
+  background-image: url(/images/bg-hero.webp);
   background-size: cover;
   background-position: center bottom;
   box-shadow: var(--shadow-lg);

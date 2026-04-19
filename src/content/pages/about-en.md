@@ -2,14 +2,14 @@
 lang: en
 title: About us
 seo:
-  title: "About us | Efiteca"
-  description: "Learn about Efiteca's trajectory, purpose, certifications and recognition as a regulated mortgage ally in Spain."
+  title: "About Efiteca — Regulated Mortgage Advisors in Spain"
+  description: "Discover Efiteca's story, purpose and certifications. Regulated mortgage advisors registered with Banco de España (no. E377) committed to your feasibility."
 aboutHero:
   eyebrow: About Efiteca
   title: We are your regulated ally to get
   highlight: your mortgage without surprises
   description: "At Efiteca we help people make mortgage decisions with clarity, strategy and full support through closing, reducing friction and avoiding mistakes that can cost years."
-  texture: /images/about-hero-texture.png
+  texture: /images/about-hero-texture.webp
   outlineImage: /images/about-hero-outline.svg
   cta:
     label: Book your 10-minute diagnosis
@@ -21,7 +21,7 @@ trajectory:
 
     For years, access to financing has been marked by technical language, uncertain timing and poorly explained decisions. Our path has focused on simplifying that process and coordinating each stage so our clients move forward with more control.
   highlight: "We are not a comparison site. We are a specialized team in feasibility, structure and support through signing."
-  image: /images/about-trajectory.jpg
+  image: /images/about-trajectory.webp
   badgeLabel: BdE Registry
   badgeText: Number E377
 purposeSection:
@@ -31,7 +31,7 @@ purposeSection:
 
     Our purpose is to bring clarity and control back to one of the most important financial decisions in life. We work so each client understands exactly what they are signing, what alternatives exist and what each decision means in the short and long term.
   highlight: "We do not sell financial products. We bring strategy so you can decide, plus support through signing."
-  image: /images/about-purpose.jpg
+  image: /images/about-purpose.webp
   bullets:
     - Clarity at every stage of the process
     - Options tailored to your profile
@@ -54,29 +54,29 @@ testimonials:
     - name: Carlos Gomez
       role: Client since 2022
       text: "We had a clear path from the first diagnosis. We were able to compare real options and reach closing with much more confidence."
-      image: /images/imgEllipse5.png
+      image: /images/imgEllipse5.webp
       stars: 5
     - name: Marta Ruiz
       role: Client since 2023
       text: "They helped us understand which bank fit our profile best and avoid mistakes during the process."
-      image: /images/imgFrame1272638189.png
+      image: /images/imgFrame1272638189.webp
       stars: 5
     - name: Javier Perez
       role: Client since 2024
       text: "The support was consistent and every step was coordinated. We reached closing without surprises."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       stars: 5
 certifications:
   title: Certifications
   description: "We operate under regulated and verifiable activity, by the Bank of Spain and the General Directorate of Consumer Affairs. Our commitment is transparency, traceability and responsibility in every case."
-  logoImage: /images/footer-certification.png
+  logoImage: /images/footer-certification.webp
 recognitions:
   title: Recognition
   description: |-
     The most important recognition for us is post-signing satisfaction.
 
     We also value the trust placed in us by clients and strategic partners that have helped strengthen our support model.
-  texture: /images/about-recognitions-texture.png
+  texture: /images/about-recognitions-texture.webp
   items:
     - title: Best Mortgage Advisory
       subtitle: "2024 - Spain Real Estate Sector"
@@ -90,7 +90,7 @@ companyInfo:
     - Efiteca is a company specialized in mortgage support and financing solutions for housing.
     - We handle both new mortgage processes and improvements to existing conditions, offering feasibility analysis, option comparison and full coordination through signing.
     - Our approach combines clear language, personalized strategy and process control.
-  image: /images/about-company.jpg
+  image: /images/about-company.webp
   legalLinks:
     - label: Legal notice
       href: "#"
@@ -129,7 +129,7 @@ contact:
 locationsShowcase:
   title: Discover our locations
   description: ""
-  mapImage: /images/map.png
+  mapImage: /images/map.webp
   cta:
     title: "Discover our benefits"
     description: "Talk to a mortgage expert and get clarity in 10 minutes"
@@ -144,7 +144,7 @@ locations:
       address: "Calle Cartagena 245, Planta 3 Puerta E, 08025, Barcelona"
       summary: "In Barcelona we analyze your mortgage profile to find the best possible route, comparing real options and coordinating the process all the way to signing."
       seoLabel: Mortgage advice in Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: View on map
         href: "#map-barcelona"
@@ -152,7 +152,7 @@ locations:
       address: "Paseo de la Castellana, 193, 28046"
       summary: "If you want to buy a home or improve your mortgage in Madrid, we guide you with clear options, the right strategy and full support through signing."
       seoLabel: Mortgage advice in Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: View on map
         href: "#map-madrid"
@@ -160,7 +160,7 @@ locations:
       address: "Av. Corts Valencianes, 58, 46015"
       summary: "We help you secure or improve your mortgage in Valencia with a clear process, compared options and expert support from diagnosis to signing."
       seoLabel: Mortgage advice in Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: View on map
         href: "#map-valencia"
@@ -168,7 +168,7 @@ locations:
       address: "Av. Ricardo Soriano, 4, Fl. 6 D, 29601"
       summary: "We help you secure or improve your mortgage in Marbella with expert guidance, tailored analysis and full coordination to reach signing without surprises."
       seoLabel: Mortgage advice in Marbella
-      image: /images/marbella.png
+      image: /images/marbella.webp
       cta:
         label: View on map
         href: "#map-marbella"

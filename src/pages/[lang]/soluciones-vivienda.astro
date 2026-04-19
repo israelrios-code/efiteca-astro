@@ -261,10 +261,24 @@ if (!content) {
 
 <BaseLayout
   lang={lang}
-  title={content.seo?.title || "Soluciones de vivienda | Efiteca"}
-  description={content.seo?.description || "Soluciones hipotecarias para comprar o mejorar tu vivienda con claridad, estrategia personalizada y acompanamiento experto."}
+  title={content.seo?.title || "Soluciones hipotecarias para comprar vivienda — Efiteca"}
+  description={content.seo?.description || "Compra, mejora o financia tu vivienda con estrategia hipotecaria personalizada. Accedemos a los mejores bancos y coordinamos todo el proceso hasta la firma."}
   path={`/${lang}/soluciones-vivienda/`}
   alternates={buildLanguageAlternates("/soluciones-vivienda/")}
 >
+  {content.faq?.items?.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": content.faq.items.map((item: { question: string; answer: string }) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    })} />
+  )}
   <ReactSolutionsPage client:load content={content} {...tinaProps} />
 </BaseLayout>

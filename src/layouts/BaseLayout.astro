@@ -13,9 +13,58 @@ type Props = {
   alternates?: AlternateLink[];
   image?: string;
   noindex?: boolean;
+  ogType?: "website" | "article";
 };
 
-const { lang, title, description, path, alternates = [], image, noindex = false } = Astro.props;
+const { lang, title, description, path, alternates = [], image, noindex = false, ogType = "website" } = Astro.props;
+
+const siteUrl = "https://www.efiteca.com";
+const canonicalUrl = absoluteUrl(path);
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Efiteca",
+  "url": siteUrl,
+  "description": "Asesoramiento hipotecario independiente registrado en el Banco de España. Compra, mejora o financia tu vivienda con los mejores bancos.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}/es/news/?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Efiteca",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/favicon-efiteca.svg`,
+  "image": `${siteUrl}/images/og-default.svg`,
+  "description": "Asesoramiento hipotecario independiente registrado en el Banco de España número E377.",
+  "telephone": "+34 900 000 000",
+  "email": "info@efiteca.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "ES"
+  },
+  "areaServed": "ES",
+  "sameAs": [
+    "https://www.linkedin.com/company/efiteca",
+    "https://www.instagram.com/efiteca"
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Registro oficial Banco de España",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Banco de España"
+    }
+  }
+};
 ---
 
 <!doctype html>
@@ -24,13 +73,22 @@ const { lang, title, description, path, alternates = [], image, noindex = false 
     <SEOHead
       title={title}
       description={description}
-      canonical={absoluteUrl(path)}
+      canonical={canonicalUrl}
       alternates={alternates}
       image={image}
       noindex={noindex}
+      lang={lang}
+      ogType={ogType}
     />
     <link rel="icon" type="image/svg+xml" href="/images/favicon-efiteca.svg" />
+    <!-- Preconnect to Google Fonts to reduce connection latency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Schema.org: WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <!-- Schema.org: Organization / FinancialService -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
   </head>
 
   <body class="antialiased">
@@ -39,7 +97,8 @@ const { lang, title, description, path, alternates = [], image, noindex = false 
       <main class="site-main">
         <slot />
       </main>
-      <FigmaFooter client:load />
+      <!-- client:idle: footer is below-fold, no need to block hydration -->
+      <FigmaFooter client:idle />
     </div>
   </body>
 </html>

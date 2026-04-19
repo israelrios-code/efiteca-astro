@@ -1698,7 +1698,7 @@ function BackgroundBorder1() {
 
 
 
-            <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRectangle803.png" />
+            <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRectangle803.webp" />
 
 
 
@@ -1766,7 +1766,7 @@ function BackgroundBorder2() {
 
 
 
-            <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRectangle804.png" />
+            <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRectangle804.webp" />
 
 
 
@@ -1834,7 +1834,7 @@ function BackgroundBorder3() {
 
 
 
-            <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRectangle805.png" />
+            <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRectangle805.webp" />
 
 
 
@@ -1978,7 +1978,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-        <img alt="" className="absolute h-full left-[-34.23%] max-w-none top-0 w-[159.66%]" src="/images/imgAb6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADePkplQKaJ5WxjBQdAziek6NDjDv8VDeOfCOz4Ywi8IRml81CSz4F0XoWpsFwa6MtOe2AdwA8Fb8Aqe5T6BowEoFjNpuXuwtIrqDkarcPf5Ess5OFwq5XUUi6JQ8RC1KEc46TNqFdWwxoPc4Ncf7FtCj7XBn5JFfE8DE2Or8RcJImP0WjFIz6XuPuKR1N1GdT5Di.png" />
+        <img alt="" className="absolute h-full left-[-34.23%] max-w-none top-0 w-[159.66%]" src="/images/imgAb6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADePkplQKaJ5WxjBQdAziek6NDjDv8VDeOfCOz4Ywi8IRml81CSz4F0XoWpsFwa6MtOe2AdwA8Fb8Aqe5T6BowEoFjNpuXuwtIrqDkarcPf5Ess5OFwq5XUUi6JQ8RC1KEc46TNqFdWwxoPc4Ncf7FtCj7XBn5JFfE8DE2Or8RcJImP0WjFIz6XuPuKR1N1GdT5Di.webp" />
 
 
 
@@ -2763,10 +2763,10 @@ function Container5({ content }: { content: any }) {
 
 
 const HOW_IT_WORKS_ICONS = [
-  "/images/icono-nos-cuentas-tu-caso.png",
-  "/images/icono-Analizamos-que-bancos.png",
-  "/images/icono-te-mostramos-opciones.png",
-  "/images/icono-coordinamos-el-proceso.png",
+  "/images/icono-nos-cuentas-tu-caso.webp",
+  "/images/icono-Analizamos-que-bancos.webp",
+  "/images/icono-te-mostramos-opciones.webp",
+  "/images/icono-coordinamos-el-proceso.webp",
 ];
 
 function HowItWorksSection({ content, editable }: { content: any; editable?: any }) {
@@ -5329,7 +5329,7 @@ function Frame13() {
 
 
 
-            <img alt="" className="absolute max-w-none object-cover rounded-[20px] size-full" src="/images/imgRectangle805.png" />
+            <img alt="" className="absolute max-w-none object-cover rounded-[20px] size-full" src="/images/imgRectangle805.webp" />
 
 
 
@@ -5537,7 +5537,7 @@ function Frame95({
 
 
 
-    <div className="flex w-full shrink-0 flex-col items-center gap-[20px] overflow-hidden rounded-[32px] bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat px-[18px] py-[34px] md:gap-[24px] md:rounded-[40px] md:px-[40px] md:py-[44px] xl:gap-[28px] xl:px-[160px] xl:py-[80px]">
+    <div className="flex w-full shrink-0 flex-col items-center gap-[20px] overflow-hidden rounded-[32px] bg-[url('/images/frame7.webp')] bg-cover bg-center bg-no-repeat px-[18px] py-[34px] md:gap-[24px] md:rounded-[40px] md:px-[40px] md:py-[44px] xl:gap-[28px] xl:px-[160px] xl:py-[80px]">
 
 
 
@@ -5665,7 +5665,7 @@ function Frame95({
 
 
 
-          <img alt="Familia revisando el proceso hipotecario en casa" className="absolute inset-0 h-full w-full object-cover" src={process.image || "/images/requisitos-nuestro-proceso.jpg"} data-tina-field={fieldFor(editable?.whoIsItFor?.process, "image")} />
+          <img alt="Familia revisando el proceso hipotecario en casa" className="absolute inset-0 h-full w-full object-cover" src={process.image || "/images/requisitos-nuestro-proceso.webp"} data-tina-field={fieldFor(editable?.whoIsItFor?.process, "image")} />
 
 
 
@@ -5825,7 +5825,7 @@ function Frame35() {
 
 
 
-        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.png" width="50" />
+        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.webp" width="50" />
 
 
 
@@ -5993,7 +5993,7 @@ function Frame38() {
 
 
 
-        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.png" width="50" />
+        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.webp" width="50" />
 
 
 
@@ -6161,7 +6161,7 @@ function Frame41() {
 
 
 
-        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.png" width="50" />
+        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.webp" width="50" />
 
 
 
@@ -6329,7 +6329,7 @@ function Frame44() {
 
 
 
-        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.png" width="50" />
+        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.webp" width="50" />
 
 
 
@@ -6497,7 +6497,7 @@ function Frame47() {
 
 
 
-        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.png" width="50" />
+        <img alt="" className="absolute block max-w-none size-full" height="50" src="/images/imgEllipse5.webp" width="50" />
 
 
 
@@ -7197,7 +7197,7 @@ function Frame86({ content }: { content: any }) {
 
 
 
-                    <img src={partner.image} alt={partner.name} className="max-h-[28px] w-auto max-w-full object-contain md:max-h-[34px]" />
+                    <img src={partner.image} alt={partner.name} className="max-h-[28px] w-auto max-w-full object-contain md:max-h-[34px]" loading="lazy" />
 
 
 
@@ -7481,7 +7481,7 @@ function Frame87({ content }: { content?: any }) {
 
 
 
-          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-br-[60px] rounded-tr-[60px] size-full" src="/images/imgDisenoSinTitulo571.png" />
+          <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-br-[60px] rounded-tr-[60px] size-full" src="/images/imgDisenoSinTitulo571.webp" />
 
 
 
@@ -7617,7 +7617,7 @@ function Frame84() {
 
 
 
-          <img alt="" className="absolute h-[128.5%] left-[-28.56%] max-w-none top-0 w-[238.36%]" src="/images/imgDisenoSinTitulo581.png" />
+          <img alt="" className="absolute h-[128.5%] left-[-28.56%] max-w-none top-0 w-[238.36%]" src="/images/imgDisenoSinTitulo581.webp" />
 
 
 
@@ -9425,7 +9425,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Blog 1" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/blog1.png" />
+      <img alt="Blog 1" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/blog1.webp" />
 
 
 
@@ -9489,7 +9489,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Blog 2" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/blog2.png" />
+      <img alt="Blog 2" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/blog2.webp" />
 
 
 
@@ -9553,7 +9553,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Blog 3" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/blog3.png" />
+      <img alt="Blog 3" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/blog3.webp" />
 
 
 
@@ -10281,7 +10281,7 @@ function Recurso1EfitecaCasa() {
 
 
 
-      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRecurso1EfitecaCasa2.png" />
+      <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="/images/imgRecurso1EfitecaCasa2.webp" />
 
 
 
@@ -10341,7 +10341,7 @@ function Frame1({ content }: { content: any }) {
 
 
 
-    <div className="content-stretch flex flex-col gap-[10px] items-center mb-[-2px] overflow-clip py-[80px] px-[24px] relative shrink-0 w-full bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat">
+    <div className="content-stretch flex flex-col gap-[10px] items-center mb-[-2px] overflow-clip py-[80px] px-[24px] relative shrink-0 w-full bg-[url('/images/frame7.webp')] bg-cover bg-center bg-no-repeat">
 
 
 
@@ -10645,7 +10645,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/barcelona.png" />
+      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/barcelona.webp" />
 
 
 
@@ -10805,7 +10805,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/madrid.png" />
+      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/madrid.webp" />
 
 
 
@@ -10965,7 +10965,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/valencia.png" />
+      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/valencia.webp" />
 
 
 
@@ -11125,7 +11125,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/marbella.png" />
+      <img alt="Map" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/marbella.webp" />
 
 
 
@@ -12529,7 +12529,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Marbella" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/marbella.png" />
+      <img alt="Marbella" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/marbella.webp" />
 
 
 
@@ -12729,7 +12729,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Madrid" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/madrid.png" />
+      <img alt="Madrid" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/madrid.webp" />
 
 
 
@@ -12929,7 +12929,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Barcelona" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/barcelona.png" />
+      <img alt="Barcelona" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/barcelona.webp" />
 
 
 
@@ -13129,7 +13129,7 @@ function Ab6AXuDacuVQqhEXYcCZUvc6CUm4RleF3EMfNosUupEqUzTjd6N99TdeyryPp9GagX4ADeP
 
 
 
-      <img alt="Valencia" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/valencia.png" />
+      <img alt="Valencia" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[24px] size-full" src="/images/valencia.webp" />
 
 
 
@@ -14436,7 +14436,7 @@ function Img() {
 
 
 
-      <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-contain pointer-events-none size-full" src="/images/imgImg.png" />
+      <img alt="" className="absolute bg-clip-padding border-0 border-[transparent] border-solid inset-0 max-w-none object-contain pointer-events-none size-full" src="/images/imgImg.webp" />
 
 
 
@@ -15135,7 +15135,7 @@ function AboutSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
-  const aboutImage = about.image || "/images/about-efiteca.png";
+  const aboutImage = about.image || "/images/about-efiteca.webp";
 
 
 
@@ -15600,6 +15600,14 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
+        loading="eager"
+
+
+
+        fetchPriority="high"
+
+
+
         data-tina-field={fieldFor(editable?.hero, "background_desktop")}
 
 
@@ -15624,6 +15632,14 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
+        loading="eager"
+
+
+
+        fetchPriority="high"
+
+
+
         data-tina-field={fieldFor(editable?.hero, "background_mobile")}
 
 
@@ -15644,15 +15660,15 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
-          <img src="/images/hero-familia-mobile.png" className="w-[85%] h-auto lg:hidden relative top-0 object-contain object-top drop-shadow-xl" alt="" />
+          <img src="/images/hero-familia-mobile.webp" className="w-[85%] h-auto lg:hidden relative top-0 object-contain object-top drop-shadow-xl" alt="" loading="eager" fetchPriority="high" />
 
 
 
-          <img src="/images/hero-familia-desktop.png" className="hidden lg:block xl:hidden w-auto h-full relative top-[20px] object-contain object-bottom drop-shadow-2xl" alt="" />
+          <img src="/images/hero-familia-desktop.webp" className="hidden lg:block xl:hidden w-auto h-full relative top-[20px] object-contain object-bottom drop-shadow-2xl" alt="" loading="eager" fetchPriority="high" />
 
 
 
-          <img src="/images/hero-familia-desktop.png" className="hidden xl:block absolute bottom-0 right-0 w-[50vw] max-w-[800px] h-auto max-h-[80%] object-contain drop-shadow-2xl mb-[60px] object-right-bottom" alt="" />
+          <img src="/images/hero-familia-desktop.webp" className="hidden xl:block absolute bottom-0 right-0 w-[50vw] max-w-[800px] h-auto max-h-[80%] object-contain drop-shadow-2xl mb-[60px] object-right-bottom" alt="" loading="eager" fetchPriority="high" />
 
 
 
@@ -15672,7 +15688,8 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
-            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[36px] md:text-[48px] lg:text-[46px] xl:text-[56px] text-white tracking-[0.5px] md:tracking-[1px] w-full lg:max-w-[600px] xl:max-w-full text-center xl:text-left mx-auto xl:mx-0">
+            {/* SEO: changed from <p> to <h1> — this is the unique page heading for the home hero */}
+            <h1 className="font-['Inter:Bold',sans-serif] font-bold leading-[1.1] not-italic relative shrink-0 text-[36px] md:text-[48px] lg:text-[46px] xl:text-[56px] text-white tracking-[0.5px] md:tracking-[1px] w-full lg:max-w-[600px] xl:max-w-full text-center xl:text-left mx-auto xl:mx-0">
 
 
 
@@ -15684,7 +15701,7 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
-            </p>
+            </h1>
 
 
 
@@ -15848,6 +15865,10 @@ export function TestimonialsSection({ content, editable }: { content: any; edita
 
 
             className="size-[44px] shrink-0 rounded-full object-cover bg-[#f2eff7]"
+
+
+
+            loading="lazy"
 
 
 
@@ -16266,6 +16287,10 @@ function TestimonialsSectionLegacy({ content, editable }: { content: any; editab
 
 
 
+                    loading="lazy"
+
+
+
                     data-tina-field={fieldFor(editable?.testimonials?.items?.[idx], "image")}
 
 
@@ -16410,7 +16435,7 @@ export function SharedHomeBenefitsBlock({
 
 
 
-          <div className="bg-[#fcc63d] w-full xl:w-[640px] px-[24px] md:px-[72px] py-[40px] md:py-[70px] flex items-center justify-center xl:justify-start order-2 xl:order-1 relative bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat shadow-xl xl:shadow-none rounded-b-[32px] md:rounded-b-[60px] xl:rounded-b-none xl:rounded-l-[60px] xl:h-[384px]">
+          <div className="bg-[#fcc63d] w-full xl:w-[640px] px-[24px] md:px-[72px] py-[40px] md:py-[70px] flex items-center justify-center xl:justify-start order-2 xl:order-1 relative bg-[url('/images/frame7.webp')] bg-cover bg-center bg-no-repeat shadow-xl xl:shadow-none rounded-b-[32px] md:rounded-b-[60px] xl:rounded-b-none xl:rounded-l-[60px] xl:h-[384px]">
 
 
 
@@ -16474,15 +16499,15 @@ export function SharedHomeBenefitsBlock({
 
 
 
-             <img src="/images/Persona-imagen-banner-mobile.png" className="w-full h-auto block md:hidden object-cover object-bottom" alt="" />
+             <img src="/images/Persona-imagen-banner-mobile.webp" className="w-full h-auto block md:hidden object-cover object-bottom" alt="" />
 
 
 
-             <img src="/images/Persona-imagen-banner-tablet.png" className="hidden md:block xl:hidden w-full h-auto object-cover object-bottom" alt="" />
+             <img src="/images/Persona-imagen-banner-tablet.webp" className="hidden md:block xl:hidden w-full h-auto object-cover object-bottom" alt="" />
 
 
 
-             <img src="/images/Persona-imagen-banner-desktop.png" className="hidden xl:block w-full h-[468px] object-cover object-right xl:rounded-tr-[60px] xl:rounded-br-[60px]" alt="" />
+             <img src="/images/Persona-imagen-banner-desktop.webp" className="hidden xl:block w-full h-[468px] object-cover object-right xl:rounded-tr-[60px] xl:rounded-br-[60px]" alt="" />
 
 
 
@@ -16560,11 +16585,11 @@ function BenefitsSection({ content, editable }: { content: any; editable?: any }
 
 
 
-            <img src="/images/Banner-fondo-amarillo.jpg" className="absolute inset-0 w-full h-full object-cover rounded-t-[32px] md:rounded-t-[60px] xl:rounded-tl-none xl:rounded-tr-[60px] xl:rounded-br-[60px] xl:rounded-bl-none" alt="" />
+            <img src="/images/Banner-fondo-amarillo.webp" className="absolute inset-0 w-full h-full object-cover rounded-t-[32px] md:rounded-t-[60px] xl:rounded-tl-none xl:rounded-tr-[60px] xl:rounded-br-[60px] xl:rounded-bl-none" alt="" />
 
 
 
-            <img src="/images/Persona-banner-fondo-amarillo.png" className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[115%] object-contain object-bottom" alt="" />
+            <img src="/images/Persona-banner-fondo-amarillo.webp" className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[115%] object-contain object-bottom" alt="" />
 
 
 
@@ -16604,7 +16629,7 @@ function NewsletterSection({ content }: { content: any }) {
 
 
 
-      <section className="mb-[-2px] overflow-clip relative shrink-0 w-full bg-[url('/images/frame7.png')] bg-cover bg-center bg-no-repeat">
+      <section className="mb-[-2px] overflow-clip relative shrink-0 w-full bg-[url('/images/frame7.webp')] bg-cover bg-center bg-no-repeat">
 
 
 
@@ -16965,7 +16990,7 @@ export function FigmaFooter() {
 
 
 
-            src="/images/footer-certification-white.png"
+            src="/images/footer-certification-white.webp"
 
 
 

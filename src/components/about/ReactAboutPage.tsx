@@ -122,7 +122,7 @@ function AboutHeroSection({ content, editable }: { content: any; editable?: any 
         />
       ) : null}
       <img
-        src="/images/Sobre-nosotros-logo-lineas.png"
+        src="/images/Sobre-nosotros-logo-lineas.webp"
         alt=""
         className="pointer-events-none absolute bottom-0 right-0 hidden md:block"
       />
@@ -181,6 +181,7 @@ function TrajectorySection({ content, editable }: { content: any; editable?: any
             src={trajectory.image}
             alt={trajectory.title}
             className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
             data-tina-field={fieldFor(editable?.trajectory, "image")}
           />
           <div className="absolute bottom-[26px] left-[26px] flex items-center gap-[14px] rounded-[16px] border border-white bg-[#f9fafb] p-[20px] shadow-[0px_20px_25px_rgba(0,0,0,0.1),0px_8px_10px_rgba(0,0,0,0.1)]">
@@ -212,6 +213,7 @@ function PurposeSection({ content, editable }: { content: any; editable?: any })
             src={section.image}
             alt={section.title}
             className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
             data-tina-field={fieldFor(editable?.purposeSection, "image")}
           />
         </div>
@@ -287,6 +289,7 @@ function PartnersSection({ content, editable }: { content: any; editable?: any }
                       src={item.image}
                       alt={item.name}
                       className="max-h-[28px] w-auto max-w-full object-contain md:max-h-[34px]"
+                      loading="lazy"
                       data-tina-field={fieldFor(itemField, "image")}
                     />
                   ) : (
@@ -324,6 +327,7 @@ function CertificationsSection({ content, editable }: { content: any; editable?:
                 src={certifications.logoImage}
                 alt={certifications.title}
                 className="h-[100px] w-auto object-contain lg:h-[180px]"
+                loading="lazy"
                 data-tina-field={fieldFor(editable?.certifications, "logoImage")}
               />
             </div>
@@ -407,6 +411,7 @@ function RecognitionsSection({ content, editable }: { content: any; editable?: a
                   src={companyInfo.image}
                   alt={companyInfo.title}
                   className="absolute inset-0 h-full w-full object-cover"
+                  loading="lazy"
                   data-tina-field={fieldFor(editable?.companyInfo, "image")}
                 />
               </div>

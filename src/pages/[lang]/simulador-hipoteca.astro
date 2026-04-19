@@ -193,10 +193,24 @@ if (!content) {
 
 <BaseLayout
   lang={lang}
-  title={content.seo?.title || "Simulador de hipoteca | Efiteca"}
-  description={content.seo?.description || "Calcula tu hipoteca con una orientacion clara y conecta con un experto para revisar tu viabilidad real."}
+  title={content.seo?.title || "Simulador de hipoteca gratuito — Efiteca"}
+  description={content.seo?.description || "Calcula tu cuota mensual con nuestro simulador hipotecario. Obtén una estimación real y agenda un diagnóstico de viabilidad gratuito con un experto de Efiteca."}
   path={`/${lang}/simulador-hipoteca/`}
   alternates={buildLanguageAlternates("/simulador-hipoteca/")}
 >
+  {content.faq?.items?.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": content.faq.items.map((item: { question: string; answer: string }) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
+    })} />
+  )}
   <ReactSimulatorPage client:load content={content} {...tinaProps} />
 </BaseLayout>

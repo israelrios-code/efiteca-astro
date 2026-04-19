@@ -19,37 +19,37 @@ blog:
   items:
     - title: "5 errores al pedir una hipoteca que pueden costarte años"
       description: "Qué revisar antes de presentar tu solicitud para no perder tiempo, capacidad de compra ni margen de negociación."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Cómo saber si tu perfil hipotecario es viable antes de ir al banco"
       description: "Las variables que realmente pesan en una aprobación y cómo leer tu situación con más criterio."
-      image: /images/blog2.png
+      image: /images/blog2.webp
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Qué revisar antes de firmar una hipoteca para evitar sorpresas"
       description: "Una guía clara para entender costes, tiempos, condiciones y puntos críticos antes de la firma."
-      image: /images/blog3.png
+      image: /images/blog3.webp
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Te han rechazado en un banco: qué hacer ahora"
       description: "Cómo reinterpretar un rechazo, qué documentación revisar y qué rutas siguen abiertas para tu caso."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Cómo mejorar tu hipoteca actual sin perder claridad"
       description: "Cuándo conviene renegociar, subrogar o reordenar tu estrategia para reducir fricción y costes."
-      image: /images/blog2.png
+      image: /images/blog2.webp
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/
     - title: "Comprar vivienda con acompañamiento experto desde el inicio"
       description: "¿Por qué una buena coordinación temprana puede ayudarte a tomar mejores decisiones hasta la firma?"
-      image: /images/blog3.png
+      image: /images/blog3.webp
       cta:
         label: Ver noticia
         href: /es/news/mercado-inmobiliario-canarias/

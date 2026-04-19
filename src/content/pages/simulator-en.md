@@ -2,11 +2,11 @@
 lang: en
 title: Mortgage calculator
 seo:
-  title: "Mortgage calculator | Efiteca"
-  description: "Estimate your monthly mortgage payment and take the next step with a clearer view of your real borrowing path."
+  title: "Free Mortgage Calculator in Spain — Efiteca"
+  description: "Estimate your monthly mortgage payment instantly. Get a real feasibility overview and book a free expert diagnosis with Efiteca's specialist advisors."
 simulator:
   title: Mortgage calculator
-  image: /images/solutions-simulator.jpg
+  image: /images/solutions-simulator.webp
   description: "Our mortgage calculator is a guidance tool designed to help you estimate your monthly payment and approximate related costs. It does not replace a full review, but it gives you a clearer starting point before moving into a formal process with lenders."
   secondaryDescription: "We are not a comparison site. We are a specialist mortgage advisory team. To validate real options, we review your profile, your goal and the most viable route with expert judgment."
   noteTitle: Important
@@ -38,7 +38,7 @@ requirementsBanner:
     - Sustainable monthly payment.
     - Income level and job stability.
     - Available savings.
-  image: /images/contact-intro.jpg
+  image: /images/contact-intro.webp
   button:
     label: Re¿quéest your viability review
     href: "#contacto-simulador"
@@ -55,17 +55,17 @@ testimonials:
     - name: Guillermo
       role: "Local Guide · 40 reviews · 11 photos"
       text: "I did not think I could reach a fixed-rate mortgage without starting from zero again. They helped me understand my case in detail and move forward with much more confidence."
-      image: /images/imgEllipse5.png
+      image: /images/imgEllipse5.webp
       stars: 5
     - name: Pablo Orozco Espada
       role: "5 reviews"
       text: "The experience with the team was very positive. I got clarity, follow-through and a concrete path to move ahead without wasting time."
-      image: /images/imgFrame1272638189.png
+      image: /images/imgFrame1272638189.webp
       stars: 5
     - name: Loly zazo
       role: "Local Guide · 89 reviews · 164 photos"
       text: "They were deeply involved throughout the process. We reached completion with less friction and a much clearer understanding of every step."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       stars: 5
 metrics:
   title: Metrics
@@ -109,7 +109,7 @@ contact:
 locationsShowcase:
   title: Find our locations
   description: "We work digitally with tailored support throughout the whole process."
-  mapImage: /images/simulator-map.png
+  mapImage: /images/simulator-map.webp
   cta:
     title: Discover our advantages
     description: "Speak with a mortgage expert and get clarity in 10 minutes."
@@ -137,7 +137,7 @@ locations:
       address: "Digital service in Seville"
       summary: "We help you secure or improve your mortgage in Seville with expert support, tailored analysis and coordinated guidance through to completion."
       seoLabel: Mortgage advice in Seville
-      image: /images/sevilla.png
+      image: /images/sevilla.webp
       cta:
         label: View on map
         href: "#contacto-simulador"
@@ -145,7 +145,7 @@ locations:
       address: "Digital service in Madrid"
       summary: "If you want to buy a home or improve your mortgage in Madrid, we guide you with clear options and full support until signing."
       seoLabel: Mortgage advice in Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: View on map
         href: "#contacto-simulador"
@@ -153,7 +153,7 @@ locations:
       address: "Calle Cartagena 245, Planta 3 Puerta E, 08025, Barcelona"
       summary: "In Barcelona we review your mortgage profile to find the best path, compare real options and coordinate the process until completion."
       seoLabel: Mortgage advice in Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: View on map
         href: "#contacto-simulador"
@@ -161,7 +161,7 @@ locations:
       address: "Digital service in Valencia"
       summary: "We help you secure or improve your mortgage in Valencia with a clear process, compared options and expert support from diagnosis to signing."
       seoLabel: Mortgage advice in Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: View on map
         href: "#contacto-simulador"
@@ -169,7 +169,7 @@ locations:
       address: "Digital service in Malaga"
       summary: "We help you secure or improve your mortgage in Malaga with a clear process, compared options and expert support from diagnosis to signing."
       seoLabel: Mortgage advice in Malaga
-      image: /images/malaga.png
+      image: /images/malaga.webp
       cta:
         label: View on map
         href: "#contacto-simulador"

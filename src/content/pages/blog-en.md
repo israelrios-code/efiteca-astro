@@ -19,37 +19,37 @@ blog:
   items:
     - title: "5 mortgage mistakes that can cost you years"
       description: "What to review before you apply so you do not lose time, purchasing power or negotiation room."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       cta:
         label: Read article
         href: /en/news/florida-capital-strategy/
     - title: "How to know if your mortgage profile is viable before going to a bank"
       description: "The variables that really matter in approval and how to read your situation with more clarity."
-      image: /images/blog2.png
+      image: /images/blog2.webp
       cta:
         label: Read article
         href: /en/news/florida-capital-strategy/
     - title: "What to review before signing a mortgage"
       description: "A clear guide to understand costs, timelines, conditions and the critical points before signing."
-      image: /images/blog3.png
+      image: /images/blog3.webp
       cta:
         label: Read article
         href: /en/news/florida-capital-strategy/
     - title: "Rejected by a bank: what to do next"
       description: "How to reinterpret a rejection, what to review in your documents and which paths may still be open."
-      image: /images/blog1.png
+      image: /images/blog1.webp
       cta:
         label: Read article
         href: /en/news/florida-capital-strategy/
     - title: "How to improve your current mortgage with more clarity"
       description: "When it makes sense to renegotiate, switch lenders or reframe your strategy to reduce friction."
-      image: /images/blog2.png
+      image: /images/blog2.webp
       cta:
         label: Read article
         href: /en/news/florida-capital-strategy/
     - title: "Buying a home with expert guidance from day one"
       description: "Why strong early coordination can help you make better decisions all the way to signing."
-      image: /images/blog3.png
+      image: /images/blog3.webp
       cta:
         label: Read article
         href: /en/news/florida-capital-strategy/

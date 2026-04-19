@@ -50,43 +50,43 @@ const PARTNER_LOGOS = [
 
 
 
-  { name: "Ibercaja", image: "/images/partners/ibercaja.png" },
+  { name: "Ibercaja", image: "/images/partners/ibercaja.webp" },
 
 
 
-  { name: "ABANCA", image: "/images/partners/abanca.png" },
+  { name: "ABANCA", image: "/images/partners/abanca.webp" },
 
 
 
-  { name: "Santander", image: "/images/partners/santander.png" },
+  { name: "Santander", image: "/images/partners/santander.webp" },
 
 
 
-  { name: "Bankinter", image: "/images/partners/bankinter.png" },
+  { name: "Bankinter", image: "/images/partners/bankinter.webp" },
 
 
 
-  { name: "ING", image: "/images/partners/ing.png" },
+  { name: "ING", image: "/images/partners/ing.webp" },
 
 
 
-  { name: "BBVA", image: "/images/partners/bbva.png" },
+  { name: "BBVA", image: "/images/partners/bbva.webp" },
 
 
 
-  { name: "B100", image: "/images/partners/b100.png" },
+  { name: "B100", image: "/images/partners/b100.webp" },
 
 
 
-  { name: "Unicaja", image: "/images/partners/unicaja.png" },
+  { name: "Unicaja", image: "/images/partners/unicaja.webp" },
 
 
 
-  { name: "CaixaBank", image: "/images/partners/caixabank.png" },
+  { name: "CaixaBank", image: "/images/partners/caixabank.webp" },
 
 
 
-  { name: "Laboral Kutxa", image: "/images/partners/laboral-kutxa.png" }
+  { name: "Laboral Kutxa", image: "/images/partners/laboral-kutxa.webp" }
 
 
 
@@ -278,7 +278,7 @@ const HOME_TESTIMONIALS_CONTENT = {
 
 
 
-        image: "/images/testimonials/guillermo.png",
+        image: "/images/testimonials/guillermo.webp",
 
 
 
@@ -310,7 +310,7 @@ const HOME_TESTIMONIALS_CONTENT = {
 
 
 
-        image: "/images/testimonials/pablo-orozco-espada.png",
+        image: "/images/testimonials/pablo-orozco-espada.webp",
 
 
 
@@ -342,7 +342,7 @@ const HOME_TESTIMONIALS_CONTENT = {
 
 
 
-        image: "/images/testimonials/loly-zazo.png",
+        image: "/images/testimonials/loly-zazo.webp",
 
 
 
@@ -862,6 +862,14 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
 
 
 
+        loading="eager"
+
+
+
+        fetchPriority="high"
+
+
+
         data-tina-field={fieldFor(editable?.hero, "background_desktop")}
 
 
@@ -875,6 +883,8 @@ function HeroSection({ content, editable }: { content: any; editable?: any }) {
           src={hero.background_mobile || hero.background_desktop}
           alt=""
           className="h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
           data-tina-field={fieldFor(editable?.hero, "background_mobile")}
         />
       </div>
@@ -1135,6 +1145,10 @@ function PartnersSection({ content, editable }: { content: any; editable?: any }
 
 
 
+                  loading="lazy"
+
+
+
                 />
 
 
@@ -1312,23 +1326,23 @@ function SimulatorSection({ content, editable }: { content: any; editable?: any 
 
 
 
-    "/images/DOC.png",
+    "/images/DOC.webp",
 
 
 
-    "/images/TQ2341.png",
+    "/images/TQ2341.webp",
 
 
 
-    "/images/4123.png",
+    "/images/4123.webp",
 
 
 
-    "/images/41.png",
+    "/images/41.webp",
 
 
 
-    "/images/123123.png"
+    "/images/123123.webp"
 
 
 
@@ -1848,7 +1862,7 @@ function HowItWorksSection({ content, editable }: { content: any; editable?: any
 
 
 
-          src={section.image || "/images/contact-intro.jpg"}
+          src={section.image || "/images/contact-intro.webp"}
 
 
 
@@ -1857,6 +1871,10 @@ function HowItWorksSection({ content, editable }: { content: any; editable?: any
 
 
           className="h-[320px] w-full rounded-[32px] object-cover md:h-[406px]"
+
+
+
+          loading="lazy"
 
 
 

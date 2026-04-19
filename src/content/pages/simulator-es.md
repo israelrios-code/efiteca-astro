@@ -14,11 +14,11 @@ seo:
 
 
 
-  title: "Simulador de hipoteca | Efiteca"
+  title: "Simulador de hipoteca gratuito — Efiteca"
 
 
 
-  description: "Estima tu cuota mensual con nuestro simulador hipotecario y da el siguiente paso con un diagnostico claro de viabilidad."
+  description: "Calcula tu cuota mensual con nuestro simulador hipotecario. Obtén una estimación real y agenda un diagnóstico de viabilidad gratuito con un experto de Efiteca."
 
 
 
@@ -30,7 +30,7 @@ simulator:
 
 
 
-  image: /images/solutions-simulator.jpg
+  image: /images/solutions-simulator.webp
 
 
 
@@ -140,7 +140,7 @@ requirementsBanner:
     - "Objetivo claro (compra o mejora)."
     - "Ingresos y estabilidad laboral."
     - "Ahorro aproximado disponible."
-  image: /images/requisitos-del-proceso.png
+  image: /images/requisitos-del-proceso.webp
 
 
   button:
@@ -207,7 +207,7 @@ testimonials:
 
 
 
-      image: /images/testimonials/guillermo.png
+      image: /images/testimonials/guillermo.webp
 
 
 
@@ -227,7 +227,7 @@ testimonials:
 
 
 
-      image: /images/testimonials/pablo-orozco-espada.png
+      image: /images/testimonials/pablo-orozco-espada.webp
 
 
 
@@ -247,7 +247,7 @@ testimonials:
 
 
 
-      image: /images/testimonials/loly-zazo.png
+      image: /images/testimonials/loly-zazo.webp
 
 
 
@@ -417,7 +417,7 @@ locationsShowcase:
 
 
 
-  mapImage: /images/simulator-map.png
+  mapImage: /images/simulator-map.webp
 
 
 
@@ -505,7 +505,7 @@ locations:
       address: 'C/ d''Aragó, 383, Pl. 5ª, 08013'
       summary: 'En Barcelona analizamos tu perfil hipotecario para encontrar la mejor ruta posible, comparando opciones reales y coordinando el proceso hasta llegar a firma correctamente.'
       seoLabel: Asesoría hipotecaria en Barcelona
-      image: /images/barcelona.png
+      image: /images/barcelona.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -513,7 +513,7 @@ locations:
       address: 'Paseo de la Castellana, 193, 28046'
       summary: 'Si buscas comprar vivienda o mejorar tu hipoteca en Madrid, te guiamos con opciones claras, estrategia adecuada y acompañamiento completo hasta la firma final.'
       seoLabel: Asesoría hipotecaria en Madrid
-      image: /images/madrid.png
+      image: /images/madrid.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -521,7 +521,7 @@ locations:
       address: 'Av. Corts Valencianes, 58, 46015'
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Valencia con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma.'
       seoLabel: Asesoría hipotecaria en Valencia
-      image: /images/valencia.png
+      image: /images/valencia.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -529,7 +529,7 @@ locations:
       address: 'Av. Ricardo Soriano, 4, Pl. 6ª D, 29601'
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Marbella con acompañamiento experto, análisis personalizado y coordinación integral para llegar a firma sin sorpresas ni retrasos innecesarios.'
       seoLabel: Asesoría hipotecaria en Marbella
-      image: /images/marbella.png
+      image: /images/marbella.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
@@ -537,7 +537,7 @@ locations:
       address: ''
       summary: 'Te ayudamos a conseguir o mejorar tu hipoteca en Málaga con un proceso claro, opciones comparadas y acompañamiento experto desde el diagnóstico hasta la firma.'
       seoLabel: Asesoría hipotecaria en Málaga
-      image: /images/locations/malaga.png
+      image: /images/locations/malaga.webp
       cta:
         label: Ver en mapa
         href: '/es/contacto/'
