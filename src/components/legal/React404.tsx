@@ -77,7 +77,7 @@ export const React404: React.FC = () => {
             {/* Primary: Pill Amarillo */}
             <a
               href={`${prefix}/`}
-              className="px-10 py-4 font-bold rounded-full transition-all hover:-translate-y-1 text-base"
+              className="px-10 py-4 font-bold rounded-full transition-all text-base"
               style={{
                 backgroundColor: '#fcc63d',
                 color: '#0f172b',
@@ -93,7 +93,7 @@ export const React404: React.FC = () => {
             {/* Secondary: Outline Púrpura */}
             <a
               href={`${prefix}/soluciones-vivienda/`}
-              className="px-10 py-4 font-bold rounded-full transition-all hover:-translate-y-1 hover:bg-white/5 text-base"
+              className="px-10 py-4 font-bold rounded-full transition-all hover:bg-white/5 text-base"
               style={{
                 border: '2px solid #8948ff',
                 color: '#8948ff',

@@ -54,7 +54,7 @@ function ContactHeroSection({ content, editable }: { content: any; editable?: an
         <div className="mt-[24px] flex w-full flex-col items-center justify-center gap-[12px] sm:flex-row">
           <a
             href="#contacto"
-            className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[14px] text-[12px] font-bold uppercase tracking-[1.5px] text-[#080813] no-underline sm:w-auto md:px-[32px] md:py-[16px] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]"
+            className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[14px] text-[12px] font-bold uppercase tracking-[1.5px] text-[#080813] no-underline sm:w-auto md:px-[32px] md:py-[16px] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]"
             data-tina-field={fieldFor(editable?.contactHero?.primaryCta, "label")}
           >
             {hero.primaryCta?.label}
@@ -62,7 +62,7 @@ function ContactHeroSection({ content, editable }: { content: any; editable?: an
           {hero.secondaryCta ? (
             <a
               href={hero.secondaryCta.href || "#contacto"}
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/35 bg-white px-[24px] py-[14px] text-[12px] font-bold uppercase tracking-[1.5px] text-[#4f3bf9] no-underline sm:w-auto md:px-[32px] md:py-[16px] transition-all duration-300 hover:-translate-y-[2px] hover:bg-white/90 hover:shadow-lg"
+              className="inline-flex w-full items-center justify-center rounded-full border border-white/35 bg-white px-[24px] py-[14px] text-[12px] font-bold uppercase tracking-[1.5px] text-[#4f3bf9] no-underline sm:w-auto md:px-[32px] md:py-[16px] transition-all duration-300 hover:bg-white/90 hover:shadow-lg"
               data-tina-field={fieldFor(editable?.contactHero?.secondaryCta, "label")}
             >
               {hero.secondaryCta.label}
@@ -242,7 +242,7 @@ function ContactSection({ content, editable, sectionId = "contacto-soluciones" }
               <input type="checkbox" className="h-[24px] w-[24px] rounded-[4px] border border-[#9d9ba8] bg-[#ecddee]" />
               <span className="text-[12px] font-bold text-white">{contact.form?.terms_label}</span>
             </label>
-            <button type="button" className="inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-[16px] font-bold uppercase tracking-[1.5px] text-[#0f172b] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]" data-tina-field={fieldFor(editable?.contact?.form, "submit_label")}>
+            <button type="button" className="inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-[16px] font-bold uppercase tracking-[1.5px] text-[#0f172b] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]" data-tina-field={fieldFor(editable?.contact?.form, "submit_label")}>
               {contact.form?.submit_label}
             </button>
           </div>
@@ -280,7 +280,7 @@ function ShortcutCtaSection({ content, editable }: { content: any; editable?: an
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[56px] w-full shrink-0 items-center justify-center gap-[12px] rounded-full bg-[#fcc63d] px-[20px] py-[14px] text-center no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:-translate-y-[2px] hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] focus-visible:bg-[#ffe07e] sm:w-auto sm:px-[24px] md:px-[40px] md:py-[20px]"
+            className="inline-flex min-h-[56px] w-full shrink-0 items-center justify-center gap-[12px] rounded-full bg-[#fcc63d] px-[20px] py-[14px] text-center no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] focus-visible:bg-[#ffe07e] sm:w-auto sm:px-[24px] md:px-[40px] md:py-[20px]"
             data-tina-field={fieldFor(editable?.shortcutCta?.button, "label")}
           >
             <span className="text-center text-[14px] font-bold uppercase leading-[1.15] tracking-[1.2px] text-[#101828] sm:text-[15px] md:text-[18px] md:leading-[27px] md:tracking-[1.8px]">
@@ -300,7 +300,7 @@ function FloatingWhatsApp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0px_8px_24px_rgba(37,211,102,0.6)]"
+      className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:bg-[#1db954] hover:shadow-[0px_12px_32px_rgba(37,211,102,0.65)]"
     >
       <WhatsAppIcon />
       WhatsApp

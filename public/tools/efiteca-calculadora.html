@@ -146,6 +146,8 @@
     .help{
       width:26px;
       height:26px;
+      min-height:26px;
+      max-height:26px;
       border-radius:50%;
       display:grid;
       place-items:center;
@@ -155,6 +157,7 @@
       font-size:13px;
       cursor:help;
       flex:0 0 26px;
+      align-self:center;
       user-select:none;
     }
 
@@ -444,7 +447,7 @@
       .tab-btn{ width:100%; justify-content:center; }
       .btns{ justify-content:stretch; }
       .btns .btn{ flex:1 1 0; }
-      .help{ width:20px; height:20px; font-size:11px; flex:0 0 20px; }
+      .help{ width:20px !important; min-width:20px !important; max-width:20px !important; height:20px !important; min-height:20px !important; max-height:20px !important; font-size:11px; flex:0 0 20px !important; }
     }
   </style>
 </head>

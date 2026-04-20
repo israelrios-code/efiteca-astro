@@ -84,7 +84,7 @@ export const ReactBlogPost: React.FC<BlogPostProps> = ({
 
   return (
     <div style={{ backgroundColor: '#f1f2f4', minHeight: '100vh' }}>
-      <a href="https://wa.link/rmtjml" target="_blank" rel="noopener noreferrer" className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-[2px]">
+      <a href="https://wa.link/rmtjml" target="_blank" rel="noopener noreferrer" className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:bg-[#1db954] hover:shadow-[0px_12px_32px_rgba(37,211,102,0.65)]">
         <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 13.66 3.45 15.22 4.23 16.56L3 21L7.58 19.8C8.9 20.58 10.4 21 12 21Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 8.8C9 12.07 11.74 14.8 15 14.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /><path d="M14.2 11.4L15.9 10.9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
         WhatsApp
       </a>
@@ -150,7 +150,7 @@ export const ReactBlogPost: React.FC<BlogPostProps> = ({
             <img
               src={image}
               alt={title}
-              className="w-full h-[260px] md:h-[420px] xl:h-[520px] object-cover"
+              className="w-full h-[260px] md:h-[420px] xl:h-[520px] object-cover object-[50%_40%]"
               loading="eager"
               fetchPriority="high"
             />
@@ -262,7 +262,7 @@ export const ReactBlogPost: React.FC<BlogPostProps> = ({
                   />
                   <button
                     type="submit"
-                    className="px-8 py-4 rounded-2xl font-bold transition-all hover:-translate-y-0.5"
+                    className="px-8 py-4 rounded-2xl font-bold transition-all"
                     style={{
                       backgroundColor: BRAND_YELLOW,
                       color: '#0f172b',
@@ -363,7 +363,7 @@ export const ReactBlogPost: React.FC<BlogPostProps> = ({
                 <a
                   key={post.slug}
                   href={`/${post.lang}/news/${post.slug}/`}
-                  className="group flex flex-col rounded-[1.5rem] overflow-hidden transition-all hover:-translate-y-1"
+                  className="group flex flex-col rounded-[1.5rem] overflow-hidden transition-all"
                   style={{ backgroundColor: '#f1f2f4', boxShadow: '0 10px 30px rgba(16,23,20,0.05)' }}
                 >
                   <div className="aspect-video overflow-hidden bg-white/50">

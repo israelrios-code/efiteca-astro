@@ -58,7 +58,7 @@ services:
 
         label: Quiero una nueva hipoteca
 
-        href: '/es/contacto/'
+        href: '/es/soluciones-vivienda/'
 
     - title: Mejora tu hipoteca
 

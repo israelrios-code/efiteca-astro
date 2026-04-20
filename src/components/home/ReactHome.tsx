@@ -506,7 +506,7 @@ function Frame74({ content }: { content: any }) {
 
 
 
-      <a href={content.hero.cta?.href || "#"} className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 hover:scale-105 active:scale-95 transition-transform no-underline">
+      <a href={content.hero.cta?.href || "#"} className="bg-[#fcc63d] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 no-underline transition-all duration-200 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.45)]">
 
 
 
@@ -7389,7 +7389,7 @@ function Frame5({ content, editable }: { content: any; editable?: any }) {
 
 
 
-        <a href={content.benefits.ctaLink} className="bg-[#8949ff] content-stretch flex h-auto min-h-[52px] items-center justify-center px-[24px] md:px-[40px] py-[16px] relative rounded-full shrink-0 no-underline hover:scale-105 transition-transform w-[90%] sm:w-auto max-w-full" data-tina-field={fieldFor(editable?.benefits, "ctaText")}>
+        <a href={content.benefits.ctaLink} className="bg-[#8949ff] content-stretch flex h-auto min-h-[52px] items-center justify-center px-[24px] md:px-[40px] py-[16px] relative rounded-full shrink-0 no-underline transition-all duration-300 hover:bg-[#9d61ff] hover:shadow-[0px_16px_40px_rgba(137,73,255,0.4)] w-[90%] sm:w-auto max-w-full" data-tina-field={fieldFor(editable?.benefits, "ctaText")}>
 
 
 
@@ -10561,7 +10561,7 @@ function Frame1({ content }: { content: any }) {
 
 
 
-          <a href={content.newsletter.button?.href || "#"} className="bg-[#fcc63d] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 no-underline">
+          <a href={content.newsletter.button?.href || "#"} className="bg-[#fcc63d] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] content-stretch flex items-center justify-center px-[40px] py-[19px] relative rounded-[33554400px] shrink-0 no-underline transition-all duration-200 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.45)]">
 
 
 
@@ -14400,7 +14400,7 @@ const HEADER_CTA_BUTTON_CLASS =
 
 
 
-  "bg-[#fcc63d] inline-flex h-[52px] w-full items-center justify-center gap-[12px] rounded-full px-[28px] text-[16px] font-['Inter:Bold',sans-serif] font-bold leading-[20px] text-[#080813] no-underline transition-all duration-200 hover:-translate-y-[1px] hover:bg-[#f6bf31] hover:shadow-[0px_16px_36px_rgba(252,198,61,0.28)] focus-visible:-translate-y-[1px] focus-visible:bg-[#f6bf31]";
+  "bg-[#fcc63d] inline-flex h-[52px] w-full items-center justify-center gap-[12px] rounded-full px-[28px] text-[16px] font-['Inter:Bold',sans-serif] font-bold leading-[20px] text-[#080813] no-underline transition-all duration-200 hover:bg-[#f6bf31] hover:shadow-[0px_16px_36px_rgba(252,198,61,0.28)] focus-visible:bg-[#f6bf31]";
 
 
 
@@ -15304,59 +15304,16 @@ export default function Home({
 
 
     <div className="bg-white content-stretch flex flex-col items-center pb-[2px] relative size-full overflow-hidden" data-name="Home">
-      <a href="https://wa.link/rmtjml" target="_blank" rel="noopener noreferrer" className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-[2px]">
+      <a href="https://wa.link/rmtjml" target="_blank" rel="noopener noreferrer" className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:bg-[#1db954] hover:shadow-[0px_12px_32px_rgba(37,211,102,0.65)]">
         <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 13.66 3.45 15.22 4.23 16.56L3 21L7.58 19.8C8.9 20.58 10.4 21 12 21Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 8.8C9 12.07 11.74 14.8 15 14.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /><path d="M14.2 11.4L15.9 10.9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
         WhatsApp
       </a>
 
       <style>{`
-
-
-
-        button, a[href][class*="rounded-full"], a[href][class*="rounded-["], .bg-[#8949ff], .bg-[#fcc63d], .cursor-pointer, [role="button"] {
-
-
-
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-
-
-
+        button:active, a[href]:active {
+          transform: scale(0.97);
+          transition: transform 0.1s ease;
         }
-
-
-
-        button:hover, a[href][class*="rounded-full"]:hover, a[href][class*="rounded-["]:hover, .bg-[#8949ff]:hover, .bg-[#fcc63d]:hover, .cursor-pointer:hover, [role="button"]:hover {
-
-
-
-          transform: scale(1.05);
-
-
-
-          filter: brightness(1.15);
-
-
-
-          box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2) !important;
-
-
-
-        }
-
-
-
-        button:active, a[href][class*="rounded-full"]:active, a[href][class*="rounded-["]:active, .bg-[#8949ff]:active, .bg-[#fcc63d]:active, .cursor-pointer:active, [role="button"]:active {
-
-
-
-          transform: scale(0.95);
-
-
-
-        }
-
-
-
       `}</style>
 
 
@@ -16471,7 +16428,7 @@ export function SharedHomeBenefitsBlock({
 
 
 
-                <a href={ctaHref || "#"} className="bg-[#8949ff] content-stretch flex h-auto min-h-[52px] items-center justify-center px-[24px] md:px-[40px] py-[16px] relative rounded-full shrink-0 no-underline hover:scale-105 transition-transform w-[90%] sm:w-auto max-w-full" data-tina-field={fieldFor(editable?.button, "label")}>
+                <a href={ctaHref || "#"} className="bg-[#8949ff] content-stretch flex h-auto min-h-[52px] items-center justify-center px-[24px] md:px-[40px] py-[16px] relative rounded-full shrink-0 no-underline transition-all duration-300 hover:bg-[#9d61ff] hover:shadow-[0px_16px_40px_rgba(137,73,255,0.4)] w-[90%] sm:w-auto max-w-full" data-tina-field={fieldFor(editable?.button, "label")}>
 
 
 

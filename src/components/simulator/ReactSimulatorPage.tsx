@@ -51,7 +51,7 @@ function FloatingWhatsApp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0px_8px_24px_rgba(37,211,102,0.6)]"
+      className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:bg-[#1db954] hover:shadow-[0px_12px_32px_rgba(37,211,102,0.65)]"
     >
       <WhatsAppIcon />
       WhatsApp
@@ -151,7 +151,7 @@ function RequirementsBannerSection({ page, editable }: { page: any; editable?: a
           </div>
           <a
             href={section.button?.href || "#contacto-simulador"}
-            className="mt-[28px] inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[16px] text-[14px] font-bold uppercase tracking-[1.6px] text-[#080813] no-underline shadow-[0px_18px_30px_rgba(252,198,61,0.22)] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] sm:w-auto md:px-[32px] md:text-[16px]"
+            className="mt-[28px] inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[24px] py-[16px] text-[14px] font-bold uppercase tracking-[1.6px] text-[#080813] no-underline shadow-[0px_18px_30px_rgba(252,198,61,0.22)] transition-all duration-300 hover:bg-[#ffe07e] sm:w-auto md:px-[32px] md:text-[16px]"
             data-tina-field={fieldFor(editable?.requirementsBanner?.button, "label")}
           >
             {section.button?.label}
@@ -395,7 +395,7 @@ function SimulatorContactSection({ page, editable }: { page: any; editable?: any
               <input type="checkbox" className="h-[24px] w-[24px] rounded-[4px] border border-[#9d9ba8] bg-[#ecddee]" />
               <span className="text-[12px] font-bold text-[#f2e8ff]">{contact.form?.terms_label}</span>
             </label>
-            <button type="button" className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[40px] py-[19px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#0f172b] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] md:w-auto" data-tina-field={fieldFor(editable?.contact?.form, "submit_label")}>
+            <button type="button" className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[40px] py-[19px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#0f172b] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] md:w-auto" data-tina-field={fieldFor(editable?.contact?.form, "submit_label")}>
               {contact.form?.submit_label}
             </button>
           </div>

@@ -145,7 +145,7 @@ function AboutHeroSection({ content, editable }: { content: any; editable?: any 
           </p>
           <a
             href={hero.cta?.href || "#contacto-sobre-nosotros"}
-            className="mt-[32px] inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-center text-[14px] font-bold uppercase tracking-[1.8px] text-[#101828] no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] sm:w-auto md:text-[18px]"
+            className="mt-[32px] inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-center text-[14px] font-bold uppercase tracking-[1.8px] text-[#101828] no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] sm:w-auto md:text-[18px]"
             data-tina-field={fieldFor(editable?.aboutHero?.cta, "label")}
           >
             {hero.cta?.label}
@@ -312,26 +312,46 @@ function CertificationsSection({ content, editable }: { content: any; editable?:
   return (
     <section className="bg-[#f9f6f3] px-[20px] pb-[56px] md:px-[40px] md:pb-[80px] xl:px-[160px] 2xl:px-[160px]" data-tina-field={fieldFor(editable, "certifications")}>
       <div className="w-full rounded-[20px] border border-[#ece7f4] bg-white px-[24px] py-[28px] shadow-[0px_10px_30px_rgba(16,24,40,0.05)] md:px-[40px] md:py-[40px]">
-        <div className="grid grid-cols-1 items-center gap-[28px] lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-[40px]">
+        <div className="grid grid-cols-1 items-center gap-[32px] lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-[64px]">
           <div>
             <h2 className="text-[28px] font-bold leading-[1.1] text-[#080813] md:text-[32px]" data-tina-field={fieldFor(editable?.certifications, "title")}>
               {certifications.title}
             </h2>
             <p className="mt-[12px] max-w-[760px] text-[15px] leading-[1.5] text-[#6a7282]" data-tina-field={fieldFor(editable?.certifications, "description")}>
-              {certifications.description}
+              {(() => {
+                const desc: string = certifications.description || "";
+                const linkText = "por el Banco de España y la Dirección General de Consumo";
+                const idx = desc.indexOf(linkText);
+                if (idx === -1) return desc;
+                return (
+                  <>
+                    {desc.slice(0, idx)}
+                    <a href="https://www.bde.es/wbe/es/punto-informacion/contenidos/registros/registros-entidades/" target="_blank" rel="noopener noreferrer" className="underline text-[#6941c6] hover:text-[#4a2d9c]">
+                      {linkText}
+                    </a>
+                    {desc.slice(idx + linkText.length)}
+                  </>
+                );
+              })()}
             </p>
           </div>
-          {certifications.logoImage ? (
-            <div className="flex justify-start lg:justify-end">
+          <div className="flex items-center justify-start gap-[24px] lg:justify-end lg:gap-[32px]">
+            {certifications.logoImage ? (
               <img
                 src={certifications.logoImage}
                 alt={certifications.title}
-                className="h-[100px] w-auto object-contain lg:h-[180px]"
+                className="h-[100px] w-auto object-contain lg:h-[120px]"
                 loading="lazy"
                 data-tina-field={fieldFor(editable?.certifications, "logoImage")}
               />
-            </div>
-          ) : null}
+            ) : null}
+            <img
+              src="/images/iso-27001_2022.webp"
+              alt="ISO 27001:2022"
+              className="h-[80px] w-auto object-contain lg:h-[100px]"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -484,7 +504,7 @@ export function ContactSection({ content, editable, sectionId = "contacto-sobre-
               <input type="checkbox" className="h-[24px] w-[24px] rounded-[4px] border border-[#9d9ba8] bg-[#ecddee]" />
               <span className="text-[12px] font-bold text-[#d9d9d9]">{contact.form?.terms_label}</span>
             </label>
-            <button type="button" className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[40px] py-[19px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#0f172b] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] md:w-auto" data-tina-field={fieldFor(editable?.contact?.form, "submit_label")}>
+            <button type="button" className="inline-flex w-full items-center justify-center rounded-full bg-[#fcc63d] px-[40px] py-[19px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#0f172b] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] md:w-auto" data-tina-field={fieldFor(editable?.contact?.form, "submit_label")}>
               {contact.form?.submit_label}
             </button>
           </div>
@@ -511,7 +531,7 @@ export default function ReactAboutPage({
 
   return (
     <div className="bg-white">
-      <a href="https://wa.link/rmtjml" target="_blank" rel="noopener noreferrer" className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:-translate-y-[2px]">
+      <a href="https://wa.link/rmtjml" target="_blank" rel="noopener noreferrer" className="fixed bottom-[24px] right-[24px] z-40 inline-flex items-center gap-[8px] rounded-full bg-[#25d366] px-[20px] py-[12px] text-[15px] font-bold text-white no-underline shadow-[0px_8px_24px_rgba(37,211,102,0.4)] transition-all duration-300 hover:bg-[#1db954] hover:shadow-[0px_12px_32px_rgba(37,211,102,0.65)]">
         <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]" aria-hidden="true"><path d="M12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3C7.03 3 3 7.03 3 12C3 13.66 3.45 15.22 4.23 16.56L3 21L7.58 19.8C8.9 20.58 10.4 21 12 21Z" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /><path d="M9 8.8C9 12.07 11.74 14.8 15 14.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /><path d="M14.2 11.4L15.9 10.9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
         WhatsApp
       </a>

@@ -169,7 +169,7 @@ export const ReactFormReclamacion: React.FC = () => {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="w-full py-5 font-bold text-lg rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
+        className="w-full py-5 font-bold text-lg rounded-full transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         style={{
           backgroundColor: '#fcc63d',
           color: '#0f172b',

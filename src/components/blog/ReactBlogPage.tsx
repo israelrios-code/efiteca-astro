@@ -142,18 +142,25 @@ function NewsletterAndCta({ page, editable }: { page: any; editable?: any }) {
             <p className="mx-auto mt-[16px] max-w-[840px] text-[15px] leading-[1.2] text-white/90" data-tina-field={fieldFor(editable?.newsletter, "description")}>
               {newsletter.description}
             </p>
-            <div className="mt-[28px] flex flex-col items-stretch gap-[16px] md:flex-row">
-              <div className="flex-1 rounded-[16px] border border-[#e2e8f0] bg-white px-[24px] py-[16px] text-left text-[16px] text-[rgba(8,8,19,0.5)]" data-tina-field={fieldFor(editable?.newsletter, "emailPlaceholder")}>
-                {newsletter.emailPlaceholder || "tu@email.com"}
-              </div>
-              <a
-                href={newsletter.button?.href || "#"}
-                className="inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#080813] no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]"
+            <form
+              className="mt-[28px] flex flex-col items-stretch gap-[16px] md:flex-row"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="email"
+                required
+                placeholder={newsletter.emailPlaceholder || "tu@email.com"}
+                className="flex-1 rounded-[16px] border border-[#e2e8f0] bg-white px-[24px] py-[16px] text-left text-[16px] text-[#080813] placeholder:text-[rgba(8,8,19,0.5)] outline-none focus:border-[#6941c6]"
+                data-tina-field={fieldFor(editable?.newsletter, "emailPlaceholder")}
+              />
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-full bg-[#fcc63d] px-[32px] py-[16px] text-[18px] font-bold uppercase tracking-[1.8px] text-[#080813] shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)] cursor-pointer border-none"
                 data-tina-field={fieldFor(editable?.newsletter?.button, "label")}
               >
                 {newsletter.button?.label}
-              </a>
-            </div>
+              </button>
+            </form>
             <p className="mt-[18px] text-[15px] leading-[1.1] text-white/80">Sin spam. Puedes darte de baja cuando quieras.</p>
           </div>
         ) : null}
@@ -166,7 +173,7 @@ function NewsletterAndCta({ page, editable }: { page: any; editable?: any }) {
               </p>
               <a
                 href={actionCta.button?.href || "#"}
-                className="inline-flex shrink-0 items-center justify-center self-center whitespace-nowrap rounded-full bg-[#fcc63d] px-[28px] py-[18px] text-[14px] font-bold uppercase tracking-[1px] text-[#080813] no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] md:px-[40px] md:py-[24px] md:text-[16px] md:tracking-[1.5px] transition-all duration-300 hover:bg-[#ffe07e] hover:-translate-y-[2px] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]"
+                className="inline-flex shrink-0 items-center justify-center self-center whitespace-nowrap rounded-full bg-[#fcc63d] px-[28px] py-[18px] text-[14px] font-bold uppercase tracking-[1px] text-[#080813] no-underline shadow-[0px_25px_50px_0px_rgba(252,198,61,0.3)] md:px-[40px] md:py-[24px] md:text-[16px] md:tracking-[1.5px] transition-all duration-300 hover:bg-[#ffe07e] hover:shadow-[0px_25px_50px_0px_rgba(252,198,61,0.4)]"
                 data-tina-field={fieldFor(editable?.actionCta?.button, "label")}
               >
                 {actionCta.button?.label}
