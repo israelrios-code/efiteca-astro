@@ -1,8 +1,30 @@
 import React from "react";
 
+type EditableObject = {
+  _editable_props?: Record<string, string>;
+};
 
+type LocationsShowcaseContent = {
+  locationsShowcase?: {
+    title?: string;
+    description?: string;
+    cta?: {
+      button?: {
+        label?: string;
+        href?: string;
+      };
+    };
+  };
+};
 
-function fieldFor(object: any, property: string) {
+type LocationsShowcaseProps = {
+  content?: LocationsShowcaseContent | null;
+  editable?: {
+    locationsShowcase?: EditableObject;
+  } | null;
+};
+
+function fieldFor(object: EditableObject | null | undefined, property: string) {
 
   if (object && object._editable_props && object._editable_props[property]) {
 
@@ -44,7 +66,7 @@ function LocationPinIcon({ className = "h-[20px] w-[20px]" }: { className?: stri
 
 
 
-export function LocationsShowcaseSection({ content, editable }: { content: any; editable?: any }) {
+export function LocationsShowcaseSection({ content, editable }: LocationsShowcaseProps) {
 
   const locationsShowcase = content?.locationsShowcase;
 

@@ -164,6 +164,8 @@ if (import.meta.env.DEV) {
 if (!content) {
   return Astro.redirect(`/${lang}/404`);
 }
+
+const faqItems = content.faq?.items ?? [];
 ---
 
 <BaseLayout
@@ -173,11 +175,11 @@ if (!content) {
   path={`/${lang}/contacto/`}
   alternates={buildLanguageAlternates("/contacto/")}
 >
-  {content.faq?.items?.length > 0 && (
+  {faqItems.length > 0 && (
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": content.faq.items.map((item: { question: string; answer: string }) => ({
+      "mainEntity": faqItems.map((item: { question: string; answer: string }) => ({
         "@type": "Question",
         "name": item.question,
         "acceptedAnswer": {
